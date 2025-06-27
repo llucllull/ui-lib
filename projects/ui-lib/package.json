@@ -1,12 +1,27 @@
 {
-  "name": "ui-lib",
-  "version": "0.0.1",
-  "peerDependencies": {
-    "@angular/common": "^17.3.0",
-    "@angular/core": "^17.3.0"
-  },
-  "dependencies": {
-    "tslib": "^2.3.0"
-  },
-  "sideEffects": false
+    "name": "ui-lib",
+    "version": "0.0.1",
+    "peerDependencies": {
+        "@angular/common": "^17.3.0",
+        "@angular/core": "^17.3.0"
+    },
+    "dependencies": {
+        "tslib": "^2.3.0"
+    },
+    "sideEffects": false,
+    "description": "This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"No tests configured yet\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/llucllull/ui-lib.git"
+    },
+    "author": "lluc_llull",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/llucllull/ui-lib/issues"
+    },
+    "homepage": "https://github.com/llucllull/ui-lib#readme"
 }
