@@ -1,32 +1,44 @@
 name: Publish Package
 
 on:
-  push:
-    tags:
-      - 'ui-lib-v*'
+    push:
+        tags:
+            - 'ui-lib-v*'
 
 jobs:
-  publish:
-    runs-on: ubuntu-latest
+    publish:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          registry-url: https://registry.npmjs.org/
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+                  registry-url: https://registry.npmjs.org/
 
-      - name: Authenticate to npm
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+            - name: Clean environment
+              run: |
+                  rm -rf node_modules package-lock.json dist
+                  npm cache clean --force
 
-      - name: Install dependencies
-        run: npm install
+            - name: Install dependencies
+              run: npm install
 
-      - name: Build package
-        run: npm run build
+            - name: Build package
+              run: npm run build
 
-      - name: Publish package
-        run: npm publish --access public
+            - name: Clean dist package.json lock if exists
+              run: |
+                  rm -f dist/package-lock.json || true
+                  sed -i '/file:/d' dist/package.json || true || echo "No sed on Windows"
+
+            - name: Authenticate to npm
+              run: npm config set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
+
+            - name: Publish package
+              run: |
+                  cd dist
+                  npm publish --access public
