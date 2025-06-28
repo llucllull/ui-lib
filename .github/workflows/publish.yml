@@ -38,7 +38,10 @@ jobs:
             - name: Authenticate to npm
               run: npm config set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
 
+            - name: Mostrar contenido de dist
+              run: ls -R dist
+
             - name: Publish package
               run: |
-                  cd dist
+                  cd dist/ui-lib
                   npm publish --access public
