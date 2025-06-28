@@ -17,3 +17,5 @@
 
 // /*   ENUMS   */
 // export * from './lib/Enum';
+
+export * from './lib/ui-lib.component';
