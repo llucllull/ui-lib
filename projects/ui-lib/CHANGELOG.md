@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.1] - 2025-07-10
+### Added
+- Fix deploy script command
+
 ## [0.1.0] - 2025-07-10
 ### Added
 - `MapperService`: lógica para mapear dinámicamente componentes según su nombre y props.
