@@ -3,7 +3,7 @@
  */
 
 /* COMPONENTS  */
-// export * from './lib/components/core/index';
+export * from './lib/components/core/index';
 // export * from './lib/components/shared/index';
 
 // /*   SERVICES   */
