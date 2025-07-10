@@ -5,12 +5,12 @@
 # Define las rutas y nombres para tu librería y proyecto actual
 
 LIB="ui-lib"
-DEST_DIR="../portfolio"       # ruta relativa a tu librería, hacia tu proyecto portfolio
+DEST_DIR="../portfoli"       # ruta relativa a tu librería, hacia tu proyecto portfolio
 DEST_DIR_LIB="ui-lib"         # carpeta dentro de node_modules donde se instalará la librería
 
 # 1. Construir la librería
 echo -e "\e[32mConstruyendo la librería $LIB...\e[0m"
-npm run build-"$LIB"
+npm run build
 if [ $? -ne 0 ]; then
   echo -e "\e[31mError: Falló la construcción de $LIB\e[0m"
   exit 1
