@@ -1,1 +1,1 @@
-export * from './top-slider';
+export * from './hero-section';

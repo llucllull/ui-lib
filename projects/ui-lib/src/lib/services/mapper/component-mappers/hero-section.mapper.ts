@@ -1,5 +1,5 @@
 import { ComponentMapperFn } from './types';
 
-export const mapTopSlider: ComponentMapperFn = (props) => ({
+export const mapHeroSection: ComponentMapperFn = (props) => ({
     // slides: props.slides ?? [],
 });
