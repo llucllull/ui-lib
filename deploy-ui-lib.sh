@@ -6,7 +6,7 @@
 
 LIB="ui-lib"
 DEST_DIR="../portfoli"       # ruta relativa a tu librería, hacia tu proyecto portfolio
-DEST_DIR_LIB="ui-lib"         # carpeta dentro de node_modules donde se instalará la librería
+DEST_DIR_LIB="@lluc_llull/ui-lib"         # carpeta dentro de node_modules donde se instalará la librería
 
 # 1. Construir la librería
 echo -e "\e[32mConstruyendo la librería $LIB...\e[0m"
