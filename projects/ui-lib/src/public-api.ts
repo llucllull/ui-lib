@@ -13,7 +13,7 @@ export * from './lib/services';
 export * from './lib/interfaces/index';
 
 // /*   UTILS   */
-// export * from './lib/utils';
+export * from './lib/utils';
 
 // /*   ENUMS   */
 // export * from './lib/Enum';
