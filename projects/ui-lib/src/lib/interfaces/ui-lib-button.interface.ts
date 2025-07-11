@@ -1,6 +1,7 @@
+import { LinkType } from "../Enum/link-type.enum";
 export interface UiLibButtonI {
     label: string;
     url: string;
-    linkType: 'internal' | 'external' | 'scroll' | 'none';
+    linkType: LinkType;
     icon?: string;
 }
