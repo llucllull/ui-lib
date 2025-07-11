@@ -1,19 +1,13 @@
-// utils.ts
+import { UiLibButtonI } from '../interfaces/ui-lib-button.interface';
+import { UiLibImageI } from '../interfaces/ui-lib-image.interface';
 
-export interface MappedButton {
-    label: string;
-    url: string;
-    linkType: 'internal' | 'external' | 'scroll' | 'none';
-    icon?: string;
-}
-
-export function mapButtons(data: any): MappedButton[] {
+export function mapButtons(data: any): UiLibButtonI[] {
     if (!Array.isArray(data)) return [];
 
     return data
         .filter((item) => item && typeof item === 'object')
         .map(
-            (item): MappedButton => ({
+            (item): UiLibButtonI => ({
                 label: item.label ?? '',
                 url: item.url ?? '#',
                 linkType: item.linkType ?? 'none',
@@ -22,15 +16,7 @@ export function mapButtons(data: any): MappedButton[] {
         );
 }
 
-export interface MappedImage {
-    url: string;
-    alt: string;
-    width?: number;
-    height?: number;
-    format?: string;
-}
-
-export function mapImage(data: any): MappedImage | null {
+export function mapImage(data: any): UiLibImageI | null {
     if (!data || typeof data !== 'object') return null;
 
     return {
@@ -42,7 +28,7 @@ export function mapImage(data: any): MappedImage | null {
     };
 }
 
-export function mapImageOrGallery(data: any): MappedImage[] {
+export function mapImageOrGallery(data: any): UiLibImageI[] {
     if (!data) return [];
 
     // Si es array → galería
