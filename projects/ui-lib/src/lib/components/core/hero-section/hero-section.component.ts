@@ -1,13 +1,19 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { UiLibButtonI } from '../../../interfaces';
+import { LinkTypeDirective } from '../../../directives/link-type.directive';
 
 @Component({
-  selector: 'lib-hero-section',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './hero-section.component.html',
-  styleUrl: './hero-section.component.scss'
+    selector: 'lib-hero-section',
+    standalone: true,
+    imports: [CommonModule, LinkTypeDirective],
+    templateUrl: './hero-section.component.html',
+    styleUrl: './hero-section.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroSectionComponent {
-
+    @Input() title?: string;
+    @Input() subtitle?: string;
+    @Input() text?: string;
+    @Input() buttons?: UiLibButtonI[];
 }

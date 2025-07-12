@@ -1,1 +1,19 @@
-<p>hero-section works!</p>
+<div class="hero-section">
+  @if (title) {
+    <h1>{{ title }}</h1>
+  }
+  @if (text) {
+    <p>{{ text }}</p>
+  }
+  @if (buttons && buttons.length > 0) {
+    <div class="buttons">
+      @for (button of buttons; track $index) {
+        <ng-container>
+          <a class="btn" [href]="button.url" [linkType]="button.linkType">
+            {{ button.label }}
+          </a>
+        </ng-container>
+      }
+    </div>
+  }
+</div>
