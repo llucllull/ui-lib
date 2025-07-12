@@ -10,7 +10,7 @@ export function mapButtons(data: any): UiLibButtonI[] {
             (item): UiLibButtonI => ({
                 label: item.label ?? '',
                 url: item.url ?? '#',
-                linkType: item.linkType ?? 'none',
+                linkType: item.link_type ?? 'none',
                 icon: item.icon,
             })
         );
