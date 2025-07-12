@@ -2,18 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.2] - 2025-07-12
+### Added
+- Rename 'top-slider' to 'hero-section'
+- Add utils functions and interfaces for buttons and images
+- Edit Prettier formatter
+- Create linkType directive + enum
+- Code and map hero-section
+
 ## [0.1.1] - 2025-07-10
 ### Added
 - Fix deploy script command
 
 ## [0.1.0] - 2025-07-10
 ### Added
-- `MapperService`: lógica para mapear dinámicamente componentes según su nombre y props.
-- Estructura de mapeadores individuales (`component-mappers/`) para escalar componentes fácilmente.
-- `BodyComponent<T>` y demás interfaces centralizadas en la librería.
-- Preparación de compatibilidad SSR (uso de `PLATFORM_ID`).
-- Configuración base para consumir interfaces y servicios desde apps externas (ej: `portfolio`).
+- MapperService`: logic to dynamically map components by name and props.
+- Individual mapper structure (`component-mappers/`) to easily scale components.
+- BodyComponent<T>` and other interfaces centralised in the library.
+- SSR compatibility preparation (use of `PLATFORM_ID`).
+- Base configuration to consume interfaces and services from external apps (e.g. `portfolio`).
 
 ## [0.0.2] - 2025-07-01
 ### Added
-- Primer componente básico generado en la librería `ui-lib`.
+- First basic component generated in the `ui-lib` library.
