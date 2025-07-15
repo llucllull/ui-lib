@@ -1,3 +1,27 @@
-<p>header-clear works!</p>
+<header>
+  <div>
+    <!-- Logo -->
+    <span>★</span>
+    <span>LLUC LLULL</span>
+  </div>
+
+  <div>
+    <!-- Idioma -->
+    <button (click)="openLanguagesModal()">
+      <span>ES</span>
+    </button>
+
+    <!-- Icono de recarga -->
+    <button (click)="toggleTheme()">
+      <span>🌙</span>
+    </button>
+
+    <!-- Icono de menú -->
+    <button (click)="toggleMenu()">
+      <span>☰</span>
+    </button>
+  </div>
+</header>
+
 <lib-nav-modal></lib-nav-modal>
 <lib-lang-modal></lib-lang-modal>
