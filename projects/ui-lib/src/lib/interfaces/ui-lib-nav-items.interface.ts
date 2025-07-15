@@ -1,0 +1,11 @@
+import { LinkType } from "../Enum/link-type.enum";
+import { UiLibButtonI } from "./ui-lib-button.interface";
+
+export interface UiLibNavItemsI {
+    label?: string;
+    url?: string;
+    linkType?: LinkType;
+    name?: string;
+    active?: boolean;
+    children?: UiLibButtonI[];
+}
