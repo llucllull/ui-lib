@@ -8,6 +8,9 @@ export interface PageComponent {
     page_id: number;
     component_id: number;
     order: number;
+    component?: {
+        name: string;
+    };
 }
 
 export interface PageComponentTranslation {
