@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.3] - 2025-07-20
+### Added
+- Create 'header-clear', 'lang-modal' and 'nav-modal' components
+- Update PageComponent interface
+- Create NavItems interface
+- Create 'header-clear', 'lang-modal' and 'nav-modal' mappers
+
 ## [0.1.2] - 2025-07-12
 ### Added
 - Rename 'top-slider' to 'hero-section'
