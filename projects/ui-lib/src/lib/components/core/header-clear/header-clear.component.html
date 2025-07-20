@@ -23,5 +23,9 @@
   </div>
 </header>
 
-<lib-nav-modal></lib-nav-modal>
+@if(navItems && navItems.length > 0) {
+  <lib-nav-modal
+    [navItems]="navItems"
+  ></lib-nav-modal>
+}
 <lib-lang-modal></lib-lang-modal>
