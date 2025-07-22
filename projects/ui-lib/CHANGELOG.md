@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.5] - 2025-07-22
+### Added
+- Add new imports from new interfaces
+
 ## [0.1.4] - 2025-07-22
 ### Added
 - Update 'lang-modal' component and mapper
