@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.4] - 2025-07-22
+### Added
+- Update 'lang-modal' component and mapper
+
 ## [0.1.3] - 2025-07-20
 ### Added
 - Create 'header-clear', 'lang-modal' and 'nav-modal' components
