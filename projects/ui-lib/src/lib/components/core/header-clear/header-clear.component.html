@@ -23,8 +23,9 @@
   </div>
 </header>
 
-@if(navItems && navItems.length > 0) {
+@if(isMenuOpen && navItems && navItems.length > 0) {
   <lib-nav-modal
     [navItems]="navItems"
+    (close)="isMenuOpen = false"
   ></lib-nav-modal>
 }

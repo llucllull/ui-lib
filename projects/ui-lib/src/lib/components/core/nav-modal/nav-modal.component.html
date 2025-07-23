@@ -1,7 +1,8 @@
+<button (click)="closeModal()" class="close-btn">✕</button>
 @if (navItems && navItems.length > 0) {
   <ol>
     @for (item of navItems; track $index) {
-      <a [href]="item.url" [linkType]="item.linkType">
+      <a [href]="item.url" [linkType]="item.linkType" (click)="closeModal()">
         <li>
           <span>{{ item.label }}</span>
         </li>
@@ -9,3 +10,4 @@
     }
   </ol>
 }
+

@@ -14,6 +14,8 @@ import { UiLibNavItemsI } from '../../../interfaces/ui-lib-nav-items.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderClearComponent {
+  isMenuOpen = false;
+  
   @Input() logo?: UiLibImageI;
   @Input() lang?: string;
   @Input() navItems?: UiLibNavItemsI[];
@@ -30,6 +32,6 @@ export class HeaderClearComponent {
   }
 
   toggleMenu(): void {
-    console.log('menu open');
+    this.isMenuOpen = !this.isMenuOpen;
   }
 }
