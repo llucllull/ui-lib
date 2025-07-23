@@ -13,7 +13,8 @@ const config: StorybookConfig = {
   framework: {
     name: "@storybook/angular",
     options: {}
-  }
+  },
+  staticDirs: ['../src/lib/styles'],
 };
 
 export default config;

@@ -9,7 +9,9 @@
     "test": "ng test",
     "deploy-local": "sh ./deploy-ui-lib.sh",
     "storybook": "ng run ui-lib:storybook",
-    "build-storybook": "ng run ui-lib:build-storybook"
+    "build-storybook": "ng run ui-lib:build-storybook",
+    "build:global-css": "sass projects/ui-lib/src/lib/styles/global.scss projects/ui-lib/src/lib/styles/global.css",
+    "watch:global-css": "sass --watch projects/ui-lib/src/lib/styles/global.scss:projects/ui-lib/src/lib/styles/global.css"
   },
   "private": true,
   "dependencies": {
@@ -48,6 +50,7 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^17.3.0",
     "prettier": "^3.6.2",
+    "sass": "^1.89.2",
     "storybook": "^8.6.14",
     "typescript": "~5.4.2"
   }
