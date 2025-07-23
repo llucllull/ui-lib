@@ -1,0 +1,43 @@
+@use 'variables';
+@use 'mixins';
+
+.btn {
+  padding: variables.$spacing-sm variables.$spacing-md;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  background-color: variables.$color-primary;
+  color: white;
+
+  &:hover {
+    background-color: darken(variables.$color-primary, 10%);
+  }
+}
+
+.btn-secondary {
+  background: none;
+  border: 1px solid variables.$color-primary;
+  color: variables.$color-primary;
+
+  &:hover {
+    background-color: variables.$color-primary;
+    color: white;
+  }
+}
+
+.btn-link {
+  background: none;
+  color: variables.$color-primary;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
