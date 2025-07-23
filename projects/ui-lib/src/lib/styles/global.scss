@@ -1,2 +1,15 @@
 @use './variables';
 @use './mixins';
+@use './common.scss';
+
+body {
+  font-family: variables.$font-base;
+  font-size: 16px;
+  color: variables.$color-text;
+  background-color: variables.$color-bg;
+}
+
+a {
+  text-decoration: none; 
+  color: variables.$color-primary;
+}
