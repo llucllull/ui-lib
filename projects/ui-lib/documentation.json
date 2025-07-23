@@ -18,7 +18,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    title: 'Título de ejemplo',\r\n    subtitle: 'Subtítulo de ejemplo',\r\n    text: 'Texto descriptivo de ejemplo para el Hero Section.',\r\n    buttons: [\r\n      { label: 'Botón 1', url: '#', linkType: LinkType.Internal },\r\n      { label: 'Botón 2', url: '#', linkType: LinkType.External }\r\n    ]\r\n  }\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    title: 'Título de ejemplo',\r\n    subtitle: 'Subtítulo de ejemplo',\r\n    text: 'Texto descriptivo de ejemplo para el Hero Section.',\r\n    buttons: [\r\n      { label: 'Botón 1', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Botón 2', url: 'https://www.google.com', linkType: LinkType.External }\r\n    ]\r\n  }\r\n}"
             },
             {
                 "name": "preview",
@@ -56,7 +56,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    title: 'Título de ejemplo',\r\n    subtitle: 'Subtítulo de ejemplo',\r\n    text: 'Texto descriptivo de ejemplo para el Hero Section.',\r\n    buttons: [\r\n      { label: 'Botón 1', url: '#', linkType: LinkType.Internal },\r\n      { label: 'Botón 2', url: '#', linkType: LinkType.External }\r\n    ]\r\n  }\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    title: 'Título de ejemplo',\r\n    subtitle: 'Subtítulo de ejemplo',\r\n    text: 'Texto descriptivo de ejemplo para el Hero Section.',\r\n    buttons: [\r\n      { label: 'Botón 1', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Botón 2', url: 'https://www.google.com', linkType: LinkType.External }\r\n    ]\r\n  }\r\n}"
                 }
             ],
             "projects/ui-lib/.storybook/preview.ts": [
