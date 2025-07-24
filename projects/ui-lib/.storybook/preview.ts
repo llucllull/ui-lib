@@ -1,15 +1,48 @@
-import type { Preview } from '@storybook/angular'
-import { setCompodocJson } from "@storybook/addon-docs/angular";
-import docJson from "../documentation.json";
+import type { Preview } from '@storybook/angular';
+import { setCompodocJson } from '@storybook/addon-docs/angular';
+import docJson from '../documentation.json';
 
 setCompodocJson(docJson);
 
 const preview: Preview = {
   parameters: {
+    layout: 'fullscreen',
+    docs: {
+      inlineStories: false, // Forzar iframe en Docs también
+    },
+    viewport: {
+      defaultViewport: 'desktop',
+      viewports: {
+        mobile: {
+          name: 'Mobile (375x667)',
+          styles: {
+            width: '375px',
+            height: '667px',
+          },
+          type: 'mobile',
+        },
+        tablet: {
+          name: 'Tablet (768x1024)',
+          styles: {
+            width: '768px',
+            height: '1024px',
+          },
+          type: 'tablet',
+        },
+        desktop: {
+          name: 'Desktop (1440x900)',
+          styles: {
+            width: '1440px',
+            height: '900px',
+          },
+          type: 'desktop',
+        },
+      },
+    },
     controls: {
       matchers: {
-       color: /(background|color)$/i,
-       date: /Date$/i,
+        color: /(background|color)$/i,
+        date: /Date$/i,
       },
     },
   },
