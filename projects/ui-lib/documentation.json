@@ -14,6 +14,16 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    // logo: {\r\n    //   url: 'https://placehold.co/60x40',\r\n    //   alt: 'Logo',\r\n    // },\r\n    lang: 'ES',\r\n    navItems: [\r\n      { label: 'Menu 1', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 2', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 3', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 4', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 5', url: 'https://www.google.com', linkType: LinkType.External },\r\n    ]\r\n  }\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/ui-lib/src/lib/components/core/hero-section/hero-section.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -28,11 +38,22 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Preview",
-                "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n       color: /(background|color)$/i,\n       date: /Date$/i,\n      },\n    },\n  },\n}"
+                "defaultValue": "{\n  parameters: {\n    layout: 'fullscreen',\n    docs: {\n      inlineStories: false, // Forzar iframe en Docs también\n    },\n    viewport: {\n      defaultViewport: 'desktop',\n      viewports: {\n        mobile: {\n          name: 'Mobile (375x667)',\n          styles: {\n            width: '375px',\n            height: '667px',\n          },\n          type: 'mobile',\n        },\n        tablet: {\n          name: 'Tablet (768x1024)',\n          styles: {\n            width: '768px',\n            height: '1024px',\n          },\n          type: 'tablet',\n        },\n        desktop: {\n          name: 'Desktop (960x540)',\n          styles: {\n            width: '960px',\n            height: '540px',\n          },\n          type: 'desktop',\n        },\n      },\n    },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
             }
         ],
         "functions": [],
         "typealiases": [
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<HeaderClearComponent>",
+                "file": "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
             {
                 "name": "Story",
                 "ctype": "miscellaneous",
@@ -47,6 +68,18 @@
         ],
         "enumerations": [],
         "groupedVariables": {
+            "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    // logo: {\r\n    //   url: 'https://placehold.co/60x40',\r\n    //   alt: 'Logo',\r\n    // },\r\n    lang: 'ES',\r\n    navItems: [\r\n      { label: 'Menu 1', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 2', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 3', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 4', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 5', url: 'https://www.google.com', linkType: LinkType.External },\r\n    ]\r\n  }\r\n}"
+                }
+            ],
             "projects/ui-lib/src/lib/components/core/hero-section/hero-section.stories.ts": [
                 {
                     "name": "Default",
@@ -68,13 +101,26 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Preview",
-                    "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n       color: /(background|color)$/i,\n       date: /Date$/i,\n      },\n    },\n  },\n}"
+                    "defaultValue": "{\n  parameters: {\n    layout: 'fullscreen',\n    docs: {\n      inlineStories: false, // Forzar iframe en Docs también\n    },\n    viewport: {\n      defaultViewport: 'desktop',\n      viewports: {\n        mobile: {\n          name: 'Mobile (375x667)',\n          styles: {\n            width: '375px',\n            height: '667px',\n          },\n          type: 'mobile',\n        },\n        tablet: {\n          name: 'Tablet (768x1024)',\n          styles: {\n            width: '768px',\n            height: '1024px',\n          },\n          type: 'tablet',\n        },\n        desktop: {\n          name: 'Desktop (960x540)',\n          styles: {\n            width: '960px',\n            height: '540px',\n          },\n          type: 'desktop',\n        },\n      },\n    },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
                 }
             ]
         },
         "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
+            "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<HeaderClearComponent>",
+                    "file": "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
             "projects/ui-lib/src/lib/components/core/hero-section/hero-section.stories.ts": [
                 {
                     "name": "Story",
@@ -101,6 +147,26 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "preview",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
