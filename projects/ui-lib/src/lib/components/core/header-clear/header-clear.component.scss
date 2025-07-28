@@ -1,5 +1,3 @@
-@use '../../../styles/mixins' as *;
-
 .header-clear {
   display: flex;
   justify-content: space-between;
@@ -9,9 +7,6 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  @include respond-max(sm) {
-    justify-content: center;
-  }
 }
 
 .header-logo {
@@ -24,9 +19,6 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  @include respond-max(sm) {
-    display: none;
-  }
 }
 
 .lang {
