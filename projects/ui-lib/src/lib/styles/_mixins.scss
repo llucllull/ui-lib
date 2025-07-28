@@ -1,0 +1,11 @@
+@use 'breakpoints' as *;
+
+@mixin respond($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "El breakpoint '#{$breakpoint}' no está definido en _breakpoints.scss.";
+  }
+}
