@@ -45,5 +45,5 @@ Thumbs.db
 *storybook.log
 
 # CSS Global
-projects/ui-lib/src/lib/styles/global.css
-projects/ui-lib/src/lib/styles/global.css.map
+projects/ui-lib/src/lib/styles/main.css
+projects/ui-lib/src/lib/styles/main.css.map
