@@ -1,0 +1,39 @@
+<header class="header-mobile">
+  <div class="header-logo">
+    <!-- Logo -->
+    <span>★</span>
+    <span>LLUC LLULL</span>
+  </div>
+</header>
+
+<div class="header-actions">
+  <!-- Idioma -->
+  <div class="left">
+    <button class="btn btn-primary" (click)="openLanguagesModal()">
+      <span class="lang">{{ lang }}</span>
+    </button>
+  </div>
+
+  <!-- Icono de recarga -->
+  <div class="center">
+    <button class="btn btn-primary" (click)="toggleTheme()">
+      <span>🌙</span>
+    </button>
+  </div>
+
+  <!-- Icono de menú -->
+  <div class="right">
+    <button class="btn btn-primary" (click)="toggleMenu()">
+      <span>☰</span>
+    </button>
+  </div>
+</div>
+
+
+@if(isMenuOpen && navItems && navItems.length > 0) {
+  <lib-nav-modal
+    [navItems]="navItems"
+    (close)="isMenuOpen = false"
+  ></lib-nav-modal>
+}
+
