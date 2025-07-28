@@ -1,8 +1,7 @@
-@use 'variables';
-@use 'mixins';
+@use '../abstracts' as *;
 
 .btn {
-  padding: variables.$spacing-sm variables.$spacing-md;
+  padding: $spacing-sm $spacing-md;
   border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
@@ -14,28 +13,28 @@
 }
 
 .btn-primary {
-  background-color: variables.$color-primary;
+  background-color: $color-primary;
   color: white;
 
   &:hover {
-    background-color: darken(variables.$color-primary, 10%);
+    background-color: darken($color-primary, 10%);
   }
 }
 
 .btn-secondary {
   background: none;
-  border: 1px solid variables.$color-primary;
-  color: variables.$color-primary;
+  border: 1px solid $color-primary;
+  color: $color-primary;
 
   &:hover {
-    background-color: variables.$color-primary;
+    background-color: $color-primary;
     color: white;
   }
 }
 
 .btn-link {
   background: none;
-  color: variables.$color-primary;
+  color: $color-primary;
 
   &:hover {
     text-decoration: underline;
