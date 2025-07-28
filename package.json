@@ -8,8 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "deploy-local": "sh ./deploy-ui-lib.sh",
-    "build:storybook:styles": "sass projects/ui-lib/src/lib/styles/main.scss projects/ui-lib/src/lib/styles/main.css",
-    "storybook": "npm run build:storybook:styles && ng run ui-lib:storybook"
+    "build-styles": "sass projects/ui-lib/src/lib/styles/main.scss projects/ui-lib/src/lib/styles/main.css",
+    "storybook": "npm run build-styles && ng run ui-lib:storybook"
   },
   "private": true,
   "dependencies": {

@@ -8,6 +8,6 @@
     ]
   },
   "assets": [
-    "src/lib/styles"
+    "src/lib/styles/main.css"
   ]
 }
