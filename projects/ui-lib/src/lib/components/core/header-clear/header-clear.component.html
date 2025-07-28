@@ -1,23 +1,23 @@
-<header>
-  <div>
+<header class="header-clear">
+  <div class="header-logo">
     <!-- Logo -->
     <span>★</span>
     <span>LLUC LLULL</span>
   </div>
 
-  <div>
+  <div class="header-actions">
     <!-- Idioma -->
-    <button (click)="openLanguagesModal()">
-      <span>{{lang}}</span>
+    <button class="btn btn-primary" (click)="openLanguagesModal()">
+      <span class="lang">{{lang}}</span>
     </button>
 
     <!-- Icono de recarga -->
-    <button (click)="toggleTheme()">
+    <button class="btn btn-primary" (click)="toggleTheme()">
       <span>🌙</span>
     </button>
 
     <!-- Icono de menú -->
-    <button (click)="toggleMenu()">
+    <button class="btn btn-primary" (click)="toggleMenu()">
       <span>☰</span>
     </button>
   </div>

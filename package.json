@@ -7,7 +7,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy-local": "sh ./deploy-ui-lib.sh"
+    "deploy-local": "sh ./deploy-ui-lib.sh",
+    "storybook": "ng run ui-lib:storybook",
+    "build-storybook": "ng run ui-lib:build-storybook",
+    "build:global-css": "sass projects/ui-lib/src/lib/styles/global.scss projects/ui-lib/src/lib/styles/global.css",
+    "watch:global-css": "sass --watch projects/ui-lib/src/lib/styles/global.scss:projects/ui-lib/src/lib/styles/global.css"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +33,14 @@
     "@angular-devkit/build-angular": "^17.3.17",
     "@angular/cli": "^17.3.5",
     "@angular/compiler-cli": "^17.3.0",
+    "@compodoc/compodoc": "^1.1.26",
+    "@storybook/addon-docs": "^8.6.14",
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/addon-interactions": "^8.6.14",
+    "@storybook/addon-onboarding": "^8.6.14",
+    "@storybook/angular": "^8.6.14",
+    "@storybook/blocks": "^8.6.14",
+    "@storybook/test": "^8.6.14",
     "@types/jasmine": "~5.1.0",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
@@ -38,6 +50,8 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^17.3.0",
     "prettier": "^3.6.2",
+    "sass": "^1.89.2",
+    "storybook": "^8.6.14",
     "typescript": "~5.4.2"
   }
 }

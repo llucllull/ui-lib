@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.0] - 2025-07-28
+### Added
+- Integration of Storybook with configuration and documentation
+- Add HeroSection component stories for Storybook
+- Add global, common, variables, breakpoints and mixins styles
+- Create styles for HeroSection component
+- Create styles for HeaderClear component
+
 ## [0.1.6] - 2025-07-23
 ### Added
 - Add nav-modal functionalities
