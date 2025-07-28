@@ -8,11 +8,11 @@
   @if (buttons && buttons.length > 0) {
     <div class="buttons">
       @for (button of buttons; track $index) {
-        <ng-container>
+        <div>
           <a class="btn btn-link" [href]="button.url" [linkType]="button.linkType">
             {{ button.label }}
           </a>
-        </ng-container>
+        </div>
       }
     </div>
   }
