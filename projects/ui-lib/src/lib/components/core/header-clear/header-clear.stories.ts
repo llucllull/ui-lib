@@ -5,13 +5,7 @@ import { Meta, StoryObj } from '@storybook/angular';
 export default {
   title: 'Core/HeaderClear',
   component: HeaderClearComponent,
-  tags: ['autodocs'],
-  argTypes: {
-    title: { control: 'text' },
-    subtitle: { control: 'text' },
-    text: { control: 'text' },
-    buttons: { control: 'object' },
-  },
+  tags: ['autodocs']
 } as Meta<HeaderClearComponent>;
 
 type Story = StoryObj<HeaderClearComponent>;
