@@ -1,0 +1,19 @@
+@use 'abstracts' as *;
+
+.section-intro {
+  text-align: start;
+  padding: 2rem 10rem;
+  align-items: start;
+
+  @include respond-max(sm) { 
+    padding: 2rem 4rem;
+  }
+}
+
+.title {
+  text-transform: uppercase;
+}
+
+.subtitle {
+  text-transform: uppercase;
+}
