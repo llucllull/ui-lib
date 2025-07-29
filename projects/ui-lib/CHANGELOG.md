@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.0] - 2025-07-29
+### Added
+- Add new component SectionIntro
+- Add mapper for SectionIntro
+- Create typography styles file
+
 ## [0.2.3] - 2025-07-29
 ### Added
 - Enhance deploy script with CSS compilation and validation
