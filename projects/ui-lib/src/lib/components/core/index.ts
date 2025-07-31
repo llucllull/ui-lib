@@ -4,3 +4,4 @@ export * from './nav-modal';
 export * from './lang-modal';
 export * from './header-mobile';
 export * from './section-intro';
+export * from './category-progress';

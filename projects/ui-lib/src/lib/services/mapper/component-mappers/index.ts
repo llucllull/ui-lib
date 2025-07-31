@@ -1,3 +1,4 @@
+import { mapCategoryProgress } from './category-progress.mapper';
 import { mapHeaderClear } from './header-clear.mapper';
 import { mapHeroSection } from './hero-section.mapper';
 import { mapLangModal } from './lang-modal.mapper';
@@ -10,4 +11,5 @@ export const componentMappers: Record<string, (props: any) => any> = {
     'nav-modal': mapNavModal,
     'lang-modal': mapLangModal,
     'section-intro': mapSectionIntro,
+    'category-progress': mapCategoryProgress,
 };

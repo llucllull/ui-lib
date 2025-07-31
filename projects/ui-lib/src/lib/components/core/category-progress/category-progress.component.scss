@@ -1,0 +1,54 @@
+@use 'abstracts' as *;
+
+.category-progress {
+  text-align: start;
+  padding: 2rem 10rem;
+  align-items: start;
+
+  @include respond-max(sm) { 
+    padding: 2rem 4rem;
+  }
+}
+
+.title {
+  text-transform: uppercase;
+}
+
+.progress-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.category-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.item {
+  .label {
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+    display: block;
+  }
+
+  .bar {
+    background-color: #ccc;
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+
+    .fill {
+      background-color: black;
+      height: 100%;
+      width: 0;
+      transition: width 0.3s ease;
+    }
+  }
+}
