@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.1] - 2025-08-11
+### Added
+- Update mapImage function
+- Add logo to headers
+
 ## [0.4.0] - 2025-07-31
 ### Added
 - Add new component CategoryProgress
