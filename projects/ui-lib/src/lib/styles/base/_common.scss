@@ -1,7 +1,7 @@
 @use '../abstracts' as *;
 
 .btn {
-  padding: $spacing-sm $spacing-md;
+  padding: var(--spacing-sm) var(--spacing-md);
   border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
@@ -13,28 +13,28 @@
 }
 
 .btn-primary {
-  background-color: $color-primary;
+  background-color: var(--color-primary);
   color: white;
 
   &:hover {
-    background-color: darken($color-primary, 10%);
+    background: color-mix(in srgb, var(--color-primary), black 10%);
   }
 }
 
 .btn-secondary {
   background: none;
-  border: 1px solid $color-primary;
-  color: $color-primary;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
 
   &:hover {
-    background-color: $color-primary;
+    background-color: var(--color-primary);
     color: white;
   }
 }
 
 .btn-link {
   background: none;
-  color: $color-primary;
+  color: var(--color-primary);
 
   &:hover {
     text-decoration: underline;

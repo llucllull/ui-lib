@@ -1,17 +1,14 @@
-// Colors
-$color-primary: #007bff;
-$color-secondary: #6c757d;
-$color-success: #28a745;
-$color-danger: #dc3545;
-$color-text: #111;
-$color-bg: #f9f9f9;
+:root {
+  --color-primary: #007bff;
+  --color-secondary: #6c757d;
+  --color-text: #111;
+  --color-bg: #f9f9f9;
 
-// Typography
-$font-base: 'Montserrat', sans-serif;
-$font-size-base: 16px;
+  --font-base: 'Montserrat', sans-serif;
+  --font-size-base: 16px;
 
-// Spacing
-$spacing-xs: 0.25rem;
-$spacing-sm: 0.5rem;
-$spacing-md: 1rem;
-$spacing-lg: 2rem;
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+}
