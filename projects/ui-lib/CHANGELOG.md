@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.2] - 2025-08-11
+### Added
+- Update styles for lang and nav modals
+- Refactor CSS variables for consistency across components
+- Add button icon to hero-section component
+- Update btn-link common styles
+
 ## [0.4.1] - 2025-08-11
 ### Added
 - Update mapImage function
