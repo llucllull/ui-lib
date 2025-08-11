@@ -34,9 +34,39 @@
 
 .btn-link {
   background: none;
-  color: var(--color-primary);
-
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 1.1rem;
+  position: relative;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  span {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+  }
+  
   &:hover {
-    text-decoration: underline;
+    span {
+      transform: translateX(0.3rem);
+    }
+    
+    &::after {
+      width: 100%;
+    }
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 7px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-text);
+    transition: width 0.5s;
   }
 }
