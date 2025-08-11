@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 import { UiLibNavItemsI } from '../../../interfaces/ui-lib-nav-items.interface';
 import { LangModalComponent } from '../lang-modal/lang-modal.component';
 import { NavModalComponent } from '../nav-modal/nav-modal.component';
+import { UiLibImageI } from '../../../interfaces/ui-lib-image.interface';
 
 @Component({
   selector: 'lib-header-mobile',
@@ -15,6 +16,7 @@ import { NavModalComponent } from '../nav-modal/nav-modal.component';
 export class HeaderMobileComponent {
   isMenuOpen = false;
 
+  @Input() logo?: UiLibImageI;
   @Input() lang?: string;
   @Input() navItems?: UiLibNavItemsI[];
 

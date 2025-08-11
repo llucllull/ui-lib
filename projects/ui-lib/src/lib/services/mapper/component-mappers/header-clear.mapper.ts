@@ -1,3 +1,4 @@
+import { mapImage } from "../../../utils/utils";
 import { mapNavModalWithLang } from "./nav-modal.mapper";
 import { ComponentMapperFn } from "./types";
 
@@ -9,7 +10,7 @@ export const mapHeaderClear: ComponentMapperFn = (props) => {
   const navItems = mapNavModalWithLang(props?.['nav-modal']?.navLinks || [], currentLang);
   
   return { 
-    logo: props?.logo,
+    logo: mapImage(props?.logo),
     lang: currentLang,
     navItems: navItems
   };
