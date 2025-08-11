@@ -30,4 +30,8 @@ export class LangModalComponent {
   selectLang(lang: UiLibLangItemI) {
     this.dialogRef?.close(lang);
   }
+
+  closeModal() {
+    this.dialogRef?.close();
+  }
 }
