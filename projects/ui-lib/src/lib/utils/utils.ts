@@ -20,7 +20,7 @@ export function mapImage(data: any): UiLibImageI | null {
     if (!data || typeof data !== 'object') return null;
 
     return {
-        url: data.url ?? '',
+        url: data.src ?? '',
         alt: data.alt ?? '',
         width: data.width,
         height: data.height,
