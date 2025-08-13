@@ -12,6 +12,7 @@ import { LinkTypeDirective } from '../../../directives/link-type.directive';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroSectionComponent {
+    @Input() pretitle?: string;
     @Input() title?: string;
     @Input() subtitle?: string;
     @Input() text?: string;
