@@ -10,12 +10,15 @@ export * from './lib/components/core/index';
 export * from './lib/services';
 
 // /*   INTERFACES   */
-export * from './lib/interfaces/index';
+export * from './lib/interfaces';
 
 // /*   UTILS   */
 export * from './lib/utils';
 
 // /*   ENUMS   */
-// export * from './lib/Enum';
+export * from './lib/Enum';
+
+// /*   DIRECTIVES   */
+export * from './lib/directives';
 
 // export * from './lib/ui-lib.component';
