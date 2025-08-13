@@ -6,4 +6,5 @@ export interface HeroSectionI {
     subtitle?: string;
     text?: string;
     buttons?: UiLibButtonI[];
+    highlight?: string;
 }

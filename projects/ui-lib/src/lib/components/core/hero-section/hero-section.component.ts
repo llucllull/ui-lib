@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { UiLibButtonI } from '../../../interfaces';
 import { LinkTypeDirective } from '../../../directives/link-type.directive';
+import { UiLibButtonI } from '../../../interfaces/ui-lib-button.interface';
 
 @Component({
     selector: 'lib-hero-section',
@@ -17,4 +17,5 @@ export class HeroSectionComponent {
     @Input() subtitle?: string;
     @Input() text?: string;
     @Input() buttons?: UiLibButtonI[];
+    @Input() highlight?: string;
 }

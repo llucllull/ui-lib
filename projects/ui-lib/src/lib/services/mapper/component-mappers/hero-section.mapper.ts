@@ -7,4 +7,5 @@ export const mapHeroSection: ComponentMapperFn = (props) => ({
     subtitle: props?.texts?.subtitle,
     text: props?.texts?.text,
     buttons: mapButtons(props?.buttons),
+    highlight: props?.texts?.highlight,
 });
