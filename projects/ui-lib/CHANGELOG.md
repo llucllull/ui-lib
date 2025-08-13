@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.3] - 2025-08-13
+### Added
+- Fix style from close-btn in modals
+- Add pretitle to hero-section component
+- Update styles from hero-section
+
 ## [0.4.2] - 2025-08-11
 ### Added
 - Update styles for lang and nav modals
