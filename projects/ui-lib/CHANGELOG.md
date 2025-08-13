@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.4] - 2025-08-13
+### Added
+- Update imports for ui-lib
+- Add animation highlight to hero-section component
+
 ## [0.4.3] - 2025-08-13
 ### Added
 - Fix style from close-btn in modals
