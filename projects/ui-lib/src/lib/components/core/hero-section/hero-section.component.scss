@@ -23,4 +23,53 @@
 
 .title {
   text-transform: uppercase;
+  
+  .highlight-text {
+    cursor: help;
+    display: inline;
+    position: relative;
+    z-index: 99;
+    
+    .wave-wrapper {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      z-index: -1;
+    }
+    
+    .wave {
+      position: absolute;
+      background-image: url('../../../assets/svg/wave-light.svg');
+      background-repeat: repeat-x;
+      background-position-x: 0;
+      background-position-y: 0;
+      top: -1.2rem;
+      opacity: .5;
+      width: 100%;
+      height: 50%;
+    }
+    
+    &:hover .wave {
+      animation: moveWave 5s infinite linear;
+    }
+  }
+  
+  // Responsive breakpoint para hacer salto de línea
+  @media (max-width: 768px) {
+    .highlight-text {
+      display: block;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+@keyframes moveWave {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 100%;
+  }
 }

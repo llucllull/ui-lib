@@ -3,7 +3,19 @@
     <h2 class="pretitle">{{ pretitle }}</h2>
   }
   @if (title) {
-    <h1 class="title">{{ title }}</h1>
+    <h1 class="title">
+      @if (highlight && title.includes(highlight)) {
+        {{ title.replace(highlight, '') }}
+        <span class="highlight-text">
+          {{ highlight }}
+          <div class="wave-wrapper">
+            <div class="wave"></div>
+          </div>
+        </span>
+      } @else {
+        {{ title }}
+      }
+    </h1>
   }
   @if (subtitle) {
     <h2 class="subtitle">{{ subtitle }}</h2>
