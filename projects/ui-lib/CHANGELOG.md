@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.1] - 2025-08-14
+### Added
+- Update font-size on hero-section component
+- Update modal item styles and introduce new font variables
+- Add social items support to header and nav modal components
+
 ## [0.5.0] - 2025-08-14
 ### Added
 - Add variables for theme color handle
