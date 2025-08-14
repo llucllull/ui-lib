@@ -5,7 +5,7 @@
   top: 0; left: 0; right: 0; bottom: 0;
   width: 100vw;
   height: 100vh;
-  background: var(--color-bg); 
+  background: var(--modal-bg); 
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -18,7 +18,7 @@
   right: 2rem;
   background: none;
   border: none;
-  color: var(--color-text);
+  color: var(--close-btn);
   font-size: 1.5rem;
   font-weight: bold;
   cursor: pointer;
@@ -31,16 +31,26 @@ ol {
   text-align: center;
   width: 100%;
   max-width: 400px;
+  list-style: none;
+  counter-reset: item;
 }
 
 li {
-  padding: 1rem 0;
   cursor: pointer;
   text-align: start;
+  counter-increment: item;
 }
 
 a {
   text-decoration: none;
   text-transform: uppercase;
-  color: var(--color-text);
+  color: var(--item-color);
+}
+
+li::before {
+  content: counter(item, decimal-leading-zero) ". ";
+}
+
+.item {
+  font-size: 3.5rem;
 }
