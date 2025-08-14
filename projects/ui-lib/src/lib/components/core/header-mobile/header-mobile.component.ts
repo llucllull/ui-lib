@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { UiLibNavItemsI } from '../../../interfaces/ui-lib-nav-items.interface';
-import { LangModalComponent } from '../lang-modal/lang-modal.component';
-import { NavModalComponent } from '../nav-modal/nav-modal.component';
-import { UiLibImageI } from '../../../interfaces/ui-lib-image.interface';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { LinkTypeDirective } from '../../../directives/link-type.directive';
 import { UiLibButtonI } from '../../../interfaces/ui-lib-button.interface';
+import { UiLibImageI } from '../../../interfaces/ui-lib-image.interface';
+import { UiLibNavItemsI } from '../../../interfaces/ui-lib-nav-items.interface';
+import { Theme, ThemeService } from '../../../services/theme';
+import { LangModalComponent } from '../lang-modal/lang-modal.component';
+import { NavModalComponent } from '../nav-modal/nav-modal.component';
 
 @Component({
   selector: 'lib-header-mobile',
@@ -15,8 +17,10 @@ import { UiLibButtonI } from '../../../interfaces/ui-lib-button.interface';
   styleUrl: './header-mobile.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderMobileComponent {
+export class HeaderMobileComponent implements OnInit, OnDestroy {
   isMenuOpen = false;
+  currentTheme: Theme = 'light';
+  private themeSubscription?: Subscription;
 
   @Input() logo?: UiLibImageI;
   @Input() lang?: string;
@@ -26,15 +30,32 @@ export class HeaderMobileComponent {
   @Output() langModal = new EventEmitter<void>();
   @Output() theme = new EventEmitter<void>();
 
+  constructor(private themeService: ThemeService) {}
+
+  ngOnInit(): void {
+    this.themeSubscription = this.themeService.currentTheme$.subscribe(theme => {
+      this.currentTheme = theme;
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.themeSubscription?.unsubscribe();
+  }
+
   openLanguagesModal(): void {
     this.langModal.emit();
   }
 
   toggleTheme(): void {
+    this.themeService.toggleTheme();
     this.theme.emit();
   }
 
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  getThemeIcon(): string {
+    return this.currentTheme === 'light' ? '🌙' : '☀️';
   }
 }
