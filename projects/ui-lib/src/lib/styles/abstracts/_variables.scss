@@ -1,14 +1,35 @@
 :root {
+  //Colors
   --color-primary: #007bff;
   --color-secondary: #6c757d;
   --color-text: #111;
   --color-bg: #f9f9f9;
 
+  //Fonts
   --font-base: 'Inter', system-ui, sans-serif;
   --font-size-base: 16px;
 
+  //Spacings
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
   --spacing-lg: 2rem;
+
+  //Buttons
+  --button-primary-bg: #007bff;
+  --button-primary-text: #f9f9f9;
+  --button-primary-bg-hover: #033468;
+  --button-primary-text-hover: #f9f9f9;
+
+  --button-secondary-bg: #6c757d;
+  --button-secondary-text: #f9f9f9;
+  --button-secondary-bg-hover: #1c1e20;
+  --button-secondary-text-hover: #f9f9f9;
+
+  --button-link-text: #111111;
+  --button-link-text-hover: #007bff;
+
+  //Headers
+  --header-clear-bg: #007bff;
+  --header-mobile-bg: #007bff;
 }

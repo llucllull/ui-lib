@@ -13,28 +13,29 @@
 }
 
 .btn-primary {
-  background-color: var(--color-primary);
-  color: white;
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
 
   &:hover {
-    background: color-mix(in srgb, var(--color-primary), black 10%);
+    background-color: var(--button-primary-bg-hover);
+    color: var(--button-primary-text-hover);
   }
 }
 
 .btn-secondary {
   background: none;
-  border: 1px solid var(--color-primary);
-  color: var(--color-primary);
+  border: 1px solid var(--button-secondary-bg);
+  color: var(--button-secondary-text);
 
   &:hover {
-    background-color: var(--color-primary);
-    color: white;
+    background-color: var(--button-secondary-bg-hover);
+    color: var(--button-secondary-text-hover);
   }
 }
 
 .btn-link {
   background: none;
-  color: var(--color-text);
+  color: var(--button-link-text);
   text-decoration: none;
   font-weight: 300;
   font-size: 1.1rem;
@@ -66,7 +67,7 @@
     left: 0;
     width: 0;
     height: 1px;
-    background-color: var(--color-text);
+    background-color: var(--button-link-text);
     transition: width 0.5s;
   }
 }
