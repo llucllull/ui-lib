@@ -1,9 +1,11 @@
 <header class="header-clear">
-  <div class="header-logo">
-    <!-- Logo -->
-    <img [src]="logo?.url" [alt]="logo?.alt" />
-    <span>LLUC LLULL</span>
-  </div>
+  <a [href]="homeLink?.url" [linkType]="homeLink?.linkType">
+    <div class="header-logo">
+      <!-- Logo -->
+      <img [src]="logo?.url" [alt]="logo?.alt" />
+      <span>LLUC LLULL</span>
+    </div>
+  </a>
 
   <div class="header-actions">
     <!-- Idioma -->

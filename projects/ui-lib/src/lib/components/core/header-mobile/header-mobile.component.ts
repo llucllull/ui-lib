@@ -4,11 +4,13 @@ import { UiLibNavItemsI } from '../../../interfaces/ui-lib-nav-items.interface';
 import { LangModalComponent } from '../lang-modal/lang-modal.component';
 import { NavModalComponent } from '../nav-modal/nav-modal.component';
 import { UiLibImageI } from '../../../interfaces/ui-lib-image.interface';
+import { LinkTypeDirective } from '../../../directives/link-type.directive';
+import { UiLibButtonI } from '../../../interfaces/ui-lib-button.interface';
 
 @Component({
   selector: 'lib-header-mobile',
   standalone: true,
-  imports: [CommonModule, LangModalComponent, NavModalComponent],
+  imports: [CommonModule, LangModalComponent, NavModalComponent, LinkTypeDirective],
   templateUrl: './header-mobile.component.html',
   styleUrl: './header-mobile.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -19,6 +21,7 @@ export class HeaderMobileComponent {
   @Input() logo?: UiLibImageI;
   @Input() lang?: string;
   @Input() navItems?: UiLibNavItemsI[];
+  @Input() homeLink?: UiLibButtonI;
 
   @Output() langModal = new EventEmitter<void>();
   @Output() theme = new EventEmitter<void>();
