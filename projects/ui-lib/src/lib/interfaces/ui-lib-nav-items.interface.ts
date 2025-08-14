@@ -15,6 +15,6 @@ export interface UiLibSocialItemsI {
     label: string;
     url: string;
     linkType?: LinkType;
-    icon: string;
+    icon?: string;
     order?: number;
 }
