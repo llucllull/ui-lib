@@ -39,13 +39,13 @@
   }
 
   .bar {
-    background-color: #ccc;
+    background-color: var(--progress-bg);
     height: 6px;
     border-radius: 3px;
     overflow: hidden;
 
     .fill {
-      background-color: black;
+      background-color: var(--progress-color);
       height: 100%;
       width: 0;
       transition: width 0.3s ease;
