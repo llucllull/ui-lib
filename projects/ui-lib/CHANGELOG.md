@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.0] - 2025-08-14
+### Added
+- Add variables for theme color handle
+- Theme toggle functionality in header components
+- Add theme service for managing light and dark themes
+- Change logo depending on the theme
+
 ## [0.4.5] - 2025-08-14
 ### Added
 - Fix styles hero-section

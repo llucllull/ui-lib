@@ -4,6 +4,7 @@ import { UiLibNavItemsI } from "../../../interfaces/ui-lib-nav-items.interface";
 
 export interface HeaderClearI {
   logo?: UiLibImageI;
+  logoDark?: UiLibImageI;
   lang?: string;
   navItems?: UiLibNavItemsI[];
   homeLink?: UiLibButtonI;

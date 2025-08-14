@@ -1,0 +1,37 @@
+:root[data-theme="dark"] {
+    color-scheme: dark;
+
+    //Colors
+    --color-primary: #007bff;
+    --color-secondary: #8a94a1;
+    --color-text: #f3f4f6;
+    --color-bg: #0f0f10;
+
+    //Buttons
+    --button-primary-bg: #007bff;
+    --button-primary-text: #f9f9f9;
+    --button-primary-bg-hover: #033468;
+    --button-primary-text-hover: #f9f9f9;
+
+    --button-secondary-bg: #2b3035;
+    --button-secondary-text: #f9f9f9;
+    --button-secondary-bg-hover: #1c1e20;
+    --button-secondary-text-hover: #f9f9f9;
+
+    --button-link-text: #f3f4f6;
+    --button-link-text-hover: #79b6ff;
+
+    //Headers
+    --header-clear-bg: #0f0f10;
+    --header-mobile-bg: #0f0f10;
+    --header-logo-text: #f9f9f9;
+
+    //Modals
+    --modal-bg: #17181a;
+    --close-btn: #f3f4f6;
+    --item-text: #f3f4f6;
+
+    //Progress bar
+    --progress-color: #f9f9f9;
+    --progress-bg: #79b6ff;
+}
