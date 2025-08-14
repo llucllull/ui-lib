@@ -12,10 +12,10 @@ type Story = StoryObj<HeaderClearComponent>;
 
 export const Default: Story = {
   args: {
-    // logo: {
-    //   url: 'https://placehold.co/60x40',
-    //   alt: 'Logo',
-    // },
+    logo: {
+      url: 'https://ujpxanmobdxrwjsndrzq.supabase.co/storage/v1/object/public/branding/logos/logo-primary.svg',
+      alt: 'Logo',
+    },
     lang: 'ES',
     navItems: [
       { label: 'Menu 1', url: 'https://www.google.com', linkType: LinkType.External },
