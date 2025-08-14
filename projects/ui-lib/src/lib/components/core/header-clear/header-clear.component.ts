@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { LinkTypeDirective } from '../../../directives';
 import { UiLibButtonI } from '../../../interfaces/ui-lib-button.interface';
 import { UiLibImageI } from '../../../interfaces/ui-lib-image.interface';
-import { UiLibNavItemsI } from '../../../interfaces/ui-lib-nav-items.interface';
+import { UiLibNavItemsI, UiLibSocialItemsI } from '../../../interfaces/ui-lib-nav-items.interface';
 import { LangModalComponent } from "../lang-modal";
 import { NavModalComponent } from "../nav-modal";
 import { Theme, ThemeService } from '../../../services/theme';
@@ -26,6 +26,7 @@ export class HeaderClearComponent implements OnInit, OnDestroy {
   @Input() logoDark?: UiLibImageI;
   @Input() lang?: string;
   @Input() navItems?: UiLibNavItemsI[];
+  @Input() socialItems?: UiLibSocialItemsI[];
   @Input() homeLink?: UiLibButtonI;
 
   @Output() langModal = new EventEmitter<void>();

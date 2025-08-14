@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { UiLibNavItemsI } from '../../../interfaces/ui-lib-nav-items.interface';
 import { LinkTypeDirective } from '../../../directives/link-type.directive';
+import { UiLibNavItemsI, UiLibSocialItemsI } from '../../../interfaces/ui-lib-nav-items.interface';
 
 @Component({
   selector: 'lib-nav-modal',
@@ -13,7 +13,7 @@ import { LinkTypeDirective } from '../../../directives/link-type.directive';
 })
 export class NavModalComponent {
   @Input() navItems?: UiLibNavItemsI[];
-  @Input() socialItems?: UiLibNavItemsI[];
+  @Input() socialItems?: UiLibSocialItemsI[];
 
   @Output() close = new EventEmitter<void>();
 

@@ -3,12 +3,30 @@
   @if (navItems && navItems.length > 0) {
     <ol>
       @for (item of navItems; track $index) {
-        <a [href]="item.url" [linkType]="item.linkType" (click)="closeModal()">
+        <a 
+          [href]="item.url" 
+          [linkType]="item.linkType" 
+          (click)="closeModal()"
+        >
           <li>
             <span class="modal-item">{{ item.label }}</span>
           </li>
         </a>
       }
     </ol>
+  }
+  @if (socialItems) {
+    <div class="buttons">
+      @for (social of socialItems; track $index) {
+        <a
+          class="btn btn-link"
+          [href]="social.url"
+          [linkType]="social.linkType"
+        >
+          <span>{{ social.icon }}</span
+          >{{ social.label }}
+        </a>
+      }
+    </div>
   }
 </div>

@@ -1,6 +1,6 @@
 import { UiLibButtonI } from "../../../interfaces/ui-lib-button.interface";
 import { UiLibImageI } from "../../../interfaces/ui-lib-image.interface";
-import { UiLibNavItemsI } from "../../../interfaces/ui-lib-nav-items.interface";
+import { UiLibNavItemsI, UiLibSocialItemsI } from "../../../interfaces/ui-lib-nav-items.interface";
 
 export interface HeaderClearI {
   logo?: UiLibImageI;
@@ -8,4 +8,5 @@ export interface HeaderClearI {
   lang?: string;
   navItems?: UiLibNavItemsI[];
   homeLink?: UiLibButtonI;
+  socialItems?: UiLibSocialItemsI[]
 }

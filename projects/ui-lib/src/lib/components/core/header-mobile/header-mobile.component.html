@@ -35,6 +35,7 @@
 @if(isMenuOpen && navItems && navItems.length > 0) {
   <lib-nav-modal
     [navItems]="navItems"
+    [socialItems]="socialItems"
     (close)="isMenuOpen = false"
   ></lib-nav-modal>
 }
