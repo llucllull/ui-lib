@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.2] - 2025-08-14
+### Added
+- Add optionallity to icon
+- Change font-size for btn-link
+- Add stories for category-progress and section-intro
+- Update story for header-clear
+
 ## [0.5.1] - 2025-08-14
 ### Added
 - Update font-size on hero-section component
