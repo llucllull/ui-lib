@@ -5,7 +5,7 @@
       @for (item of navItems; track $index) {
         <a [href]="item.url" [linkType]="item.linkType" (click)="closeModal()">
           <li>
-            <span class="item">{{ item.label }}</span>
+            <span class="modal-item">{{ item.label }}</span>
           </li>
         </a>
       }

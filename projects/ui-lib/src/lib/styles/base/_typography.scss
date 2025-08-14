@@ -4,6 +4,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 500;
+  font-family: var(--font-titles);
 }
 
 .title {
@@ -11,12 +12,14 @@
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.2;
+  font-family: var(--font-titles);
 }
 
 .subtitle {
   margin: 0 0 1rem 0;
   font-size: 1.5rem;
   font-weight: 600;
+  font-family: var(--font-base);
 }
 
 .text {
@@ -24,4 +27,11 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.6;
+  font-family: var(--font-base);
+}
+
+.modal-item {
+  font-size: 3.5rem;
+  font-weight: 700;
+  font-family: var(--font-titles);
 }

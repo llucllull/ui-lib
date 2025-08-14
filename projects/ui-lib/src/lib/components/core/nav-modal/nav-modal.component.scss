@@ -50,7 +50,3 @@ a {
 li::before {
   content: counter(item, decimal-leading-zero) ". ";
 }
-
-.item {
-  font-size: 3.5rem;
-}
