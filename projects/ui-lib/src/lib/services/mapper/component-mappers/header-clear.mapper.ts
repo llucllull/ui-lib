@@ -11,6 +11,7 @@ export const mapHeaderClear: ComponentMapperFn = (props) => {
   
   return { 
     logo: mapImage(props?.logo),
+    logoDark: mapImage(props?.logoDark),
     lang: currentLang,
     navItems: navItems,
     homeLink: navItems[0]

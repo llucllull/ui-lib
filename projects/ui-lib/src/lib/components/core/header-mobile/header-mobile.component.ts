@@ -23,6 +23,7 @@ export class HeaderMobileComponent implements OnInit, OnDestroy {
   private themeSubscription?: Subscription;
 
   @Input() logo?: UiLibImageI;
+  @Input() logoDark?: UiLibImageI;
   @Input() lang?: string;
   @Input() navItems?: UiLibNavItemsI[];
   @Input() homeLink?: UiLibButtonI;
