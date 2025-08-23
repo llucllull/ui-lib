@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.8.0] - 2025-08-23
+### Added
+- Add legal-footer component
+- Add stories for legal-footer
+- Add mapper for legal-footer
+- Add footer color variables for themes
+
+## [0.7.0] - 2025-08-23
+### Added
+- Add links-footer component
+- Add stories for links-footer
+- Add mapper for links-footer
+
 ## [0.6.0] - 2025-08-23
 ### Added
 - Add deploy for Storybook
