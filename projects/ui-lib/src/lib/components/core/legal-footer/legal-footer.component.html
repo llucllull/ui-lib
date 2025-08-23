@@ -2,7 +2,7 @@
   <!-- Variante simple -->
   @if (variant === 'simple') {
     <div class="legal-footer__simple">
-      <span>{{ brand }} © {{ year }}</span>
+      <span><b>{{ brand }} © {{ year }}</b></span>
       <span>{{ credits }}</span>
     </div>
   }
@@ -10,7 +10,7 @@
   <!-- Variante extendida -->
   @if (variant === 'extended') {
     <div class="legal-footer__extended">
-      <span>{{ brand }} © {{ year }}</span>
+      <span class="legal-footer__year"><b>{{ brand }} © {{ year }}</b></span>
     
       <div class="legal-footer__right">
         @if(links?.length){
@@ -18,9 +18,9 @@
             @for (link of links; track $index) {
               <li><a [href]="link.url">{{ link.label }}</a></li>
             }
+            <li class="legal-footer__credits">{{ credits }}</li>
           </ul>
         }
-        <span>{{ credits }}</span>
       </div>
     </div>
   }
