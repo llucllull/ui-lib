@@ -1,0 +1,48 @@
+@use '../../../styles/themes' as *;
+
+.legal-footer {
+  font-size: var(--font-size-base);
+  padding: 1rem 0;
+  text-align: center;
+
+  &__simple {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    color: var(--footer-text);
+  }
+
+  &__extended {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .legal-footer__right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .legal-footer__links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      
+      a {
+        text-decoration: none;
+        color: var(--footer-links);
+
+        &:hover {
+          color: var(--footer-links-hover);
+          text-decoration: underline;
+          text-underline-offset: 2px;
+          text-decoration-thickness: 1px;
+        }
+      }
+    
+    }
+  }
+}
