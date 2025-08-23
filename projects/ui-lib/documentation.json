@@ -44,6 +44,16 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/ui-lib/src/lib/components/core/legal-footer/legal-footer.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    brand: 'Lluc Llull',\r\n    year: 2025,\r\n    credits: 'Diseñado por Lluc Llull',\r\n    links: [\r\n      {\r\n        label: 'Link 1',\r\n        url: 'https://www.google.com',\r\n        linkType: LinkType.External,\r\n        icon: '',\r\n      },\r\n      {\r\n        label: 'Link 2',\r\n        url: 'https://www.google.com',\r\n        linkType: LinkType.External,\r\n        icon: '',\r\n      },\r\n      {\r\n        label: 'Link 3',\r\n        url: 'https://www.google.com',\r\n        linkType: LinkType.External,\r\n        icon: '',\r\n      },\r\n      {\r\n        label: 'Link 4',\r\n        url: 'https://www.google.com',\r\n        linkType: LinkType.External,\r\n        icon: '',\r\n      },\r\n      {\r\n        label: 'Link 5',\r\n        url: 'https://www.google.com',\r\n        linkType: LinkType.External,\r\n        icon: '',\r\n      },\r\n    ],\r\n  }\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/ui-lib/src/lib/components/core/links-footer/links-footer.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -110,6 +120,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<LegalFooterComponent>",
+                "file": "projects/ui-lib/src/lib/components/core/legal-footer/legal-footer.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<LinksFooterComponent>",
                 "file": "projects/ui-lib/src/lib/components/core/links-footer/links-footer.stories.ts",
                 "deprecated": false,
@@ -165,6 +186,18 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  args: {\r\n    title: 'Título de ejemplo',\r\n    subtitle: 'Subtítulo de ejemplo',\r\n    text: 'Texto descriptivo de ejemplo para el Hero Section.',\r\n    buttons: [\r\n      { label: 'Botón 1', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Botón 2', url: 'https://www.google.com', linkType: LinkType.External }\r\n    ]\r\n  }\r\n}"
+                }
+            ],
+            "projects/ui-lib/src/lib/components/core/legal-footer/legal-footer.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-lib/src/lib/components/core/legal-footer/legal-footer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    brand: 'Lluc Llull',\r\n    year: 2025,\r\n    credits: 'Diseñado por Lluc Llull',\r\n    links: [\r\n      {\r\n        label: 'Link 1',\r\n        url: 'https://www.google.com',\r\n        linkType: LinkType.External,\r\n        icon: '',\r\n      },\r\n      {\r\n        label: 'Link 2',\r\n        url: 'https://www.google.com',\r\n        linkType: LinkType.External,\r\n        icon: '',\r\n      },\r\n      {\r\n        label: 'Link 3',\r\n        url: 'https://www.google.com',\r\n        linkType: LinkType.External,\r\n        icon: '',\r\n      },\r\n      {\r\n        label: 'Link 4',\r\n        url: 'https://www.google.com',\r\n        linkType: LinkType.External,\r\n        icon: '',\r\n      },\r\n      {\r\n        label: 'Link 5',\r\n        url: 'https://www.google.com',\r\n        linkType: LinkType.External,\r\n        icon: '',\r\n      },\r\n    ],\r\n  }\r\n}"
                 }
             ],
             "projects/ui-lib/src/lib/components/core/links-footer/links-footer.stories.ts": [
@@ -240,6 +273,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<HeroSectionComponent>",
                     "file": "projects/ui-lib/src/lib/components/core/hero-section/hero-section.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/ui-lib/src/lib/components/core/legal-footer/legal-footer.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<LegalFooterComponent>",
+                    "file": "projects/ui-lib/src/lib/components/core/legal-footer/legal-footer.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -341,6 +387,26 @@
             },
             {
                 "filePath": "projects/ui-lib/src/lib/components/core/hero-section/hero-section.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-lib/src/lib/components/core/legal-footer/legal-footer.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-lib/src/lib/components/core/legal-footer/legal-footer.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
