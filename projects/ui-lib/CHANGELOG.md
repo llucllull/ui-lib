@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.6.0] - 2025-08-23
+### Added
+- Add deploy for Storybook
+
 ## [0.5.2] - 2025-08-14
 ### Added
 - Add optionallity to icon
