@@ -21,7 +21,7 @@
       <div class="social-footer__socials">
         @for (social of socials; track $index) {
           <a [href]="social.url" [attr.aria-label]="social.label" [linkType]="social.linkType">
-            <i [class]="social.icon"></i>
+            <ui-icon [name]="social.icon" size="28"></ui-icon>
           </a>
         }
       </div>
