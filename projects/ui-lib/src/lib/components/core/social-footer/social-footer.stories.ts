@@ -50,39 +50,7 @@ export const Default: Story = {
       {
         url: 'https://placehold.co/600x400.png',
         alt: 'image8',
-      },
-      {
-        url: 'https://placehold.co/600x400.png',
-        alt: 'image1',
-      },
-      {
-        url: 'https://placehold.co/600x400.png',
-        alt: 'image2',
-      },
-      {
-        url: 'https://placehold.co/600x400.png',
-        alt: 'image3',
-      },
-      {
-        url: 'https://placehold.co/600x400.png',
-        alt: 'image4',
-      },
-      {
-        url: 'https://placehold.co/600x400.png',
-        alt: 'image5',
-      },
-      {
-        url: 'https://placehold.co/600x400.png',
-        alt: 'image6',
-      },
-      {
-        url: 'https://placehold.co/600x400.png',
-        alt: 'image7',
-      },
-      {
-        url: 'https://placehold.co/600x400.png',
-        alt: 'image8',
-      },
+      }
     ],
     socials: [
       {
