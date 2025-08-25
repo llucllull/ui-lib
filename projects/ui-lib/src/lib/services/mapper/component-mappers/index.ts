@@ -6,6 +6,7 @@ import { mapLegalFooter } from './legal-footer.mapper';
 import { mapLinksFooter } from './links-footer.mapper';
 import { mapNavModal } from './nav-modal.mapper';
 import { mapSectionIntro } from './section-intro.mapper';
+import { mapSocialFooter } from './social-footer.mapper';
 
 export const componentMappers: Record<string, (props: any) => any> = {
     'hero-section': mapHeroSection,
@@ -16,4 +17,5 @@ export const componentMappers: Record<string, (props: any) => any> = {
     'category-progress': mapCategoryProgress,
     'links-footer': mapLinksFooter,
     'legal-footer': mapLegalFooter,
+    'social-footer': mapSocialFooter,
 };
