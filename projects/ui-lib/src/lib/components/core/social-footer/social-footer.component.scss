@@ -1,0 +1,82 @@
+@use '../../../styles/themes' as *;
+@use '../../../styles/abstracts' as *;
+
+.social-footer {
+  padding: 2rem 1rem;
+  text-align: center;
+
+  &__slider-images {
+    margin-bottom: 2rem;
+
+    .swiper-wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    .swiper-slide {
+      flex: 0 0 auto;
+      width: auto;
+
+      img {
+        display: block;
+        border-radius: 0.75rem; // igual que en la captura
+        width: 160px; // puedes ajustar
+        height: auto;
+        object-fit: cover;
+      }
+    }
+
+    // flechas del swiper
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: var(--footer-text, #999);
+      transition: opacity 0.3s ease;
+
+      &::after {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &__bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    @include respond-max(sm) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__hashtag {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #d19c68 0%, #5a4031 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 1.5rem;
+
+    a {
+      font-size: 1.25rem;
+      color: var(--footer-text, #999);
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--footer-link-hover, #000);
+      }
+    }
+  }
+}
