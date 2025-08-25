@@ -4,7 +4,7 @@
 
 /* COMPONENTS  */
 export * from './lib/components/core/index';
-// export * from './lib/components/shared/index';
+export * from './lib/components/shared/index';
 
 // /*   SERVICES   */
 export * from './lib/services';
@@ -20,5 +20,8 @@ export * from './lib/Enum';
 
 // /*   DIRECTIVES   */
 export * from './lib/directives';
+
+// /*   MODULES   */
+export * from './lib/modules';
 
 // export * from './lib/ui-lib.component';
