@@ -71,6 +71,16 @@
                 "defaultValue": "{\r\n  args: {\r\n    pretitle: 'Pretítulo de ejemplo',\r\n    title: 'Título de ejemplo',\r\n    subtitle: 'Subtítulo de ejemplo',\r\n    text: 'Texto descriptivo de ejemplo para el Section Intro.',\r\n  }\r\n}"
             },
             {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-lib/src/lib/components/core/social-footer/social-footer.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    images: [\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image1',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image2',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image3',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image4',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image5',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image6',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image7',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image8',\r\n      }\r\n    ],\r\n    socials: [\r\n      {\r\n        label: 'Facebook',\r\n        url: 'https://www.facebook.com',\r\n        linkType: LinkType.External,\r\n        icon: 'facebook',\r\n      },\r\n      {\r\n        label: 'Instagram',\r\n        url: 'https://www.instagram.com',\r\n        linkType: LinkType.External,\r\n        icon: 'instagram',\r\n      },\r\n      {\r\n        label: 'X',\r\n        url: 'https://www.x.com',\r\n        linkType: LinkType.External,\r\n        icon: 'twitter',\r\n      },\r\n      {\r\n        label: 'YouTube',\r\n        url: 'https://www.youtube.com',\r\n        linkType: LinkType.External,\r\n        icon: 'youtube',\r\n      },\r\n      {\r\n        label: 'Tiktok',\r\n        url: 'https://www.tiktok.com',\r\n        linkType: LinkType.External,\r\n        icon: 'tiktok',\r\n      },\r\n    ],\r\n    hashtag: '#Hastag',\r\n  }\r\n}"
+            },
+            {
                 "name": "preview",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -144,6 +154,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<SectionIntroComponent>",
                 "file": "projects/ui-lib/src/lib/components/core/section-intro/section-intro.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<SocialFooterComponent>",
+                "file": "projects/ui-lib/src/lib/components/core/social-footer/social-footer.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -222,6 +243,18 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  args: {\r\n    pretitle: 'Pretítulo de ejemplo',\r\n    title: 'Título de ejemplo',\r\n    subtitle: 'Subtítulo de ejemplo',\r\n    text: 'Texto descriptivo de ejemplo para el Section Intro.',\r\n  }\r\n}"
+                }
+            ],
+            "projects/ui-lib/src/lib/components/core/social-footer/social-footer.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-lib/src/lib/components/core/social-footer/social-footer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    images: [\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image1',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image2',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image3',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image4',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image5',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image6',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image7',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image8',\r\n      }\r\n    ],\r\n    socials: [\r\n      {\r\n        label: 'Facebook',\r\n        url: 'https://www.facebook.com',\r\n        linkType: LinkType.External,\r\n        icon: 'facebook',\r\n      },\r\n      {\r\n        label: 'Instagram',\r\n        url: 'https://www.instagram.com',\r\n        linkType: LinkType.External,\r\n        icon: 'instagram',\r\n      },\r\n      {\r\n        label: 'X',\r\n        url: 'https://www.x.com',\r\n        linkType: LinkType.External,\r\n        icon: 'twitter',\r\n      },\r\n      {\r\n        label: 'YouTube',\r\n        url: 'https://www.youtube.com',\r\n        linkType: LinkType.External,\r\n        icon: 'youtube',\r\n      },\r\n      {\r\n        label: 'Tiktok',\r\n        url: 'https://www.tiktok.com',\r\n        linkType: LinkType.External,\r\n        icon: 'tiktok',\r\n      },\r\n    ],\r\n    hashtag: '#Hastag',\r\n  }\r\n}"
                 }
             ],
             "projects/ui-lib/.storybook/preview.ts": [
@@ -312,6 +345,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<SectionIntroComponent>",
                     "file": "projects/ui-lib/src/lib/components/core/section-intro/section-intro.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/ui-lib/src/lib/components/core/social-footer/social-footer.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<SocialFooterComponent>",
+                    "file": "projects/ui-lib/src/lib/components/core/social-footer/social-footer.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -447,6 +493,26 @@
             },
             {
                 "filePath": "projects/ui-lib/src/lib/components/core/section-intro/section-intro.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-lib/src/lib/components/core/social-footer/social-footer.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-lib/src/lib/components/core/social-footer/social-footer.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",

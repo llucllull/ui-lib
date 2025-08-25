@@ -1,0 +1,23 @@
+<!-- SimpleIcons -->
+<ng-container *ngIf="isBrandIcon; else lucideIcon">
+  <svg
+    class="ui-icon ui-icon--brand"
+    [attr.width]="size"
+    [attr.height]="size"
+    [attr.fill]="color"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path [attr.d]="brandIcon.path"></path>
+  </svg>
+</ng-container>
+
+<!-- Lucide -->
+<ng-template #lucideIcon>
+  <lucide-icon
+    class="ui-icon ui-icon--lucide"
+    [name]="name"
+    [size]="size"
+    [color]="color"
+  ></lucide-icon>
+</ng-template>

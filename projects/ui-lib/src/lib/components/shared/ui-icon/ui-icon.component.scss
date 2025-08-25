@@ -1,0 +1,29 @@
+.ui-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  flex-shrink: 0;
+
+  // --- Brand Icons (SimpleIcons) ---
+  &--brand {
+    svg {
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+
+  // --- Lucide Icons ---
+  &--lucide {
+    display: inline-flex;
+
+    svg {
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+      min-width: 1em;
+      min-height: 1em;
+    }
+  }
+}

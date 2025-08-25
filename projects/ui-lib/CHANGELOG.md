@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.9.0] - 2025-08-25
+### Added
+- Import swiper.js + create swiper directive
+- Add social-footer component
+- Add stories for social-footer
+- Add mapper for social-footer
+- Import Lucide + create icon module
+- Import SimpleIcons
+- Create Ui Icon shared component
+
 ## [0.8.0] - 2025-08-23
 ### Added
 - Add legal-footer component
