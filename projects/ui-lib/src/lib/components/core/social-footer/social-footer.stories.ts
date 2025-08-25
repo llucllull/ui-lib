@@ -6,12 +6,6 @@ export default {
   title: 'Core/SocialFooter',
   component: SocialFooterComponent,
   tags: ['autodocs'],
-  argTypes: {
-    variant: {
-      control: { type: 'select' },
-      options: ['simple', 'extended'],
-    }
-  }
 } as Meta<SocialFooterComponent>;
 
 type Story = StoryObj<SocialFooterComponent>;
