@@ -5,3 +5,6 @@ export * from './lang-modal';
 export * from './header-mobile';
 export * from './section-intro';
 export * from './category-progress';
+export * from './legal-footer';
+export * from './links-footer';
+export * from './social-footer';
