@@ -30,6 +30,13 @@ export class SwiperDirective implements AfterViewInit, OnDestroy {
         prevEl: '.swiper-button-prev',
       },
       pagination: { clickable: true },
+      breakpoints: {
+        0: { slidesPerView: 2 },      // móviles
+        480: { slidesPerView: 3 },    // small tablets
+        768: { slidesPerView: 4 },    // tablets
+        1024: { slidesPerView: 5 },   // laptops
+        1280: { slidesPerView: 6 },   // desktop → máximo 7
+      },
       ...this.swiperConfig,
     });
   }
