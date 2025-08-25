@@ -27,7 +27,7 @@ const brandIcons: Record<string, any> = {
 })
 export class UiIconComponent {
   @Input() name!: string;
-  @Input() size: number | string = 24;
+  @Input() size: number = 24;
   @Input() color: string = 'currentColor';
 
   get isBrandIcon(): boolean {
