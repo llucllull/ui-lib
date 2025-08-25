@@ -1,0 +1,20 @@
+<!-- SimpleIcons -->
+<ng-container *ngIf="isBrandIcon; else lucideIcon">
+  <span
+    class="app-icon app-icon--brand"
+    [innerHTML]="brandSvg"
+    [style.width.px]="size"
+    [style.height.px]="size"
+    [style.fill]="color"
+  ></span>
+</ng-container>
+
+<!-- Lucide -->
+<ng-template #lucideIcon>
+  <lucide-icon
+    class="app-icon app-icon--lucide"
+    [name]="name"
+    [size]="size"
+    [color]="color"
+  ></lucide-icon>
+</ng-template>
