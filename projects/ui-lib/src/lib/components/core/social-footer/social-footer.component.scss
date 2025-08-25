@@ -19,14 +19,13 @@
 
       img {
         display: block;
-        border-radius: 0.75rem; // igual que en la captura
-        width: 160px; // puedes ajustar
+        border-radius: 0.75rem;
+        width: 160px;
         height: auto;
         object-fit: cover;
       }
     }
-
-    // flechas del swiper
+   
     .swiper-button-next,
     .swiper-button-prev {
       color: var(--footer-text, #999);
