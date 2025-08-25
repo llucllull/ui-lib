@@ -8,10 +8,10 @@
       }
     </div>
     <div class="swiper-button-prev">
-      <ui-icon name="arrow-left" size="18" color="#fff"></ui-icon>
+      <ui-icon name="arrow-left" [size]="18" color="#fff"></ui-icon>
     </div>
     <div class="swiper-button-next">
-      <ui-icon name="arrow-right" size="18" color="#fff"></ui-icon>
+      <ui-icon name="arrow-right" [size]="18" color="#fff"></ui-icon>
     </div>    
   </div>
 
@@ -25,7 +25,9 @@
       <div class="social-footer__socials">
         @for (social of socials; track $index) {
           <a [href]="social.url" [attr.aria-label]="social.label" [linkType]="social.linkType">
-            <ui-icon [name]="social.icon" size="28"></ui-icon>
+            @if(social.icon){
+              <ui-icon [name]="social.icon" [size]="28"></ui-icon>
+            }
           </a>
         }
       </div>

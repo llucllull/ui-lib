@@ -31,10 +31,10 @@ export class UiIconComponent {
   @Input() color: string = 'currentColor';
 
   get isBrandIcon(): boolean {
-    return !!brandIcons[this.name?.toLowerCase()];
+    return !!brandIcons[this.name.toLowerCase()];
   }
 
   get brandIcon(): any {
-    return brandIcons[this.name?.toLowerCase()];
+    return brandIcons[this.name.toLowerCase()];
   }
 }
