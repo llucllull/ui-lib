@@ -1,12 +1,12 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { LucideAngularModule } from 'lucide-angular';
 import {
-  siInstagram,
   siFacebook,
+  siInstagram,
   siTiktok,
-  siYoutube,
   siX,
+  siYoutube,
 } from 'simple-icons';
 
 const brandIcons: Record<string, any> = {
@@ -27,7 +27,7 @@ const brandIcons: Record<string, any> = {
 })
 export class UiIconComponent {
   @Input() name!: string;
-  @Input() size: number = 24;
+  @Input() size: number | string = 24;
   @Input() color: string = 'currentColor';
 
   get isBrandIcon(): boolean {
