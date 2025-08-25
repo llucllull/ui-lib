@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
-import { LucideAngularModule, ArrowUpRight } from 'lucide-angular';
+import { LucideAngularModule, ArrowUpRight, ArrowRight, ArrowLeft } from 'lucide-angular';
 
 const icons = {
-  ArrowUpRight 
+  ArrowUpRight,
+  ArrowRight,
+  ArrowLeft, 
 };
 
 @NgModule({
