@@ -14,21 +14,21 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    logo: {\r\n      url: 'https://ujpxanmobdxrwjsndrzq.supabase.co/storage/v1/object/public/branding/logos/logo-primary.svg',\r\n      alt: 'Logo',\r\n    },\r\n    lang: 'ES',\r\n    navItems: [\r\n      { label: 'Menu 1', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 2', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 3', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 4', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 5', url: 'https://www.google.com', linkType: LinkType.External },\r\n    ]\r\n  }\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/ui-lib/src/lib/components/core/category-progress/category-progress.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    pretitle: 'Pretítulo de ejemplo',\r\n    title: 'Título de ejemplo',\r\n    categories: [\r\n      { title: 'Categoria 1', items: \r\n        [\r\n          { label: 'Item 1', value: 75 },\r\n          { label: 'Item 2', value: 35 },\r\n        ]\r\n      },\r\n      { title: 'Categoria 2', items: \r\n        [\r\n          { label: 'Item 1', value: 15 },\r\n          { label: 'Item 2', value: 85 },\r\n        ]\r\n      }\r\n    ]\r\n  }\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    logo: {\r\n      url: 'https://ujpxanmobdxrwjsndrzq.supabase.co/storage/v1/object/public/branding/logos/logo-primary.svg',\r\n      alt: 'Logo',\r\n    },\r\n    lang: 'ES',\r\n    navItems: [\r\n      { label: 'Menu 1', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 2', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 3', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 4', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 5', url: 'https://www.google.com', linkType: LinkType.External },\r\n    ]\r\n  }\r\n}"
             },
             {
                 "name": "Default",
@@ -81,6 +81,16 @@
                 "defaultValue": "{\r\n  args: {\r\n    images: [\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image1',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image2',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image3',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image4',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image5',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image6',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image7',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image8',\r\n      }\r\n    ],\r\n    socials: [\r\n      {\r\n        label: 'Facebook',\r\n        url: 'https://www.facebook.com',\r\n        linkType: LinkType.External,\r\n        icon: 'facebook',\r\n      },\r\n      {\r\n        label: 'Instagram',\r\n        url: 'https://www.instagram.com',\r\n        linkType: LinkType.External,\r\n        icon: 'instagram',\r\n      },\r\n      {\r\n        label: 'X',\r\n        url: 'https://www.x.com',\r\n        linkType: LinkType.External,\r\n        icon: 'twitter',\r\n      },\r\n      {\r\n        label: 'YouTube',\r\n        url: 'https://www.youtube.com',\r\n        linkType: LinkType.External,\r\n        icon: 'youtube',\r\n      },\r\n      {\r\n        label: 'Tiktok',\r\n        url: 'https://www.tiktok.com',\r\n        linkType: LinkType.External,\r\n        icon: 'tiktok',\r\n      },\r\n    ],\r\n    hashtag: '#Hastag',\r\n  }\r\n}"
             },
             {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-lib/src/lib/components/core/visual-footer/visual-footer.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    contactTitle: 'Contacto',\r\n    contactPhone: \r\n      {\r\n        label: '+34 600 000 000',\r\n        url: 'tel:34600000000',\r\n        linkType: LinkType.External,\r\n        icon: '',\r\n      },\r\n    contactEmail:\r\n    {\r\n      label: 'test@test.com',\r\n      url: 'mailto:test@test.com',\r\n      linkType: LinkType.External,\r\n      icon: '',\r\n    },\r\n    addressTitle: 'Dirección',\r\n    address: {\r\n      address: 'Calle Mayor, 15',\r\n      city: 'Madrid',\r\n      country: 'España',\r\n      cp: '28013',\r\n      province: 'Madrid',\r\n    },    \r\n    socialsTitle: 'Redes Sociales',\r\n    socials: [\r\n      {\r\n        label: 'Facebook',\r\n        url: 'https://www.facebook.com',\r\n        linkType: LinkType.External,\r\n        icon: 'facebook',\r\n      },\r\n      {\r\n        label: 'Instagram',\r\n        url: 'https://www.instagram.com',\r\n        linkType: LinkType.External,\r\n        icon: 'instagram',\r\n      },\r\n      {\r\n        label: 'X',\r\n        url: 'https://www.x.com',\r\n        linkType: LinkType.External,\r\n        icon: 'twitter',\r\n      },\r\n      {\r\n        label: 'YouTube',\r\n        url: 'https://www.youtube.com',\r\n        linkType: LinkType.External,\r\n        icon: 'youtube',\r\n      },\r\n      {\r\n        label: 'Tiktok',\r\n        url: 'https://www.tiktok.com',\r\n        linkType: LinkType.External,\r\n        icon: 'tiktok',\r\n      },\r\n    ],\r\n    image: \r\n      {\r\n        url: 'https://placehold.co/1300x870.png',\r\n        alt: 'image',\r\n      },\r\n  }\r\n}"
+            },
+            {
                 "name": "preview",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -97,8 +107,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<HeaderClearComponent>",
-                "file": "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts",
+                "rawtype": "StoryObj<CategoryProgressComponent>",
+                "file": "projects/ui-lib/src/lib/components/core/category-progress/category-progress.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -108,8 +118,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<CategoryProgressComponent>",
-                "file": "projects/ui-lib/src/lib/components/core/category-progress/category-progress.stories.ts",
+                "rawtype": "StoryObj<HeaderClearComponent>",
+                "file": "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -169,22 +179,21 @@
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<VisualFooterComponent>",
+                "file": "projects/ui-lib/src/lib/components/core/visual-footer/visual-footer.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
             }
         ],
         "enumerations": [],
         "groupedVariables": {
-            "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    logo: {\r\n      url: 'https://ujpxanmobdxrwjsndrzq.supabase.co/storage/v1/object/public/branding/logos/logo-primary.svg',\r\n      alt: 'Logo',\r\n    },\r\n    lang: 'ES',\r\n    navItems: [\r\n      { label: 'Menu 1', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 2', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 3', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 4', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 5', url: 'https://www.google.com', linkType: LinkType.External },\r\n    ]\r\n  }\r\n}"
-                }
-            ],
             "projects/ui-lib/src/lib/components/core/category-progress/category-progress.stories.ts": [
                 {
                     "name": "Default",
@@ -195,6 +204,18 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  args: {\r\n    pretitle: 'Pretítulo de ejemplo',\r\n    title: 'Título de ejemplo',\r\n    categories: [\r\n      { title: 'Categoria 1', items: \r\n        [\r\n          { label: 'Item 1', value: 75 },\r\n          { label: 'Item 2', value: 35 },\r\n        ]\r\n      },\r\n      { title: 'Categoria 2', items: \r\n        [\r\n          { label: 'Item 1', value: 15 },\r\n          { label: 'Item 2', value: 85 },\r\n        ]\r\n      }\r\n    ]\r\n  }\r\n}"
+                }
+            ],
+            "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    logo: {\r\n      url: 'https://ujpxanmobdxrwjsndrzq.supabase.co/storage/v1/object/public/branding/logos/logo-primary.svg',\r\n      alt: 'Logo',\r\n    },\r\n    lang: 'ES',\r\n    navItems: [\r\n      { label: 'Menu 1', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 2', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 3', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 4', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 5', url: 'https://www.google.com', linkType: LinkType.External },\r\n    ]\r\n  }\r\n}"
                 }
             ],
             "projects/ui-lib/src/lib/components/core/hero-section/hero-section.stories.ts": [
@@ -257,6 +278,18 @@
                     "defaultValue": "{\r\n  args: {\r\n    images: [\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image1',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image2',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image3',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image4',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image5',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image6',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image7',\r\n      },\r\n      {\r\n        url: 'https://placehold.co/600x400.png',\r\n        alt: 'image8',\r\n      }\r\n    ],\r\n    socials: [\r\n      {\r\n        label: 'Facebook',\r\n        url: 'https://www.facebook.com',\r\n        linkType: LinkType.External,\r\n        icon: 'facebook',\r\n      },\r\n      {\r\n        label: 'Instagram',\r\n        url: 'https://www.instagram.com',\r\n        linkType: LinkType.External,\r\n        icon: 'instagram',\r\n      },\r\n      {\r\n        label: 'X',\r\n        url: 'https://www.x.com',\r\n        linkType: LinkType.External,\r\n        icon: 'twitter',\r\n      },\r\n      {\r\n        label: 'YouTube',\r\n        url: 'https://www.youtube.com',\r\n        linkType: LinkType.External,\r\n        icon: 'youtube',\r\n      },\r\n      {\r\n        label: 'Tiktok',\r\n        url: 'https://www.tiktok.com',\r\n        linkType: LinkType.External,\r\n        icon: 'tiktok',\r\n      },\r\n    ],\r\n    hashtag: '#Hastag',\r\n  }\r\n}"
                 }
             ],
+            "projects/ui-lib/src/lib/components/core/visual-footer/visual-footer.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-lib/src/lib/components/core/visual-footer/visual-footer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    contactTitle: 'Contacto',\r\n    contactPhone: \r\n      {\r\n        label: '+34 600 000 000',\r\n        url: 'tel:34600000000',\r\n        linkType: LinkType.External,\r\n        icon: '',\r\n      },\r\n    contactEmail:\r\n    {\r\n      label: 'test@test.com',\r\n      url: 'mailto:test@test.com',\r\n      linkType: LinkType.External,\r\n      icon: '',\r\n    },\r\n    addressTitle: 'Dirección',\r\n    address: {\r\n      address: 'Calle Mayor, 15',\r\n      city: 'Madrid',\r\n      country: 'España',\r\n      cp: '28013',\r\n      province: 'Madrid',\r\n    },    \r\n    socialsTitle: 'Redes Sociales',\r\n    socials: [\r\n      {\r\n        label: 'Facebook',\r\n        url: 'https://www.facebook.com',\r\n        linkType: LinkType.External,\r\n        icon: 'facebook',\r\n      },\r\n      {\r\n        label: 'Instagram',\r\n        url: 'https://www.instagram.com',\r\n        linkType: LinkType.External,\r\n        icon: 'instagram',\r\n      },\r\n      {\r\n        label: 'X',\r\n        url: 'https://www.x.com',\r\n        linkType: LinkType.External,\r\n        icon: 'twitter',\r\n      },\r\n      {\r\n        label: 'YouTube',\r\n        url: 'https://www.youtube.com',\r\n        linkType: LinkType.External,\r\n        icon: 'youtube',\r\n      },\r\n      {\r\n        label: 'Tiktok',\r\n        url: 'https://www.tiktok.com',\r\n        linkType: LinkType.External,\r\n        icon: 'tiktok',\r\n      },\r\n    ],\r\n    image: \r\n      {\r\n        url: 'https://placehold.co/1300x870.png',\r\n        alt: 'image',\r\n      },\r\n  }\r\n}"
+                }
+            ],
             "projects/ui-lib/.storybook/preview.ts": [
                 {
                     "name": "preview",
@@ -273,19 +306,6 @@
         "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
-            "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<HeaderClearComponent>",
-                    "file": "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "projects/ui-lib/src/lib/components/core/category-progress/category-progress.stories.ts": [
                 {
                     "name": "Story",
@@ -293,6 +313,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<CategoryProgressComponent>",
                     "file": "projects/ui-lib/src/lib/components/core/category-progress/category-progress.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<HeaderClearComponent>",
+                    "file": "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -358,6 +391,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<SocialFooterComponent>",
                     "file": "projects/ui-lib/src/lib/components/core/social-footer/social-footer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/ui-lib/src/lib/components/core/visual-footer/visual-footer.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<VisualFooterComponent>",
+                    "file": "projects/ui-lib/src/lib/components/core/visual-footer/visual-footer.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -513,6 +559,26 @@
             },
             {
                 "filePath": "projects/ui-lib/src/lib/components/core/social-footer/social-footer.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-lib/src/lib/components/core/visual-footer/visual-footer.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-lib/src/lib/components/core/visual-footer/visual-footer.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
