@@ -1,0 +1,30 @@
+.visual-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: stretch;
+  padding: 2rem;
+  background: var(--footer-bg);
+
+  &__texts {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__image {
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      object-fit: cover;
+    }
+  }
+
+  @include respond-max(sm) {
+    grid-template-columns: 1fr;
+    &__image {
+      order: -1; // mapa arriba en móvil
+    }
+  }
+}
