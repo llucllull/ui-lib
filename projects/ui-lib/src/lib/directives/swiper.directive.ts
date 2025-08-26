@@ -23,7 +23,6 @@ export class SwiperDirective implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.swiperInstance = new Swiper(this.el.nativeElement, {
-      slidesPerView: 'auto',
       spaceBetween: 16,
       navigation: {
         nextEl: '.swiper-button-next',
@@ -31,11 +30,11 @@ export class SwiperDirective implements AfterViewInit, OnDestroy {
       },
       pagination: { clickable: true },
       breakpoints: {
-        0: { slidesPerView: 2 },      // móviles
-        480: { slidesPerView: 3 },    // small tablets
-        768: { slidesPerView: 4 },    // tablets
-        1024: { slidesPerView: 5 },   // laptops
-        1280: { slidesPerView: 6 },   // desktop → máximo 7
+        0: { slidesPerView: 1 },      // móviles
+        480: { slidesPerView: 1 },    // small tablets
+        768: { slidesPerView: 3 },    // tablets
+        1024: { slidesPerView: 4 },   // laptops
+        1280: { slidesPerView: 7 },   // desktop → máximo 7
       },
       ...this.swiperConfig,
     });

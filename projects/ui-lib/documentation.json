@@ -14,21 +14,21 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ui-lib/src/lib/components/core/category-progress/category-progress.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    pretitle: 'Pretítulo de ejemplo',\r\n    title: 'Título de ejemplo',\r\n    categories: [\r\n      { title: 'Categoria 1', items: \r\n        [\r\n          { label: 'Item 1', value: 75 },\r\n          { label: 'Item 2', value: 35 },\r\n        ]\r\n      },\r\n      { title: 'Categoria 2', items: \r\n        [\r\n          { label: 'Item 1', value: 15 },\r\n          { label: 'Item 2', value: 85 },\r\n        ]\r\n      }\r\n    ]\r\n  }\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    logo: {\r\n      url: 'https://ujpxanmobdxrwjsndrzq.supabase.co/storage/v1/object/public/branding/logos/logo-primary.svg',\r\n      alt: 'Logo',\r\n    },\r\n    lang: 'ES',\r\n    navItems: [\r\n      { label: 'Menu 1', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 2', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 3', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 4', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 5', url: 'https://www.google.com', linkType: LinkType.External },\r\n    ]\r\n  }\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-lib/src/lib/components/core/category-progress/category-progress.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    pretitle: 'Pretítulo de ejemplo',\r\n    title: 'Título de ejemplo',\r\n    categories: [\r\n      { title: 'Categoria 1', items: \r\n        [\r\n          { label: 'Item 1', value: 75 },\r\n          { label: 'Item 2', value: 35 },\r\n        ]\r\n      },\r\n      { title: 'Categoria 2', items: \r\n        [\r\n          { label: 'Item 1', value: 15 },\r\n          { label: 'Item 2', value: 85 },\r\n        ]\r\n      }\r\n    ]\r\n  }\r\n}"
             },
             {
                 "name": "Default",
@@ -97,8 +97,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<CategoryProgressComponent>",
-                "file": "projects/ui-lib/src/lib/components/core/category-progress/category-progress.stories.ts",
+                "rawtype": "StoryObj<HeaderClearComponent>",
+                "file": "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -108,8 +108,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<HeaderClearComponent>",
-                "file": "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts",
+                "rawtype": "StoryObj<CategoryProgressComponent>",
+                "file": "projects/ui-lib/src/lib/components/core/category-progress/category-progress.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -173,18 +173,6 @@
         ],
         "enumerations": [],
         "groupedVariables": {
-            "projects/ui-lib/src/lib/components/core/category-progress/category-progress.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-lib/src/lib/components/core/category-progress/category-progress.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    pretitle: 'Pretítulo de ejemplo',\r\n    title: 'Título de ejemplo',\r\n    categories: [\r\n      { title: 'Categoria 1', items: \r\n        [\r\n          { label: 'Item 1', value: 75 },\r\n          { label: 'Item 2', value: 35 },\r\n        ]\r\n      },\r\n      { title: 'Categoria 2', items: \r\n        [\r\n          { label: 'Item 1', value: 15 },\r\n          { label: 'Item 2', value: 85 },\r\n        ]\r\n      }\r\n    ]\r\n  }\r\n}"
-                }
-            ],
             "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts": [
                 {
                     "name": "Default",
@@ -195,6 +183,18 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  args: {\r\n    logo: {\r\n      url: 'https://ujpxanmobdxrwjsndrzq.supabase.co/storage/v1/object/public/branding/logos/logo-primary.svg',\r\n      alt: 'Logo',\r\n    },\r\n    lang: 'ES',\r\n    navItems: [\r\n      { label: 'Menu 1', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 2', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 3', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 4', url: 'https://www.google.com', linkType: LinkType.External },\r\n      { label: 'Menu 5', url: 'https://www.google.com', linkType: LinkType.External },\r\n    ]\r\n  }\r\n}"
+                }
+            ],
+            "projects/ui-lib/src/lib/components/core/category-progress/category-progress.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-lib/src/lib/components/core/category-progress/category-progress.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    pretitle: 'Pretítulo de ejemplo',\r\n    title: 'Título de ejemplo',\r\n    categories: [\r\n      { title: 'Categoria 1', items: \r\n        [\r\n          { label: 'Item 1', value: 75 },\r\n          { label: 'Item 2', value: 35 },\r\n        ]\r\n      },\r\n      { title: 'Categoria 2', items: \r\n        [\r\n          { label: 'Item 1', value: 15 },\r\n          { label: 'Item 2', value: 85 },\r\n        ]\r\n      }\r\n    ]\r\n  }\r\n}"
                 }
             ],
             "projects/ui-lib/src/lib/components/core/hero-section/hero-section.stories.ts": [
@@ -273,19 +273,6 @@
         "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
-            "projects/ui-lib/src/lib/components/core/category-progress/category-progress.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<CategoryProgressComponent>",
-                    "file": "projects/ui-lib/src/lib/components/core/category-progress/category-progress.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts": [
                 {
                     "name": "Story",
@@ -293,6 +280,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<HeaderClearComponent>",
                     "file": "projects/ui-lib/src/lib/components/core/header-clear/header-clear.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/ui-lib/src/lib/components/core/category-progress/category-progress.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<CategoryProgressComponent>",
+                    "file": "projects/ui-lib/src/lib/components/core/category-progress/category-progress.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
