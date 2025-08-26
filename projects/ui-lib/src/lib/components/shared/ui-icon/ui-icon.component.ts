@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { LucideAngularModule } from 'lucide-angular';
 import {
   siFacebook,
   siInstagram,
@@ -8,6 +7,7 @@ import {
   siX,
   siYoutube,
 } from 'simple-icons';
+import { IconsModule } from '../../../modules';
 
 const brandIcons: Record<string, any> = {
   instagram: siInstagram,
@@ -21,7 +21,7 @@ const brandIcons: Record<string, any> = {
 @Component({
   selector: 'ui-icon',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule],
+  imports: [CommonModule, IconsModule],
   templateUrl: './ui-icon.component.html',
   styleUrls: ['./ui-icon.component.scss'],
 })

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.9.2] - 2025-08-26
+### Added
+- Fix display lucide icons
+- Update styles for social-footer
+- Add new color variables for footer arrows
+
+## [0.9.1] - 2025-08-26
+### Added
+- Update styles for Storybook
+
 ## [0.9.0] - 2025-08-25
 ### Added
 - Import swiper.js + create swiper directive
