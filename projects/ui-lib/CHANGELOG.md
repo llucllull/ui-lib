@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.10.0] - 2025-08-26
+### Added
+- Add UiLibAddres interface
+- Add visual-footer component
+- Add stories for social-footer
+- Add mapper for social-footer
+- Update light color styles
+
 ## [0.9.2] - 2025-08-26
 ### Added
 - Fix display lucide icons

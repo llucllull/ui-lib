@@ -1,0 +1,46 @@
+<div class="visual-footer">
+  <div class="visual-footer__texts">
+    <div class="visual-footer__contact">
+      @if(contactTitle){
+        <h2 class="title">{{contactTitle}}</h2>
+      }
+      @if(contactPhone){
+        <a [href]="contactPhone.url" [linkType]="contactPhone.linkType" class="btn btn-link">
+          <span>{{contactPhone.label}}</span>
+        </a>
+      }
+      @if(contactEmail){
+        <a [href]="contactEmail.url" [linkType]="contactEmail.linkType" class="btn btn-link">
+          <span>{{contactEmail.label}}</span>
+        </a>
+      }
+    </div>
+    <div class="visual-footer__address">
+      @if(addressTitle){
+        <h2 class="title">{{addressTitle}}</h2>
+      }
+      <p class="text">
+        <span>{{address?.address}}</span>
+        <span>{{address?.cp}} {{address?.city}}</span>
+        <span>{{address?.province}} {{address?.country}}</span>
+      </p>
+    </div>
+    <div class="visual-footer__socials">
+      @if(socialsTitle){
+        <h2 class="title">{{socialsTitle}}</h2>
+      }
+      @if(socials){
+        @for(social of socials; track $index){
+          <a [href]="social.url" [linkType]="social.linkType" class="btn btn-link">
+            <span>{{social.label}}</span>
+          </a>
+        }
+      }
+    </div>
+  </div>
+  <div class="visual-footer__image">
+    @if(image){
+      <img [src]="image.url" [alt]="image.alt" loading="lazy">
+    }
+  </div>
+</div>
