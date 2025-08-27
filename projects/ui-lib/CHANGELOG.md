@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.10.1] - 2025-08-27
+### Added
+- Fix UiIcon import
+
 ## [0.10.0] - 2025-08-26
 ### Added
 - Add UiLibAddres interface
