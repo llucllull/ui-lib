@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.10.2] - 2025-08-27
+### Added
+- Fix LinkTypeDirective import
+
 ## [0.10.1] - 2025-08-27
 ### Added
 - Fix UiIcon import
