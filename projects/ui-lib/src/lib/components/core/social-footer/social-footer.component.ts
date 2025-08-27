@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { UiLibButtonI, UiLibImageI } from '../../../interfaces';
 import { LinkTypeDirective, SwiperDirective } from '../../../directives';
-import { UiIconComponent } from '../../shared';
+import { UiIconComponent } from '../../shared/ui-icon';
 
 @Component({
   selector: 'lib-social-footer',
