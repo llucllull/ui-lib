@@ -12,12 +12,7 @@ describe('DynamicBackgroundComponent', () => {
 
     fixture = TestBed.createComponent(DynamicBackgroundComponent);
     component = fixture.componentInstance;
-
-    spyOn<any>(component as any, 'initScene').and.callFake(() => {});
-    spyOn<any>(component as any, 'animate').and.callFake(() => {});
-    spyOn(window, 'addEventListener').and.callFake(() => {});
-    spyOn(window, 'removeEventListener').and.callFake(() => {});
-
+    
     fixture.detectChanges();
   });
 
@@ -31,14 +26,15 @@ describe('DynamicBackgroundComponent', () => {
   });
 
   it('should call initScene on init (browser only)', () => {
-    const spyInit = spyOn<any>(component as any, 'initScene');
+    const spyInit = spyOn<any>(component as any, 'initScene').and.callFake(() => {});
     component.ngOnInit();
     expect(spyInit).toHaveBeenCalled();
   });
 
-  it('should cancel animation frame on destroy', () => {
+  it('should cancel animation frame on destroy safely', () => {
     const spyCancel = spyOn(window, 'cancelAnimationFrame');
     component['animationId'] = 123;
+    component['renderer'] = { dispose: () => {} } as any; // fake renderer
     component.ngOnDestroy();
     expect(spyCancel).toHaveBeenCalledWith(123);
   });
