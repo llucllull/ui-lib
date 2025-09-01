@@ -42,12 +42,14 @@ export class DynamicBackgroundComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.isBrowser) {
+    if (isPlatformBrowser(this.platformId)) {
       cancelAnimationFrame(this.animationId);
-      this.renderer.dispose();
+      if (this.renderer) {
+        this.renderer.dispose();
+      }
       window.removeEventListener('resize', this.onResize);
     }
-  }
+  }  
 
   private initScene(): void {
     const width = window.innerWidth;
