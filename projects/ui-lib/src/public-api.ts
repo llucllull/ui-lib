@@ -5,6 +5,7 @@
 /* COMPONENTS  */
 export * from './lib/components/core/index';
 export * from './lib/components/shared/index';
+export * from './lib/components/effects/index';
 
 // /*   SERVICES   */
 export * from './lib/services';

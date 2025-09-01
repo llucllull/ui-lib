@@ -91,6 +91,26 @@
                 "defaultValue": "{\r\n  args: {\r\n    contactTitle: 'Contacto',\r\n    contactPhone: \r\n      {\r\n        label: '+34 600 000 000',\r\n        url: 'tel:34600000000',\r\n        linkType: LinkType.External,\r\n        icon: '',\r\n      },\r\n    contactEmail:\r\n    {\r\n      label: 'test@test.com',\r\n      url: 'mailto:test@test.com',\r\n      linkType: LinkType.External,\r\n      icon: '',\r\n    },\r\n    addressTitle: 'Dirección',\r\n    address: {\r\n      address: 'Calle Mayor, 15',\r\n      city: 'Madrid',\r\n      country: 'España',\r\n      cp: '28013',\r\n      province: 'Madrid',\r\n    },    \r\n    socialsTitle: 'Redes Sociales',\r\n    socials: [\r\n      {\r\n        label: 'Facebook',\r\n        url: 'https://www.facebook.com',\r\n        linkType: LinkType.External,\r\n        icon: 'facebook',\r\n      },\r\n      {\r\n        label: 'Instagram',\r\n        url: 'https://www.instagram.com',\r\n        linkType: LinkType.External,\r\n        icon: 'instagram',\r\n      },\r\n      {\r\n        label: 'X',\r\n        url: 'https://www.x.com',\r\n        linkType: LinkType.External,\r\n        icon: 'twitter',\r\n      },\r\n      {\r\n        label: 'YouTube',\r\n        url: 'https://www.youtube.com',\r\n        linkType: LinkType.External,\r\n        icon: 'youtube',\r\n      },\r\n      {\r\n        label: 'Tiktok',\r\n        url: 'https://www.tiktok.com',\r\n        linkType: LinkType.External,\r\n        icon: 'tiktok',\r\n      },\r\n    ],\r\n    image: \r\n      {\r\n        url: 'https://placehold.co/1300x870.png',\r\n        alt: 'image',\r\n      },\r\n  }\r\n}"
             },
             {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-lib/src/lib/components/effects/dynamic-background/dynamic-background.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    props: {},\r\n  }),\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-lib/src/lib/components/effects/dynamic-background/dynamic-background.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<DynamicBackgroundComponent>",
+                "defaultValue": "{\r\n  title: 'Effects/Dynamic Background',\r\n  component: DynamicBackgroundComponent,\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [CommonModule, DynamicBackgroundComponent],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n  parameters: {\r\n    docs: {\r\n      description: {\r\n        component: `Un fondo animado en 3D usando **Three.js**.\r\n        \r\nEste componente renderiza una esfera que se deforma progresivamente con pliegues dinámicos. Perfecto para fondos creativos en portfolios o landings.`,\r\n      },\r\n    },\r\n    layout: 'fullscreen',\r\n  },\r\n}"
+            },
+            {
                 "name": "preview",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -186,6 +206,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<VisualFooterComponent>",
                 "file": "projects/ui-lib/src/lib/components/core/visual-footer/visual-footer.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<DynamicBackgroundComponent>",
+                "file": "projects/ui-lib/src/lib/components/effects/dynamic-background/dynamic-background.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -288,6 +319,28 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  args: {\r\n    contactTitle: 'Contacto',\r\n    contactPhone: \r\n      {\r\n        label: '+34 600 000 000',\r\n        url: 'tel:34600000000',\r\n        linkType: LinkType.External,\r\n        icon: '',\r\n      },\r\n    contactEmail:\r\n    {\r\n      label: 'test@test.com',\r\n      url: 'mailto:test@test.com',\r\n      linkType: LinkType.External,\r\n      icon: '',\r\n    },\r\n    addressTitle: 'Dirección',\r\n    address: {\r\n      address: 'Calle Mayor, 15',\r\n      city: 'Madrid',\r\n      country: 'España',\r\n      cp: '28013',\r\n      province: 'Madrid',\r\n    },    \r\n    socialsTitle: 'Redes Sociales',\r\n    socials: [\r\n      {\r\n        label: 'Facebook',\r\n        url: 'https://www.facebook.com',\r\n        linkType: LinkType.External,\r\n        icon: 'facebook',\r\n      },\r\n      {\r\n        label: 'Instagram',\r\n        url: 'https://www.instagram.com',\r\n        linkType: LinkType.External,\r\n        icon: 'instagram',\r\n      },\r\n      {\r\n        label: 'X',\r\n        url: 'https://www.x.com',\r\n        linkType: LinkType.External,\r\n        icon: 'twitter',\r\n      },\r\n      {\r\n        label: 'YouTube',\r\n        url: 'https://www.youtube.com',\r\n        linkType: LinkType.External,\r\n        icon: 'youtube',\r\n      },\r\n      {\r\n        label: 'Tiktok',\r\n        url: 'https://www.tiktok.com',\r\n        linkType: LinkType.External,\r\n        icon: 'tiktok',\r\n      },\r\n    ],\r\n    image: \r\n      {\r\n        url: 'https://placehold.co/1300x870.png',\r\n        alt: 'image',\r\n      },\r\n  }\r\n}"
+                }
+            ],
+            "projects/ui-lib/src/lib/components/effects/dynamic-background/dynamic-background.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-lib/src/lib/components/effects/dynamic-background/dynamic-background.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    props: {},\r\n  }),\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-lib/src/lib/components/effects/dynamic-background/dynamic-background.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<DynamicBackgroundComponent>",
+                    "defaultValue": "{\r\n  title: 'Effects/Dynamic Background',\r\n  component: DynamicBackgroundComponent,\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [CommonModule, DynamicBackgroundComponent],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n  parameters: {\r\n    docs: {\r\n      description: {\r\n        component: `Un fondo animado en 3D usando **Three.js**.\r\n        \r\nEste componente renderiza una esfera que se deforma progresivamente con pliegues dinámicos. Perfecto para fondos creativos en portfolios o landings.`,\r\n      },\r\n    },\r\n    layout: 'fullscreen',\r\n  },\r\n}"
                 }
             ],
             "projects/ui-lib/.storybook/preview.ts": [
@@ -404,6 +457,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<VisualFooterComponent>",
                     "file": "projects/ui-lib/src/lib/components/core/visual-footer/visual-footer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/ui-lib/src/lib/components/effects/dynamic-background/dynamic-background.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<DynamicBackgroundComponent>",
+                    "file": "projects/ui-lib/src/lib/components/effects/dynamic-background/dynamic-background.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -579,6 +645,36 @@
             },
             {
                 "filePath": "projects/ui-lib/src/lib/components/core/visual-footer/visual-footer.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-lib/src/lib/components/effects/dynamic-background/dynamic-background.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-lib/src/lib/components/effects/dynamic-background/dynamic-background.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-lib/src/lib/components/effects/dynamic-background/dynamic-background.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",

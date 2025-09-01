@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.12.0] - 2025-09-01
+### Added
+- Import three.js
+- Add dynamic-background component
+- Add stories for dynamic-background component
+- Add /effects import to public-api
+
+## [0.11.0] - 2025-08-28
+### Added
+- Add unit tests for ui-lib components
+- Add unit tests step to CI workflow
+
 ## [0.10.2] - 2025-08-27
 ### Added
 - Fix LinkTypeDirective import
