@@ -4,12 +4,15 @@ import {
   Component,
   ElementRef,
   inject,
+  Input,
   OnDestroy,
   OnInit,
   PLATFORM_ID,
   ViewChild,
 } from '@angular/core';
 import * as THREE from 'three';
+import { DynamicEffect } from './effects/dynamic-effect.interface';
+import { EFFECT_REGISTRY, EffectKey } from './effects/effect-registry';
 
 @Component({
   selector: 'lib-dynamic-background',
@@ -22,6 +25,12 @@ import * as THREE from 'three';
 export class DynamicBackgroundComponent implements OnInit, OnDestroy {
   @ViewChild('bgCanvas', { static: true }) canvasRef!: ElementRef<HTMLCanvasElement>;
 
+  @Input() effect: EffectKey = 'sphere-deform';
+  @Input() rotationSpeed = 0.01;
+  @Input() size = 2;
+  @Input() backgroundColor = '#000000';
+  @Input() elementColor?: string;
+
   private readonly platformId = inject(PLATFORM_ID);
   private readonly isBrowser = isPlatformBrowser(this.platformId);
 
@@ -30,82 +39,59 @@ export class DynamicBackgroundComponent implements OnInit, OnDestroy {
   private renderer!: THREE.WebGLRenderer;
   private animationId!: number;
 
-  private sphere!: THREE.Mesh;
-  private time = 0;
+  private currentEffect!: DynamicEffect;
 
   ngOnInit(): void {
     if (this.isBrowser) {
       this.initScene();
+      this.loadEffect();
       this.animate();
       window.addEventListener('resize', this.onResize);
     }
   }
 
   ngOnDestroy(): void {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser) {
       cancelAnimationFrame(this.animationId);
-      if (this.renderer) {
-        this.renderer.dispose();
-      }
+      this.renderer?.dispose();
+      this.currentEffect?.dispose();
       window.removeEventListener('resize', this.onResize);
     }
-  }  
+  }
 
   private initScene(): void {
     const width = window.innerWidth;
     const height = window.innerHeight;
 
     this.scene = new THREE.Scene();
+    this.scene.background = new THREE.Color(this.backgroundColor);
+
     this.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
     this.camera.position.z = 5;
 
     this.renderer = new THREE.WebGLRenderer({
       canvas: this.canvasRef.nativeElement,
-      alpha: true,
       antialias: true,
     });
     this.renderer.setSize(width, height);
 
-    // Luz para dar volumen
     const light = new THREE.DirectionalLight(0xffffff, 1);
     light.position.set(5, 5, 5).normalize();
     this.scene.add(light);
+  }
 
-    // Geometría de esfera con muchos segmentos
-    const geometry = new THREE.SphereGeometry(2, 128, 128);
-
-    // Material con shading visible
-    const material = new THREE.MeshNormalMaterial({ flatShading: true });
-
-    this.sphere = new THREE.Mesh(geometry, material);
-    this.scene.add(this.sphere);
+  private loadEffect(): void {
+    const EffectClass = EFFECT_REGISTRY[this.effect];
+    if (!EffectClass) {
+      throw new Error(`Efecto "${this.effect}" no está registrado en EFFECT_REGISTRY`);
+    }
+    this.currentEffect = new EffectClass(this.size, this.rotationSpeed, this.elementColor);
+    this.currentEffect.init(this.scene, {});
   }
 
   private animate = (): void => {
     this.animationId = requestAnimationFrame(this.animate);
-
-    this.time += 0.02;
-
-    // deformamos vértices
-    const positionAttr = this.sphere.geometry.attributes['position'] as THREE.BufferAttribute;
-    const vertex = new THREE.Vector3();
-
-    for (let i = 0; i < positionAttr.count; i++) {
-      vertex.fromBufferAttribute(positionAttr, i);
-
-      // Distorsión progresiva
-      const offset =
-        Math.sin(vertex.x * 3 + this.time) * 0.2 +
-        Math.cos(vertex.y * 5 + this.time * 0.7) * 0.2;
-
-      vertex.normalize().multiplyScalar(2 + offset);
-
-      positionAttr.setXYZ(i, vertex.x, vertex.y, vertex.z);
-    }
-
-    positionAttr.needsUpdate = true;
-    this.sphere.geometry.computeVertexNormals();
-
+    this.currentEffect.animate();
     this.renderer.render(this.scene, this.camera);
   };
 
