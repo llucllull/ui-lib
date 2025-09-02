@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.12.1] - 2025-09-02
+### Added
+- Update dynamic-background component
+- Update dynamic-background stories
+- Add dynamic effects with SphereDeformEffect and registry
+
 ## [0.12.0] - 2025-09-01
 ### Added
 - Import three.js
