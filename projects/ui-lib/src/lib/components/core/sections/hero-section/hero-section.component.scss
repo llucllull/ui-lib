@@ -1,0 +1,75 @@
+:host {
+  display: flex;
+  flex: 1 1 auto;
+  height: 100%;
+}
+
+.hero-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: 4.5rem;
+  
+  .highlight-text {
+    cursor: help;
+    display: inline;
+    position: relative;
+    z-index: 99;
+    
+    .wave-wrapper {
+      position: absolute;
+      top: 90%;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      z-index: -1;
+    }
+    
+    .wave {
+      position: absolute;
+      background-image: url('../../../../assets/svg/wave-light.svg');
+      background-repeat: repeat-x;
+      background-position-x: 0;
+      background-position-y: 0;
+      top: -1.2rem;
+      opacity: .5;
+      width: 100%;
+      height: 50%;
+    }
+    
+    &:hover .wave {
+      animation: moveWave 5s infinite linear;
+    }
+  }
+  
+  // Responsive breakpoint para hacer salto de línea
+  @media (max-width: 768px) {
+    .highlight-text {
+      display: block;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+@keyframes moveWave {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 100%;
+  }
+}
