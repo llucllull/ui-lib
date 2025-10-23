@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.12.3] - 2025-10-23
+### Added
+- fixes branches
+
 ## [0.12.2] - 2025-10-23
 ### Added
 - refactor components folder and split contents
