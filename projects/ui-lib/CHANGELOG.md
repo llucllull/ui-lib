@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.12.2] - 2025-10-23
+### Added
+- refactor components folder and split contents
+
 ## [0.12.1] - 2025-09-02
 ### Added
 - Update dynamic-background component
