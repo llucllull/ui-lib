@@ -2,7 +2,7 @@ import { SectionIntroComponent } from "./section-intro.component";
 import { Meta, StoryObj } from '@storybook/angular';
 
 export default {
-  title: 'Core/Sections/SectionIntro',
+  title: 'Core/Content/SectionIntro',
   component: SectionIntroComponent,
   tags: ['autodocs']
 } as Meta<SectionIntroComponent>;

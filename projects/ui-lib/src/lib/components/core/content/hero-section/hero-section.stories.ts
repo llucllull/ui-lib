@@ -3,7 +3,7 @@ import { HeroSectionComponent } from "./hero-section.component";
 import { Meta, StoryObj } from '@storybook/angular';
 
 export default {
-  title: 'Core/Sections/HeroSection',
+  title: 'Core/Content/HeroSection',
   component: HeroSectionComponent,
   tags: ['autodocs'],
   argTypes: {
