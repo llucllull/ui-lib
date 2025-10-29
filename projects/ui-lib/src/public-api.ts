@@ -4,8 +4,8 @@
 
 /* COMPONENTS  */
 export * from './lib/components/core/index';
-export * from './lib/components/shared/index';
 export * from './lib/components/effects/index';
+export * from './lib/components/shared/index';
 
 // /*   SERVICES   */
 export * from './lib/services';

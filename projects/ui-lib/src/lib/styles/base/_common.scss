@@ -44,22 +44,22 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  
+
   span {
     font-size: 1rem;
     transition: transform 0.3s ease;
   }
-  
+
   &:hover {
     span {
       transform: translateX(0.3rem);
     }
-    
+
     &::after {
       width: 100%;
     }
   }
-  
+
   &::after {
     content: '';
     position: absolute;

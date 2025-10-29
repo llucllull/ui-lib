@@ -1,23 +1,19 @@
 <div class="section-intro">
-  @if(pretitle){
-    <h2 class="pretitle">{{pretitle}}</h2>
+  @if (pretitle) {
+    <h2 class="pretitle">{{ pretitle }}</h2>
   }
-  @if(title){
-    <h1 class="title">{{title}}</h1>
+  @if (title) {
+    <h1 class="title">{{ title }}</h1>
   }
-  @if(subtitle){
-    <h2 class="subtitle">{{subtitle}}</h2>
+  @if (subtitle) {
+    <h2 class="subtitle">{{ subtitle }}</h2>
   }
-  @if(text){
-    <p class="text">{{text}}</p>
+  @if (text) {
+    <p class="text">{{ text }}</p>
   }
-  @if(button){
-    <a
-      [href]="button.url"
-      [linkType]="button.linkType"
-      class="btn btn-link"
-    >
-      {{button.label}}  
+  @if (button) {
+    <a [href]="button.url" [linkType]="button.linkType" class="btn btn-link">
+      {{ button.label }}
     </a>
   }
 </div>

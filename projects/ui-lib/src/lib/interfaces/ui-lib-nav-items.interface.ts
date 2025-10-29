@@ -1,6 +1,5 @@
-import { LinkType } from "../Enum/link-type.enum";
-import { UiLibButtonI } from "./ui-lib-button.interface";
-import { UiLibImageI } from "./ui-lib-image.interface";
+import { LinkType } from '../Enum/link-type.enum';
+import { UiLibButtonI } from './ui-lib-button.interface';
 
 export interface UiLibNavItemsI {
     label?: string;

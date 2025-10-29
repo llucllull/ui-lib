@@ -6,7 +6,7 @@ import { SphereDeformEffect } from './sphere-deform/sphere-deform.effect';
 export type EffectKey = 'sphere-deform' | 'ring-transform' | 'particles';
 
 export const EFFECT_REGISTRY: Partial<Record<EffectKey, new (...args: any[]) => DynamicEffect>> = {
-  'sphere-deform': SphereDeformEffect,
-  // 'ring-transform': RingTransformEffect,
-  // 'particles': ParticlesEffect,
+    'sphere-deform': SphereDeformEffect,
+    // 'ring-transform': RingTransformEffect,
+    // 'particles': ParticlesEffect,
 };

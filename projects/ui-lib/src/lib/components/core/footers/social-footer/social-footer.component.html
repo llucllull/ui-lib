@@ -12,7 +12,7 @@
     </div>
     <div class="swiper-button-next">
       <ui-icon name="arrow-right" [size]="18" color="#fff"></ui-icon>
-    </div>    
+    </div>
   </div>
 
   <div class="social-footer__bottom-section">
@@ -25,7 +25,7 @@
       <div class="social-footer__socials">
         @for (social of socials; track $index) {
           <a [href]="social.url" [attr.aria-label]="social.label" [linkType]="social.linkType">
-            @if(social.icon){
+            @if (social.icon) {
               <ui-icon [name]="social.icon" [size]="28"></ui-icon>
             }
           </a>

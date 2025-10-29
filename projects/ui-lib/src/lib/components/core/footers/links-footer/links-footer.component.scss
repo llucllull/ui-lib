@@ -12,9 +12,9 @@
 
     li {
       position: relative;
-      
+
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         display: block;
         height: 15px;

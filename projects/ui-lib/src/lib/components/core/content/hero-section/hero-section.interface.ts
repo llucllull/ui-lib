@@ -1,4 +1,4 @@
-import { UiLibButtonI } from "../../../../interfaces";
+import { UiLibButtonI } from '../../../../interfaces';
 
 export interface HeroSectionI {
     pretitle?: string;

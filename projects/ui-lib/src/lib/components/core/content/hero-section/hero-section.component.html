@@ -27,7 +27,8 @@
     <div class="buttons">
       @for (button of buttons; track $index) {
         <a class="btn btn-link" [href]="button.url" [linkType]="button.linkType">
-          <span>{{ button.icon }}</span>{{ button.label }}
+          <span>{{ button.icon }}</span>
+          {{ button.label }}
         </a>
       }
     </div>

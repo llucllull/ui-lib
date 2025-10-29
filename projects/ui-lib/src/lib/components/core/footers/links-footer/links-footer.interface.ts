@@ -1,5 +1,5 @@
-import { UiLibButtonI } from "../../../../interfaces";
+import { UiLibButtonI } from '../../../../interfaces';
 
 export interface LinksFooterI {
-  links?: UiLibButtonI;
+    links?: UiLibButtonI;
 }

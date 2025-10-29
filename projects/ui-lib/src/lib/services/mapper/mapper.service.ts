@@ -14,9 +14,7 @@ export class MapperService {
         }
 
         return body
-            .filter(
-                (component) => component && component.name && component.props
-            )
+            .filter((component) => component && component.name && component.props)
             .map((component) => {
                 const name = component.name.toLowerCase();
                 const mapper = componentMappers[name];
@@ -31,10 +29,7 @@ export class MapperService {
                     try {
                         mapped.props = mapper(component.props) as T;
                     } catch (e) {
-                        console.error(
-                            `Error mapping props for component "${name}"`,
-                            e
-                        );
+                        console.error(`Error mapping props for component "${name}"`, e);
                     }
                 } else {
                     console.warn(`No mapper found for component "${name}"`);

@@ -1,2 +1,1 @@
-export interface LangModalI {
-}
+export interface LangModalI {}

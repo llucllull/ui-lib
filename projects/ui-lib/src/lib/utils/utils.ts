@@ -12,7 +12,7 @@ export function mapButtons(data: any): UiLibButtonI[] {
                 url: item.url ?? '#',
                 linkType: item.link_type ?? 'none',
                 icon: item.icon,
-            })
+            }),
         );
 }
 

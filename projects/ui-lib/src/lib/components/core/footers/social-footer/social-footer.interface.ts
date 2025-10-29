@@ -1,4 +1,4 @@
-import { UiLibButtonI, UiLibImageI } from "../../../../interfaces";
+import { UiLibButtonI, UiLibImageI } from '../../../../interfaces';
 
 export interface SocialFooterI {
     images?: UiLibImageI[];

@@ -2,7 +2,10 @@
   <a [href]="homeLink?.url" [linkType]="homeLink?.linkType">
     <div class="header-logo">
       <!-- Logo -->
-      <img [src]="currentTheme === 'dark' ? logoDark?.url : logo?.url" [alt]="currentTheme === 'dark' ? logoDark?.alt : logo?.alt" />
+      <img
+        [src]="currentTheme === 'dark' ? logoDark?.url : logo?.url"
+        [alt]="currentTheme === 'dark' ? logoDark?.alt : logo?.alt"
+      />
       <span>LLUC LLULL</span>
     </div>
   </a>
@@ -19,7 +22,7 @@
   <!-- Icono de tema -->
   <div class="center">
     <button class="btn btn-primary" (click)="toggleTheme()">
-      <span>{{getThemeIcon()}}</span>
+      <span>{{ getThemeIcon() }}</span>
     </button>
   </div>
 
@@ -31,12 +34,10 @@
   </div>
 </div>
 
-
-@if(isMenuOpen && navItems && navItems.length > 0) {
+@if (isMenuOpen && navItems && navItems.length > 0) {
   <lib-nav-modal
     [navItems]="navItems"
     [socialItems]="socialItems"
     (close)="isMenuOpen = false"
   ></lib-nav-modal>
 }
-

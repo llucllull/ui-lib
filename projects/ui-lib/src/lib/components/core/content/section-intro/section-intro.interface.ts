@@ -1,3 +1,1 @@
-export interface SectionIntroI {
-  
-}
+export interface SectionIntroI {}
