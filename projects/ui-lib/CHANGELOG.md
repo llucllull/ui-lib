@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.12.5] - 2025-10-29
+### Added
+- add format command scripts to package.json
+
+### Changed
+- format all files
+
 ## [0.12.4] - 2025-10-29
 ### Added
 - add prettier config and plugins setup
