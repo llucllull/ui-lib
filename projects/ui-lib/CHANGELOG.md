@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.12.4] - 2025-10-29
+### Added
+- add prettier config and plugins setup
+
 ## [0.12.3] - 2025-10-23
 ### Added
 - fixes branches
