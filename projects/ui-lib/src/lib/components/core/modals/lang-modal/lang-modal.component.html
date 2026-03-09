@@ -2,7 +2,7 @@
   <button (click)="closeModal()" class="close-btn">✕</button>
   @if (langs && langs.length > 0) {
     <ol>
-      @for (lang of langs; track $index) {
+      @for (lang of langs; track lang.id) {
         <li (click)="selectLang(lang)">
           <span class="modal-item">{{ lang.label }}</span>
         </li>

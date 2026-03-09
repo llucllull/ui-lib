@@ -2,6 +2,7 @@ export interface BodyComponent<T> {
     name: string;
     order?: number;
     props: T;
+    events?: Record<string, (...args: any[]) => void>;
 }
 export interface PageComponent {
     id: number;

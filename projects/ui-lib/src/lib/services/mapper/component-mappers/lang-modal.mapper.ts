@@ -1,15 +1,13 @@
-export const mapLangModal = (props: any[], currentLang: string = 'es') => {
-    const safeProps = Array.isArray(props) ? props : [];
-    const allTranslations = safeProps.flatMap((lang) =>
-        Array.isArray(lang.lang_translations) ? lang.lang_translations : [],
-    );
-    return safeProps.map((lang: any) => {
-        const found = allTranslations.find(
-            (t: any) => t.lang_code === lang.code && t.target_lang_code === currentLang,
-        );
-        const label = found?.label || lang.code;
+import { UiLibLangItemI } from "../../../interfaces";
+
+export const mapLangModal = (langs: any[], currentLang: string = 'es'): UiLibLangItemI[] => {
+    if (!Array.isArray(langs)) return [];
+
+    return langs.map((lang, index) => {
+        const label = lang.labels?.[currentLang] || lang.labels?.[lang.code] || lang.code;
+
         return {
-            id: lang.id,
+            id: lang.id ?? index,
             code: lang.code,
             label,
         };
