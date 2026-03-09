@@ -1,18 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { siFacebook, siInstagram, siTiktok, siX, siYoutube } from 'simple-icons';
-import { IconsModule } from '../../../modules';
-
 import type { SimpleIcon } from 'simple-icons';
-
-const brandIcons: Record<string, SimpleIcon> = {
-    instagram: siInstagram,
-    facebook: siFacebook,
-    tiktok: siTiktok,
-    youtube: siYoutube,
-    twitter: siX,
-    x: siX,
-};
+import * as simpleIcons from 'simple-icons';
+import { IconsModule } from '../../../modules';
 
 @Component({
     selector: 'ui-icon',
@@ -23,18 +13,29 @@ const brandIcons: Record<string, SimpleIcon> = {
 })
 export class UiIconComponent {
     @Input() name!: string;
-    @Input() size: number = 24;
-    @Input() color: string = 'currentColor';
+    @Input() size = 24;
+    @Input() color = 'currentColor';
 
-    private get iconKey(): string {
-        return this.name?.toLowerCase() ?? '';
+    private icon?: SimpleIcon | null;
+
+    ngOnChanges() {
+        this.icon = this.resolveBrandIcon();
     }
 
     get isBrandIcon(): boolean {
-        return !!brandIcons[this.iconKey];
+        return !!this.icon;
     }
 
-    get brandIcon(): SimpleIcon | undefined {
-        return brandIcons[this.iconKey];
+    get brandIcon(): SimpleIcon | null {
+        return this.icon ?? null;
+    }
+
+    private resolveBrandIcon(): SimpleIcon | null {
+        if (!this.name) return null;
+
+        const key =
+            'si' + this.name.replace(/[^a-z0-9]/gi, '').replace(/^\w/, (c) => c.toUpperCase());
+
+        return (simpleIcons as any)[key] ?? null;
     }
 }
