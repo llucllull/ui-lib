@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.13.0] - 2026-03-09
+### Added
+- add CDN_BASE_URL injection token and update image mapping logic
+- add dynamic background component with effects and swiper directive to its own ng-package
+
+### Changed
+- reorganize package.json dependencies and remove duplicates
+
 ## [0.12.5] - 2025-10-29
 ### Added
 - add format command scripts to package.json
