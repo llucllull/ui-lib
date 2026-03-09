@@ -1,5 +1,6 @@
 import { inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { BodyComponent } from '../../interfaces/page-config.interface';
+import { CDN_BASE_URL } from './cdn.token';
 import { componentMappers } from './component-mappers';
 
 @Injectable({
@@ -7,6 +8,7 @@ import { componentMappers } from './component-mappers';
 })
 export class MapperService {
     private platformId = inject(PLATFORM_ID);
+    private cdn = inject(CDN_BASE_URL);
 
     mapComponents<T>(body: any[]): BodyComponent<T>[] {
         if (!body || body.length === 0) {
@@ -27,7 +29,7 @@ export class MapperService {
 
                 if (mapper) {
                     try {
-                        mapped.props = mapper(component.props) as T;
+                        mapped.props = mapper(component.props, this.cdn) as T;
                     } catch (e) {
                         console.error(`Error mapping props for component "${name}"`, e);
                     }

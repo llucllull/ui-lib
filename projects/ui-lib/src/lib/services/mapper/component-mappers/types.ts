@@ -1,1 +1,1 @@
-export type ComponentMapperFn<T = any> = (props: any) => T;
+export type ComponentMapperFn = (props: any, cdn?: string) => any;

@@ -1,7 +1,5 @@
-import { inject } from '@angular/core';
 import { UiLibButtonI } from '../interfaces/ui-lib-button.interface';
 import { UiLibImageI } from '../interfaces/ui-lib-image.interface';
-import { CDN_BASE_URL } from '../services/mapper/cdn.token';
 
 export function mapButtons(data: any): UiLibButtonI[] {
     if (!Array.isArray(data)) return [];
@@ -18,10 +16,8 @@ export function mapButtons(data: any): UiLibButtonI[] {
         );
 }
 
-export function mapImage(data: any): UiLibImageI | null {
+export function mapImage(data: any, cdn?: string): UiLibImageI | null {
     if (!data || typeof data !== 'object') return null;
-
-    const cdn = inject(CDN_BASE_URL, { optional: true });
 
     const src = data.url ?? data.src ?? '';
 
@@ -34,18 +30,16 @@ export function mapImage(data: any): UiLibImageI | null {
     };
 }
 
-export function mapImageOrGallery(data: any): UiLibImageI[] {
+export function mapImageOrGallery(data: any, cdn?: string): UiLibImageI[] {
     if (!data) return [];
 
-    // Si es array → galería
     if (Array.isArray(data)) {
         return data
             .filter((img) => img && typeof img === 'object')
-            .map((img) => mapImage(img)!)
+            .map((img) => mapImage(img, cdn)!)
             .filter(Boolean);
     }
 
-    // Si es objeto → imagen única
-    const single = mapImage(data);
+    const single = mapImage(data, cdn);
     return single ? [single] : [];
 }

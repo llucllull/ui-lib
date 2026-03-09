@@ -9,7 +9,7 @@ import { mapSectionIntro } from './section-intro.mapper';
 import { mapSocialFooter } from './social-footer.mapper';
 import { mapVisualFooter } from './visual-footer.mapper';
 
-export const componentMappers: Record<string, (props: any) => any> = {
+export const componentMappers: Record<string, (props: any, cdn?: string) => any> = {
     'hero-section': mapHeroSection,
     'header-clear': mapHeaderClear,
     'nav-modal': mapNavModal,
