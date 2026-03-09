@@ -1,5 +1,7 @@
+import { inject } from '@angular/core';
 import { UiLibButtonI } from '../interfaces/ui-lib-button.interface';
 import { UiLibImageI } from '../interfaces/ui-lib-image.interface';
+import { CDN_BASE_URL } from '../services/mapper/cdn.token';
 
 export function mapButtons(data: any): UiLibButtonI[] {
     if (!Array.isArray(data)) return [];
@@ -19,8 +21,12 @@ export function mapButtons(data: any): UiLibButtonI[] {
 export function mapImage(data: any): UiLibImageI | null {
     if (!data || typeof data !== 'object') return null;
 
+    const cdn = inject(CDN_BASE_URL, { optional: true });
+
+    const src = data.url ?? data.src ?? '';
+
     return {
-        url: data.src ?? '',
+        url: src.startsWith('http') ? src : (cdn ?? '') + src,
         alt: data.alt ?? '',
         width: data.width,
         height: data.height,
