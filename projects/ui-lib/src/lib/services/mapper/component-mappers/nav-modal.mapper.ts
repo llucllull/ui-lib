@@ -1,56 +1,32 @@
 import { UiLibNavItemsI, UiLibSocialItemsI } from '../../../interfaces';
 
-// helpers
-const isArray = Array.isArray;
-const isHttp = (u?: string | null) => !!u && /^https?:\/\//i.test(u ?? '');
+export const mapNavModal = (navigation: any, lang: string): UiLibNavItemsI[] => {
+    if (!navigation?.items || !Array.isArray(navigation.items)) return [];
 
-export const mapNavModalWithLang = (props: any[], _langCode: string): UiLibNavItemsI[] =>
-    mapNavModal(props);
+    return navigation.items.map((item: any) => {
+        const slug = item.slug;
 
-export const mapNavModal = (props: any[]): UiLibNavItemsI[] => {
-    if (!isArray(props)) return [];
+        const url = slug === 'home' || slug === '' ? `/${lang}` : `/${lang}/${slug}`;
 
-    return props
-        .map<UiLibNavItemsI | null>((item) => {
-            const link = item?.nav_link ?? {};
-            const url: string | undefined = link.url ?? link.external_url ?? undefined;
-
-            const mapped: UiLibNavItemsI = {
-                label: item?.label ?? link?.name ?? '',
-                url,
-                linkType: link?.linktype,
-                name: link?.name,
-                active: link?.active ?? true,
-                children: isArray(link?.children) ? (link.children as any) : [], // UiLibButtonI[]
-            };
-
-            if (!mapped.label || !mapped.url) return null;
-            return mapped;
-        })
-        .filter((x): x is UiLibNavItemsI => !!x);
+        return {
+            label: item.label?.[lang] ?? item.label?.['es'] ?? slug,
+            url,
+            linkType: 'internal',
+            name: slug,
+            active: true,
+            children: [],
+        };
+    });
 };
 
-export const mapSocialLinks = (props: any[]): UiLibSocialItemsI[] => {
-    if (!isArray(props)) return [];
+export const mapSocialLinks = (navigation: any): UiLibSocialItemsI[] => {
+    if (!navigation?.social || !Array.isArray(navigation.social)) return [];
 
-    return props
-        .map<UiLibSocialItemsI | null>((item) => {
-            const link = item?.nav_link ?? item ?? {};
-            const url: string | undefined = link.url ?? link.external_url ?? undefined;
-
-            const mapped: UiLibSocialItemsI = {
-                label: item?.label ?? link?.name ?? '',
-                url: url ?? '',
-                linkType: link?.linktype ?? (isHttp(url) ? 'external' : 'internal'),
-                icon: (item?.icon ?? link?.icon ?? '') as string,
-                order: item?.order ?? link?.order,
-            };
-
-            if (!mapped.label || !mapped.url) return null;
-
-            if (mapped.icon == null) mapped.icon = '';
-
-            return mapped;
-        })
-        .filter((x): x is UiLibSocialItemsI => !!x);
+    return navigation.social.map((item: any, index: number) => ({
+        label: item.label ?? '',
+        url: item.url ?? '',
+        linkType: item.linkType ?? 'external',
+        icon: item.icon ?? '',
+        order: item.order ?? index,
+    }));
 };

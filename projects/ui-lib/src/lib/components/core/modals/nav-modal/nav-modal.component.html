@@ -1,8 +1,9 @@
 <div class="modal-content">
   <button (click)="closeModal()" class="close-btn">✕</button>
-  @if (navItems && navItems.length > 0) {
+
+  @if (navItems?.length) {
     <ol>
-      @for (item of navItems; track $index) {
+      @for (item of navItems; track item.name) {
         <a [href]="item.url" [linkType]="item.linkType" (click)="closeModal()">
           <li>
             <span class="modal-item">{{ item.label }}</span>
@@ -11,9 +12,10 @@
       }
     </ol>
   }
-  @if (socialItems) {
+
+  @if (socialItems?.length) {
     <div class="buttons">
-      @for (social of socialItems; track $index) {
+      @for (social of socialItems; track social.label) {
         <a class="btn btn-link" [href]="social.url" [linkType]="social.linkType">
           <span>{{ social.icon }}</span>
           {{ social.label }}
