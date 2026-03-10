@@ -75,9 +75,8 @@ export class LinkTypeDirective implements OnInit {
     }
 
     private navigateInternal(url: string) {
-        const cleanedUrl = url.trim().replace(/\/+$/, '');
         this.anchorClicked.emit();
-        this.router.navigateByUrl('/' + cleanedUrl);
+        this.router.navigateByUrl(url);
     }
 
     private openExternal(url: string) {
@@ -115,3 +114,4 @@ export class LinkTypeDirective implements OnInit {
     }
 }
 export { LinkType };
+
