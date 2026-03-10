@@ -4,6 +4,7 @@ import {
     Component,
     EventEmitter,
     Input,
+    OnChanges,
     OnDestroy,
     OnInit,
     Output,
@@ -16,6 +17,7 @@ import {
     UiLibNavItemsI,
     UiLibSocialItemsI,
 } from '../../../../interfaces/ui-lib-nav-items.interface';
+import { mapNavModal } from '../../../../services/mapper/component-mappers/nav-modal.mapper';
 import { Theme, ThemeService } from '../../../../services/theme';
 import { LangModalComponent, NavModalComponent } from '../../modals';
 
@@ -27,17 +29,18 @@ import { LangModalComponent, NavModalComponent } from '../../modals';
     styleUrl: './header-mobile.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderMobileComponent implements OnInit, OnDestroy {
+export class HeaderMobileComponent implements OnInit, OnChanges, OnDestroy {
     isMenuOpen = false;
     currentTheme: Theme = 'light';
     private themeSubscription?: Subscription;
 
     @Input() logo?: UiLibImageI;
     @Input() logoDark?: UiLibImageI;
-    @Input() lang?: string;
     @Input() navItems?: UiLibNavItemsI[];
     @Input() socialItems?: UiLibSocialItemsI[];
     @Input() homeLink?: UiLibButtonI;
+    @Input() navigation: any;
+    @Input() lang: string = 'es';
 
     @Output() langModal = new EventEmitter<void>();
     @Output() theme = new EventEmitter<void>();
@@ -48,6 +51,10 @@ export class HeaderMobileComponent implements OnInit, OnDestroy {
         this.themeSubscription = this.themeService.currentTheme$.subscribe((theme) => {
             this.currentTheme = theme;
         });
+    }
+
+    ngOnChanges() {
+        this.navItems = mapNavModal(this.navigation, this.lang);
     }
 
     ngOnDestroy(): void {
