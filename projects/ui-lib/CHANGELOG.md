@@ -6,9 +6,19 @@ All notable changes to this project will be documented in this file.
 ### Added
 - add CDN_BASE_URL injection token and update image mapping logic
 - add dynamic background component with effects and swiper directive to its own ng-package
+- add missing sass:map import in _mixins.scss
+- implement language mapping in HeaderMobileComponent for improved navigation
 
 ### Changed
-- reorganize package.json dependencies and remove duplicates
+- reorder import statements in social-footer component for clarity
+- correct syntax for map functions in _mixins.scss
+- restore allowedNonPeerDependencies in ng-package.json
+- reorganize package.json dependencies for clarity and consistency
+- update component mappers to include CDN support and refactor mapping functions
+- refactor UiIconComponent to use dynamic icon resolution and remove hardcoded brand icons
+- update lang-modal component and mapper for improved language selection and mapping
+- enhance header-clear and nav-modal components for improved navigation and language handling
+- simplify internal navigation by removing URL cleanup in LinkTypeDirective
 
 ## [0.12.5] - 2025-10-29
 ### Added
