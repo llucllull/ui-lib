@@ -49,6 +49,4 @@ jobs:
                   fi
 
             - name: Publish package
-              run: |
-                  cd dist/ui-lib
-                  npm publish --access public
+              run: npm publish ./dist/ui-lib --access public
