@@ -6,13 +6,19 @@ import { EFFECT_REGISTRY } from './effects/effect-registry';
 
 // Mock renderer (evita WebGL en CI)
 beforeAll(() => {
-    spyOn(THREE, 'WebGLRenderer').and.returnValue({
-        setSize: () => {},
-        setPixelRatio: () => {},
-        render: () => {},
-        dispose: () => {},
-        domElement: document.createElement('canvas'),
-    } as any);
+    const fakeRenderer = function () {
+        return {
+            setSize: () => {},
+            setPixelRatio: () => {},
+            render: () => {},
+            dispose: () => {},
+            domElement: document.createElement('canvas'),
+        };
+    };
+
+    Object.defineProperty(THREE, 'WebGLRenderer', {
+        value: fakeRenderer,
+    });
 });
 
 // Mock de efecto sencillo para testing
