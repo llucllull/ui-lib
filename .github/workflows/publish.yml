@@ -47,6 +47,9 @@ jobs:
                     exit 1
                   fi
 
+            - name: Configure npm registry
+              run: npm config set registry https://registry.npmjs.org/
+
             - name: Publish package
               run: |
                   cd dist/ui-lib
