@@ -9,6 +9,10 @@ jobs:
     publish:
         runs-on: ubuntu-latest
 
+        permissions:
+            id-token: write
+            contents: read
+
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
@@ -29,10 +33,10 @@ jobs:
             - name: Build styles
               run: npm run build-styles
 
-            - name: Build library (ng-packagr)
+            - name: Build library
               run: npx ng-packagr -p projects/ui-lib/ng-package.json
 
-            - name: Copy compiled CSS
+            - name: Copy CSS
               run: |
                   mkdir -p dist/ui-lib/styles
                   cp projects/ui-lib/src/lib/styles/main.css dist/ui-lib/styles/
@@ -44,16 +48,13 @@ jobs:
                     exit 1
                   fi
 
-            - name: Check if version already exists on npm
+            - name: Check version
               run: |
                   VERSION=$(node -p "require('./dist/ui-lib/package.json').version")
-                  if npm view ui-lib@$VERSION version >/dev/null 2>&1; then
-                    echo "⚠️ Version already published"
+                  if npm view @lluc_llull/ui-lib@$VERSION version >/dev/null 2>&1; then
+                    echo "Version already exists"
                     exit 0
                   fi
-
-            - name: Authenticate npm
-              run: npm config set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
 
             - name: Publish package
               run: |
