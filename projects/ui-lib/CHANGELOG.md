@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [0.14.0] - 2026-03-09
 ### Added
 - migrate to Angular 19
+- fix import swiper on link/social footers test
 
 ## [0.13.0] - 2026-03-09
 ### Added
