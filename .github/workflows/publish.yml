@@ -1,4 +1,4 @@
-name: Publish UI Lib
+name: publish.yml
 
 on:
   push:
@@ -63,4 +63,4 @@ jobs:
           fi
 
       - name: Publish to npm
-        run: npm publish ./dist/ui-lib --access public
+        run: npm publish ./dist/ui-lib --access public --provenance
