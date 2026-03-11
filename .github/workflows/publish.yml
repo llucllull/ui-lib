@@ -48,15 +48,7 @@ jobs:
                     exit 1
                   fi
 
-            - name: Check version
-              run: |
-                  VERSION=$(node -p "require('./dist/ui-lib/package.json').version")
-                  if npm view @lluc_llull/ui-lib@$VERSION version >/dev/null 2>&1; then
-                    echo "Version already exists"
-                    exit 0
-                  fi
-
             - name: Publish package
               run: |
                   cd dist/ui-lib
-                  npm publish --access public
+                  npm publish --access public --provenance
