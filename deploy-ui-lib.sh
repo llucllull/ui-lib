@@ -4,7 +4,7 @@
 
 LIB="ui-lib"
 DEST_DIR="../portfoli"
-DEST_DIR_LIB="@llucllull/ui-lib"
+DEST_DIR_LIB="@lluc_llull/ui-lib"
 
 # 0. Compilar CSS (main.css)
 echo -e "\e[34mCompilando main.css...\e[0m"
