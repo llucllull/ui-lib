@@ -1,65 +1,57 @@
 name: Publish Package
 
 on:
-  push:
-    tags:
-      - 'ui-lib-v*'
+    push:
+        tags:
+            - 'ui-lib-v*'
 
 jobs:
-  publish:
-    runs-on: ubuntu-latest
+    publish:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          registry-url: https://registry.npmjs.org/
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  registry-url: https://registry.npmjs.org/
 
-      - name: Clean environment
-        run: |
-          rm -rf node_modules package-lock.json dist
-          npm cache clean --force
+            - name: Clean environment
+              run: |
+                  rm -rf node_modules dist
+                  npm cache clean --force
 
-      - name: Install dependencies
-        run: npm install
+            - name: Install dependencies
+              run: npm ci
 
-      - name: Run unit tests
-        run: npm run test -- --watch=false --browsers=ChromeHeadless --no-sandbox --disable-gpu
+            - name: Run unit tests
+              run: npm run test -- --watch=false --browsers=ChromeHeadless --no-sandbox --disable-gpu
 
-      - name: Build styles (main.css)
-        run: npm run build-styles
+            - name: Build styles (main.css)
+              run: npm run build-styles
 
-      - name: Build package
-        run: npm run build
+            - name: Build package
+              run: npm run build
 
-      - name: Copy compiled CSS to dist
-        run: |
-          mkdir -p dist/ui-lib/styles
-          cp projects/ui-lib/src/lib/styles/main.css dist/ui-lib/styles/
+            - name: Copy compiled CSS to dist
+              run: |
+                  mkdir -p dist/ui-lib/styles
+                  cp projects/ui-lib/src/lib/styles/main.css dist/ui-lib/styles/
 
-      - name: Check if main.css exists in dist
-        run: |
-          if [ ! -f dist/ui-lib/styles/main.css ]; then
-            echo "❌ Error: main.css not found in dist/ui-lib/styles/"
-            exit 1
-          fi
+            - name: Check if main.css exists
+              run: |
+                  if [ ! -f dist/ui-lib/styles/main.css ]; then
+                    echo "❌ main.css missing"
+                    exit 1
+                  fi
 
-      - name: Clean dist package.json lock if exists
-        run: |
-          rm -f dist/package-lock.json || true
-          sed -i '/file:/d' dist/package.json || true || echo "No sed on Windows"
+            - name: Authenticate to npm
+              run: npm config set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
 
-      - name: Authenticate to npm
-        run: npm config set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
-
-      - name: Mostrar contenido de dist
-        run: ls -R dist
-
-      - name: Publish package
-        run: |
-          cd dist/ui-lib
-          npm publish --access public
+            - name: Publish package
+              run: |
+                  cd dist/ui-lib
+                  npm publish --access public
