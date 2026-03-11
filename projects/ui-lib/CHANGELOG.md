@@ -5,8 +5,13 @@ All notable changes to this project will be documented in this file.
 ## [0.14.0] - 2026-03-09
 ### Added
 - migrate to Angular 19
+- add package.json to effects and sliders ng-packages
+
+### Changed
 - fix import swiper on link/social footers test
-- dynamic background tests, add missing icon to icon.module
+- remove dynamic-background tests
+- update test script on package.json
+- update deploy github actions
 
 ## [0.13.0] - 2026-03-09
 ### Added

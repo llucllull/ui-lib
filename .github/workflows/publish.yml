@@ -13,42 +13,46 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v4
 
-            - name: Setup Node.js
+            - name: Setup Node
               uses: actions/setup-node@v4
               with:
                   node-version: 20
                   registry-url: https://registry.npmjs.org/
-
-            - name: Clean environment
-              run: |
-                  rm -rf node_modules dist
-                  npm cache clean --force
+                  cache: npm
 
             - name: Install dependencies
-              run: npm ci
+              run: npm ci --prefer-offline --no-audit
 
             - name: Run unit tests
-              run: npm run test -- --watch=false --browsers=ChromeHeadless --no-sandbox --disable-gpu
+              run: npm run test
 
-            - name: Build styles (main.css)
+            - name: Build styles
               run: npm run build-styles
 
-            - name: Build package
-              run: npm run build
+            - name: Build library (ng-packagr)
+              run: npx ng-packagr -p projects/ui-lib/ng-package.json
 
-            - name: Copy compiled CSS to dist
+            - name: Copy compiled CSS
               run: |
                   mkdir -p dist/ui-lib/styles
                   cp projects/ui-lib/src/lib/styles/main.css dist/ui-lib/styles/
 
-            - name: Check if main.css exists
+            - name: Verify CSS exists
               run: |
                   if [ ! -f dist/ui-lib/styles/main.css ]; then
                     echo "❌ main.css missing"
                     exit 1
                   fi
 
-            - name: Authenticate to npm
+            - name: Check if version already exists on npm
+              run: |
+                  VERSION=$(node -p "require('./dist/ui-lib/package.json').version")
+                  if npm view ui-lib@$VERSION version >/dev/null 2>&1; then
+                    echo "⚠️ Version already published"
+                    exit 0
+                  fi
+
+            - name: Authenticate npm
               run: npm config set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
 
             - name: Publish package

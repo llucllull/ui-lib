@@ -7,7 +7,7 @@
         "start": "ng serve",
         "build": "ng build",
         "watch": "ng build --watch --configuration development",
-        "test": "ng test",
+        "test": "ng test --watch=false --browsers=ChromeHeadless",
         "deploy-local": "sh ./deploy-ui-lib.sh",
         "build-styles": "sass projects/ui-lib/src/lib/styles/main.scss projects/ui-lib/src/lib/styles/main.css",
         "storybook": "npm run build-styles && ng run ui-lib:storybook",
