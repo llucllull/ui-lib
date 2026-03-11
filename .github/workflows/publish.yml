@@ -48,6 +48,11 @@ jobs:
                     exit 1
                   fi
 
+            - name: Remove npm tokens
+              run: |
+                  unset NODE_AUTH_TOKEN
+                  unset NPM_TOKEN
+
             - name: Publish package
               run: |
                   cd dist/ui-lib
