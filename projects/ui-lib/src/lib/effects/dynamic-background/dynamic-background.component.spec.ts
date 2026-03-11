@@ -1,7 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import * as THREE from 'three';
 import { DynamicBackgroundComponent } from './dynamic-background.component';
 import { DynamicEffect } from './effects/dynamic-effect.interface';
 import { EFFECT_REGISTRY } from './effects/effect-registry';
+
+// Mock renderer (evita WebGL en CI)
+beforeAll(() => {
+    spyOn(THREE, 'WebGLRenderer').and.returnValue({
+        setSize: () => {},
+        setPixelRatio: () => {},
+        render: () => {},
+        dispose: () => {},
+        domElement: document.createElement('canvas'),
+    } as any);
+});
 
 // Mock de efecto sencillo para testing
 class MockEffect implements DynamicEffect {
@@ -15,7 +27,6 @@ describe('DynamicBackgroundComponent', () => {
     let fixture: ComponentFixture<DynamicBackgroundComponent>;
 
     beforeEach(async () => {
-        // sustituimos en el registry el efecto real por el mock
         (EFFECT_REGISTRY as any)['sphere-deform'] = MockEffect;
 
         await TestBed.configureTestingModule({
@@ -39,15 +50,18 @@ describe('DynamicBackgroundComponent', () => {
 
     it('should load and init the effect on init', () => {
         const spyInitScene = spyOn<any>(component as any, 'initScene').and.callThrough();
+
         component.ngOnInit();
+
         expect(spyInitScene).toHaveBeenCalled();
-        // verificamos que el mock de efecto se inicializó
         expect((component as any).currentEffect.init).toHaveBeenCalled();
     });
 
     it('should call animate on currentEffect in animation loop', () => {
         const effect = (component as any).currentEffect as MockEffect;
+
         component['animate']();
+
         expect(effect.animate).toHaveBeenCalled();
     });
 
@@ -56,7 +70,7 @@ describe('DynamicBackgroundComponent', () => {
         const spyCancel = spyOn(window, 'cancelAnimationFrame');
 
         component['animationId'] = 123;
-        component['renderer'] = { dispose: () => {} } as any; // fake renderer
+        component['renderer'] = { dispose: () => {} } as any;
 
         component.ngOnDestroy();
 

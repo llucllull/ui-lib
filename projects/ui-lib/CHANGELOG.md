@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - migrate to Angular 19
 - fix import swiper on link/social footers test
+- dynamic background tests, add missing icon to icon.module
 
 ## [0.13.0] - 2026-03-09
 ### Added
