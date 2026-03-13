@@ -4,11 +4,11 @@ import {
     ElementRef,
     EventEmitter,
     HostListener,
-    inject,
     Input,
     OnInit,
     Output,
     PLATFORM_ID,
+    inject,
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { LinkType } from '../Enum/link-type.enum';
@@ -23,95 +23,108 @@ export class LinkTypeDirective implements OnInit {
     @Output() anchorClicked = new EventEmitter<void>();
 
     private readonly platformId = inject(PLATFORM_ID);
+    private readonly isBrowser = isPlatformBrowser(this.platformId);
 
     constructor(
         private readonly router: Router,
-        private readonly elRef: ElementRef,
+        private readonly elRef: ElementRef<HTMLAnchorElement>,
     ) {}
 
     ngOnInit(): void {
-        this.setupLinkAttributes();
+        this.setupAttributes();
     }
 
     @HostListener('click', ['$event'])
     onClick(event: Event): void {
-        if (!this.linkType || !this.href) {
-            this.disableLink();
-            return;
-        }
-
-        event.preventDefault();
+        if (!this.linkType || !this.href) return;
 
         switch (this.linkType) {
             case 'internal':
+                event.preventDefault();
                 this.navigateInternal(this.href);
                 break;
-            case 'external':
-            case 'pdf':
-                this.openExternal(this.href);
-                break;
+
             case 'anchor':
+                event.preventDefault();
                 this.scrollToAnchor(this.href);
                 break;
+
             case 'nolink':
-                this.disableLink();
+                event.preventDefault();
                 break;
+
+            case 'external':
+            case 'pdf':
             default:
-                console.warn(`Unsupported linkType: ${this.linkType}`);
+                break;
         }
     }
 
-    private setupLinkAttributes() {
-        if (!this.linkType || !this.href) {
-            this.disableLink();
+    private setupAttributes(): void {
+        const element = this.elRef.nativeElement;
+        const resolvedHref = this.resolveHref();
+
+        if (!resolvedHref) return;
+
+        element.setAttribute('href', resolvedHref);
+
+        if (this.linkType === 'external' || this.linkType === 'pdf') {
+            element.setAttribute('target', '_blank');
+            element.setAttribute('rel', 'noopener noreferrer nofollow');
+        }
+    }
+
+    private resolveHref(): string {
+        if (!this.href) return '';
+
+        // si ya es absoluta, no tocarla
+        if (this.href.startsWith('/')) {
+            return this.href;
+        }
+
+        if (this.linkType === 'internal') {
+            const lang = this.getCurrentLang();
+            return `/${lang}/${this.href}`;
+        }
+
+        return this.href;
+    }
+
+    private navigateInternal(url: string): void {
+        // si ya es absoluta, navega directamente
+        if (url.startsWith('/')) {
+            this.router.navigateByUrl(url);
             return;
         }
 
-        this.elRef.nativeElement.setAttribute('href', this.href);
+        const lang = this.getCurrentLang();
 
-        if (this.linkType === 'external') {
-            this.elRef.nativeElement.setAttribute('rel', 'nofollow');
-        }
-    }
-
-    private navigateInternal(url: string) {
         this.anchorClicked.emit();
-        this.router.navigateByUrl(url);
+        this.router.navigate(['/', lang, url]);
     }
 
-    private openExternal(url: string) {
-        if (isPlatformBrowser(this.platformId)) {
-            window.open(url, '_blank');
-        }
+    private getCurrentLang(): string {
+        const firstSegment = this.router.url.split('?')[0].split('#')[0].split('/')[1];
+        return firstSegment || 'es';
     }
 
-    private scrollToAnchor(id: string) {
-        if (isPlatformBrowser(this.platformId)) {
-            const el = document.getElementById(id);
-            if (el) {
-                const yOffset = -160;
-                const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
-                window.scrollTo({ top: y, behavior: 'smooth' });
-                this.anchorClicked.emit();
-            } else {
-                console.warn(`Anchor "${id}" not found`);
-            }
-        }
-    }
+    private scrollToAnchor(id: string): void {
+        if (!this.isBrowser) return;
 
-    private disableLink() {
-        const element = this.elRef.nativeElement;
-        const parentLi = element.closest('li');
-        const isInMenu = parentLi?.classList.contains('menu-item-has-children');
+        const cleanId = id.replace(/^#/, '');
+        const el = document.getElementById(cleanId);
+        if (!el) return;
 
-        if (!isInMenu) {
-            element.removeAttribute('href');
-            element.setAttribute('aria-disabled', 'true');
-            element.setAttribute('tabindex', '-1');
-            element.style.cursor = 'default';
-            element.style.pointerEvents = 'none';
-        }
+        const yOffset = -160;
+        const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
+
+        window.scrollTo({
+            top: y,
+            behavior: 'smooth',
+        });
+
+        this.anchorClicked.emit();
     }
 }
-export { LinkType };
 
+export { LinkType };
