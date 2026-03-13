@@ -1,0 +1,27 @@
+<div class="notfound">
+  <div class="notfound__content">
+    @if (title) {
+      <h1 class="notfound__title">{{ title }}</h1>
+    }
+
+    @if (subtitle) {
+      <h2 class="notfound__subtitle">{{ subtitle }}</h2>
+    }
+
+    @if (button) {
+      <a
+        [href]="button.url"
+        [linkType]="button.linkType"
+        class="btn btn-primary btn-primary--outline"
+      >
+        <span>↗</span> {{ button.label }}
+      </a>
+    }
+  </div>
+
+  @if (highlight) {
+    <div class="notfound__highlight">
+      {{ highlight }}
+    </div>
+  }
+</div>

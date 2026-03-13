@@ -1,0 +1,44 @@
+@use '../../../../styles/abstracts' as *;
+
+.notfound {
+  min-height: 100%; // verde del diseño
+  overflow: hidden;
+  padding: 6rem 4rem 0 4rem;
+
+  &__content {
+    max-width: 55rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__title {
+    font-size: 3rem;
+    font-weight: 600;
+    font-family: var(--font-base);
+    margin: 0;
+  }
+
+  &__subtitle {
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1.2;
+    font-family: var(--font-base);
+    padding-block: 0 1rem;
+    margin: 0;
+  }
+
+  &__highlight {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 33%);
+    font-size: 38rem;
+    color: var(--color-primary);
+    font-family: var(--font-titles);
+    z-index: 1;
+    pointer-events: none;
+    @include respond-max(sm) {
+      display: none;
+    }
+  }
+}

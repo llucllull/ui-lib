@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.15.0] - 2026-03-13
+### Added
+- add 404 component with styles, template, and tests
+
 ## [0.14.1] - 2026-03-11
 ### Added
 - update github workflows with npm OIDC github actions
