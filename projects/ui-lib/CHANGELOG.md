@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.14.2] - 2026-03-13
+### Changed
+- update mapButtons util to handle all available linktypes
+- refactor linkType directive to handle all available linktypes
+
 ## [0.14.1] - 2026-03-11
 ### Added
 - update github workflows with npm OIDC github actions
