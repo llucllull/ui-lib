@@ -9,7 +9,7 @@ export function mapButtons(data: any): UiLibButtonI[] {
         .map(
             (item): UiLibButtonI => ({
                 label: item.label ?? '',
-                url: item.url ?? '#',
+                url: item.link_type === 'internal' ? (item.page ?? '') : (item.url ?? ''),
                 linkType: item.link_type ?? 'none',
                 icon: item.icon,
             }),
