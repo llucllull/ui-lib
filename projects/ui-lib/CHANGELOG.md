@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - remove effects directory from public-api export
 - add exclude to stories.ts on building the library
+- update enums import
+- update library main public-api exports
 
 ## [0.15.0] - 2026-03-13
 ### Added
