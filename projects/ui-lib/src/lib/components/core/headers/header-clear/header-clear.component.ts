@@ -17,9 +17,9 @@ import {
     UiLibNavItemsI,
     UiLibSocialItemsI,
 } from '../../../../interfaces';
-import { Theme, ThemeService } from '../../../../services/theme';
-import { LangModalComponent, NavModalComponent } from '../../modals';
 import { mapNavModal } from '../../../../services/mapper/component-mappers/nav-modal.mapper';
+import { Theme, ThemeService } from '../../../../services/theme';
+import { LangModalComponent, NavModalComponent } from '../../modals/public-api';
 
 @Component({
     selector: 'lib-header-clear',
