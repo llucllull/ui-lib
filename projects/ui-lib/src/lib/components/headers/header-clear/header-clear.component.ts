@@ -10,11 +10,11 @@ import {
     Output,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { LinkTypeDirective } from '../../../directives';
-import { UiLibButtonI, UiLibImageI, UiLibNavItemsI, UiLibSocialItemsI } from '../../../interfaces';
+import { LinkTypeDirective } from '@lluc_llull/ui-lib';
+import { UiLibButtonI, UiLibImageI, UiLibNavItemsI, UiLibSocialItemsI } from '@lluc_llull/ui-lib';
 import { mapNavModal } from '../../../services/mapper/component-mappers/nav-modal.mapper';
 import { Theme, ThemeService } from '../../../services/theme';
-import { LangModalComponent, NavModalComponent } from '../../modals/public-api';
+import { LangModalComponent, NavModalComponent } from '@lluc_llull/ui-lib/modals';
 
 @Component({
     selector: 'lib-header-clear',

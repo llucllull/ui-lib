@@ -10,13 +10,9 @@ import {
     Output,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { LinkTypeDirective } from '../../../directives/link-type.directive';
-import { UiLibButtonI } from '../../../interfaces/ui-lib-button.interface';
-import { UiLibImageI } from '../../../interfaces/ui-lib-image.interface';
-import { UiLibNavItemsI, UiLibSocialItemsI } from '../../../interfaces/ui-lib-nav-items.interface';
+import { LinkTypeDirective, UiLibButtonI, UiLibImageI, UiLibNavItemsI, UiLibSocialItemsI, Theme, ThemeService } from '@lluc_llull/ui-lib';
+import { LangModalComponent, NavModalComponent } from '@lluc_llull/ui-lib/modals';
 import { mapNavModal } from '../../../services/mapper/component-mappers/nav-modal.mapper';
-import { Theme, ThemeService } from '../../../services/theme';
-import { LangModalComponent, NavModalComponent } from '../../modals/public-api';
 
 @Component({
     selector: 'lib-header-mobile',
