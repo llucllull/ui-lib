@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 - update library main public-api exports
 - update enums import
 - add exclude to stories.ts on building the library
+- refactor ui-icon component to remove iconModule usage
 
 ### Removed
 - delete icons module
