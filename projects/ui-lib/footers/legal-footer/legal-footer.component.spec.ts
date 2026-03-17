@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { LinkType, LinkTypeDirective } from '../../../../../../directives';
+import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
+import { LinkType } from '@lluc_llull/ui-lib/enums';
 import { LegalFooterComponent } from './legal-footer.component';
 
 describe('LegalFooterComponent', () => {

@@ -19,17 +19,17 @@ import {
 import { Theme, ThemeService } from '@lluc_llull/ui-lib/theme';
 import { Subscription } from 'rxjs';
 import { mapNavModal } from '@lluc_llull/ui-lib/mapper';
-import { LangModalComponent, NavModalComponent } from '../../modals';
+import { LangModalComponent, NavModalComponent } from '@lluc_llull/ui-lib/modals';
 
 @Component({
-    selector: 'lib-header-clear',
+    selector: 'lib-header-mobile',
     standalone: true,
     imports: [CommonModule, LangModalComponent, NavModalComponent, LinkTypeDirective],
-    templateUrl: './header-clear.component.html',
-    styleUrl: './header-clear.component.scss',
+    templateUrl: './header-mobile.component.html',
+    styleUrl: './header-mobile.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderClearComponent implements OnInit, OnDestroy, OnChanges {
+export class HeaderMobileComponent implements OnInit, OnChanges, OnDestroy {
     isMenuOpen = false;
     currentTheme: Theme = 'light';
     private themeSubscription?: Subscription;

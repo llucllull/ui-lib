@@ -1,5 +1,5 @@
-@use '../../../../styles/themes' as *;
-@use '../../../../styles/abstracts' as *;
+@use '../../../ui-lib/src/lib/styles/themes' as *;
+@use '../../../ui-lib/src/lib/styles/abstracts' as *;
 
 .legal-footer {
   font-size: var(--font-size-base);

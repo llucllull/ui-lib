@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { UiLibButtonI, UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
 import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
 import { SwiperDirective } from '@lluc_llull/ui-lib/sliders';
-import { UiIconComponent } from '../../../shared/ui-icon';
+import { UiIconComponent } from '@lluc_llull/ui-lib/shared';
 
 @Component({
     selector: 'lib-social-footer',
