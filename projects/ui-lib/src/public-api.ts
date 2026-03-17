@@ -22,7 +22,4 @@ export * from './lib/Enum';
 // /*   DIRECTIVES   */
 export * from './lib/directives';
 
-// /*   MODULES   */
-export * from './lib/modules';
-
 // export * from './lib/ui-lib.component';

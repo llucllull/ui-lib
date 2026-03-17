@@ -1,6 +1,9 @@
 # Changelog
 
 All notable changes to this project will be documented in this file.
+## [0.15.0] - 2026-03-17
+### Removed
+- remove icon module
 
 ## [0.15.0] - 2026-03-13
 ### Added
