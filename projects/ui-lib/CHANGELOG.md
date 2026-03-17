@@ -8,6 +8,9 @@ All notable changes to this project will be documented in this file.
 - add paths to secondary entry points
 - move effects, sliders, interfaces, directives, services, utils, components and enums outside src to generate the secondary entry points
 
+### Changed
+- update deploy script
+
 ## [0.15.2] - 2026-03-17
 ### Changed
 - rename Enum directory
