@@ -2,9 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 ## [0.15.1] - 2026-03-17
+### Added
+- add icon mock to run test
+
 ### Changed
 - refactor ui-icon component without icon.module
 - exclude '.stories.ts' and '.d.ts' from build
+- refactor socialFooter tests to handle icon mock
 
 ### Removed
 - remove icon module

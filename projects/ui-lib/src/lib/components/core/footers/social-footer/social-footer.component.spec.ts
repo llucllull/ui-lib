@@ -1,9 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { LinkType, LinkTypeDirective } from '../../../../directives';
-import { UiIconComponent } from '../../../shared/ui-icon';
-import { SocialFooterComponent } from './social-footer.component';
 import { SwiperDirective } from '../../../../sliders';
+import { SocialFooterComponent } from './social-footer.component';
+import { UiIconComponent } from '../../../shared/ui-icon/ui-icon.component';
+import { MockUiIconComponent } from '../../../shared/ui-icon/ui-icon.mock';
 
 describe('SocialFooterComponent', () => {
     let component: SocialFooterComponent;
@@ -11,8 +12,17 @@ describe('SocialFooterComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [SocialFooterComponent, LinkTypeDirective, SwiperDirective, UiIconComponent],
-        }).compileComponents();
+            imports: [SocialFooterComponent, LinkTypeDirective, SwiperDirective],
+        })
+            .overrideComponent(SocialFooterComponent, {
+                remove: {
+                    imports: [UiIconComponent],
+                },
+                add: {
+                    imports: [MockUiIconComponent],
+                },
+            })
+            .compileComponents();
 
         fixture = TestBed.createComponent(SocialFooterComponent);
         component = fixture.componentInstance;
