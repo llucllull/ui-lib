@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { LinkType, LinkTypeDirective } from '../../../../directives';
-import { SwiperDirective } from '../../../../sliders/public-api';
+import { UiIconComponent } from '../../../shared/ui-icon';
 import { SocialFooterComponent } from './social-footer.component';
-import { UiIconComponent } from '../../../../shared/public-api';
+import { SwiperDirective } from '../../../../sliders';
 
 describe('SocialFooterComponent', () => {
     let component: SocialFooterComponent;

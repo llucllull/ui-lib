@@ -12,7 +12,6 @@ All notable changes to this project will be documented in this file.
 - update enums import
 - add exclude to stories.ts on building the library
 - refactor ui-icon component to remove iconModule usage
-- fix icon imports on tests
 
 ### Removed
 - delete icons module
