@@ -2,12 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import type { SimpleIcon } from 'simple-icons';
 import * as simpleIcons from 'simple-icons';
-import { IconsModule } from '../../../modules';
+import {LucideAngularModule } from 'lucide-angular';
 
 @Component({
     selector: 'ui-icon',
     standalone: true,
-    imports: [CommonModule, IconsModule],
+    imports: [CommonModule, LucideAngularModule],
     templateUrl: './ui-icon.component.html',
     styleUrls: ['./ui-icon.component.scss'],
 })

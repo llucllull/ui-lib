@@ -1,7 +1,10 @@
 # Changelog
 
 All notable changes to this project will be documented in this file.
-## [0.15.0] - 2026-03-17
+## [0.15.1] - 2026-03-17
+### Changed
+- refactor ui-icon component without icon.module
+
 ### Removed
 - remove icon module
 
