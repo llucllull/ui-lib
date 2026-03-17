@@ -9,17 +9,17 @@ import {
     OnInit,
     Output,
 } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { LinkTypeDirective } from '../../../../directives';
 import {
     UiLibButtonI,
     UiLibImageI,
     UiLibNavItemsI,
     UiLibSocialItemsI,
-} from '../../../../interfaces';
+} from '@lluc_llull/ui-lib/interfaces';
+import { Subscription } from 'rxjs';
+import { LinkTypeDirective } from '../../../../../../directives';
+import { mapNavModal } from '../../../../services/mapper/component-mappers/nav-modal.mapper';
 import { Theme, ThemeService } from '../../../../services/theme';
 import { LangModalComponent, NavModalComponent } from '../../modals';
-import { mapNavModal } from '../../../../services/mapper/component-mappers/nav-modal.mapper';
 
 @Component({
     selector: 'lib-header-clear',

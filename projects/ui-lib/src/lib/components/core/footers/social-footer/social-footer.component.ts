@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { UiLibButtonI, UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
+import { LinkTypeDirective } from '../../../../../../directives';
 import { SwiperDirective } from '../../../../../../sliders/swiper.directive';
-import { LinkTypeDirective } from '../../../../directives';
-import { UiLibButtonI, UiLibImageI } from '../../../../interfaces';
 import { UiIconComponent } from '../../../shared/ui-icon';
 
 @Component({

@@ -1,4 +1,4 @@
-import { UiLibAddressI, UiLibButtonI, UiLibImageI } from '../../../../interfaces';
+import { UiLibAddressI, UiLibButtonI, UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
 
 export interface VisualFooterI {
     contactTitle?: string;

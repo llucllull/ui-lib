@@ -1,4 +1,4 @@
-import { UiLibLangItemI } from "../../../interfaces";
+import { UiLibLangItemI } from '@lluc_llull/ui-lib/interfaces';
 
 export const mapLangModal = (langs: any[], currentLang: string = 'es'): UiLibLangItemI[] => {
     if (!Array.isArray(langs)) return [];

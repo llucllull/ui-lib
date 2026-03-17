@@ -9,14 +9,14 @@ import {
     OnInit,
     Output,
 } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { LinkTypeDirective } from '../../../../directives/link-type.directive';
-import { UiLibButtonI } from '../../../../interfaces/ui-lib-button.interface';
-import { UiLibImageI } from '../../../../interfaces/ui-lib-image.interface';
 import {
+    UiLibButtonI,
+    UiLibImageI,
     UiLibNavItemsI,
     UiLibSocialItemsI,
-} from '../../../../interfaces/ui-lib-nav-items.interface';
+} from '@lluc_llull/ui-lib/interfaces';
+import { Subscription } from 'rxjs';
+import { LinkTypeDirective } from '../../../../../../directives/link-type.directive';
 import { mapNavModal } from '../../../../services/mapper/component-mappers/nav-modal.mapper';
 import { Theme, ThemeService } from '../../../../services/theme';
 import { LangModalComponent, NavModalComponent } from '../../modals';

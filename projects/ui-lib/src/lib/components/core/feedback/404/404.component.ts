@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { LinkTypeDirective } from '../../../../directives';
-import { UiLibButtonI } from '../../../../interfaces';
+import { UiLibButtonI } from '@lluc_llull/ui-lib/interfaces';
+import { LinkTypeDirective } from '../../../../../../directives';
 
 @Component({
     selector: 'lib-404',

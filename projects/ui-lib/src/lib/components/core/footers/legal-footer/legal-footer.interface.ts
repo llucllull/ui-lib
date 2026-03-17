@@ -1,4 +1,4 @@
-import { UiLibButtonI } from '../../../../interfaces';
+import { UiLibButtonI } from '@lluc_llull/ui-lib/interfaces';
 import { LegalFooterVariant } from './legal-footer.component';
 
 export interface LegalFooterI {

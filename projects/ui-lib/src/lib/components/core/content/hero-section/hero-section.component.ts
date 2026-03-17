@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { LinkTypeDirective } from '../../../../directives/link-type.directive';
-import { UiLibButtonI } from '../../../../interfaces/ui-lib-button.interface';
+import { LinkTypeDirective } from '../../../../../../directives/link-type.directive';
+import { UiLibButtonI } from '@lluc_llull/ui-lib/interfaces';
 
 @Component({
     selector: 'lib-hero-section',

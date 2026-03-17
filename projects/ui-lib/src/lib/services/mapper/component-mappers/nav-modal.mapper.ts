@@ -1,4 +1,4 @@
-import { UiLibNavItemsI, UiLibSocialItemsI } from '../../../interfaces';
+import { UiLibNavItemsI, UiLibSocialItemsI } from '@lluc_llull/ui-lib/interfaces';
 
 export const mapNavModal = (navigation: any, lang: string): UiLibNavItemsI[] => {
     if (!navigation?.items || !Array.isArray(navigation.items)) return [];

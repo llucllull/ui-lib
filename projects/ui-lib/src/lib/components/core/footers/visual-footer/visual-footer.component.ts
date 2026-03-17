@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { LinkTypeDirective } from '../../../../directives';
-import { UiLibAddressI, UiLibButtonI, UiLibImageI } from '../../../../interfaces';
+import { UiLibAddressI, UiLibButtonI, UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
+import { LinkTypeDirective } from '../../../../../../directives';
 
 @Component({
     selector: 'lib-visual-footer',

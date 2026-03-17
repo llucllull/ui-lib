@@ -1,5 +1,4 @@
-import { UiLibButtonI } from '../interfaces/ui-lib-button.interface';
-import { UiLibImageI } from '../interfaces/ui-lib-image.interface';
+import { UiLibButtonI, UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
 
 export function mapButtons(data: any): UiLibButtonI[] {
     if (!Array.isArray(data)) return [];

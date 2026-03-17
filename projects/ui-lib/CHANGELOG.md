@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - define enums as secondary entry point
 - add paths to secondary entry points
-- move effects, sliders and enums outside src to generate the secondary entry points
+- move effects, sliders, interfaces, directives and enums outside src to generate the secondary entry points
 
 ## [0.15.2] - 2026-03-17
 ### Changed

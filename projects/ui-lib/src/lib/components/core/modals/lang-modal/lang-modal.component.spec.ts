@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { By } from '@angular/platform-browser';
-import { UiLibLangItemI } from '../../../../interfaces/ui-lib-lang-item.interface';
+import { UiLibLangItemI } from '../../../../../../interfaces/ui-lib-lang-item.interface';
 import { LangModalComponent } from './lang-modal.component';
 
 describe('LangModalComponent', () => {

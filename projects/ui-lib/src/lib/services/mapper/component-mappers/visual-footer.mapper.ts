@@ -1,4 +1,4 @@
-import { UiLibAddressI } from '../../../interfaces';
+import { UiLibAddressI } from '@lluc_llull/ui-lib/interfaces';
 import { mapButtons, mapImage } from '../../../utils/utils';
 import { ComponentMapperFn } from './types';
 

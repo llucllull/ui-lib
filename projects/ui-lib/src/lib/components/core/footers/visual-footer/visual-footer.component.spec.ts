@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { LinkType, LinkTypeDirective } from '../../../../directives';
+import { LinkType, LinkTypeDirective } from '../../../../../../directives';
 import { VisualFooterComponent } from './visual-footer.component';
 
 describe('VisualFooterComponent', () => {

@@ -3,7 +3,7 @@ import {
     UiLibImageI,
     UiLibNavItemsI,
     UiLibSocialItemsI,
-} from '../../../../interfaces';
+} from '@lluc_llull/ui-lib/interfaces';
 
 export interface HeaderClearI {
     logo?: UiLibImageI;

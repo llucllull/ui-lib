@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { LinkType, LinkTypeDirective } from '../../../../directives/link-type.directive';
+import { LinkType, LinkTypeDirective } from '../../../../../../directives/link-type.directive';
 import { NavModalComponent } from './nav-modal.component';
 
 describe('NavModalComponent', () => {

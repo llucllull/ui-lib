@@ -1,4 +1,4 @@
-import { UiLibButtonI } from '../../../../interfaces/ui-lib-button.interface';
+import { UiLibButtonI } from '@lluc_llull/ui-lib/interfaces';
 
 export interface NotFoundI {
     title?: string;

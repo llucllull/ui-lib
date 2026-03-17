@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/angular';
-import { LinkType } from '../../../../directives';
+import { LinkType } from '../../../../../../directives';
 import { VisualFooterComponent } from './visual-footer.component';
 
 export default {

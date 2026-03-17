@@ -1,5 +1,5 @@
 import { inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { BodyComponent } from '../../interfaces/page-config.interface';
+import { BodyComponent } from '@lluc_llull/ui-lib/interfaces';
 import { CDN_BASE_URL } from './cdn.token';
 import { componentMappers } from './component-mappers';
 
