@@ -3,8 +3,8 @@
  */
 
 /* COMPONENTS  */
-// export * from './lib/components/core/index';
-// export * from './lib/components/shared/index';
+export * from './lib/components/core/index';
+export * from './lib/components/shared/index';
 
 // export * from './lib/pipes/index';
 
