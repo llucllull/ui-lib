@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/angular';
-import { LinkType } from '../../../../../../directives';
+import { LinkType } from '@lluc_llull/ui-lib/enums';
 import { LinksFooterComponent } from './links-footer.component';
 
 export default {

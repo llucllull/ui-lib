@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
-import { LinkTypeDirective } from '../../../../../../directives';
-import { ThemeService } from '../../../../../../theme';
+import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
 import { HeaderMobileComponent } from './header-mobile.component';
+import { ThemeService } from '@lluc_llull/ui-lib/theme';
 
 describe('HeaderMobileComponent', () => {
     let component: HeaderMobileComponent;

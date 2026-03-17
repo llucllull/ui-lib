@@ -1,8 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { LinkType, LinkTypeDirective } from '../../../../../../directives';
-import { SwiperDirective } from '../../../../../../sliders';
-import { UiIconComponent } from '../../../shared/ui-icon';
+import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
+import { LinkType } from '@lluc_llull/ui-lib/enums';
+import { SwiperDirective } from '@lluc_llull/ui-lib/sliders';
+import { UiIconComponent } from '@lluc_llull/ui-lib/shared';
 import { LinksFooterComponent } from './links-footer.component';
 
 describe('LinksFooterComponent', () => {

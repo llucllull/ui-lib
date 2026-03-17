@@ -1,9 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { LinkType, LinkTypeDirective } from '../../../../../../directives';
-import { SwiperDirective } from '../../../../../../sliders';
-import { UiIconComponent } from '../../../shared/ui-icon/ui-icon.component';
-import { MockUiIconComponent } from '../../../shared/ui-icon/ui-icon.mock';
+import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
+import { LinkType } from '@lluc_llull/ui-lib/enums';
+import { SwiperDirective } from '@lluc_llull/ui-lib/sliders';
+import { UiIconComponent } from '@lluc_llull/ui-lib/shared';
+import { MockUiIconComponent } from '@lluc_llull/ui-lib/shared';
 import { SocialFooterComponent } from './social-footer.component';
 
 describe('SocialFooterComponent', () => {
