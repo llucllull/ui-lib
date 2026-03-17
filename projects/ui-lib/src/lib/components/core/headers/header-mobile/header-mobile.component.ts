@@ -16,9 +16,9 @@ import {
     UiLibNavItemsI,
     UiLibSocialItemsI,
 } from '@lluc_llull/ui-lib/interfaces';
-import { Subscription } from 'rxjs';
 import { Theme, ThemeService } from '@lluc_llull/ui-lib/theme';
-import { mapNavModal } from '../../../../services/mapper/component-mappers/nav-modal.mapper';
+import { Subscription } from 'rxjs';
+import { mapNavModal } from '@lluc_llull/ui-lib/mapper';
 import { LangModalComponent, NavModalComponent } from '../../modals';
 
 @Component({

@@ -1,3 +1,16 @@
+
+export * from './category-progress.mapper';
+export * from './header-clear.mapper';
+export * from './hero-section.mapper';
+export * from './lang-modal.mapper';
+export * from './legal-footer.mapper';
+export * from './links-footer.mapper';
+export * from './404.mapper';
+export * from './section-intro.mapper';
+export * from './social-footer.mapper';
+export * from './visual-footer.mapper';
+export * from './nav-modal.mapper';
+
 import { mapCategoryProgress } from './category-progress.mapper';
 import { mapHeaderClear } from './header-clear.mapper';
 import { mapHeroSection } from './hero-section.mapper';

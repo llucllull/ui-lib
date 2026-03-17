@@ -1,4 +1,4 @@
-import { mapButtons } from '../../../utils/utils';
+import { mapButtons } from '@lluc_llull/ui-lib/utils';
 import { ComponentMapperFn } from './types';
 
 export const map404: ComponentMapperFn = (props) => ({

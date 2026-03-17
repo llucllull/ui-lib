@@ -1,4 +1,4 @@
-import { mapImage } from '../../../utils/utils';
+import { mapImage } from '@lluc_llull/ui-lib/utils';
 import { mapSocialLinks } from './nav-modal.mapper';
 import { ComponentMapperFn } from './types';
 

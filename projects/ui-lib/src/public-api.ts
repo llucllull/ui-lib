@@ -6,10 +6,6 @@
 // export * from './lib/components/core/index';
 // export * from './lib/components/shared/index';
 
-// /*   SERVICES   */
-// export * from './lib/services';
+// export * from './lib/pipes/index';
 
-// /*   UTILS   */
-export * from './lib/utils';
-
-// export * from './lib/ui-lib.component';
+export * from './lib/ui-lib.component';

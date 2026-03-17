@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Inject, Optional } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { UiLibLangItemI } from '@lluc_llull/ui-lib/interfaces';
-import { mapLangModal } from '../../../../services/mapper/component-mappers/lang-modal.mapper';
+import { mapLangModal } from '@lluc_llull/ui-lib/mapper';
 
 interface LangModalData {
     langs: any[];

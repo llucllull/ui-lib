@@ -1,4 +1,4 @@
-import { mapButtons, mapImage } from '../../../utils/utils';
+import { mapButtons, mapImage } from '@lluc_llull/ui-lib/utils';
 import { ComponentMapperFn } from './types';
 
 export const mapSocialFooter: ComponentMapperFn = (props) => ({
