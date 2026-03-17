@@ -1,59 +1,73 @@
 #!/bin/bash
 
-set -e  # ❗ rompe el script si algo falla (mejor que $?)
+# deploy-ui-lib.sh
 
 LIB="ui-lib"
 DEST_DIR="../portfoli"
-PKG_NAME="@lluc_llull/ui-lib"
+DEST_DIR_LIB="@lluc_llull/ui-lib"
 
-echo -e "\e[34m▶ Compilando estilos...\e[0m"
+# 0. Compilar CSS (main.css)
+echo -e "\e[34mCompilando main.css...\e[0m"
 npm run build-styles
-
-CSS_SRC="projects/$LIB/src/lib/styles/main.css"
-CSS_DEST="dist/$LIB/styles/main.css"
-
-if [ ! -f "$CSS_SRC" ]; then
-  echo -e "\e[31m✖ Error: main.css no existe\e[0m"
+if [ $? -ne 0 ]; then
+  echo -e "\e[31mError: Falló la compilación de estilos (main.css)\e[0m"
   exit 1
 fi
 
-echo -e "\e[32m▶ Construyendo librería...\e[0m"
-ng build $LIB
-
-# Crear carpeta styles en dist
-mkdir -p "dist/$LIB/styles"
-
-echo -e "\e[34m▶ Copiando CSS al dist...\e[0m"
-cp "$CSS_SRC" "$CSS_DEST"
-
-# Verificar dist generado
-if [ ! -d "dist/$LIB" ]; then
-  echo -e "\e[31m✖ Error: dist/$LIB no existe\e[0m"
+# 1. Construir la librería
+echo -e "\e[32mConstruyendo la librería $LIB...\e[0m"
+npm run build
+if [ $? -ne 0 ]; then
+  echo -e "\e[31mError: Falló la construcción de $LIB\e[0m"
   exit 1
 fi
 
-echo -e "\e[34m▶ Verificando entrypoints...\e[0m"
-ls "dist/$LIB"
+# 2. Verificar que main.css exista
+if [ ! -f "projects/$LIB/src/lib/styles/main.css" ]; then
+  echo -e "\e[31mError: main.css no fue generado correctamente\e[0m"
+  exit 1
+fi
 
-# 🔥 OPCIÓN PRO: usar npm pack (evita TODOS los problemas de entrypoints)
-echo -e "\e[32m▶ Generando paquete npm...\e[0m"
-cd "dist/$LIB"
+# 2.1 Crear carpeta styles en dist si no existe
+mkdir -p dist/$LIB/styles
 
-PKG_FILE=$(npm pack)
+# 2.2 Copiar main.css al dist
+echo -e "\e[34mCopiando main.css al dist...\e[0m"
+cp projects/$LIB/src/lib/styles/main.css dist/$LIB/styles/main.css
+
+# 3. Copiar contenido de dist a temporal
+echo -e "\e[32mCopiando build a proyecto destino $DEST_DIR...\e[0m"
+cd dist/"$LIB" || { echo -e "\e[31mError: No se puede acceder a dist/$LIB\e[0m"; exit 1; }
+
+lib_temp=$(mktemp -d)
+cp -r * "$lib_temp"
 cd - > /dev/null
 
+# 4. Verificar que el destino existe
 if [ ! -d "$DEST_DIR" ]; then
-  echo -e "\e[31m✖ Error: destino $DEST_DIR no existe\e[0m"
+  echo -e "\e[31mError: La ruta destino $DEST_DIR no es válida\e[0m"
+  rm -rf "$lib_temp"
   exit 1
 fi
 
-echo -e "\e[32m▶ Instalando librería en proyecto destino...\e[0m"
-cd "$DEST_DIR"
+cd "$DEST_DIR" || { echo -e "\e[31mError: No se puede acceder a $DEST_DIR\e[0m"; rm -rf "$lib_temp"; exit 1; }
 
-# Limpieza segura
-rm -rf node_modules/$PKG_NAME
+# 5. Verificar o crear carpeta node_modules/@lluc_llull/ui-lib
+if [ ! -d node_modules/"$DEST_DIR_LIB" ]; then
+  echo -e "\e[33mDirectorio node_modules/$DEST_DIR_LIB no existe, creándolo...\e[0m"
+  mkdir -p node_modules/"$DEST_DIR_LIB"
+fi
 
-# Instalar paquete correctamente (esto respeta entrypoints 🔥)
-npm install "../ui-lib/dist/$LIB/$PKG_FILE"
+cd node_modules/"$DEST_DIR_LIB" || { echo -e "\e[31mError: No se puede acceder a node_modules/$DEST_DIR_LIB\e[0m"; rm -rf "$lib_temp"; exit 1; }
 
-echo -e "\e[32m✔ Librería instalada correctamente\e[0m"
+# 6. Limpiar y copiar contenido
+echo -e "\e[32mLimpiando directorio de librería antigua...\e[0m"
+rm -rf ./*
+
+echo -e "\e[32mCopiando nueva build...\e[0m"
+cp -r "$lib_temp"/* .
+
+# 7. Limpiar carpeta temporal
+rm -rf "$lib_temp"
+
+echo -e "\e[32m¡Proceso completado con éxito para $LIB en $DEST_DIR!\e[0m"

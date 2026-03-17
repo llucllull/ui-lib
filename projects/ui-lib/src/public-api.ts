@@ -2,6 +2,11 @@
  * Public API Surface of ui-lib
  */
 
+/* COMPONENTS  */
+export * from './lib/components/core/index';
+export * from './lib/effects/index';
+export * from './lib/components/shared/index';
+
 // /*   SERVICES   */
 export * from './lib/services';
 
@@ -12,8 +17,12 @@ export * from './lib/interfaces';
 export * from './lib/utils';
 
 // /*   ENUMS   */
-export * from './lib/enums';
+export * from './lib/Enum';
 
 // /*   DIRECTIVES   */
 export * from './lib/directives';
 
+// /*   MODULES   */
+export * from './lib/modules';
+
+// export * from './lib/ui-lib.component';

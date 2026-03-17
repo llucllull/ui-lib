@@ -2,26 +2,6 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.16.0] - 2026-03-16
-### Add
-- add ng-package and public-api to each component folder to improve tree-shaking
-
-### Changed
-- remove effects directory from public-api export
-- update library main public-api exports
-- update enums import
-- add exclude to stories.ts on building the library
-- refactor ui-icon component to remove iconModule usage
-- fix icon imports on tests
-- change import from index to public-api on effects and sliders
-- move components outside of /core
-- change paths on tsconfig, update tsconfig.lib
-- move ng-packages outside of components directory
-- update deploy script
-
-### Removed
-- delete icons module
-
 ## [0.15.0] - 2026-03-13
 ### Added
 - add 404 component with styles, template, and tests
