@@ -2,10 +2,6 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.15.1] - 2026-03-16
-### Changed
-- remove effects directory from public-api export
-
 ## [0.15.0] - 2026-03-13
 ### Added
 - add 404 component with styles, template, and tests
