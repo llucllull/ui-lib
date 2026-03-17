@@ -1,26 +1,15 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-    "extends": "../../tsconfig.json",
-    "compilerOptions": {
-        "outDir": "../../out-tsc/lib",
-
-        "declaration": true,
-        "declarationMap": true,
-        "inlineSources": true,
-
-        "types": [],
-
-        "target": "ES2022",
-        "module": "ES2022",
-        "moduleResolution": "node",
-
-        "emitDecoratorMetadata": false,
-        "experimentalDecorators": true
-    },
-
-    "angularCompilerOptions": {
-        "compilationMode": "partial",
-        "annotateForClosureCompiler": false
-    },
-
-    "exclude": ["**/*.spec.ts", "**/*.stories.ts", "**/*.test.ts"]
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/lib",
+    "declaration": true,
+    "declarationMap": true,
+    "inlineSources": true,
+    "types": []
+  },
+  "exclude": [
+    "**/*.spec.ts",
+    "**/*.stories.ts"
+  ]
 }
