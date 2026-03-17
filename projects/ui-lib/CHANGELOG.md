@@ -14,6 +14,8 @@ All notable changes to this project will be documented in this file.
 - refactor ui-icon component to remove iconModule usage
 - fix icon imports on tests
 - change import from index to public-api on effects and sliders
+- move components outside of /core
+- change paths on tsconfig, update tsconfig.lib
 
 ### Removed
 - delete icons module
