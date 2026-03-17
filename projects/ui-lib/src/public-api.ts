@@ -4,7 +4,6 @@
 
 /* COMPONENTS  */
 export * from './lib/components/core/index';
-export * from './lib/effects/index';
 export * from './lib/components/shared/index';
 
 // /*   SERVICES   */
@@ -15,9 +14,6 @@ export * from './lib/interfaces';
 
 // /*   UTILS   */
 export * from './lib/utils';
-
-// /*   ENUMS   */
-export * from './lib/Enum';
 
 // /*   DIRECTIVES   */
 export * from './lib/directives';

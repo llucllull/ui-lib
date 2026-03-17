@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [0.15.2] - 2026-03-17
 ### Changed
 - rename Enum directory
+- remove enum and effects from public-api
 
 ## [0.15.1] - 2026-03-17
 ### Added
