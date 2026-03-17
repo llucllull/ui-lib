@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { LinkTypeDirective, UiLibNavItemsI, UiLibSocialItemsI } from '@lluc_llull/ui-lib';
+import { LinkTypeDirective } from '../../../directives/link-type.directive';
+import { UiLibNavItemsI, UiLibSocialItemsI } from '../../../interfaces/ui-lib-nav-items.interface';
 
 @Component({
     selector: 'lib-nav-modal',
