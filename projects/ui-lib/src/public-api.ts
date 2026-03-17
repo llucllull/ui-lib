@@ -17,6 +17,3 @@ export * from './lib/enums';
 // /*   DIRECTIVES   */
 export * from './lib/directives';
 
-// /*   MODULES   */
-export * from './lib/modules';
-
