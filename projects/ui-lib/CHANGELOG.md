@@ -12,6 +12,9 @@ All notable changes to this project will be documented in this file.
 - update enums import
 - add exclude to stories.ts on building the library
 
+### Removed
+- delete icons module
+
 ## [0.15.0] - 2026-03-13
 ### Added
 - add 404 component with styles, template, and tests
