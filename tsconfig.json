@@ -27,6 +27,7 @@
             "@lluc_llull/ui-lib/interfaces": ["projects/ui-lib/interfaces/index.ts"],
             "@lluc_llull/ui-lib/directives": ["projects/ui-lib/directives/index.ts"],
             "@lluc_llull/ui-lib/theme": ["projects/ui-lib/theme/index.ts"],
+            "@lluc_llull/ui-lib/screen-sizer": ["projects/ui-lib/screen-sizer/index.ts"],
         },
         "lib": ["ES2022", "dom"]
     },
