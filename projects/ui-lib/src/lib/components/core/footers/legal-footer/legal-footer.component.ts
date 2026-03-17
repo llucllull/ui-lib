@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { UiLibButtonI } from '@lluc_llull/ui-lib/interfaces';
-import { LinkTypeDirective } from '../../../../../../directives';
+import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
 
 export type LegalFooterVariant = 'simple' | 'extended';
 

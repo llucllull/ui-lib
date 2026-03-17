@@ -16,7 +16,7 @@ import {
     UiLibSocialItemsI,
 } from '@lluc_llull/ui-lib/interfaces';
 import { Subscription } from 'rxjs';
-import { LinkTypeDirective } from '../../../../../../directives';
+import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
 import { mapNavModal } from '../../../../services/mapper/component-mappers/nav-modal.mapper';
 import { Theme, ThemeService } from '../../../../services/theme';
 import { LangModalComponent, NavModalComponent } from '../../modals';

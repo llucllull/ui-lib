@@ -9,13 +9,7 @@
 // /*   SERVICES   */
 export * from './lib/services';
 
-// /*   INTERFACES   */
-// export * from './lib/interfaces';
-
 // /*   UTILS   */
 export * from './lib/utils';
-
-// /*   DIRECTIVES   */
-// export * from './lib/directives';
 
 // export * from './lib/ui-lib.component';

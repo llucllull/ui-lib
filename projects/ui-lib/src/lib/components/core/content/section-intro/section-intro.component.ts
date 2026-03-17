@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
 import { UiLibButtonI } from '@lluc_llull/ui-lib/interfaces';
-import { LinkTypeDirective } from '../../../../../../directives/link-type.directive';
 
 @Component({
     selector: 'lib-section-intro',
