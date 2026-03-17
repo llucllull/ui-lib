@@ -17,6 +17,7 @@ All notable changes to this project will be documented in this file.
 - move components outside of /core
 - change paths on tsconfig, update tsconfig.lib
 - move ng-packages outside of components directory
+- update deploy script
 
 ### Removed
 - delete icons module
