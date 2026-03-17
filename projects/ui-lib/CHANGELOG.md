@@ -16,6 +16,7 @@ All notable changes to this project will be documented in this file.
 - change import from index to public-api on effects and sliders
 - move components outside of /core
 - change paths on tsconfig, update tsconfig.lib
+- move ng-packages outside of components directory
 
 ### Removed
 - delete icons module
