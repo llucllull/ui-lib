@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [0.16.0] - 2026-03-17
 ### Added
 - define enums as secondary entry point
+- add paths to secondary entry points
 
 ## [0.15.2] - 2026-03-17
 ### Changed
