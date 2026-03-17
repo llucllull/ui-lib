@@ -1,4 +1,4 @@
-import { LinkType } from '../enums/link-type.enum';
+import { LinkType } from "@lluc_llull/ui-lib/enums";
 import { UiLibButtonI } from './ui-lib-button.interface';
 
 export interface UiLibNavItemsI {

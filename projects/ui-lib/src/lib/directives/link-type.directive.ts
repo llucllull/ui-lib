@@ -11,7 +11,7 @@ import {
     inject,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { LinkType } from '../enums/link-type.enum';
+import { LinkType } from '@lluc_llull/ui-lib/enums';
 
 @Directive({
     selector: '[linkType]',

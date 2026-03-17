@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { SwiperDirective } from '../../../../../../sliders';
 import { LinkType, LinkTypeDirective } from '../../../../directives';
-import { SwiperDirective } from '../../../../sliders';
-import { SocialFooterComponent } from './social-footer.component';
 import { UiIconComponent } from '../../../shared/ui-icon/ui-icon.component';
 import { MockUiIconComponent } from '../../../shared/ui-icon/ui-icon.mock';
+import { SocialFooterComponent } from './social-footer.component';
 
 describe('SocialFooterComponent', () => {
     let component: SocialFooterComponent;

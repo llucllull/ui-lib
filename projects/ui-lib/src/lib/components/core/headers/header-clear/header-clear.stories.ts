@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/angular';
-import { LinkType } from '../../../../enums/link-type.enum';
+import { LinkType } from "@lluc_llull/ui-lib/enums";
 import { HeaderClearComponent } from './header-clear.component';
 
 export default {
