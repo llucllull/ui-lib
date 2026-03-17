@@ -26,6 +26,7 @@
             "@lluc_llull/ui-lib/effects": ["projects/ui-lib/effects/index.ts"],
             "@lluc_llull/ui-lib/interfaces": ["projects/ui-lib/interfaces/index.ts"],
             "@lluc_llull/ui-lib/directives": ["projects/ui-lib/directives/index.ts"],
+            "@lluc_llull/ui-lib/theme": ["projects/ui-lib/theme/index.ts"],
         },
         "lib": ["ES2022", "dom"]
     },

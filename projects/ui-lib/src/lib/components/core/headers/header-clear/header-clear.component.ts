@@ -9,6 +9,7 @@ import {
     OnInit,
     Output,
 } from '@angular/core';
+import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
 import {
     UiLibButtonI,
     UiLibImageI,
@@ -16,9 +17,8 @@ import {
     UiLibSocialItemsI,
 } from '@lluc_llull/ui-lib/interfaces';
 import { Subscription } from 'rxjs';
-import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
+import { Theme, ThemeService } from '@lluc_llull/ui-lib/theme';
 import { mapNavModal } from '../../../../services/mapper/component-mappers/nav-modal.mapper';
-import { Theme, ThemeService } from '../../../../services/theme';
 import { LangModalComponent, NavModalComponent } from '../../modals';
 
 @Component({

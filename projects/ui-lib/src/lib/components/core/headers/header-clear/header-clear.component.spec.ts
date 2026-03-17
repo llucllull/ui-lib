@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
 import { LinkTypeDirective } from '../../../../../../directives';
-import { ThemeService } from '../../../../services/theme';
+import { ThemeService } from '../../../../../../theme';
 import { HeaderClearComponent } from './header-clear.component';
 
 describe('HeaderClearComponent', () => {

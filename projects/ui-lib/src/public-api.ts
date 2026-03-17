@@ -7,7 +7,7 @@
 // export * from './lib/components/shared/index';
 
 // /*   SERVICES   */
-export * from './lib/services';
+// export * from './lib/services';
 
 // /*   UTILS   */
 export * from './lib/utils';
