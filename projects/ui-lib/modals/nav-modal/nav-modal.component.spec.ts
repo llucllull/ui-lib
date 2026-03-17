@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
-import { LinkType } from 'dist/ui-lib/enums';
+import { LinkType } from '@lluc_llull/ui-lib/enums';
 import { NavModalComponent } from './nav-modal.component';
 
 describe('NavModalComponent', () => {
