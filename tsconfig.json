@@ -21,14 +21,7 @@
         "useDefineForClassFields": false,
         "paths": {
             "@lluc_llull/ui-lib": ["projects/ui-lib/src/public-api.ts"],
-            "@lluc_llull/ui-lib/shared": ["projects/ui-lib/src/lib/shared/public-api.ts"],
-            "@lluc_llull/ui-lib/sliders": ["projects/ui-lib/src/lib/sliders/public-api.ts"],
-            "@lluc_llull/ui-lib/effects": ["projects/ui-lib/src/lib/effects/public-api.ts"],
-            "@lluc_llull/ui-lib/content": ["projects/ui-lib/src/lib/content/public-api.ts"],
-            "@lluc_llull/ui-lib/feedback": ["projects/ui-lib/src/lib/feedback/public-api.ts"],
-            "@lluc_llull/ui-lib/footers": ["projects/ui-lib/src/lib/footers/public-api.ts"],
-            "@lluc_llull/ui-lib/headers": ["projects/ui-lib/src/lib/headers/public-api.ts"],
-            "@lluc_llull/ui-lib/modals": ["projects/ui-lib/src/lib/modals/public-api.ts"]
+            "@lluc_llull/ui-lib/*": ["projects/ui-lib/src/lib/*"]
         },
         "lib": ["ES2022", "dom"]
     },
