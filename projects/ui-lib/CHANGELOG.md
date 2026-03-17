@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.16.0] - 2026-03-16
+## [0.15.1] - 2026-03-16
 ### Add
 - add ng-package and public-api to each component folder to improve tree-shaking
 
@@ -13,7 +13,6 @@ All notable changes to this project will be documented in this file.
 - add exclude to stories.ts on building the library
 - refactor ui-icon component to remove iconModule usage
 - fix icon imports on tests
-- change import from index to public-api on effects and sliders
 
 ### Removed
 - delete icons module
