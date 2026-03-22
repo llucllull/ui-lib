@@ -2,9 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.17.0] - 2026-03-22
-### Changed
+## [0.17.1] - 2026-03-22
+### Added
 - add --font-title-home to style variables
+
+### Changed
+- change styles on heroSection font
 
 ## [0.17.0] - 2026-03-22
 ### Changed

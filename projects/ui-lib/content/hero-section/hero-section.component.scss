@@ -14,6 +14,14 @@
   padding: 2rem;
 }
 
+.text,
+.btn-link {
+  font-size: 1.3rem;
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
+}
+
 .buttons {
   display: flex;
   flex-wrap: wrap;
@@ -21,18 +29,32 @@
 }
 
 .title {
-  text-transform: uppercase;
-  font-size: 4.5rem;
+  font-size: 4rem;
+  font-family: var(--font-title-home);
+  font-weight: 200;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.85;
+  @media (max-width: 768px) {
+    font-size: 3rem;
+  }
 
   .highlight-text {
+    font-size: 11.25rem;
     cursor: help;
-    display: inline;
+    display: block;
     position: relative;
     z-index: 99;
+    width: fit-content;
+    @media (max-width: 768px) {
+      font-size: 8.25rem;
+    }
 
     .wave-wrapper {
       position: absolute;
-      top: 90%;
+      top: 97%;
       left: 0;
       width: 100%;
       height: 30px;
@@ -49,6 +71,11 @@
       opacity: 0.5;
       width: 100%;
       height: 50%;
+      @media (max-width: 768px) {
+        width: 70%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
 
     &:hover .wave {
