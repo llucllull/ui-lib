@@ -33,7 +33,7 @@ ol {
   margin: 0;
   text-align: center;
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
   list-style: none;
   counter-reset: item;
 }
@@ -47,4 +47,11 @@ li {
 
 li::before {
   content: counter(item, decimal-leading-zero) '. ';
+}
+
+.modal-item {
+  font-size: 3.5rem;
+  @media (max-width: 768px) {
+    font-size: 3rem;
+  }
 }

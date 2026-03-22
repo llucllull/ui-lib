@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 - change styles on heroSection font
+- improve styles on responsive on modals
 
 ## [0.17.0] - 2026-03-22
 ### Changed
