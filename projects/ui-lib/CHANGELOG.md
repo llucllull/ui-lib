@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.17.3] - 2026-03-22
+### Changed
+- update styles wave on hero-section
+
 ## [0.17.2] - 2026-03-22
 ### Changed
 - update styles 404 page
