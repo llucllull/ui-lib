@@ -2,6 +2,44 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.17.0] - 2026-03-22
+### Changed
+- refactor all injects and locate them on constructors
+
+## [0.16.2] - 2026-03-22
+### Changed
+- undo changes on deploy script
+
+## [0.16.1] - 2026-03-22
+### Changed
+- change sourceRoot to handle testing
+
+## [0.16.0] - 2026-03-17
+### Added
+- define enums as secondary entry point
+- add paths to secondary entry points
+- move effects, sliders, interfaces, directives, services, utils, components and enums outside src to generate the secondary entry points
+
+### Changed
+- update deploy script
+
+## [0.15.2] - 2026-03-17
+### Changed
+- rename Enum directory
+- remove enum and effects from public-api
+
+## [0.15.1] - 2026-03-17
+### Added
+- add icon mock to run test
+
+### Changed
+- refactor ui-icon component without icon.module
+- exclude '.stories.ts' and '.d.ts' from build
+- refactor socialFooter tests to handle icon mock
+
+### Removed
+- remove icon module
+
 ## [0.15.0] - 2026-03-13
 ### Added
 - add 404 component with styles, template, and tests

@@ -1,0 +1,107 @@
+@use '../../../ui-lib/src/lib/styles/themes' as *;
+@use '../../../ui-lib/src/lib/styles/abstracts' as *;
+
+.social-footer {
+  padding: 2rem 1rem;
+  text-align: center;
+
+  &__slider-images {
+    margin: 0 4rem 2rem 4rem;
+    position: relative;
+
+    .swiper-wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    .swiper-slide {
+      flex: 0 0 auto;
+      width: auto;
+
+      img {
+        display: block;
+        border-radius: 0.75rem;
+        width: 160px;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--footer-arrows-bg);
+      color: var(--footer-arrows);
+
+      ui-icon,
+      lucide-icon,
+      svg {
+        display: block;
+        width: 18px;
+        height: 18px;
+      }
+
+      &:hover {
+        background: var(--footer-arrows-bg-hover);
+        color: var(--footer-arrows-hover);
+      }
+    }
+
+    .swiper-button-prev {
+      left: -40px;
+    }
+
+    .swiper-button-next {
+      right: -40px;
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+      content: none !important;
+    }
+  }
+
+  &__bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-inline: 4rem;
+
+    @include respond-max(sm) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__hashtag {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 1.5rem;
+
+    a {
+      font-size: 1.25rem;
+      color: var(--footer-text, #999);
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--footer-link-hover, #000);
+      }
+    }
+  }
+}
