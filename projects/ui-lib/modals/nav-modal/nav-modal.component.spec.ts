@@ -45,7 +45,7 @@ describe('NavModalComponent', () => {
     describe('socialItems input', () => {
         it('no debería renderizar sociales si no se pasa socialItems', () => {
             fixture.detectChanges();
-            const socialLinks = fixture.debugElement.queryAll(By.css('.buttons a'));
+            const socialLinks = fixture.debugElement.queryAll(By.css('.btn-group--center a'));
             expect(socialLinks.length).toBe(0);
         });
 
@@ -66,7 +66,7 @@ describe('NavModalComponent', () => {
             ];
             fixture.detectChanges();
 
-            const socialLinks = fixture.debugElement.queryAll(By.css('.buttons a'));
+            const socialLinks = fixture.debugElement.queryAll(By.css('.btn-group--center a'));
             expect(socialLinks.length).toBe(2);
             expect(socialLinks[0].nativeElement.getAttribute('href')).toBe('https://facebook.com');
             expect(socialLinks[1].nativeElement.getAttribute('href')).toBe('https://twitter.com');
