@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.18.0] - 2026-03-22
+### Added
+- add new global class to handle btn groups
+- add highlight directive
+
 ## [0.17.3] - 2026-03-22
 ### Changed
 - update styles wave on hero-section
