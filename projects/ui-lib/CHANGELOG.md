@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## [0.17.0] - 2026-03-22
 ### Changed
+- add --font-title-home to style variables
+
+## [0.17.0] - 2026-03-22
+### Changed
 - refactor all injects and locate them on constructors
 
 ## [0.16.2] - 2026-03-22
