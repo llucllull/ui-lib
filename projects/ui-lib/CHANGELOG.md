@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.16.2] - 2026-03-22
+### Changed
+- undo changes on deploy script
+
 ## [0.16.1] - 2026-03-22
 ### Changed
 - change sourceRoot to handle testing
