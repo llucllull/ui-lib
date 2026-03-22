@@ -31,14 +31,15 @@
     position: fixed;
     bottom: 0;
     left: 50%;
-    transform: translate(-50%, 33%);
+    transform: translate(-50%, 23%);
     font-size: 38rem;
     color: var(--color-primary);
     font-family: var(--font-titles);
     z-index: 1;
     pointer-events: none;
     @include respond-max(sm) {
-      display: none;
+      font-size: 10rem;
+      transform: translate(-50%, -15%);
     }
   }
 }
