@@ -53,13 +53,3 @@ a {
 li::before {
   content: counter(item, decimal-leading-zero) '. ';
 }
-
-.buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-
-  a {
-    text-transform: lowercase;
-  }
-}

@@ -14,7 +14,7 @@
   }
 
   @if (socialItems?.length) {
-    <div class="buttons">
+    <div class="btn-group--center">
       @for (social of socialItems; track social.label) {
         <a class="btn btn-link" [href]="social.url" [linkType]="social.linkType">
           <span>{{ social.icon }}</span>

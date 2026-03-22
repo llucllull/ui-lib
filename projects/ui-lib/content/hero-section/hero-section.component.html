@@ -24,7 +24,7 @@
     <p class="text">{{ text }}</p>
   }
   @if (buttons && buttons.length > 0) {
-    <div class="buttons">
+    <div class="btn-group--center">
       @for (button of buttons; track $index) {
         <a class="btn btn-link" [href]="button.url" [linkType]="button.linkType">
           <span>{{ button.icon }}</span>
