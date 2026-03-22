@@ -4,11 +4,11 @@ import {
     ElementRef,
     EventEmitter,
     HostListener,
+    Inject,
     Input,
     OnInit,
     Output,
     PLATFORM_ID,
-    inject,
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { LinkType } from '@lluc_llull/ui-lib/enums';
@@ -22,13 +22,15 @@ export class LinkTypeDirective implements OnInit {
     @Input() href?: string;
     @Output() anchorClicked = new EventEmitter<void>();
 
-    private readonly platformId = inject(PLATFORM_ID);
-    private readonly isBrowser = isPlatformBrowser(this.platformId);
-
     constructor(
         private readonly router: Router,
         private readonly elRef: ElementRef<HTMLAnchorElement>,
+        @Inject(PLATFORM_ID) private platformId: Object,
     ) {}
+
+    get isBrowser(): boolean {
+        return isPlatformBrowser(this.platformId);
+    }
 
     ngOnInit(): void {
         this.setupAttributes();
@@ -128,3 +130,4 @@ export class LinkTypeDirective implements OnInit {
 }
 
 export { LinkType };
+

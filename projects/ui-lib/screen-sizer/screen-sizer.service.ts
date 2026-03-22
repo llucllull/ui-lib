@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Injectable, PLATFORM_ID, inject, signal } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID, inject, signal } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith } from 'rxjs/operators';
 
@@ -24,8 +24,6 @@ export class ScreenSizerService {
     readonly minLg = signal(false);
     readonly minXl = signal(false);
 
-    private readonly platformId = inject(PLATFORM_ID);
-
     get width(): number {
         if (isPlatformBrowser(this.platformId)) {
             return Math.min(window.innerWidth, window.outerWidth);
@@ -33,7 +31,7 @@ export class ScreenSizerService {
         return 0;
     }
 
-    constructor() {
+    constructor(@Inject(PLATFORM_ID) private readonly platformId: Object) {
         if (isPlatformBrowser(this.platformId)) {
             fromEvent(window, 'resize')
                 .pipe(

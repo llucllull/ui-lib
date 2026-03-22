@@ -3,12 +3,12 @@ import {
     ChangeDetectionStrategy,
     Component,
     ElementRef,
+    Inject,
     Input,
     OnDestroy,
     OnInit,
     PLATFORM_ID,
     ViewChild,
-    inject,
 } from '@angular/core';
 import * as THREE from 'three';
 import { DynamicEffect } from './effects/dynamic-effect.interface';
@@ -31,15 +31,18 @@ export class DynamicBackgroundComponent implements OnInit, OnDestroy {
     @Input() backgroundColor = '#000000';
     @Input() elementColor?: string;
 
-    private readonly platformId = inject(PLATFORM_ID);
-    private readonly isBrowser = isPlatformBrowser(this.platformId);
-
     private scene!: THREE.Scene;
     private camera!: THREE.PerspectiveCamera;
     private renderer!: THREE.WebGLRenderer;
     private animationId!: number;
 
     private currentEffect!: DynamicEffect;
+
+    constructor(@Inject(PLATFORM_ID) private readonly platformId: Object) {}
+
+    get isBrowser(): boolean {
+        return isPlatformBrowser(this.platformId);
+    }
 
     ngOnInit(): void {
         if (this.isBrowser) {
