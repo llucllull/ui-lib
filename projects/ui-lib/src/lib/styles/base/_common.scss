@@ -84,12 +84,34 @@
   }
 }
 
+.btn-header {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  min-width: 40px;
+  padding: 0 12px;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  transition: background 0.2s;
+  color: var(--button-header-text);
+
+  &:hover {
+    background: var(--button-header-bg-hover);
+  }
+
+  ui-icon {
+    display: flex;
+  }
+}
+
 .btn-group {
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-md);
   margin-top: 2rem;
-  justify-content: flex-start; 
+  justify-content: flex-start;
 
   &--center {
     justify-content: center;
