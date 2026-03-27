@@ -53,3 +53,11 @@ a {
 li::before {
   content: counter(item, decimal-leading-zero) '. ';
 }
+
+.btn-link {
+  text-transform: none;
+}
+
+.btn-group {
+  margin-top: 0;
+}

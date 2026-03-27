@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.18.2] - 2026-03-27
+### Changed
+- refactor icon buttons on navModal, heroSection, 404
+- update common button styles to handle ui-icons
+
 ## [0.18.1] - 2026-03-27
 ### Added
 - add styles btn-header
