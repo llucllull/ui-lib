@@ -6,5 +6,5 @@ export const mapSectionIntro: ComponentMapperFn = (props) => ({
     title: props?.texts?.title,
     subtitle: props?.texts?.subtitle,
     text: props?.texts?.text,
-    button: mapButtons(props?.button)[0],
+    button: mapButtons(props?.buttons)[0],
 });

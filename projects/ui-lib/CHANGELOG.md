@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.18.3] - 2026-03-27
+### Changed
+- update button of sectionIntro
+
 ## [0.18.2] - 2026-03-27
 ### Added
 - add 404 test
