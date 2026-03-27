@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { LinkType, LinkTypeDirective } from '../../directives';
 import { HeroSectionComponent } from './hero-section.component';
+import { LucideAngularModule, MoveRight, X } from 'lucide-angular';
 
 describe('HeroSectionComponent', () => {
     let component: HeroSectionComponent;
@@ -9,7 +10,11 @@ describe('HeroSectionComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [HeroSectionComponent, LinkTypeDirective],
+            imports: [
+                HeroSectionComponent, 
+                LinkTypeDirective,
+                LucideAngularModule.pick({ MoveRight })
+            ],
         }).compileComponents();
 
         fixture = TestBed.createComponent(HeroSectionComponent);
@@ -33,13 +38,13 @@ describe('HeroSectionComponent', () => {
                     label: 'Facebook',
                     url: 'https://facebook.com',
                     linkType: LinkType.External,
-                    icon: 'facebook',
+                    icon: 'move-right',
                 },
                 {
                     label: 'Twitter',
                     url: 'https://twitter.com',
                     linkType: LinkType.External,
-                    icon: 'twitter',
+                    icon: 'move-right',
                 },
             ];
             fixture.detectChanges();

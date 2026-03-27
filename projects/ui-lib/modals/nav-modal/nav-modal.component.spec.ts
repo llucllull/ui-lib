@@ -3,6 +3,7 @@ import { By } from '@angular/platform-browser';
 import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
 import { LinkType } from '@lluc_llull/ui-lib/enums';
 import { NavModalComponent } from './nav-modal.component';
+import { LucideAngularModule, MoveRight, X } from 'lucide-angular';
 
 describe('NavModalComponent', () => {
     let component: NavModalComponent;
@@ -10,7 +11,11 @@ describe('NavModalComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [NavModalComponent, LinkTypeDirective],
+            imports: [
+                NavModalComponent, 
+                LinkTypeDirective,
+                LucideAngularModule.pick({ MoveRight })
+            ],
         }).compileComponents();
 
         fixture = TestBed.createComponent(NavModalComponent);
@@ -55,18 +60,18 @@ describe('NavModalComponent', () => {
                     label: 'Facebook',
                     url: 'https://facebook.com',
                     linkType: LinkType.External,
-                    icon: 'facebook',
+                    icon: 'move-right',
                 },
                 {
                     label: 'Twitter',
                     url: 'https://twitter.com',
                     linkType: LinkType.External,
-                    icon: 'twitter',
+                    icon: 'move-right',
                 },
             ];
             fixture.detectChanges();
 
-            const socialLinks = fixture.debugElement.queryAll(By.css('.btn-group--center a'));
+            const socialLinks = fixture.debugElement.queryAll(By.css('.btn-group a'));
             expect(socialLinks.length).toBe(2);
             expect(socialLinks[0].nativeElement.getAttribute('href')).toBe('https://facebook.com');
             expect(socialLinks[1].nativeElement.getAttribute('href')).toBe('https://twitter.com');

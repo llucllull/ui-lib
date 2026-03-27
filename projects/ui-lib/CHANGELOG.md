@@ -3,9 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 ## [0.18.2] - 2026-03-27
+### Added
+- add 404 test
+
 ### Changed
 - refactor icon buttons on navModal, heroSection, 404
 - update common button styles to handle ui-icons
+- update herosection, navModal tests
 
 ## [0.18.1] - 2026-03-27
 ### Added
