@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.18.4] - 2026-03-27
+### Changed
+- refactor styles from category-progress
+
 ## [0.18.3] - 2026-03-27
 ### Changed
 - update button of sectionIntro

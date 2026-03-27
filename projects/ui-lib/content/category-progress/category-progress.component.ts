@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { HighlightDirective } from '@lluc_llull/ui-lib/directives';
 
 @Component({
     selector: 'lib-category-progress',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, HighlightDirective],
     templateUrl: './category-progress.component.html',
     styleUrl: './category-progress.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,

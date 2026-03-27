@@ -1,4 +1,4 @@
-<div class="category-progress">
+<div class="category-progress layout-padding">
   @if (pretitle) {
     <h3 class="pretitle">{{ pretitle }}</h3>
   }
@@ -8,11 +8,15 @@
   <div class="progress-grid">
     @for (category of categories; track $index) {
       <div class="category">
-        <h3 class="subtitle">{{ category.title }}</h3>
+        <h3 class="subtitle" [highlight]="'#FFFFFF'">{{ category.title }}</h3>
 
         @for (item of category.items; track $index) {
           <div class="item">
-            <span class="label">{{ item.label }}</span>
+            <div class="item-info">
+              <span class="label">{{ item.label }}</span>
+              <span class="value">{{ item.value }}%</span>
+            </div>
+
             <div class="bar">
               <div class="fill" [style.width.%]="item.value"></div>
             </div>
