@@ -13,3 +13,11 @@ body {
 a {
   text-decoration: none;
 }
+
+.layout-padding {
+  @include section-padding;
+}
+
+.full-width {
+  padding: 0;
+}

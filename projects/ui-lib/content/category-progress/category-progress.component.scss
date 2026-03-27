@@ -2,12 +2,7 @@
 
 .category-progress {
   text-align: start;
-  padding: 2rem 10rem;
   align-items: start;
-
-  @include respond-max(sm) {
-    padding: 2rem 4rem;
-  }
 }
 
 .title {

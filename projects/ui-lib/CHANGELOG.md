@@ -3,8 +3,12 @@
 All notable changes to this project will be documented in this file.
 
 ## [0.18.4] - 2026-03-27
+### Added
+- create layout-padding
+
 ### Changed
 - refactor styles from category-progress
+- update styles folders and reorganize variables to handle layout padding
 
 ## [0.18.3] - 2026-03-27
 ### Changed
