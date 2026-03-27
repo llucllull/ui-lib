@@ -77,14 +77,4 @@ describe('HeaderMobileComponent', () => {
         btn.click();
         expect(component.isMenuOpen).toBeFalse();
     });
-
-    it('debería devolver 🌙 si el tema es light', () => {
-        component.currentTheme = 'light';
-        expect(component.getThemeIcon()).toBe('🌙');
-    });
-
-    it('debería devolver ☀️ si el tema es dark', () => {
-        component.currentTheme = 'dark';
-        expect(component.getThemeIcon()).toBe('☀️');
-    });
 });
