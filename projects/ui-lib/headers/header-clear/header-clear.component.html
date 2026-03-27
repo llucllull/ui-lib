@@ -12,17 +12,21 @@
 
   <div class="header-actions">
     <!-- Idioma -->
-    <button class="btn btn-primary" (click)="openLanguagesModal()">
+    <button class="btn btn-header" (click)="openLanguagesModal()">
       <span class="lang">{{ lang }}</span>
     </button>
 
     <!-- Icono de tema -->
-    <button class="btn btn-primary" (click)="toggleTheme()">
-      <span>{{ getThemeIcon() }}</span>
+    <button class="btn btn-header" (click)="toggleTheme()">
+      <ui-icon
+        [name]="currentTheme === 'dark' ? 'moon' : 'sun'"
+        [size]="17"
+        [color]="'var(--color-primary)'"
+      ></ui-icon>
     </button>
 
     <!-- Icono de menú -->
-    <button class="btn btn-primary" (click)="toggleMenu()">
+    <button class="btn btn-header" (click)="toggleMenu()">
       <span>☰</span>
     </button>
   </div>

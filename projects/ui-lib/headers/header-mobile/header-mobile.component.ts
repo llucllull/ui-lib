@@ -20,11 +20,12 @@ import { Theme, ThemeService } from '@lluc_llull/ui-lib/theme';
 import { Subscription } from 'rxjs';
 import { mapNavModal } from '@lluc_llull/ui-lib/mapper';
 import { LangModalComponent, NavModalComponent } from '@lluc_llull/ui-lib/modals';
+import { UiIconComponent } from '@lluc_llull/ui-lib/shared';
 
 @Component({
     selector: 'lib-header-mobile',
     standalone: true,
-    imports: [CommonModule, LangModalComponent, NavModalComponent, LinkTypeDirective],
+    imports: [CommonModule, LangModalComponent, NavModalComponent, LinkTypeDirective, UiIconComponent],
     templateUrl: './header-mobile.component.html',
     styleUrl: './header-mobile.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -72,9 +73,5 @@ export class HeaderMobileComponent implements OnInit, OnChanges, OnDestroy {
 
     toggleMenu(): void {
         this.isMenuOpen = !this.isMenuOpen;
-    }
-
-    getThemeIcon(): string {
-        return this.currentTheme === 'light' ? '🌙' : '☀️';
     }
 }

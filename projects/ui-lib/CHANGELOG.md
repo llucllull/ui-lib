@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.18.1] - 2026-03-27
+### Added
+- add styles btn-header
+- add btn-header to theme styles
+
+### Changed
+- update header buttons
+- remove theme from headers tests
+
 ## [0.18.0] - 2026-03-22
 ### Added
 - add new global class to handle btn groups
