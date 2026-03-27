@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { LinkType, LinkTypeDirective } from '../../directives';
 import { SectionIntroComponent } from './section-intro.component';
+import { LucideAngularModule, ArrowRight, X } from 'lucide-angular';
 
 describe('SectionIntroComponent', () => {
     let component: SectionIntroComponent;
@@ -9,7 +10,11 @@ describe('SectionIntroComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [SectionIntroComponent, LinkTypeDirective],
+            imports: [
+                SectionIntroComponent, 
+                LinkTypeDirective,
+                LucideAngularModule.pick({ ArrowRight })
+            ],
         }).compileComponents();
 
         fixture = TestBed.createComponent(SectionIntroComponent);
@@ -59,7 +64,12 @@ describe('SectionIntroComponent', () => {
     });
 
     it('debería renderizar el botón si se pasa @Input button', () => {
-        component.button = { label: 'Click aquí', url: '/test', linkType: LinkType.Internal };
+        component.button = {
+            label: 'Click aquí',
+            url: '/test',
+            linkType: LinkType.Internal,
+            icon: 'arrow-right',
+        };
         fixture.detectChanges();
 
         const btn = fixture.debugElement.query(By.css('.btn'))?.nativeElement;

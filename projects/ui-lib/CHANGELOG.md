@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [0.18.3] - 2026-03-27
 ### Changed
 - update button of sectionIntro
+- fix icon on sectionIntro test
 
 ## [0.18.2] - 2026-03-27
 ### Added
