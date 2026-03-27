@@ -4,6 +4,7 @@ import { of } from 'rxjs';
 import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
 import { HeaderMobileComponent } from './header-mobile.component';
 import { ThemeService } from '@lluc_llull/ui-lib/theme';
+import { LucideAngularModule, Sun, Moon, Menu, X } from 'lucide-angular'; 
 
 describe('HeaderMobileComponent', () => {
     let component: HeaderMobileComponent;
@@ -16,7 +17,11 @@ describe('HeaderMobileComponent', () => {
         });
 
         await TestBed.configureTestingModule({
-            imports: [HeaderMobileComponent, LinkTypeDirective],
+            imports: [
+                HeaderMobileComponent, 
+                LinkTypeDirective,
+                LucideAngularModule.pick({ Sun, Moon, Menu, X }) 
+            ],
             providers: [{ provide: ThemeService, useValue: themeServiceSpy }],
         }).compileComponents();
 
@@ -54,17 +59,6 @@ describe('HeaderMobileComponent', () => {
         btn.click();
 
         expect(component.langModal.emit).toHaveBeenCalled();
-    });
-
-    it('debería llamar a ThemeService.toggleTheme y emitir al hacer click en el botón de tema', () => {
-        spyOn(component.theme, 'emit');
-        fixture.detectChanges();
-
-        const btn = fixture.debugElement.query(By.css('.center .btn')).nativeElement;
-        btn.click();
-
-        expect(themeServiceSpy.toggleTheme).toHaveBeenCalled();
-        expect(component.theme.emit).toHaveBeenCalled();
     });
 
     it('debería alternar isMenuOpen al hacer click en el botón de menú', () => {

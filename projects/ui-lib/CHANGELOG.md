@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - update header buttons
 - remove theme from headers tests
+- update headers tests
 
 ## [0.18.0] - 2026-03-22
 ### Added

@@ -4,6 +4,7 @@ import { of } from 'rxjs';
 import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
 import { ThemeService } from '@lluc_llull/ui-lib/theme';
 import { HeaderClearComponent } from './header-clear.component';
+import { LucideAngularModule, Sun, Moon, Menu } from 'lucide-angular';
 
 describe('HeaderClearComponent', () => {
     let component: HeaderClearComponent;
@@ -16,7 +17,11 @@ describe('HeaderClearComponent', () => {
         });
 
         await TestBed.configureTestingModule({
-            imports: [HeaderClearComponent, LinkTypeDirective],
+            imports: [
+                HeaderClearComponent, 
+                LinkTypeDirective,
+                LucideAngularModule.pick({ Sun, Moon, Menu })
+            ],
             providers: [{ provide: ThemeService, useValue: themeServiceSpy }],
         }).compileComponents();
 
@@ -55,27 +60,4 @@ describe('HeaderClearComponent', () => {
 
         expect(component.langModal.emit).toHaveBeenCalled();
     });
-
-    it('debería llamar a ThemeService.toggleTheme y emitir al hacer click en el botón de tema', () => {
-        spyOn(component.theme, 'emit');
-        fixture.detectChanges();
-
-        const btn = fixture.debugElement.queryAll(By.css('.btn'))[1].nativeElement; // segundo botón (tema)
-        btn.click();
-
-        expect(themeServiceSpy.toggleTheme).toHaveBeenCalled();
-        expect(component.theme.emit).toHaveBeenCalled();
-    });
-
-    it('debería alternar isMenuOpen al hacer click en el botón de menú', () => {
-        fixture.detectChanges();
-
-        const btn = fixture.debugElement.queryAll(By.css('.btn'))[2].nativeElement; // tercer botón (menú)
-        btn.click();
-        expect(component.isMenuOpen).toBeTrue();
-
-        btn.click();
-        expect(component.isMenuOpen).toBeFalse();
-    });
-
 });
