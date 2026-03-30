@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.19.1] - 2026-03-30
+### Changed
+- handle undefined router URL in getCurrentLang
+- set default width in ScreenSizerService
+
 ## [0.19.0] - 2026-03-30
 ### Added
 - add tag color and background variables to dark and light themes

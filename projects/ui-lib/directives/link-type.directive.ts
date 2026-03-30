@@ -106,7 +106,8 @@ export class LinkTypeDirective implements OnInit {
     }
 
     private getCurrentLang(): string {
-        const firstSegment = this.router.url.split('?')[0].split('#')[0].split('/')[1];
+        const url = this.router.url || '';
+        const firstSegment = url.split('?')[0].split('#')[0].split('/')[1];
         return firstSegment || 'es';
     }
 

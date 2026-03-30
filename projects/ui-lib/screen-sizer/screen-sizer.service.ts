@@ -28,7 +28,7 @@ export class ScreenSizerService {
         if (isPlatformBrowser(this.platformId)) {
             return Math.min(window.innerWidth, window.outerWidth);
         }
-        return 0;
+        return 1280;
     }
 
     constructor(@Inject(PLATFORM_ID) private readonly platformId: Object) {
@@ -41,6 +41,8 @@ export class ScreenSizerService {
                     startWith(this.width),
                 )
                 .subscribe((width) => this.updateFlags(width));
+        }   else {
+            this.updateFlags(1280); 
         }
     }
 
