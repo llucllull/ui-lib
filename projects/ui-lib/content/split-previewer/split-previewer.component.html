@@ -1,0 +1,38 @@
+<div class="split-previewer layout-padding" [class]="'split-previewer--' + direction">
+  <div class="split-previewer__text-column">
+    <div class="split-previewer__header">
+      @if (title) {
+        <h1 class="title">{{ title }}</h1>
+      }
+      @if (count) {
+        <span class="count">{{ count }}</span>
+      }
+    </div>
+
+    <div class="split-previewer__items" (mouseleave)="activeImage.set(undefined)">
+      @for (item of items; track item.title) {
+        <a
+          [href]="item.link?.url"
+          (mouseenter)="activeImage.set(item.image?.url)"
+          class="split-previewer__item-link"
+        >
+          <div class="split-previewer__item">
+            <h2 class="split-previewer__item-title" [highlight]="'#FFFFFF'">{{ item.title }}</h2>
+            <p class="split-previewer__item-text">{{ item.description }}</p>
+            @if (item.tags?.length) {
+              <div class="split-previewer__item-tags">
+                @for (tag of item.tags; track tag) {
+                  <span class="split-previewer__item-tag">{{ tag }}</span>
+                }
+              </div>
+            }
+          </div>
+        </a>
+      }
+    </div>
+  </div>
+
+  <div class="split-previewer__media">
+    <img [src]="activeImage() || imageDefault?.url" alt="Preview" class="preview-img" />
+  </div>
+</div>

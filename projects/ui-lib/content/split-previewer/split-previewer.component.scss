@@ -1,0 +1,149 @@
+@use 'sass:map';
+@use '../../../ui-lib/src/lib/styles/abstracts' as *;
+
+.split-previewer {
+  display: flex;
+  gap: 5rem;
+  align-items: start;
+
+  &--left {
+    flex-direction: row-reverse;
+  }
+
+  &--right {
+    flex-direction: row;
+  }
+
+  &__text-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    .title {
+      margin: 0 0 1rem 0;
+      text-transform: uppercase;
+    }
+
+    .count {
+      font-family: var(--font-base);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  &__item {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    &-title {
+      // font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    &-text {
+      // font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 500px;
+      opacity: 0.8;
+    }
+
+    &-tags {
+      display: flex;
+      gap: 1rem;
+      margin-block: 1rem;
+
+      // Estado inicial oculto
+      opacity: 0;
+      transform: translateY(10px);
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    &-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 0.3rem 0.8rem;
+      background-color: var(--tag-bg);
+      color: var(--tag-color);
+      border-radius: 2px;
+    }
+  }
+
+  &__item-link:hover {
+    .split-previewer__item {
+      padding-left: 1rem;
+
+      &-tags {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      &-text {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__media {
+    flex: 1;
+    position: sticky;
+    top: 4rem;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    .preview-img {
+      width: 75%;
+      height: auto;
+      object-fit: contain;
+      animation: fadeInMedia 0.5s ease-out;
+
+      // Filtro opcional para estética Cyber/Brutalista
+      filter: contrast(1.1) grayscale(0.2);
+    }
+  }
+
+  // --- RESPONSIVE ---
+  @include respond-max(lg) {
+    gap: 3rem;
+  }
+
+  @include respond-max(md) {
+    &__media {
+      display: none;
+    }
+  }
+}
+
+// Keyframes para el cambio de imagen
+@keyframes fadeInMedia {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

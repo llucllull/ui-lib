@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.19.0] - 2026-03-30
+### Added
+- add tag color and background variables to dark and light themes
+- add split previewer component with styles, tests, and mappers
+
 ## [0.18.4] - 2026-03-27
 ### Added
 - create layout-padding
