@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.19.2] - 2026-04-01
+### Changed
+- change item styles on categoryProgress
+
 ## [0.19.1] - 2026-03-30
 ### Changed
 - handle undefined router URL in getCurrentLang
