@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.19.3] - 2026-04-01
+### Changed
+- adjust font-size on navmodal on responsive devices
+
 ## [0.19.2] - 2026-04-01
 ### Changed
 - change item styles on categoryProgress
