@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.20.0] - 2026-04-13
+### Added
+- add contact minimal component
+
 ## [0.19.3] - 2026-04-01
 ### Changed
 - adjust font-size on navmodal on responsive devices
