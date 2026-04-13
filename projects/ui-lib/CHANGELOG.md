@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.21.0] - 2026-04-13
+### Added
+- add responsive grid architecture and column utilities
+
 ## [0.19.3] - 2026-04-01
 ### Changed
 - adjust font-size on navmodal on responsive devices

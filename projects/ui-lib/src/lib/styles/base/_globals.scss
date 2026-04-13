@@ -21,3 +21,14 @@ a {
 .full-width {
   padding: 0;
 }
+
+.debug-grid-overlay {
+  display: none;
+}
+
+body.show-grid {
+  .debug-grid-overlay {
+    @include grid-visual-helper;
+    display: grid !important;
+  }
+}

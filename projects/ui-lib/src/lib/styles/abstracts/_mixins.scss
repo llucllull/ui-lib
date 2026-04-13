@@ -24,21 +24,39 @@
 
 @mixin section-padding {
   padding-block: $section-padding-y;
-  padding-inline: map.get($section-padding-x, xl);
 
-  @include respond-max(lg) {
-    padding-inline: map.get($section-padding-x, lg);
+  @each $breakpoint, $padding in $section-padding-x {
+    @if $breakpoint == xs {
+      padding-inline: $padding; // Valor base
+    } @else {
+      @include respond-min($breakpoint) {
+        padding-inline: $padding;
+      }
+    }
   }
+}
 
-  @include respond-max(md) {
-    padding-inline: map.get($section-padding-x, md);
-  }
+@mixin grid-visual-helper {
+  position: fixed !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: auto !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  z-index: 99999 !important;
+  pointer-events: none;
+  display: none;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: $grid-gutter;
 
-  @include respond-max(sm) {
-    padding-inline: map.get($section-padding-x, sm);
-  }
+  @include section-padding;
 
-  @include respond-max(xs) {
-    padding-inline: map.get($section-padding-x, xs);
+  div {
+    height: 100%;
+    background-color: rgba(255, 0, 0, 0.13);
+    border-left: 1px solid rgba(255, 0, 0, 0.205);
+    border-right: 1px solid rgba(255, 0, 0, 0.205);
   }
 }
