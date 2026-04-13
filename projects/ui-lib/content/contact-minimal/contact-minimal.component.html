@@ -1,0 +1,37 @@
+<div class="contact-minimal layout-padding">
+  <div class="contact-minimal__content">
+    <div class="contact-minimal__content--left">
+      @if (contactsTitle) {
+        <h2 class="subtitle" [highlight]="'#FFFFFF'">{{ contactsTitle }}</h2>
+      }
+      @if (contacts && contacts.length > 0) {
+        <div class="btn-group">
+          @for (contact of contacts; track $index) {
+            <a [href]="contact?.url" [linkType]="contact?.linkType" class="btn btn-link">
+              {{ contact?.label }}
+            </a>
+          }
+        </div>
+      }
+    </div>
+    <div class="contact-minimal__content--right">
+      @if (socialsTitle) {
+        <h2 class="subtitle" [highlight]="'#FFFFFF'">{{ socialsTitle }}</h2>
+      }
+      @if (socials && socials.length > 0) {
+        <div class="btn-group">
+          @for (social of socials; track $index) {
+            <a [href]="social?.url" [linkType]="social?.linkType" class="btn btn-link">
+              {{ social?.label }}
+            </a>
+          }
+        </div>
+      }
+    </div>
+    @if (img) {
+      <div class="contact-minimal__content--media">
+        <img [src]="img.url" [alt]="img.alt" />
+      </div>
+    }
+  </div>
+</div>
