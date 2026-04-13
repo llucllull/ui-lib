@@ -1,5 +1,7 @@
 @use '../../../ui-lib/src/lib/styles/abstracts' as *;
 
+:host { display: contents }
+
 .contact-minimal {
   &__content {
     display: grid;
