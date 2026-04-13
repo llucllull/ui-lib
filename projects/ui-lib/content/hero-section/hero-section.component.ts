@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
+import { LinkTypeDirective, ScrollRevealDirective } from '@lluc_llull/ui-lib/directives';
 import { UiLibButtonI } from '@lluc_llull/ui-lib/interfaces';
 import { UiIconComponent } from '@lluc_llull/ui-lib/shared';
 
 @Component({
     selector: 'lib-hero-section',
     standalone: true,
-    imports: [CommonModule, LinkTypeDirective, UiIconComponent],
+    imports: [CommonModule, LinkTypeDirective, UiIconComponent, ScrollRevealDirective],
     templateUrl: './hero-section.component.html',
     styleUrl: './hero-section.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
