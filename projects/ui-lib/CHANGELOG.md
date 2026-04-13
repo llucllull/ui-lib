@@ -2,9 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.21.0] - 2026-04-13
+## [0.22.0] - 2026-04-13
 ### Added
 - add responsive grid architecture and column utilities
+
+## [0.21.0] - 2026-04-13
+### Added
+- create scrollReveal directive
+- add scrollReveal to all content components
+
+## [0.20.0] - 2026-04-13
+### Added
+- add contact minimal component
 
 ## [0.19.3] - 2026-04-01
 ### Changed
