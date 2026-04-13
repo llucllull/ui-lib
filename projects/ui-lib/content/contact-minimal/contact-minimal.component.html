@@ -4,11 +4,13 @@
       @if (contactsTitle) {
         <h2 class="subtitle" [highlight]="'#FFFFFF'">{{ contactsTitle }}</h2>
       }
-      @for (contact of contacts; track $index) {
+      @if (contacts && contacts.length > 0) {
         <div class="btn-group">
-          <a [href]="contact?.url" [linkType]="contact?.linkType" class="btn btn-link">
-            {{ contact?.label }}
-          </a>
+          @for (contact of contacts; track $index) {
+            <a [href]="contact?.url" [linkType]="contact?.linkType" class="btn btn-link">
+              {{ contact?.label }}
+            </a>
+          }
         </div>
       }
     </div>
@@ -16,11 +18,13 @@
       @if (socialsTitle) {
         <h2 class="subtitle" [highlight]="'#FFFFFF'">{{ socialsTitle }}</h2>
       }
-      @for (social of socials; track $index) {
+      @if (socials && socials.length > 0) {
         <div class="btn-group">
-          <a [href]="social?.url" [linkType]="social?.linkType" class="btn btn-link">
-            {{ social?.label }}
-          </a>
+          @for (social of socials; track $index) {
+            <a [href]="social?.url" [linkType]="social?.linkType" class="btn btn-link">
+              {{ social?.label }}
+            </a>
+          }
         </div>
       }
     </div>
