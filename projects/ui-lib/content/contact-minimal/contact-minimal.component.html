@@ -1,6 +1,6 @@
 <div class="contact-minimal layout-padding">
   <div class="contact-minimal__content">
-    <div class="contact-minimal__content-left">
+    <div class="contact-minimal__content--left">
       @if (contactsTitle) {
         <h2 class="subtitle" [highlight]="'#FFFFFF'">{{ contactsTitle }}</h2>
       }
@@ -14,7 +14,7 @@
         </div>
       }
     </div>
-    <div class="contact-minimal__content-right">
+    <div class="contact-minimal__content--right">
       @if (socialsTitle) {
         <h2 class="subtitle" [highlight]="'#FFFFFF'">{{ socialsTitle }}</h2>
       }
@@ -28,5 +28,10 @@
         </div>
       }
     </div>
+    @if (img) {
+      <div class="contact-minimal__content--media">
+        <img [src]="img.url" [alt]="img.alt" />
+      </div>
+    }
   </div>
 </div>

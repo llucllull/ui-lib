@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { UiLibButtonI } from '@lluc_llull/ui-lib/interfaces';
+import { UiLibButtonI, UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
 import { HighlightDirective, LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
 
 @Component({
@@ -15,5 +15,6 @@ export class ContactMinimalComponent {
     @Input() socialsTitle?: string;
     @Input() contacts?: UiLibButtonI[];
     @Input() socials?: UiLibButtonI[];
+    @Input() img?: UiLibImageI;
 }
 
