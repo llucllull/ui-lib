@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 ## [0.22.0] - 2026-04-13
 ### Added
 - add responsive grid architecture and column utilities
+- add column and start system on grid
+
+### Changed
+- adjust components with grid changes
 
 ## [0.21.0] - 2026-04-13
 ### Added

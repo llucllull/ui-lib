@@ -1,6 +1,8 @@
 @use 'sass:map';
 @use '../../../ui-lib/src/lib/styles/abstracts' as *;
 
+:host { display: contents }
+
 .split-previewer {
   display: flex;
   gap: 5rem;
