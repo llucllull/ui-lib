@@ -38,25 +38,22 @@
 
 @mixin grid-visual-helper {
   position: fixed !important;
-  top: 0 !important;
-  bottom: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  width: auto !important;
-  height: 100vh !important;
-  margin: 0 !important;
+  inset-block: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100vw - (#{$site-grid-margin} * 2));
+  max-width: $site-max-width;
+
   z-index: 99999 !important;
   pointer-events: none;
-  display: none;
-  grid-template-columns: repeat(12, 1fr);
+  display: grid !important;
+  grid-template-columns: repeat($grid-columns, 1fr);
   column-gap: $grid-gutter;
-
-  @include section-padding;
 
   div {
     height: 100%;
     background-color: rgba(255, 0, 0, 0.13);
-    border-left: 1px solid rgba(255, 0, 0, 0.205);
-    border-right: 1px solid rgba(255, 0, 0, 0.205);
+    border-left: 1px solid rgba(255, 0, 0, 0.315);
+    border-right: 1px solid rgba(255, 0, 0, 0.315);
   }
 }

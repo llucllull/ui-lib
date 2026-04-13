@@ -5,35 +5,41 @@
   grid-template-columns: repeat($grid-columns, minmax(0, 1fr));
   column-gap: $grid-gutter;
   row-gap: $grid-gutter;
-  width: 100%;
-  margin: 0 auto;
-  @include section-padding;
+  width: calc(100vw - (#{$site-grid-margin} * 2));
+  max-width: $site-max-width;
+  margin-inline: auto;
+  padding-block: $section-padding-y;
   position: relative;
 }
 
-// 1. Clase comodín para ancho total
-.col-span-full {
-  grid-column: 1 / -1;
-}
-
-// 2. Bucle para definir CUÁNTAS columnas ocupa (SPAN)
+// --- SISTEMA DE COLUMNAS (SPAN) ---
 @for $i from 1 through $grid-columns {
   .col-span-#{$i} {
+    // Usamos grid-column-end para que solo defina el tamaño
     grid-column-end: span #{$i};
   }
 }
 
-// 3. Bucle para definir DÓNDE empieza (START)
-// Por defecto en móvil (Mobile First), todos empiezan en la 1
-[class*="col-start-"] {
-  grid-column-start: 1;
+// --- SISTEMA DE POSICIÓN (START) ---
+@for $i from 1 through $grid-columns {
+  .col-start-#{$i} {
+    // Definimos solo el inicio
+    grid-column-start: #{$i};
+  }
 }
 
-// A partir de un breakpoint, aplicamos el desplazamiento
+// --- RESPONSIVE ---
 @include respond-min(md) {
   @for $i from 1 through $grid-columns {
-    .col-start-#{$i} {
-      grid-column-start: $i;
+    .md\:col-start-#{$i} {
+      grid-column-start: #{$i};
     }
+    .md\:col-span-#{$i} {
+      grid-column-end: span #{$i};
+    }
+  }
+
+  .md\:col-span-full {
+    grid-column: 1 / -1;
   }
 }
