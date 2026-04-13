@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.21.0] - 2026-04-13
+### Added
+- create scrollReveal directive
+- add scrollReveal to all content components
+
 ## [0.20.0] - 2026-04-13
 ### Added
 - add contact minimal component

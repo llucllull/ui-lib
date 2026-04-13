@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, signal } from '@angular/core';
-import { HighlightDirective, LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
+import { HighlightDirective, LinkTypeDirective, ScrollRevealDirective } from '@lluc_llull/ui-lib/directives';
 import { UiLibButtonI, UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
 
 @Component({
     selector: 'lib-split-previewer',
-    imports: [CommonModule, LinkTypeDirective, HighlightDirective],
+    imports: [CommonModule, LinkTypeDirective, HighlightDirective, ScrollRevealDirective],
     templateUrl: './split-previewer.component.html',
     styleUrl: './split-previewer.component.scss',
 })
