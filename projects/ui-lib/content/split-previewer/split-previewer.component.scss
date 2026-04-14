@@ -116,23 +116,20 @@
   }
 
   &__media {
-    flex: 1;
-    min-width: 0;
-    position: sticky;
+    position: fixed;
     top: 4rem;
-    height: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    right: 10rem; // ajusta este valor según tu layout
+    width: 40vw; // ajusta el ancho
+    height: calc(100vh - 8rem);
+    background-color: rgba(0, 0, 0, 0.03);
     overflow: hidden;
 
     .preview-img {
       display: block;
-      width: 75%;
-      max-width: 100%;
-      height: auto;
-      object-fit: contain;
-      animation: fadeInMedia 0.5s ease-out;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: fadeInMedia 0.3s ease-out;
       filter: contrast(1.1) grayscale(0.2);
     }
   }

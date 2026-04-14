@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.22.3] - 2026-04-14
+### Changed
+- fix scrollReveal errors on SSG contexts
+
 ## [0.22.2] - 2026-04-14
 ### Added
 - add contact-minimal tests
