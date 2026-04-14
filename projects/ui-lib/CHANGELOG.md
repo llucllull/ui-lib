@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.22.2] - 2026-04-14
+### Added
+- add contact-minimal tests
+
 ## [0.22.1] - 2026-04-14
 ### Changed
 - adjust grid on responsive
