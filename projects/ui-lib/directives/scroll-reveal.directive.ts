@@ -1,4 +1,5 @@
-import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Directive, ElementRef, Inject, Input, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
 
 @Directive({
     selector: '[scrollReveal]',
@@ -11,10 +12,20 @@ export class ScrollRevealDirective implements OnInit {
     constructor(
         private el: ElementRef,
         private renderer: Renderer2,
+        @Inject(PLATFORM_ID) private platformId: Object,
     ) {}
 
     ngOnInit() {
         this.setupInitialStyles();
+
+        const isBrowser = isPlatformBrowser(this.platformId);
+        const hasIntersectionObserver =
+            typeof globalThis !== 'undefined' && 'IntersectionObserver' in globalThis;
+
+        if (!isBrowser || !hasIntersectionObserver) {
+            this.reveal();
+            return;
+        }
 
         const observer = new IntersectionObserver(
             (entries) => {

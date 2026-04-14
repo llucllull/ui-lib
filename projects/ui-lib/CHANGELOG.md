@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.22.4] - 2026-04-14
+### Changed
+- fix scrollReveal errors on SSG contexts
+- undo splitPreviewer style changes
+
 ## [0.22.3] - 2026-04-14
 ### Changed
 - fix scrollReveal errors on SSG contexts
