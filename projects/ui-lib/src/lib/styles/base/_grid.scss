@@ -12,10 +12,13 @@
   position: relative;
 }
 
+.col-span-full {
+  grid-column: 1 / -1;
+}
+
 // --- SISTEMA DE COLUMNAS (SPAN) ---
 @for $i from 1 through $grid-columns {
   .col-span-#{$i} {
-    // Usamos grid-column-end para que solo defina el tamaño
     grid-column-end: span #{$i};
   }
 }
@@ -23,7 +26,6 @@
 // --- SISTEMA DE POSICIÓN (START) ---
 @for $i from 1 through $grid-columns {
   .col-start-#{$i} {
-    // Definimos solo el inicio
     grid-column-start: #{$i};
   }
 }

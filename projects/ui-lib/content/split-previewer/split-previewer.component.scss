@@ -1,12 +1,15 @@
 @use 'sass:map';
 @use '../../../ui-lib/src/lib/styles/abstracts' as *;
 
-:host { display: contents }
+:host {
+  display: contents;
+}
 
 .split-previewer {
   display: flex;
   gap: 5rem;
   align-items: start;
+  min-width: 0;
 
   &--left {
     flex-direction: row-reverse;
@@ -20,58 +23,65 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    min-width: 0;
   }
 
   &__header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    gap: 1rem;
+    min-width: 0;
 
     .title {
       margin: 0 0 1rem 0;
       text-transform: uppercase;
+      min-width: 0;
     }
 
     .count {
       font-family: var(--font-base);
       font-size: 1rem;
       font-weight: 500;
+      flex-shrink: 0;
     }
   }
 
   &__items {
     display: flex;
     flex-direction: column;
+    min-width: 0;
   }
 
   &__item-link {
     text-decoration: none;
     color: inherit;
     display: block;
+    min-width: 0;
   }
 
   &__item {
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    min-width: 0;
 
     &-title {
-      // font-size: 2.5rem;
       margin-bottom: 0.5rem;
       display: inline-block;
+      min-width: 0;
     }
 
     &-text {
-      // font-size: 1.1rem;
       line-height: 1.6;
-      max-width: 500px;
+      max-width: min(500px, 100%);
       opacity: 0.8;
+      overflow-wrap: break-word;
     }
 
     &-tags {
       display: flex;
+      flex-wrap: wrap;
       gap: 1rem;
       margin-block: 1rem;
-
-      // Estado inicial oculto
       opacity: 0;
       transform: translateY(10px);
       transition:
@@ -107,6 +117,7 @@
 
   &__media {
     flex: 1;
+    min-width: 0;
     position: sticky;
     top: 4rem;
     height: fit-content;
@@ -116,29 +127,92 @@
     overflow: hidden;
 
     .preview-img {
+      display: block;
       width: 75%;
+      max-width: 100%;
       height: auto;
       object-fit: contain;
       animation: fadeInMedia 0.5s ease-out;
-
-      // Filtro opcional para estética Cyber/Brutalista
       filter: contrast(1.1) grayscale(0.2);
     }
   }
 
-  // --- RESPONSIVE ---
   @include respond-max(lg) {
     gap: 3rem;
   }
 
   @include respond-max(md) {
+    display: block;
+    width: 100%;
+    min-width: 0;
+
+    &--left,
+    &--right {
+      flex-direction: unset;
+    }
+
     &__media {
       display: none;
+    }
+
+    &__header {
+      display: block;
+
+      .title {
+        margin-bottom: 0.75rem;
+      }
+
+      .count {
+        display: inline-block;
+      }
+    }
+
+    &__item-link:hover {
+      .split-previewer__item {
+        padding-left: 0;
+
+        &-tags {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+
+        &-text {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    &__item {
+      &-text {
+        max-width: 100%;
+      }
+
+      &-tags {
+        display: none;
+      }
     }
   }
 }
 
-// Keyframes para el cambio de imagen
+@media (hover: none) and (pointer: coarse) {
+  .split-previewer {
+    &__item-link:hover {
+      .split-previewer__item {
+        padding-left: 0;
+
+        &-tags {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+
+        &-text {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
+
 @keyframes fadeInMedia {
   from {
     opacity: 0;
