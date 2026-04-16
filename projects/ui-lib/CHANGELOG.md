@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.22.6] - 2026-04-16
+### Changed
+- adjust img responsive positioning on contact-minimal
+
 ## [0.22.5] - 2026-04-16
 ### Changed
 - adjust img styles on contact-minimal
