@@ -30,7 +30,14 @@
     </div>
     @if (img) {
       <div class="contact-minimal__content--media">
-        <img [src]="img.url" [alt]="img.alt" />
+        <img
+          [src]="img.url"
+          [alt]="img.alt"
+          loading="eager"
+          fetchpriority="high"
+          [attr.width]="img.width || 800"
+          [attr.height]="img.height || 600"
+        />
       </div>
     }
   </div>

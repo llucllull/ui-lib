@@ -1,4 +1,8 @@
-<div class="split-previewer col-span-full md:col-span-8 md:col-start-3" [class]="'split-previewer--' + direction" scrollReveal>
+<div
+  class="split-previewer col-span-full md:col-span-8 md:col-start-3"
+  [class]="'split-previewer--' + direction"
+  scrollReveal
+>
   <div class="split-previewer__text-column">
     <div class="split-previewer__header">
       @if (title) {
@@ -33,6 +37,14 @@
   </div>
 
   <div class="split-previewer__media">
-    <img [src]="activeImage() || imageDefault?.url" alt="Preview" class="preview-img" />
+    <img
+      [src]="activeImage() || imageDefault?.url"
+      alt="Preview"
+      class="preview-img"
+      loading="eager"
+      fetchpriority="high"
+      width="800"
+      height="600"
+    />
   </div>
 </div>
