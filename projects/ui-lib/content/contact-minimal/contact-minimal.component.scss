@@ -1,6 +1,8 @@
 @use '../../../ui-lib/src/lib/styles/abstracts' as *;
 
-:host { display: contents }
+:host {
+  display: contents;
+}
 
 .contact-minimal {
   &__content {
@@ -9,16 +11,23 @@
     justify-content: space-between;
 
     &--media {
-      width: 10rem;
-      height: auto;
       display: flex;
       position: absolute;
-      top: 50%;
+      top: 25rem;
       left: 50%;
       transform: translate(-50%, -50%);
+
+      img {
+        transform: rotate(45deg);
+        width: 50rem;
+      }
+
       @include respond-max(sm) {
-        width: 8rem;
-        top: 13rem;
+        top: 16rem;
+        left: 5rem;
+        img {
+          width: 15rem;
+        }
       }
     }
   }
