@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.22.8] - 2026-04-16
+### Changed
+- fix height on contact-minimal image
+
 ## [0.22.7] - 2026-04-16
 ### Changed
 - enhance image loading attributes for contact-minimal and split-previewer components
