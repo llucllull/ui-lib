@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.22.9] - 2026-04-16
+### Added
+- add aria-label to header buttons
+
 ## [0.22.8] - 2026-04-16
 ### Changed
 - fix height on contact-minimal image

@@ -21,7 +21,7 @@
 
   <!-- Icono de tema -->
   <div class="center">
-    <button class="btn btn-header" (click)="toggleTheme()">
+    <button class="btn btn-header" aria-label="Toggle theme" (click)="toggleTheme()">
       <ui-icon
         [name]="currentTheme === 'dark' ? 'moon' : 'sun'"
         [size]="17"
@@ -32,7 +32,7 @@
 
   <!-- Icono de menú -->
   <div class="right">
-    <button class="btn btn-header" (click)="toggleMenu()">
+    <button class="btn btn-header" aria-label="Open nav" (click)="toggleMenu()">
       <span>☰</span>
     </button>
   </div>
