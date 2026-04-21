@@ -127,7 +127,6 @@ describe('SplitPreviewerComponent', () => {
         });
 
         it('should set activeImage on mouseenter of an item', () => {
-        it('should set activeImage on mouseenter of an item', () => {
             component.items = mockItems;
             fixture.detectChanges();
             const firstLink = fixture.nativeElement.querySelector('.split-previewer__item-link');
