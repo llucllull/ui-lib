@@ -1,39 +1,35 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+import { LinkType } from '../../directives';
 import { SplitPreviewerComponent, SplitPreviewerItemI } from './split-previewer.component';
+
+const mockItems: SplitPreviewerItemI[] = [
+    {
+        title: 'Project Alpha',
+        description: 'A test project',
+        tags: ['Angular', 'TypeScript'],
+        link: { url: 'https://example.com', linkType: LinkType.External, label: 'View Project' },
+        image: { url: 'https://cdn.example.com/alpha.jpg', alt: 'Project Alpha Image' },
+    },
+    {
+        title: 'Project Beta',
+        description: 'Another test project',
+        tags: ['SSG'],
+        link: { url: 'https://beta.com', linkType: LinkType.External, label: 'View Project' },
+        image: { url: 'https://cdn.example.com/beta.jpg', alt: 'Project Beta Image' },
+    },
+];
 
 describe('SplitPreviewerComponent', () => {
     let component: SplitPreviewerComponent;
     let fixture: ComponentFixture<SplitPreviewerComponent>;
 
-    // Mock de datos para las pruebas
-    const mockItems: SplitPreviewerItemI[] = [
-        {
-            title: 'Project 1',
-            description: 'Desc 1',
-            image: { url: 'image1.jpg', alt: 'Image1' },
-            link: { url: '/p1', linkType: 'internal' } as any,
-        },
-        {
-            title: 'Project 2',
-            description: 'Desc 2',
-            image: { url: 'image2.jpg', alt: 'Image2' },
-        },
-    ];
-
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            // Como es Standalone, se importa directamente
             imports: [SplitPreviewerComponent],
         }).compileComponents();
 
         fixture = TestBed.createComponent(SplitPreviewerComponent);
         component = fixture.componentInstance;
-
-        // Inicializamos inputs básicos
-        component.items = mockItems;
-        component.imageDefault = { url: 'default.jpg', alt: 'Default Image' };
-
         fixture.detectChanges();
     });
 
@@ -41,51 +37,103 @@ describe('SplitPreviewerComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should calculate the correct count of items', () => {
-        expect(component.count).toBe(2);
+    describe('count getter', () => {
+        it('should return 0 when items is undefined', () => {
+            expect(component.count).toBe(0);
+        });
+
+        it('should return correct count when items are set', () => {
+            component.items = mockItems;
+            expect(component.count).toBe(2);
+        });
     });
 
-    it('should display the default image initially', () => {
-        const imgElement = fixture.debugElement.query(By.css('.preview-img')).nativeElement;
-        expect(imgElement.src).toContain('default.jpg');
-        expect(component.activeImage()).toBeUndefined();
+    describe('activeImage signal', () => {
+        it('should start as undefined', () => {
+            expect(component.activeImage()).toBeUndefined();
+        });
+
+        it('should update when set', () => {
+            component.activeImage.set('https://cdn.example.com/alpha.jpg');
+            expect(component.activeImage()).toBe('https://cdn.example.com/alpha.jpg');
+        });
+
+        it('should reset to undefined on mouseleave', () => {
+            component.activeImage.set('https://cdn.example.com/alpha.jpg');
+            const el = fixture.nativeElement.querySelector('.split-previewer__items');
+            el.dispatchEvent(new Event('mouseleave'));
+            fixture.detectChanges();
+            expect(component.activeImage()).toBeUndefined();
+        });
     });
 
-    it('should change activeImage on mouseenter and reset on mouseleave', () => {
-        const firstItemLink = fixture.debugElement.query(By.css('.split-previewer__item-link'));
+    describe('template rendering', () => {
+        it('should not render title when not provided', () => {
+            const el = fixture.nativeElement.querySelector('h1.title');
+            expect(el).toBeNull();
+        });
 
-        // Simular Hover en el primer item
-        firstItemLink.triggerEventHandler('mouseenter', null);
-        fixture.detectChanges();
+        it('should render title when provided', () => {
+            component.title = 'Proyectos';
+            fixture.detectChanges();
+            const el = fixture.nativeElement.querySelector('h1.title');
+            expect(el?.textContent?.trim()).toBe('Proyectos');
+        });
 
-        expect(component.activeImage()).toBe('image1.jpg');
+        it('should not render count when items is empty', () => {
+            const el = fixture.nativeElement.querySelector('span.count');
+            expect(el).toBeNull();
+        });
 
-        const imgElement = fixture.debugElement.query(By.css('.preview-img')).nativeElement;
-        expect(imgElement.src).toContain('image1.jpg');
+        it('should render correct number of items', () => {
+            component.items = mockItems;
+            fixture.detectChanges();
+            const links = fixture.nativeElement.querySelectorAll('.split-previewer__item-link');
+            expect(links.length).toBe(2);
+        });
 
-        // Simular salida del ratón del contenedor de la lista
-        const itemsContainer = fixture.debugElement.query(By.css('.split-previewer__items'));
-        itemsContainer.triggerEventHandler('mouseleave', null);
-        fixture.detectChanges();
+        it('should render tags for items that have them', () => {
+            component.items = mockItems;
+            fixture.detectChanges();
+            const tags = fixture.nativeElement.querySelectorAll('.split-previewer__item-tag');
+            expect(tags.length).toBe(3); // 'Angular', 'TypeScript', 'SSG'
+        });
 
-        expect(component.activeImage()).toBeUndefined();
-        expect(imgElement.src).toContain('default.jpg');
-    });
+        it('should use imageDefault when activeImage is undefined', () => {
+            component.imageDefault = { url: 'https://cdn.example.com/default.jpg', alt: 'Default Image' };
+            fixture.detectChanges();
+            const img = fixture.nativeElement.querySelector('img.preview-img');
+            expect(img.src).toContain('default.jpg');
+        });
 
-    it('should apply the correct direction class', () => {
-        component.direction = 'left';
-        fixture.detectChanges();
+        it('should use activeImage when set', () => {
+            component.imageDefault = { url: 'https://cdn.example.com/default.jpg', alt: 'Default Image' };
+            component.activeImage.set('https://cdn.example.com/active.jpg');
+            fixture.detectChanges();
+            const img = fixture.nativeElement.querySelector('img.preview-img');
+            expect(img.src).toContain('active.jpg');
+        });
 
-        const container = fixture.debugElement.query(By.css('.split-previewer')).nativeElement;
-        expect(container.classList).toContain('split-previewer--left');
-    });
+        it('should apply direction class', () => {
+            component.direction = 'left';
+            fixture.detectChanges();
+            const el = fixture.nativeElement.querySelector('.split-previewer');
+            expect(el.classList).toContain('split-previewer--left');
+        });
 
-    it('should render the correct number of tags if present', () => {
-        component.items = [{ title: 'T1', tags: ['Angular', 'SSR'] }];
-        fixture.detectChanges();
+        it('should default direction to right', () => {
+            const el = fixture.nativeElement.querySelector('.split-previewer');
+            expect(el.classList).toContain('split-previewer--right');
+        });
 
-        const tags = fixture.debugElement.queryAll(By.css('.split-previewer__item-tag'));
-        expect(tags.length).toBe(2);
-        expect(tags[0].nativeElement.textContent).toContain('Angular');
+        it('should set activeImage on mouseenter of an item', () => {
+        it('should set activeImage on mouseenter of an item', () => {
+            component.items = mockItems;
+            fixture.detectChanges();
+            const firstLink = fixture.nativeElement.querySelector('.split-previewer__item-link');
+            firstLink.dispatchEvent(new Event('mouseenter'));
+            fixture.detectChanges();
+            expect(component.activeImage()).toBe('https://cdn.example.com/alpha.jpg');
+        });
     });
 });
