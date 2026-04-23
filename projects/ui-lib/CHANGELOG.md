@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.23.2] - 2026-04-23
+### Added
+- adjust padding and image object position in header-clear component
+
 ## [0.23.1] - 2026-04-23
 ### Added
 - update text rendering to use innerHTML for media-split component; adjust font sizes in split-previewer and typography styles
