@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, signal } from '@angular/core';
 import { HighlightDirective, LinkTypeDirective, ScrollRevealDirective } from '@lluc_llull/ui-lib/directives';
 import { UiLibButtonI, UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
 
@@ -8,6 +8,7 @@ import { UiLibButtonI, UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
     imports: [CommonModule, LinkTypeDirective, HighlightDirective, ScrollRevealDirective],
     templateUrl: './split-previewer.component.html',
     styleUrl: './split-previewer.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SplitPreviewerComponent {
     @Input() title?: string;

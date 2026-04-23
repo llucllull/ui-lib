@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.22.11] - 2026-04-23
+### Added
+- update layout and styles for category-progress, contact-minimal, section-intro, and split-previewer components
+
 ## [0.22.10] - 2026-04-21
 ### Added
 - add split-previewer tests
