@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [0.22.11] - 2026-04-23
 ### Added
 - update layout and styles for category-progress, contact-minimal, section-intro, and split-previewer components
+- update package-lock.json and package.json dependencies; modify split-previewer component tests for improved input handling
 
 ## [0.22.10] - 2026-04-21
 ### Added
