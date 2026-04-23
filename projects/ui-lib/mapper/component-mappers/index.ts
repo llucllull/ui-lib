@@ -11,6 +11,7 @@ export * from './section-intro.mapper';
 export * from './social-footer.mapper';
 export * from './split-previewer.mapper';
 export * from './visual-footer.mapper';
+export * from './media-split.mapper';
 
 import { map404 } from './404.mapper';
 import { mapCategoryProgress } from './category-progress.mapper';
@@ -20,6 +21,7 @@ import { mapHeroSection } from './hero-section.mapper';
 import { mapLangModal } from './lang-modal.mapper';
 import { mapLegalFooter } from './legal-footer.mapper';
 import { mapLinksFooter } from './links-footer.mapper';
+import { mapMediaSplit } from './media-split.mapper';
 import { mapSectionIntro } from './section-intro.mapper';
 import { mapSocialFooter } from './social-footer.mapper';
 import { mapSplitPreviewer } from './split-previewer.mapper';
@@ -38,4 +40,5 @@ export const componentMappers: Record<string, (props: any, cdn?: string) => any>
     'not-found': map404,
     'split-previewer': mapSplitPreviewer,
     'contact-minimal': mapContactMinimal,
+    'media-split': mapMediaSplit,
 };

@@ -1,0 +1,75 @@
+@use 'sass:map';
+@use '../../../ui-lib/src/lib/styles/abstracts' as *;
+
+:host { display: contents }
+
+.media-split {
+  display: grid;
+  grid-template-columns: repeat($grid-columns, minmax(0, 1fr));
+  column-gap: $grid-gutter;
+  align-items: end;
+  padding-block: $section-padding-y;
+
+  &__visual {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    .title {
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+    }
+  }
+
+  &__info {
+    align-self: end;
+    padding-bottom: 0.5rem; 
+  }
+}
+
+.img-responsive {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.image-stack {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 14 / 9; 
+  overflow: hidden;
+  cursor: ew-resize;
+
+  .stack-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+    pointer-events: none;
+
+    &.is-active {
+      opacity: 1;
+      position: relative;
+    }
+  }
+}
+
+.hover-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 10;
+  
+  .hover-zone {
+    flex: 1;
+    height: 100%;
+    cursor: inherit; 
+  }
+}

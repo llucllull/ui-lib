@@ -47,11 +47,15 @@ export function mapImage(data: any, cdn?: string): UiLibImageI | null {
 export function mapImageOrGallery(data: any, cdn?: string): UiLibImageI[] {
     if (!data) return [];
 
+    if (data.images && Array.isArray(data.images)) {
+        data = data.images;
+    }
+
     if (Array.isArray(data)) {
         return data
             .filter((img) => img && typeof img === 'object')
-            .map((img) => mapImage(img, cdn)!)
-            .filter(Boolean);
+            .map((img) => mapImage(img, cdn))
+            .filter((img): img is UiLibImageI => !!img);
     }
 
     const single = mapImage(data, cdn);

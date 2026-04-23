@@ -1,0 +1,34 @@
+<div class="media-split main-grid col-span-full md:col-span-12 md:col-start-1" scrollReveal>
+  <div class="media-split__visual col-span-full md:col-span-7 md:col-start-1">
+    @if (title) {
+      <h1 class="title">{{ title }}</h1>
+    }
+
+    @if (images?.length) {
+      <div class="image-stack" (mouseleave)="resetImage()">
+        @for (image of images; track $index) {
+          <img
+            [src]="image.url"
+            [alt]="image.alt"
+            class="img-responsive stack-item"
+            [class.is-active]="$index === activeImageIndex()"
+            loading="eager"
+            fetchpriority="high"
+          />
+        }
+
+        <div class="hover-grid">
+          @for (image of images; track $index) {
+            <div class="hover-zone" (mouseenter)="updateActiveImage($index)"></div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+
+  <div class="media-split__info col-span-full md:col-span-5 md:col-start-8">
+    @if (text) {
+      <p class="text">{{ text }}</p>
+    }
+  </div>
+</div>
