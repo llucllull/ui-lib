@@ -75,6 +75,7 @@
       max-width: min(1000px, 100%);
       opacity: 0.8;
       overflow-wrap: break-word;
+      font-size: 1.2rem;
     }
 
     &-tags {
@@ -90,7 +91,7 @@
     }
 
     &-tag {
-      font-size: 0.75rem;
+      font-size: 1rem;
       font-weight: 600;
       letter-spacing: 0.05em;
       padding: 0.3rem 0.8rem;

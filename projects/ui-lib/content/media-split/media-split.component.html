@@ -28,7 +28,7 @@
 
   <div class="media-split__info col-span-full md:col-span-5 md:col-start-8">
     @if (text) {
-      <p class="text">{{ text }}</p>
+      <p class="text" [innerHTML]="text"></p>
     }
   </div>
 </div>
