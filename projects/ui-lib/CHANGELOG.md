@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.23.4] - 2026-04-23
+### Added
+- optimize images on split-previewer
+
 ## [0.23.3] - 2026-04-23
 ### Added
 - optimize img to handle better performance on media-split

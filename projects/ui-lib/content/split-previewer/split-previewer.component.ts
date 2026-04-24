@@ -1,6 +1,10 @@
-import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, signal } from '@angular/core';
-import { HighlightDirective, LinkTypeDirective, ScrollRevealDirective } from '@lluc_llull/ui-lib/directives';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Inject, Input, OnInit, PLATFORM_ID, signal } from '@angular/core';
+import {
+    HighlightDirective,
+    LinkTypeDirective,
+    ScrollRevealDirective,
+} from '@lluc_llull/ui-lib/directives';
 import { UiLibButtonI, UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
 
 @Component({
@@ -10,7 +14,7 @@ import { UiLibButtonI, UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
     styleUrl: './split-previewer.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SplitPreviewerComponent {
+export class SplitPreviewerComponent implements OnInit {
     @Input() title?: string;
     @Input() items?: SplitPreviewerItemI[];
     @Input() imageDefault?: UiLibImageI;
@@ -20,6 +24,23 @@ export class SplitPreviewerComponent {
 
     get count(): number {
         return this.items?.length || 0;
+    }
+
+    constructor(@Inject(PLATFORM_ID) private readonly platformId: Object) {}
+
+    ngOnInit() {
+        if (!this.items) return;
+        if (!isPlatformBrowser(this.platformId)) return;
+        if ('requestIdleCallback' in window) {
+            (window as any).requestIdleCallback(() => {
+                this.items?.forEach((item) => {
+                    if (item.image?.url) {
+                        const img = new Image();
+                        img.src = item.image.url;
+                    }
+                });
+            });
+        }
     }
 }
 

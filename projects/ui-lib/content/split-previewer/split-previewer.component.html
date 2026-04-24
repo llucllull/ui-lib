@@ -39,12 +39,9 @@
   <div class="split-previewer__media">
     <img
       [src]="activeImage() || imageDefault?.url"
-      alt="Preview"
       class="preview-img"
-      loading="eager"
-      fetchpriority="high"
-      width="800"
-      height="600"
+      loading="lazy"
+      decoding="async"
     />
   </div>
 </div>
