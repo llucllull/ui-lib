@@ -1,12 +1,14 @@
 @use '../../../ui-lib/src/lib/styles/abstracts' as *;
 
+:host {
+  display: contents;
+}
+
 .notfound {
-  min-height: 100%; // verde del diseño
+  min-height: 84dvh;
   overflow: hidden;
-  padding: 6rem 4rem 0 4rem;
 
   &__content {
-    max-width: 45rem;
     position: relative;
     z-index: 2;
   }
@@ -28,18 +30,28 @@
   }
 
   &__highlight {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 50%;
-    transform: translate(-50%, 23%);
+    transform: translateX(-50%);
+
     font-size: 38rem;
+    line-height: 0.8;
     color: var(--color-primary);
     font-family: var(--font-titles);
+
     z-index: 1;
     pointer-events: none;
-    @include respond-max(sm) {
-      font-size: 10rem;
-      transform: translate(-50%, -15%);
+  }
+
+  @include respond-max(md) {
+    &__highlight {
+      font-size: 12rem;
+      bottom: 5rem;
+    }
+
+    .btn-group {
+      width: 10rem;
     }
   }
 }

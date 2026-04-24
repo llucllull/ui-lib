@@ -1,11 +1,15 @@
-<div class="notfound">
-  <div class="notfound__content">
+<div class="notfound main-grid col-span-full md:col-span-12 md:col-start-1">
+  
+  <!-- CONTENT -->
+  <div class="notfound__content col-span-full md:col-span-5 md:col-start-1">
     @if (title) {
       <h1 class="notfound__title">{{ title }}</h1>
     }
 
     @if (subtitle) {
-      <h2 class="notfound__subtitle" [highlight]="'#FFFFFF'">{{ subtitle }}</h2>
+      <h2 class="notfound__subtitle" [highlight]="'#FFFFFF'">
+        {{ subtitle }}
+      </h2>
     }
 
     @if (button) {
@@ -15,15 +19,20 @@
           [linkType]="button.linkType"
           class="btn btn-primary btn-primary--outline"
         >
-          <ui-icon [name]="button.icon!" [size]="17" [color]="'var(--color-primary)'"></ui-icon>
+          <ui-icon
+            [name]="button.icon!"
+            [size]="17"
+            [color]="'var(--color-primary)'"
+          ></ui-icon>
           {{ button.label }}
         </a>
       </div>
     }
   </div>
 
+  <!-- BIG NUMBER -->
   @if (highlight) {
-    <div class="notfound__highlight">
+    <div class="notfound__highlight col-span-full">
       {{ highlight }}
     </div>
   }

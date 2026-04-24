@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.24.2] - 2026-04-24
+### Changed
+- add grid to 404 component
+
 ## [0.24.1] - 2026-04-24
 ### Changed
 - refactor stacked rows to use main-grid
