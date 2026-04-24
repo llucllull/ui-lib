@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [0.23.3] - 2026-04-23
 ### Added
 - optimize img to handle better performance on media-split
+- fix media-split test to handle new optimized image handling
 
 ## [0.23.2] - 2026-04-23
 ### Added

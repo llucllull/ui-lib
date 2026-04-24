@@ -48,12 +48,25 @@ describe('MediaSplitComponent', () => {
             expect(el?.textContent?.trim()).toContain('Some description');
         });
 
-        it('should render images when provided', () => {
+        it('should render first image when provided', () => {
             fixture.componentRef.setInput('images', mockImages);
             fixture.detectChanges();
 
-            const imgs = fixture.nativeElement.querySelectorAll('img');
-            expect(imgs.length).toBe(2);
+            const img = fixture.nativeElement.querySelector('img');
+
+            expect(img.src).toContain('test1.png');
+        });
+
+        it('should change image when activeImageIndex changes', () => {
+            fixture.componentRef.setInput('images', mockImages);
+            fixture.detectChanges();
+
+            component.updateActiveImage(1);
+            fixture.detectChanges();
+
+            const img = fixture.nativeElement.querySelector('img');
+
+            expect(img.src).toContain('test2.png');
         });
     });
 
