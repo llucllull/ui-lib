@@ -1,0 +1,90 @@
+@use '../../../ui-lib/src/lib/styles/abstracts' as *;
+
+:host {
+  display: contents;
+}
+
+.stacked-rows {
+  background-color: var(--color-primary);
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+  padding-block: 10rem 1rem;
+
+  .subtitle,
+  .text {
+    color: var(--color-secondary);
+  }
+
+  &__intro {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color-secondary);
+
+    .text {
+      margin: 0 0 3rem 25rem;
+      font-size: 2.4rem;
+      font-weight: 600;
+    }
+  }
+
+  &__items {
+    &--item {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--color-secondary);
+      padding-bottom: 4.5rem;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &_title {
+        font-size: 2rem;
+        color: var(--color-secondary);
+        min-width: 18rem;
+        font-weight: 100;
+      }
+
+      &_text {
+        margin: 2rem 0 0 33rem;
+        font-size: 1.2rem;
+        color: var(--color-secondary);
+      }
+    }
+  }
+
+  @include respond-max(md) {
+    padding-block: 6rem 2rem;
+
+    &__intro {
+      flex-direction: column;
+      gap: 1.5rem;
+
+      .text {
+        margin: 0 0 2rem 0;
+        font-size: 1.6rem;
+      }
+    }
+
+    &__items {
+      &--item {
+        flex-direction: column;
+        gap: 1rem;
+        padding-block: 2rem;
+
+        &_title {
+          font-size: 1.6rem;
+        }
+
+        &_text {
+          margin: 0;
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+}

@@ -4,3 +4,4 @@ export * from './section-intro';
 export * from './split-previewer';
 export * from './contact-minimal';
 export * from './media-split';
+export * from './stacked-rows';

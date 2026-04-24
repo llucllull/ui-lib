@@ -12,6 +12,7 @@ export * from './social-footer.mapper';
 export * from './split-previewer.mapper';
 export * from './visual-footer.mapper';
 export * from './media-split.mapper';
+export * from './stacked-rows.mapper';
 
 import { map404 } from './404.mapper';
 import { mapCategoryProgress } from './category-progress.mapper';
@@ -25,6 +26,7 @@ import { mapMediaSplit } from './media-split.mapper';
 import { mapSectionIntro } from './section-intro.mapper';
 import { mapSocialFooter } from './social-footer.mapper';
 import { mapSplitPreviewer } from './split-previewer.mapper';
+import { mapStackedRows } from './stacked-rows.mapper';
 import { mapVisualFooter } from './visual-footer.mapper';
 
 export const componentMappers: Record<string, (props: any, cdn?: string) => any> = {
@@ -41,4 +43,5 @@ export const componentMappers: Record<string, (props: any, cdn?: string) => any>
     'split-previewer': mapSplitPreviewer,
     'contact-minimal': mapContactMinimal,
     'media-split': mapMediaSplit,
+    'stacked-rows': mapStackedRows,
 };
