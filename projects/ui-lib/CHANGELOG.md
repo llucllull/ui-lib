@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.23.3] - 2026-04-23
+### Added
+- optimize img to handle better performance on media-split
+
 ## [0.23.2] - 2026-04-23
 ### Added
 - adjust padding and image object position in header-clear component
