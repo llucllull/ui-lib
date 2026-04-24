@@ -1,0 +1,41 @@
+<div class="mosaic-parallax main-grid col-span-full" #mosaicSection>
+
+  @if (title) {
+    <h2 class="subtitle md:col-span-3 md:col-start-1">{{ title }}</h2>
+  }
+
+  @if (text) {
+    <p class="text col-span-full md:col-span-5 md:col-start-1">
+      {{ text }}
+    </p>
+  }
+
+  @if (images && images.length > 0) {
+    <div class="mosaic-parallax__track col-span-full md:col-span-10 md:col-start-2">
+      @for (item of images; track $index) {
+        <article
+          class="mosaic-item"
+          [class.mosaic-item--visible]="isVisible"
+          [style.--item-index]="images.length - 1 - $index"
+          [style.--anim-delay]="(images.length - 1 - $index) * 250 + 'ms'"
+        >
+          <div class="mosaic-item__media">
+            <img [src]="item.url" [alt]="item.alt" loading="lazy" />
+          </div>
+          @if (item.texts; as texts) {
+            <div class="mosaic-item__content">
+              <p class="mosaic-item__description">{{ texts.text }}</p>
+              <div class="mosaic-item__meta">
+                <span class="mosaic-item__date">{{ texts.title }}</span>
+                <span class="mosaic-item__index">
+                  {{ ($index + 1).toString().padStart(2, '0') }}
+                </span>
+              </div>
+            </div>
+          }
+        </article>
+      }
+    </div>
+  }
+
+</div>

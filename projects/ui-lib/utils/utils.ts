@@ -41,6 +41,12 @@ export function mapImage(data: any, cdn?: string): UiLibImageI | null {
         width: data.width,
         height: data.height,
         format: data.format,
+        texts: {
+            pretitle: data.texts?.pretitle,
+            title: data.texts?.title,
+            subtitle: data.texts?.subtitle,
+            text: data.texts?.text,
+        },
     };
 }
 

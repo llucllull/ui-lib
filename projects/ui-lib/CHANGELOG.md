@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [0.25.0] - 2026-04-24
 ### Added
 - add texts interface
+- add mosaic parallax component with mapping and styles
 
 ## [0.24.3] - 2026-04-24
 ### Changed

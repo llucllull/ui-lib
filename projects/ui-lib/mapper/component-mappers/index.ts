@@ -13,6 +13,7 @@ export * from './split-previewer.mapper';
 export * from './visual-footer.mapper';
 export * from './media-split.mapper';
 export * from './stacked-rows.mapper';
+export * from './mosaic-parallax.mapper';
 
 import { map404 } from './404.mapper';
 import { mapCategoryProgress } from './category-progress.mapper';
@@ -28,6 +29,7 @@ import { mapSocialFooter } from './social-footer.mapper';
 import { mapSplitPreviewer } from './split-previewer.mapper';
 import { mapStackedRows } from './stacked-rows.mapper';
 import { mapVisualFooter } from './visual-footer.mapper';
+import { mapMosaicParallax } from './mosaic-parallax.mapper';
 
 export const componentMappers: Record<string, (props: any, cdn?: string) => any> = {
     'hero-section': mapHeroSection,
@@ -44,4 +46,5 @@ export const componentMappers: Record<string, (props: any, cdn?: string) => any>
     'contact-minimal': mapContactMinimal,
     'media-split': mapMediaSplit,
     'stacked-rows': mapStackedRows,
+    'mosaic-parallax': mapMosaicParallax,
 };
