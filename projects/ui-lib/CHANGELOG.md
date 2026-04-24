@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.24.0] - 2026-04-24
+### Changed
+- add stacked-rows component
+
 ## [0.23.5] - 2026-04-24
 ### Changed
 - fix image handling on split-preview

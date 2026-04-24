@@ -1,16 +1,18 @@
 <div class="stacked-rows col-span-full md:col-span-12 md:col-start-1" scrollReveal>
-  @if (title) {
-    <h1 class="title">{{ title }}</h1>
-  }
-  @if (text) {
-    <p class="text">{{ text }}</p>
-  }
+  <div class="stacked-rows__intro">
+    @if (title) {
+      <h1 class="subtitle">{{ title }}</h1>
+    }
+    @if (text) {
+      <p class="text">{{ text }}</p>
+    }
+  </div>
   @if (items) {
-    <div class="items">
+    <div class="stacked-rows__items">
       @for (item of items; track $index) {
-        <div class="item">
-          <h2 class="item-title">{{ item.title }}</h2>
-          <p class="item-text">{{ item.text }}</p>
+        <div class="stacked-rows__items--item">
+          <h2 class="stacked-rows__items--item_title">{{ item.title }}</h2>
+          <p class="stacked-rows__items--item_text">{{ item.text }}</p>
         </div>
       }
     </div>
