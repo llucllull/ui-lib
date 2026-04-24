@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.24.3] - 2026-04-24
+### Changed
+enhance hero section with image variant and background handling
+
 ## [0.24.2] - 2026-04-24
 ### Changed
 - add grid to 404 component

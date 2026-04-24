@@ -1,30 +1,40 @@
+import { DOCUMENT } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { LucideAngularModule, MoveRight } from 'lucide-angular';
 import { LinkType, LinkTypeDirective } from '../../directives';
 import { HeroSectionComponent } from './hero-section.component';
-import { LucideAngularModule, MoveRight, X } from 'lucide-angular';
 
 describe('HeroSectionComponent', () => {
     let component: HeroSectionComponent;
     let fixture: ComponentFixture<HeroSectionComponent>;
+    let documentMock: Document;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             imports: [
-                HeroSectionComponent, 
+                HeroSectionComponent,
                 LinkTypeDirective,
-                LucideAngularModule.pick({ MoveRight })
+                LucideAngularModule.pick({ MoveRight }),
             ],
         }).compileComponents();
 
         fixture = TestBed.createComponent(HeroSectionComponent);
         component = fixture.componentInstance;
+        documentMock = TestBed.inject(DOCUMENT);
+    });
+
+    afterEach(() => {
+        documentMock.body.classList.remove('has-hero-image');
     });
 
     it('debería crearse', () => {
         expect(component).toBeTruthy();
     });
 
+    /* =========================
+       BUTTONS
+    ========================= */
     describe('buttons input', () => {
         it('no debería renderizar buttons si no se pasa @Input buttons', () => {
             fixture.detectChanges();
@@ -56,6 +66,9 @@ describe('HeroSectionComponent', () => {
         });
     });
 
+    /* =========================
+       TEXT CONTENT
+    ========================= */
     it('debería renderizar el pretitle si existe', () => {
         component.pretitle = 'pretitle de prueba';
         fixture.detectChanges();
@@ -88,9 +101,12 @@ describe('HeroSectionComponent', () => {
         expect(el.textContent).toContain('text de prueba');
     });
 
+    /* =========================
+       HIGHLIGHT
+    ========================= */
     it('debería renderizar el highlight dentro del title si coincide', () => {
         component.title = 'Este es un highlight de prueba';
-        component.highlight = 'highlight de prueba'; // coincide con una parte del title
+        component.highlight = 'highlight de prueba';
         fixture.detectChanges();
 
         const highlightEl = fixture.debugElement.query(By.css('.highlight-text'))?.nativeElement;
@@ -104,6 +120,53 @@ describe('HeroSectionComponent', () => {
         fixture.detectChanges();
 
         const highlightEl = fixture.debugElement.query(By.css('.highlight-text'));
-        expect(highlightEl).toBeNull(); // no se pinta porque title.includes(highlight) es false
+        expect(highlightEl).toBeNull();
+    });
+
+    /* =========================
+       VARIANT IMAGE (DOM SIDE EFFECTS)
+    ========================= */
+    describe('variant image behavior', () => {
+        it('debería añadir la clase al body cuando variant es image', () => {
+            component.variant = 'image';
+
+            fixture.detectChanges(); // ngOnInit
+
+            expect(documentMock.body.classList.contains('has-hero-image')).toBeTrue();
+        });
+
+        it('no debería añadir la clase si variant es text', () => {
+            component.variant = 'text';
+
+            fixture.detectChanges();
+
+            expect(documentMock.body.classList.contains('has-hero-image')).toBeFalse();
+        });
+
+        it('debería eliminar la clase al destruir el componente', () => {
+            component.variant = 'image';
+            fixture.detectChanges();
+
+            fixture.destroy(); // ngOnDestroy
+
+            expect(documentMock.body.classList.contains('has-hero-image')).toBeFalse();
+        });
+    });
+
+    /* =========================
+       IMAGE RENDER
+    ========================= */
+    it('debería renderizar la imagen cuando variant es image', () => {
+        component.variant = 'image';
+        component.image = {
+            url: '/test.jpg',
+            alt: 'test',
+        };
+
+        fixture.detectChanges();
+
+        const img = fixture.debugElement.query(By.css('img'));
+        expect(img).toBeTruthy();
+        expect(img.nativeElement.getAttribute('src')).toBe('/test.jpg');
     });
 });
