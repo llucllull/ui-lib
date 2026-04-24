@@ -2,7 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.25.0] - 2026-04-24
+## [0.25.1] - 2026-04-25
+### Changed
+- fix cards grid-row on mosaic-parallax on responsive
+
+## [0.25.0] - 2026-04-25
 ### Added
 - add texts interface
 - add mosaic parallax component with mapping and styles
