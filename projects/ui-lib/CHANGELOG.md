@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.24.1] - 2026-04-24
+### Changed
+- refactor stacked rows to use main-grid
+
 ## [0.24.0] - 2026-04-24
 ### Changed
 - add stacked-rows component
