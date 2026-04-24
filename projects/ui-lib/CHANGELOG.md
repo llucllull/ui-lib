@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.25.0] - 2026-04-24
+### Added
+- add texts interface
+
 ## [0.24.3] - 2026-04-24
 ### Changed
 enhance hero section with image variant and background handling
