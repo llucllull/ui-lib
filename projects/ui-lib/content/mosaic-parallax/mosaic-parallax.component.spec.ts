@@ -2,35 +2,33 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MosaicParallaxComponent } from './mosaic-parallax.component';
 import { PLATFORM_ID } from '@angular/core';
 
+class MockIntersectionObserver {
+  observe = jasmine.createSpy('observe');
+  disconnect = jasmine.createSpy('disconnect');
+  unobserve = jasmine.createSpy('unobserve');
+
+  private callback: any;
+
+  constructor(callback: any) {
+    this.callback = callback;
+  }
+
+  trigger(isIntersecting: boolean) {
+    this.callback([{ isIntersecting }]);
+  }
+}
+
 describe('MosaicParallaxComponent', () => {
   let component: MosaicParallaxComponent;
   let fixture: ComponentFixture<MosaicParallaxComponent>;
 
-  // 👇 mock de IntersectionObserver
-  let observeMock: jasmine.Spy;
-  let disconnectMock: jasmine.Spy;
-
   beforeEach(async () => {
-    observeMock = jasmine.createSpy('observe');
-    disconnectMock = jasmine.createSpy('disconnect');
-
-    (window as any).IntersectionObserver = jasmine
-      .createSpy('IntersectionObserver')
-      .and.callFake((callback: any) => {
-        return {
-          observe: observeMock,
-          disconnect: disconnectMock,
-          trigger: (isIntersecting: boolean) => {
-            callback([{ isIntersecting }]);
-          },
-        };
-      });
+    // 👇 mock correcto (constructor real)
+    (window as any).IntersectionObserver = MockIntersectionObserver;
 
     await TestBed.configureTestingModule({
       imports: [MosaicParallaxComponent],
-      providers: [
-        { provide: PLATFORM_ID, useValue: 'browser' }, // 👈 importante
-      ],
+      providers: [{ provide: PLATFORM_ID, useValue: 'browser' }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(MosaicParallaxComponent);
@@ -44,29 +42,30 @@ describe('MosaicParallaxComponent', () => {
 
   describe('IntersectionObserver', () => {
     it('should initialize observer on AfterViewInit', () => {
-      fixture.detectChanges(); // dispara ngAfterViewInit
+      fixture.detectChanges();
 
-      expect(window.IntersectionObserver).toHaveBeenCalled();
-      expect(observeMock).toHaveBeenCalled();
+      const observer = (component as any).observer;
+      expect(observer).toBeTruthy();
+      expect(observer.observe).toHaveBeenCalled();
     });
 
     it('should set isVisible to true when intersecting', () => {
       fixture.detectChanges();
 
-      const observerInstance = (window.IntersectionObserver as any).calls.mostRecent().returnValue;
+      const observer = (component as any).observer as MockIntersectionObserver;
 
-      observerInstance.trigger(true);
+      observer.trigger(true);
 
       expect(component.isVisible()).toBeTrue();
-      expect(disconnectMock).toHaveBeenCalled();
+      expect(observer.disconnect).toHaveBeenCalled();
     });
 
     it('should NOT set isVisible when not intersecting', () => {
       fixture.detectChanges();
 
-      const observerInstance = (window.IntersectionObserver as any).calls.mostRecent().returnValue;
+      const observer = (component as any).observer as MockIntersectionObserver;
 
-      observerInstance.trigger(false);
+      observer.trigger(false);
 
       expect(component.isVisible()).toBeFalse();
     });
@@ -125,9 +124,11 @@ describe('MosaicParallaxComponent', () => {
     it('should disconnect observer on destroy', () => {
       fixture.detectChanges();
 
+      const observer = (component as any).observer;
+
       component.ngOnDestroy();
 
-      expect(disconnectMock).toHaveBeenCalled();
+      expect(observer.disconnect).toHaveBeenCalled();
     });
   });
 });
