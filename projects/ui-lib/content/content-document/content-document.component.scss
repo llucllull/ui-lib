@@ -1,0 +1,19 @@
+.content-document__title,
+.content-document__items--item_title {
+  text-transform: uppercase;
+}
+
+.main-grid {
+  row-gap: 0;
+  padding-block: 0;
+}
+
+.content-document__items--item {
+  &_title {
+    margin-bottom: 0;
+    font-size: 2rem;
+  }
+  &_text {
+    font-size: 1.3rem;
+  }
+}

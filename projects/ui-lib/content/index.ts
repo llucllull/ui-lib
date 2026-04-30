@@ -6,3 +6,4 @@ export * from './contact-minimal';
 export * from './media-split';
 export * from './stacked-rows';
 export * from './mosaic-parallax';
+export * from './content-document';
