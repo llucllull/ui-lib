@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.25.5] - 2026-04-30
+### Changed
+- add tests to mosaic-parallax component
+
 ## [0.25.4] - 2026-04-30
 ### Changed
 - invert theme logos
