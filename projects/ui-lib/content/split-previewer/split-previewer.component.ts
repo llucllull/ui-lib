@@ -13,6 +13,11 @@ import { UiLibButtonI, UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
     templateUrl: './split-previewer.component.html',
     styleUrl: './split-previewer.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        class: 'col-span-full md:col-span-12 md:col-start-1',
+        '[class]': '"split-previewer--" + direction',
+        style: 'display: block',
+    },
 })
 export class SplitPreviewerComponent implements OnInit {
     @Input() title?: string;

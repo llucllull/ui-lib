@@ -1,14 +1,10 @@
 @use 'sass:map';
 @use '../../../ui-lib/src/lib/styles/abstracts' as *;
 
-:host {
-  display: contents;
-}
-
 .split-previewer {
   display: flex;
   gap: 5rem;
-  align-items: start;
+  // align-items: start;
   min-width: 0;
 
   &--left {
@@ -119,13 +115,16 @@
   &__media {
     flex: 1;
     min-width: 0;
-    position: sticky;
-    top: 4rem;
-    height: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    position: relative;
+
+    &-inner {
+      position: sticky;
+      top: 4rem;
+      height: fit-content;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
     .preview-img {
       display: block;
