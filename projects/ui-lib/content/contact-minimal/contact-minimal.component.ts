@@ -1,7 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+    HighlightDirective,
+    LinkTypeDirective,
+    ScrollRevealDirective,
+} from '@lluc_llull/ui-lib/directives';
 import { UiLibButtonI, UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
-import { HighlightDirective, LinkTypeDirective, ScrollRevealDirective } from '@lluc_llull/ui-lib/directives';
 
 @Component({
     selector: 'lib-contact-minimal',
@@ -9,6 +13,9 @@ import { HighlightDirective, LinkTypeDirective, ScrollRevealDirective } from '@l
     templateUrl: './contact-minimal.component.html',
     styleUrl: './contact-minimal.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        style: 'display: contents',
+    },
 })
 export class ContactMinimalComponent {
     @Input() contactsTitle?: string;
@@ -17,4 +24,3 @@ export class ContactMinimalComponent {
     @Input() socials?: UiLibButtonI[];
     @Input() img?: UiLibImageI;
 }
-

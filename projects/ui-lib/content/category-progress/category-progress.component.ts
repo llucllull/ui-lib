@@ -9,6 +9,9 @@ import { HighlightDirective, ScrollRevealDirective } from '@lluc_llull/ui-lib/di
     templateUrl: './category-progress.component.html',
     styleUrl: './category-progress.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        style: 'display: contents',
+    },
 })
 export class CategoryProgressComponent {
     @Input() pretitle?: string;

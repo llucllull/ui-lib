@@ -1,10 +1,6 @@
 @use 'sass:map';
 @use '../../../ui-lib/src/lib/styles/abstracts' as *;
 
-:host {
-  display: contents;
-}
-
 .media-split {
   display: grid;
   grid-template-columns: repeat($grid-columns, minmax(0, 1fr));

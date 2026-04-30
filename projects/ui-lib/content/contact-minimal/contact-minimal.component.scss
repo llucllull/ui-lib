@@ -1,9 +1,5 @@
 @use '../../../ui-lib/src/lib/styles/abstracts' as *;
 
-:host {
-  display: contents;
-}
-
 .contact-minimal {
   &__content {
     display: grid;
@@ -24,7 +20,7 @@
 
       @include respond-max(sm) {
         top: 16rem;
-        
+
         img {
           width: 15rem;
           height: auto;

@@ -1,9 +1,5 @@
 @use '../../../ui-lib/src/lib/styles/abstracts' as *;
 
-:host {
-  display: contents;
-}
-
 .notfound {
   min-height: 84dvh;
   overflow: hidden;

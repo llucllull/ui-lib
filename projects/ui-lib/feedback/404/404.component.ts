@@ -11,6 +11,9 @@ import { UiIconComponent } from '@lluc_llull/ui-lib/shared';
     templateUrl: './404.component.html',
     styleUrl: './404.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        style: 'display: contents',
+    },
 })
 export class NotFoundComponent {
     @Input() title?: string;

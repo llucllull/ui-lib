@@ -11,6 +11,9 @@ import { UiIconComponent } from '@lluc_llull/ui-lib/shared';
     templateUrl: './section-intro.component.html',
     styleUrl: './section-intro.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        style: 'display: contents',
+    },
 })
 export class SectionIntroComponent {
     @Input() pretitle?: string;

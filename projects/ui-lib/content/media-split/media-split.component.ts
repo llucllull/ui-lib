@@ -18,6 +18,9 @@ import { UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
     templateUrl: './media-split.component.html',
     styleUrl: './media-split.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        style: 'display: contents',
+    },
 })
 export class MediaSplitComponent {
     @Input() title?: string;

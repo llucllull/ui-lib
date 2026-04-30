@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.25.3] - 2026-04-30
+### Changed
+- remove host styles and apply them on the .ts file
+- fix img sticky on split-previewer
+
 ## [0.25.2] - 2026-04-30
 ### Changed
 - adjust styles, transition and visibility on mosaic-parallax

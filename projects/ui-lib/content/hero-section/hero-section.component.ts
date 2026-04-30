@@ -18,6 +18,9 @@ import { UiIconComponent } from '@lluc_llull/ui-lib/shared';
     templateUrl: './hero-section.component.html',
     styleUrl: './hero-section.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        style: 'display: contents',
+    },
 })
 export class HeroSectionComponent implements OnInit, OnDestroy {
     @Input() variant: 'text' | 'image' = 'text';

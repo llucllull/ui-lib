@@ -1,9 +1,5 @@
 @use '../../../ui-lib/src/lib/styles/abstracts' as *;
 
-:host {
-  display: contents;
-}
-
 $stagger-step: 80px;
 $card-width: 95%;
 
@@ -23,7 +19,7 @@ $card-width: 95%;
    TRACK — fila centrada horizontalmente
    overflow hidden para que las cards que caen no generen scroll
 ========================= */
-.text{
+.text {
   grid-row: 2;
 }
 
@@ -52,9 +48,9 @@ $card-width: 95%;
   background: #f2f2f2;
   margin-top: calc(var(--item-index) * #{$stagger-step});
   transform: translateY(100px);
-  transition: 
-      transform 1.4s cubic-bezier(0.16, 1, 0.3, 1) var(--anim-delay),
-      opacity 0.8s ease var(--anim-delay);
+  transition:
+    transform 1.4s cubic-bezier(0.16, 1, 0.3, 1) var(--anim-delay),
+    opacity 0.8s ease var(--anim-delay);
 
   &--visible {
     transform: translateY(0);

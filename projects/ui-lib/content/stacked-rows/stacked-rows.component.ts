@@ -7,6 +7,9 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
     templateUrl: './stacked-rows.component.html',
     styleUrl: './stacked-rows.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        style: 'display: contents',
+    },
 })
 export class StackedRowsComponent {
     @Input() title?: string;

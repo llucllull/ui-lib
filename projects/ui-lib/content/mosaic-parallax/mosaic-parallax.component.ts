@@ -1,14 +1,14 @@
 import { isPlatformBrowser } from '@angular/common';
 import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  Inject,
-  Input,
-  OnDestroy,
-  PLATFORM_ID,
-  signal,
-  ViewChild,
+    AfterViewInit,
+    Component,
+    ElementRef,
+    Inject,
+    Input,
+    OnDestroy,
+    PLATFORM_ID,
+    signal,
+    ViewChild,
 } from '@angular/core';
 import { UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
 
@@ -16,12 +16,14 @@ import { UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
     selector: 'app-mosaic-parallax',
     templateUrl: './mosaic-parallax.component.html',
     styleUrls: ['./mosaic-parallax.component.scss'],
+    host: {
+        style: 'display: contents',
+    },
 })
 export class MosaicParallaxComponent implements AfterViewInit, OnDestroy {
     @Input() title?: string;
     @Input() text?: string;
     @Input() images?: UiLibImageI[];
-    
 
     @ViewChild('mosaicSection') mosaicSection!: ElementRef<HTMLElement>;
 
