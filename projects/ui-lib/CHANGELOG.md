@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.25.4] - 2026-04-30
+### Changed
+- invert theme logos
+
 ## [0.25.3] - 2026-04-30
 ### Changed
 - remove host styles and apply them on the .ts file
