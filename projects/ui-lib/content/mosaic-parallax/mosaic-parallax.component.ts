@@ -7,6 +7,7 @@ import {
   Input,
   OnDestroy,
   PLATFORM_ID,
+  signal,
   ViewChild,
 } from '@angular/core';
 import { UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
@@ -20,10 +21,11 @@ export class MosaicParallaxComponent implements AfterViewInit, OnDestroy {
     @Input() title?: string;
     @Input() text?: string;
     @Input() images?: UiLibImageI[];
+    
 
     @ViewChild('mosaicSection') mosaicSection!: ElementRef<HTMLElement>;
 
-    isVisible = false;
+    isVisible = signal(false);
     private observer?: IntersectionObserver;
     private isBrowser: boolean;
 
@@ -36,12 +38,12 @@ export class MosaicParallaxComponent implements AfterViewInit, OnDestroy {
 
         this.observer = new IntersectionObserver(
             ([entry]) => {
-                if (entry.isIntersecting && !this.isVisible) {
-                    this.isVisible = true;
-                    this.observer?.disconnect(); // solo una vez
+                if (entry.isIntersecting && !this.isVisible()) {
+                    this.isVisible.set(true);
+                    this.observer?.disconnect();
                 }
             },
-            { threshold: 0.15 }, // dispara cuando el 15% del componente es visible
+            { threshold: 0.1 },
         );
 
         this.observer.observe(this.mosaicSection.nativeElement);

@@ -15,7 +15,7 @@
       @for (item of images; track $index) {
         <article
           class="mosaic-item"
-          [class.mosaic-item--visible]="isVisible"
+          [class.mosaic-item--visible]="isVisible()"
           [style.--item-index]="images.length - 1 - $index"
           [style.--anim-delay]="(images.length - 1 - $index) * 250 + 'ms'"
         >

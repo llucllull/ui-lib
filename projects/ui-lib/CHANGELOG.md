@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.25.2] - 2026-04-30
+### Changed
+- adjust styles, transition and visibility on mosaic-parallax
+
 ## [0.25.1] - 2026-04-25
 ### Changed
 - fix cards grid-row on mosaic-parallax on responsive
