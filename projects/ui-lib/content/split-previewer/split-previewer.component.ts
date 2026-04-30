@@ -14,9 +14,7 @@ import { UiLibButtonI, UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
     styleUrl: './split-previewer.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
-        class: 'col-span-full md:col-span-12 md:col-start-1',
-        '[class]': '"split-previewer--" + direction',
-        style: 'display: block',
+        style: 'display: contents',
     },
 })
 export class SplitPreviewerComponent implements OnInit {
