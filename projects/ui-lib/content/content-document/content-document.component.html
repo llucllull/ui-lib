@@ -1,0 +1,21 @@
+<div class="content-document main-grid col-span-full sm:col-span-12 sm:col-start-1" scrollReveal>
+  @if (title) {
+    <div class="content-document__title main-grid col-span-full">
+      <h1 class="title col-span-full">{{ title }}</h1>
+    </div>
+  }
+  @if (items) {
+    <div class="content-document__items col-span-full">
+      @for (item of items; track $index) {
+        <div class="content-document__items--item main-grid">
+          <h2 class="content-document__items--item_title col-span-full sm:col-span-12 sm:col-start-1">
+            {{ item.title }}
+          </h2>
+          <p class="content-document__items--item_text col-span-full sm:col-span-4 sm:col-start-5">
+            {{ item.text }}
+          </p>
+        </div>
+      }
+    </div>
+  }
+</div>

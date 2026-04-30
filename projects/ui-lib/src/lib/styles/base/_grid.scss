@@ -45,3 +45,18 @@
     grid-column: 1 / -1;
   }
 }
+
+@include respond-min(sm) {
+  @for $i from 1 through $grid-columns {
+    .sm\:col-start-#{$i} {
+      grid-column-start: #{$i};
+    }
+    .sm\:col-span-#{$i} {
+      grid-column-end: span #{$i};
+    }
+  }
+
+  .sm\:col-span-full {
+    grid-column: 1 / -1;
+  }
+}
