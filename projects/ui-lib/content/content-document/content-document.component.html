@@ -11,9 +11,7 @@
           <h2 class="content-document__items--item_title col-span-full sm:col-span-12 sm:col-start-1">
             {{ item.title }}
           </h2>
-          <p class="content-document__items--item_text col-span-full sm:col-span-4 sm:col-start-5">
-            {{ item.text }}
-          </p>
+          <p class="content-document__items--item_text col-span-full sm:col-span-4 sm:col-start-5" [innerHTML]="item.text"></p>
         </div>
       }
     </div>
