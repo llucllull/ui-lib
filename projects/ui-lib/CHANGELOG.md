@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.26.2] - 2026-05-04
+### Added
+- add missing storybooks
+
 ## [0.26.1] - 2026-05-01
 ### Added
 - add innerHTML to item text on content-document
