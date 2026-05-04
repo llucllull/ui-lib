@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/angular';
 import { CategoryProgressComponent } from './category-progress.component';
 
 export default {
-    title: 'Core/Content/CategoryProgress',
+    title: 'Content/CategoryProgress',
     component: CategoryProgressComponent,
     tags: ['autodocs'],
 } as Meta<CategoryProgressComponent>;

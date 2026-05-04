@@ -3,7 +3,7 @@ import { LinkType } from '@lluc_llull/ui-lib/enums';
 import { SocialFooterComponent } from './social-footer.component';
 
 export default {
-    title: 'Core/Footers/SocialFooter',
+    title: 'Footers/SocialFooter',
     component: SocialFooterComponent,
     tags: ['autodocs'],
 } as Meta<SocialFooterComponent>;

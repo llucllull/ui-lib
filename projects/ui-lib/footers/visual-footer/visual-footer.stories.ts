@@ -3,7 +3,7 @@ import { LinkType } from '@lluc_llull/ui-lib/enums';
 import { VisualFooterComponent } from './visual-footer.component';
 
 export default {
-    title: 'Core/Footers/VisualFooter',
+    title: 'Footers/VisualFooter',
     component: VisualFooterComponent,
     tags: ['autodocs'],
 } as Meta<VisualFooterComponent>;
