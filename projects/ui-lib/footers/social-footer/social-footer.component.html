@@ -1,5 +1,5 @@
-<div class="social-footer">
-  <div class="social-footer__slider-images swiper" appSwiper>
+<div class="social-footer main-grid col-span-full sm:col-span-12 sm:col-start-1">
+  <div class="social-footer__slider-images swiper col-span-full" appSwiper>
     <div class="swiper-wrapper">
       @for (image of images; track $index) {
         <div class="swiper-slide">
@@ -8,21 +8,21 @@
       }
     </div>
     <div class="swiper-button-prev">
-      <ui-icon name="arrow-left" [size]="18" color="#fff"></ui-icon>
+       <ui-icon name="arrow-left" [size]="17" color="#fff"></ui-icon>
     </div>
     <div class="swiper-button-next">
-      <ui-icon name="arrow-right" [size]="18" color="#fff"></ui-icon>
+      <ui-icon name="arrow-right" [size]="17" color="#fff"></ui-icon>
     </div>
   </div>
 
-  <div class="social-footer__bottom-section">
+  <div class="social-footer__bottom-section main-grid col-span-full">
     @if (hashtag) {
-      <div class="social-footer__hashtag">
+      <div class="social-footer__hashtag col-span-full sm:col-span-6 sm:col-start-1">
         <span>{{ hashtag }}</span>
       </div>
     }
     @if (socials) {
-      <div class="social-footer__socials">
+      <div class="social-footer__socials col-span-full sm:col-span-6 sm:col-start-7">
         @for (social of socials; track $index) {
           <a [href]="social.url" [attr.aria-label]="social.label" [linkType]="social.linkType">
             @if (social.icon) {

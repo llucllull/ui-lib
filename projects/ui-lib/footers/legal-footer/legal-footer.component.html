@@ -1,22 +1,22 @@
-<div class="legal-footer" [ngClass]="variant">
+<div class="legal-footer col-span-full sm:col-span-12 sm:col-start-1" [ngClass]="variant">
   <!-- Variante simple -->
   @if (variant === 'simple') {
-    <div class="legal-footer__simple">
-      <span class="legal-footer__simple-brand">
+    <div class="legal-footer__simple main-grid col-span-full">
+      <span class="legal-footer__simple-brand col-span-full sm:col-span-6 sm:col-start-1">
         <b>{{ brand }} © {{ year }}</b>
       </span>
-      <span class="legal-footer__simple-credits">{{ credits }}</span>
+      <span class="legal-footer__simple-credits col-span-full sm:col-span-6 sm:col-start-7">{{ credits }}</span>
     </div>
   }
 
   <!-- Variante extendida -->
   @if (variant === 'extended') {
-    <div class="legal-footer__extended">
-      <span class="legal-footer__year">
+    <div class="legal-footer__extended col-span-full">
+      <span class="legal-footer__year col-span-full sm:col-span-3 sm:col-start-1">
         <b>{{ brand }} © {{ year }}</b>
       </span>
 
-      <div class="legal-footer__right">
+      <div class="legal-footer__right col-span-full sm:col-span-9 sm:col-start-4">
         @if (links?.length) {
           <ul class="legal-footer__links">
             @for (link of links; track $index) {

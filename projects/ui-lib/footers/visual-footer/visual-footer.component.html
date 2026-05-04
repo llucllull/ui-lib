@@ -1,5 +1,5 @@
-<div class="visual-footer">
-  <div class="visual-footer__texts">
+<div class="visual-footer main-grid col-span-full sm:col-span-12 sm:col-start-1">
+  <div class="visual-footer__texts col-span-full sm:col-span-3 sm:col-start-1">
     <div class="visual-footer__contact">
       @if (contactTitle) {
         <h2 class="title">{{ contactTitle }}</h2>
@@ -38,7 +38,7 @@
       }
     </div>
   </div>
-  <div class="visual-footer__image">
+  <div class="visual-footer__image col-span-full sm:col-span-8 sm:col-start-5">
     @if (image) {
       <img [src]="image.url" [alt]="image.alt" loading="lazy" />
     }

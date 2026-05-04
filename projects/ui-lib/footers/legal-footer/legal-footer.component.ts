@@ -11,6 +11,9 @@ export type LegalFooterVariant = 'simple' | 'extended';
     imports: [CommonModule, LinkTypeDirective],
     templateUrl: './legal-footer.component.html',
     styleUrl: './legal-footer.component.scss',
+    host: {
+        style: 'display: contents',
+    },
 })
 export class LegalFooterComponent {
     @Input() year?: number;

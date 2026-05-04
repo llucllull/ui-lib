@@ -10,6 +10,9 @@ import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
     templateUrl: './visual-footer.component.html',
     styleUrl: './visual-footer.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        style: 'display: contents',
+    },
 })
 export class VisualFooterComponent {
     @Input() contactTitle?: string;
