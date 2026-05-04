@@ -1,12 +1,21 @@
-:root {
-  //Fonts
-  --font-titles: 'Bebas Neue', system-ui, sans-serif;
-  --font-base: 'Inter', system-ui, sans-serif;
-  --font-size-base: 16px;
+$section-padding-y: 2rem;
 
-  //Spacings
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 2rem;
-}
+$section-padding-x: (
+  xl: 15rem,
+  lg: 10rem,
+  md: 6rem,
+  sm: 3rem,
+  xs: 1.5rem
+);
+
+$grid-columns: 12;
+$grid-gutter: 1.5rem;
+$site-max-width: 1920px;
+$site-grid-margin: 2rem;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+);

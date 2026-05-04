@@ -1,0 +1,77 @@
+import { CommonModule } from '@angular/common';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    EventEmitter,
+    Input,
+    OnChanges,
+    OnDestroy,
+    OnInit,
+    Output,
+} from '@angular/core';
+import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
+import {
+    UiLibButtonI,
+    UiLibImageI,
+    UiLibNavItemsI,
+    UiLibSocialItemsI,
+} from '@lluc_llull/ui-lib/interfaces';
+import { Theme, ThemeService } from '@lluc_llull/ui-lib/theme';
+import { Subscription } from 'rxjs';
+import { mapNavModal } from '@lluc_llull/ui-lib/mapper';
+import { LangModalComponent, NavModalComponent } from '@lluc_llull/ui-lib/modals';
+import { UiIconComponent } from '@lluc_llull/ui-lib/shared';
+
+@Component({
+    selector: 'lib-header-mobile',
+    standalone: true,
+    imports: [CommonModule, LangModalComponent, NavModalComponent, LinkTypeDirective, UiIconComponent],
+    templateUrl: './header-mobile.component.html',
+    styleUrl: './header-mobile.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class HeaderMobileComponent implements OnInit, OnChanges, OnDestroy {
+    isMenuOpen = false;
+    currentTheme: Theme = 'light';
+    private themeSubscription?: Subscription;
+
+    @Input() logo?: UiLibImageI;
+    @Input() logoDark?: UiLibImageI;
+    @Input() navItems?: UiLibNavItemsI[];
+    @Input() socialItems?: UiLibSocialItemsI[];
+    @Input() homeLink?: UiLibButtonI;
+    @Input() navigation: any;
+    @Input() lang: string = 'es';
+
+    @Output() langModal = new EventEmitter<void>();
+    @Output() theme = new EventEmitter<void>();
+
+    constructor(private themeService: ThemeService) {}
+
+    ngOnInit(): void {
+        this.themeSubscription = this.themeService.currentTheme$.subscribe((theme) => {
+            this.currentTheme = theme;
+        });
+    }
+
+    ngOnChanges() {
+        this.navItems = mapNavModal(this.navigation, this.lang);
+    }
+
+    ngOnDestroy(): void {
+        this.themeSubscription?.unsubscribe();
+    }
+
+    openLanguagesModal(): void {
+        this.langModal.emit();
+    }
+
+    toggleTheme(): void {
+        this.themeService.toggleTheme();
+        this.theme.emit();
+    }
+
+    toggleMenu(): void {
+        this.isMenuOpen = !this.isMenuOpen;
+    }
+}

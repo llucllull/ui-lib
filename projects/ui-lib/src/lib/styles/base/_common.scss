@@ -5,11 +5,21 @@
   border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
   border: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5rem;
+  line-height: 1;
+
+  ui-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
 }
 
 .btn-primary {
@@ -19,6 +29,18 @@
   &:hover {
     background-color: var(--button-primary-bg-hover);
     color: var(--button-primary-text-hover);
+  }
+}
+
+.btn-primary--outline {
+  background: transparent;
+  border: 1px solid var(--button-primary-outline-border);
+  border-radius: var(--border-radius);
+  color: var(--button-primary-outline-text);
+
+  &:hover {
+    background-color: var(--button-primary-outline-bg-hover);
+    color: var(--button-primary-outline-text-hover);
   }
 }
 
@@ -40,34 +62,75 @@
   font-weight: 300;
   font-size: 1rem;
   position: relative;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  
-  span {
-    font-size: 1rem;
-    transition: transform 0.3s ease;
-  }
-  
+  padding: 4px 0;
+
   &:hover {
-    span {
+    ui-icon {
       transform: translateX(0.3rem);
     }
-    
+
     &::after {
       width: 100%;
     }
   }
-  
+
   &::after {
     content: '';
     position: absolute;
-    bottom: 7px;
+    bottom: 0;
     left: 0;
     width: 0;
     height: 1px;
     background-color: var(--button-link-text);
-    transition: width 0.5s;
+    transition: width 0.3s ease;
+  }
+}
+
+.btn-header {
+  height: 40px;
+  min-width: 40px;
+  padding: 0 12px;
+  background: transparent;
+  border-radius: 4px;
+  color: var(--button-header-text);
+
+  &:hover {
+    background: var(--button-header-bg-hover);
+  }
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-top: 2rem;
+  width: 100%;
+  justify-content: flex-start;
+
+  &--center {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    align-items: center;
+  }
+
+  &--right {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  @include respond-max(sm) {
+    flex-direction: column;
+
+    &--center {
+      gap: var(--spacing-sm);
+      align-items: center;
+    }
+
+    .btn {
+      width: 100%;
+    }
   }
 }

@@ -1,0 +1,56 @@
+<div
+  class="hero-section col-span-full"
+  [class.hero-section--text]="variant === 'text'"
+  [class.hero-section--image]="variant === 'image'"
+  scrollReveal
+>
+  @if (variant === 'image' && image) {
+    <div class="hero-section__bg">
+      <img
+        [src]="image.url"
+        [alt]="image.alt"
+        class="hero-img"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </div>
+  }
+
+  <div class="hero-section__content col-span-full">
+    @if (pretitle) {
+      <h2 class="pretitle">{{ pretitle }}</h2>
+    }
+    @if (title) {
+      <h1 class="title">
+        @if (highlight && title.includes(highlight)) {
+          {{ title.replace(highlight, '') }}
+          <span class="highlight-text">
+            {{ highlight }}
+            <div class="wave-wrapper">
+              <div class="wave"></div>
+            </div>
+          </span>
+        } @else {
+          {{ title }}
+        }
+      </h1>
+    }
+    @if (subtitle) {
+      <h2 class="subtitle">{{ subtitle }}</h2>
+    }
+    @if (text) {
+      <p class="text">{{ text }}</p>
+    }
+    @if (buttons && buttons.length > 0) {
+      <div class="btn-group--center">
+        @for (button of buttons; track $index) {
+          <a class="btn btn-link" [href]="button.url" [linkType]="button.linkType">
+            <ui-icon [name]="button.icon!" [size]="17" [color]="'var(--color-primary)'"></ui-icon>
+            {{ button.label }}
+          </a>
+        }
+      </div>
+    }
+  </div>
+</div>

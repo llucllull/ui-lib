@@ -9,6 +9,8 @@
     "types": []
   },
   "exclude": [
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "**/*.d.ts",
+    "**/*.stories.ts"
   ]
 }

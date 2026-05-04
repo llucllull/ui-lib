@@ -1,11 +1,32 @@
 {
-  "tabWidth": 2,
+  "$schema": "http://json.schemastore.org/prettierrc",
+  "printWidth": 100,
+  "tabWidth": 4,
   "useTabs": false,
   "semi": true,
   "singleQuote": true,
-  "trailingComma": "es5",
-  "printWidth": 80,
-  "bracketSameLine": false,
-  "htmlWhitespaceSensitivity": "strict",
-  "parser": "angular"
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "endOfLine": "auto",
+  "htmlWhitespaceSensitivity": "ignore",
+  "embeddedLanguageFormatting": "auto",
+  "plugins": [
+    "prettier-plugin-organize-imports",
+    "prettier-plugin-tailwindcss"
+  ],
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "tabWidth": 2
+      }
+    },
+    {
+      "files": "*.scss",
+      "options": {
+        "tabWidth": 2
+      }
+    }
+  ]
 }

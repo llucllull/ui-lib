@@ -1,0 +1,62 @@
+@use '../abstracts' as *;
+
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat($grid-columns, minmax(0, 1fr));
+  column-gap: $grid-gutter;
+  row-gap: $grid-gutter;
+  width: calc(100vw - (#{$site-grid-margin} * 2));
+  max-width: $site-max-width;
+  margin-inline: auto;
+  padding-block: $section-padding-y;
+  position: relative;
+}
+
+.col-span-full {
+  grid-column: 1 / -1;
+}
+
+// --- SISTEMA DE COLUMNAS (SPAN) ---
+@for $i from 1 through $grid-columns {
+  .col-span-#{$i} {
+    grid-column-end: span #{$i};
+  }
+}
+
+// --- SISTEMA DE POSICIÓN (START) ---
+@for $i from 1 through $grid-columns {
+  .col-start-#{$i} {
+    grid-column-start: #{$i};
+  }
+}
+
+// --- RESPONSIVE ---
+@include respond-min(md) {
+  @for $i from 1 through $grid-columns {
+    .md\:col-start-#{$i} {
+      grid-column-start: #{$i};
+    }
+    .md\:col-span-#{$i} {
+      grid-column-end: span #{$i};
+    }
+  }
+
+  .md\:col-span-full {
+    grid-column: 1 / -1;
+  }
+}
+
+@include respond-min(sm) {
+  @for $i from 1 through $grid-columns {
+    .sm\:col-start-#{$i} {
+      grid-column-start: #{$i};
+    }
+    .sm\:col-span-#{$i} {
+      grid-column-end: span #{$i};
+    }
+  }
+
+  .sm\:col-span-full {
+    grid-column: 1 / -1;
+  }
+}

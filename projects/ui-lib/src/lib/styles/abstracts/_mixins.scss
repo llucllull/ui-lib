@@ -1,8 +1,10 @@
+@use 'sass:map';
 @use 'breakpoints' as *;
+@use 'variables' as *;
 
 @mixin respond-min($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media (min-width: map-get($breakpoints, $breakpoint)) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
       @content;
     }
   } @else {
@@ -11,11 +13,47 @@
 }
 
 @mixin respond-max($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media (max-width: map-get($breakpoints, $breakpoint)) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (max-width: map.get($breakpoints, $breakpoint)) {
       @content;
     }
   } @else {
     @warn "El breakpoint '#{$breakpoint}' no está definido en _breakpoints.scss.";
+  }
+}
+
+@mixin section-padding {
+  padding-block: $section-padding-y;
+
+  @each $breakpoint, $padding in $section-padding-x {
+    @if $breakpoint == xs {
+      padding-inline: $padding; // Valor base
+    } @else {
+      @include respond-min($breakpoint) {
+        padding-inline: $padding;
+      }
+    }
+  }
+}
+
+@mixin grid-visual-helper {
+  position: fixed !important;
+  inset-block: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100vw - (#{$site-grid-margin} * 2));
+  max-width: $site-max-width;
+
+  z-index: 99999 !important;
+  pointer-events: none;
+  display: grid !important;
+  grid-template-columns: repeat($grid-columns, 1fr);
+  column-gap: $grid-gutter;
+
+  div {
+    height: 100%;
+    background-color: rgba(255, 0, 0, 0.13);
+    border-left: 1px solid rgba(255, 0, 0, 0.315);
+    border-right: 1px solid rgba(255, 0, 0, 0.315);
   }
 }

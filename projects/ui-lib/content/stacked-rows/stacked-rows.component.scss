@@ -1,0 +1,77 @@
+@use '../../../ui-lib/src/lib/styles/abstracts' as *;
+
+.stacked-rows {
+  background-color: var(--color-primary);
+
+  /* full bleed */
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+  padding-block: 10rem 1rem;
+
+  .subtitle,
+  .text {
+    color: var(--color-secondary);
+  }
+
+  &__intro {
+    border-bottom: 1px solid var(--color-secondary);
+    padding-block: 0rem;
+
+    .text {
+      font-size: 2.4rem;
+      font-weight: 600;
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__items {
+    &--item {
+      border-bottom: 1px solid var(--color-secondary);
+      padding-bottom: 4.5rem;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &_title {
+        margin: 0;
+        font-size: 2rem;
+        color: var(--color-secondary);
+        font-weight: 100;
+      }
+
+      &_text {
+        margin: 0;
+        font-size: 1.2rem;
+        color: var(--color-secondary);
+      }
+    }
+  }
+
+  @include respond-max(md) {
+    padding-block: 6rem 2rem;
+
+    &__intro {
+      .text {
+        font-size: 1.6rem;
+      }
+    }
+
+    &__items {
+      &--item {
+        padding-block: 2rem;
+
+        &_title {
+          font-size: 1.6rem;
+        }
+
+        &_text {
+          font-size: 1.1rem;
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}

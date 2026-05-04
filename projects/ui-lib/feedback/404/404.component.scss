@@ -1,0 +1,53 @@
+@use '../../../ui-lib/src/lib/styles/abstracts' as *;
+
+.notfound {
+  min-height: 84dvh;
+  overflow: hidden;
+
+  &__content {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__title {
+    font-size: 3rem;
+    font-weight: 600;
+    font-family: var(--font-base);
+    margin: 0;
+  }
+
+  &__subtitle {
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1.2;
+    font-family: var(--font-base);
+    padding-block: 0 1rem;
+    margin: 0;
+  }
+
+  &__highlight {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-size: 38rem;
+    line-height: 0.8;
+    color: var(--color-primary);
+    font-family: var(--font-titles);
+
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  @include respond-max(md) {
+    &__highlight {
+      font-size: 12rem;
+      bottom: 5rem;
+    }
+
+    .btn-group {
+      width: 10rem;
+    }
+  }
+}

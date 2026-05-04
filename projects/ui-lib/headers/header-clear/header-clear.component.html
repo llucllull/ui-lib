@@ -1,0 +1,41 @@
+<header class="header-clear">
+  <a [href]="homeLink?.url" [linkType]="homeLink?.linkType">
+    <div class="header-logo">
+      <!-- Logo -->
+      <img
+        [src]="currentTheme === 'dark' ? logoDark?.url : logo?.url"
+        [alt]="currentTheme === 'dark' ? logoDark?.alt : logo?.alt"
+      />
+      <span>LLUC LLULL</span>
+    </div>
+  </a>
+
+  <div class="header-actions">
+    <!-- Idioma -->
+    <button class="btn btn-header" (click)="openLanguagesModal()">
+      <span class="lang">{{ lang }}</span>
+    </button>
+
+    <!-- Icono de tema -->
+    <button class="btn btn-header" aria-label="Toggle theme" (click)="toggleTheme()">
+      <ui-icon
+        [name]="currentTheme === 'dark' ? 'sun' : 'moon'"
+        [size]="17"
+        [color]="'var(--color-primary)'"
+      ></ui-icon>
+    </button>
+
+    <!-- Icono de menú -->
+    <button class="btn btn-header" aria-label="Open nav" (click)="toggleMenu()">
+      <span>☰</span>
+    </button>
+  </div>
+</header>
+
+@if (isMenuOpen && navItems && navItems.length > 0) {
+  <lib-nav-modal
+    [navItems]="navItems"
+    [socialItems]="socialItems"
+    (close)="isMenuOpen = false"
+  ></lib-nav-modal>
+}

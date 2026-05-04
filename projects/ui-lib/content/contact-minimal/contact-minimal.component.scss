@@ -1,0 +1,42 @@
+@use '../../../ui-lib/src/lib/styles/abstracts' as *;
+
+.contact-minimal {
+  &__content {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+
+    &--media {
+      display: flex;
+      position: absolute;
+      top: 25rem;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      img {
+        transform: rotate(45deg);
+        width: 50rem;
+      }
+
+      @include respond-max(sm) {
+        top: 16rem;
+
+        img {
+          width: 15rem;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  .btn-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    gap: 0;
+  }
+
+  .btn {
+    justify-content: start;
+  }
+}

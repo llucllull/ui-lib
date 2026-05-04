@@ -1,0 +1,13 @@
+@if (links) {
+  <div class="links-footer">
+    <ul>
+      @for (link of links; track $index) {
+        <li>
+          <a [href]="link.url" [linkType]="link.linkType" class="btn btn-link">
+            {{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+}

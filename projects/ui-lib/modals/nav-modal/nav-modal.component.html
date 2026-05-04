@@ -1,0 +1,26 @@
+<div class="modal-content">
+  <button (click)="closeModal()" class="close-btn">✕</button>
+
+  @if (navItems?.length) {
+    <ol>
+      @for (item of navItems; track item.name) {
+        <a [href]="item.url" [linkType]="item.linkType" (click)="closeModal()">
+          <li>
+            <span class="modal-item">{{ item.label }}</span>
+          </li>
+        </a>
+      }
+    </ol>
+  }
+
+  @if (socialItems?.length) {
+    <div class="btn-group">
+      @for (social of socialItems; track social.label) {
+        <a class="btn btn-link" [href]="social.url" [linkType]="social.linkType">
+          <ui-icon [name]="social.icon!" [size]="17" [color]="'var(--color-primary)'"></ui-icon>
+          {{ social.label }}
+        </a>
+      }
+    </div>
+  }
+</div>
