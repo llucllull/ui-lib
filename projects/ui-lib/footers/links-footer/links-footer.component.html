@@ -1,6 +1,6 @@
 @if (links) {
-  <div class="links-footer">
-    <ul>
+  <div class="links-footer main-grid col-span-full">
+    <ul class="col-span-full">
       @for (link of links; track $index) {
         <li>
           <a [href]="link.url" [linkType]="link.linkType" class="btn btn-link">

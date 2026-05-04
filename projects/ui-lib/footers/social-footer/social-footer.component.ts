@@ -12,6 +12,9 @@ import { UiIconComponent } from '@lluc_llull/ui-lib/shared';
     templateUrl: './social-footer.component.html',
     styleUrl: './social-footer.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        style: 'display: contents',
+    },
 })
 export class SocialFooterComponent {
     @Input() images?: UiLibImageI[];

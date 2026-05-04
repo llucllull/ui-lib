@@ -10,6 +10,9 @@ import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
     templateUrl: './links-footer.component.html',
     styleUrl: './links-footer.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        style: 'display: contents',
+    },
 })
 export class LinksFooterComponent {
     @Input() links?: UiLibButtonI[];

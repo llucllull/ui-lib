@@ -2,16 +2,14 @@
 @use '../../../ui-lib/src/lib/styles/abstracts' as *;
 
 .visual-footer {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
   gap: 2rem;
-  align-items: stretch;
-  padding: 4rem;
   background: var(--footer-bg);
 
   &__texts {
-    display: flex;
-    flex-direction: column;
     gap: 2rem;
 
     .btn {
@@ -48,15 +46,9 @@
   &__contact,
   &__address,
   &__socials {
+    gap: 0.25rem;
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  @include respond-max(sm) {
-    grid-template-columns: 1fr;
-    &__image {
-      order: -1; // mapa arriba en móvil
-    }
+    margin-bottom: 1rem;
   }
 }
