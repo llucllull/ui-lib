@@ -3,7 +3,7 @@ import { LinkType } from '@lluc_llull/ui-lib/enums';
 import { LegalFooterComponent } from './legal-footer.component';
 
 export default {
-    title: 'Core/Footers/LegalFooter',
+    title: 'Footers/LegalFooter',
     component: LegalFooterComponent,
     tags: ['autodocs'],
     argTypes: {

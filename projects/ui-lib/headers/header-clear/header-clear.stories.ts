@@ -1,9 +1,9 @@
+import { LinkType } from '@lluc_llull/ui-lib/enums';
 import { Meta, StoryObj } from '@storybook/angular';
-import { LinkType } from "@lluc_llull/ui-lib/enums";
 import { HeaderClearComponent } from './header-clear.component';
 
 export default {
-    title: 'Core/Headers/HeaderClear',
+    title: 'Headers/HeaderClear',
     component: HeaderClearComponent,
     tags: ['autodocs'],
 } as Meta<HeaderClearComponent>;
