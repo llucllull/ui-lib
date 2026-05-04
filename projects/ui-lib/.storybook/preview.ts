@@ -1,10 +1,18 @@
-import type { Preview } from '@storybook/angular';
+import { componentWrapperDecorator, type Preview } from '@storybook/angular';
 import { setCompodocJson } from '@storybook/addon-docs/angular';
 import docJson from '../documentation.json';
 
 setCompodocJson(docJson);
 
 const preview: Preview = {
+  decorators: [
+    // Envolvemos todas las historias en el contenedor de rejilla
+    componentWrapperDecorator((story: any) => `
+      <main class="main-grid">
+        ${story}
+      </main>
+    `),
+  ],
   parameters: {
     layout: 'fullscreen',
     docs: {
