@@ -1,6 +1,6 @@
-<header class="header-clear">
+<header class="header-clear main-grid col-span-full sm:col-span-12 sm:col-start-1">
   <a [href]="homeLink?.url" [linkType]="homeLink?.linkType">
-    <div class="header-logo">
+    <div class="header-logo col-span-full sm:col-span-4 sm:col-start-1">
       <!-- Logo -->
       <img
         [src]="currentTheme === 'dark' ? logoDark?.url : logo?.url"
@@ -10,7 +10,7 @@
     </div>
   </a>
 
-  <div class="header-actions">
+  <div class="header-actions col-span-full sm:col-span-6 sm:col-start-7">
     <!-- Idioma -->
     <button class="btn btn-header" (click)="openLanguagesModal()">
       <span class="lang">{{ lang }}</span>

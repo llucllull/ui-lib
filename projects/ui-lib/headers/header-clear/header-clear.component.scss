@@ -1,8 +1,4 @@
 .header-clear {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.5rem;
   border-radius: 0px;
   position: sticky;
   top: 0;
@@ -21,11 +17,16 @@
     object-fit: contain;
     object-position: left;
   }
+
+  span {
+    display: flex;
+  }
 }
 
 .header-actions {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 1rem;
 }
 
