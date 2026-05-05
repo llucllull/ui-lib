@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Inject, Input, OnChanges, OnInit, Optional } from '@angular/core';
-import { CloudinaryModule, lazyload, responsive } from '@cloudinary/ng';
+import { CloudinaryModule, lazyload, responsive, placeholder } from '@cloudinary/ng';
 import { CloudinaryImage } from '@cloudinary/url-gen';
 import { format, quality } from '@cloudinary/url-gen/actions/delivery';
 import { auto } from '@cloudinary/url-gen/qualifiers/format';
@@ -20,7 +20,7 @@ export class UiImageComponent implements OnChanges, OnInit {
     @Input() transformations?: any;
 
     img!: CloudinaryImage;
-    plugins = [lazyload(), responsive({ steps: 200 })];
+    plugins = [lazyload(), responsive({ steps: 200 }), placeholder({ mode: 'blur' })];
 
     constructor(@Optional() @Inject(CLOUDINARY_CLOUD_NAME) private globalCloudName?: string) {}
 
