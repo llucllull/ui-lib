@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.27.2] - 2026-05-05
+### Added
+- add stories for columns-footer component
+- add tests for columns-footer component
+
 ## [0.27.1] - 2026-05-05
 ### Changed
 - update contact-minimal grid and styles
