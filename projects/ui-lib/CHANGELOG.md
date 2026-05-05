@@ -7,6 +7,9 @@ All notable changes to this project will be documented in this file.
 - add stories for columns-footer component
 - add tests for columns-footer component
 
+### Changed
+- fix styles columns-footer on responsive
+
 ## [0.27.1] - 2026-05-05
 ### Changed
 - update contact-minimal grid and styles

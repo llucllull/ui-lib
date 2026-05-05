@@ -26,6 +26,9 @@
 
     &__two {
       justify-items: center;
+      @include respond-max(xs) {
+        justify-items: start;
+      }
       &-title {
         color: var(--color-secondary);
       }
@@ -33,6 +36,10 @@
         margin-bottom: 1rem;
         justify-items: center;
         justify-self: center;
+        @include respond-max(xs) {
+          justify-items: start;
+          justify-self: start;
+        }
         a {
           color: var(--color-secondary-60);
           text-transform: uppercase;
