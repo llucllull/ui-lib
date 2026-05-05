@@ -31,14 +31,18 @@
   </div>
   @if (img) {
     <div class="contact-minimal__content--media col-span-full md:col-span-12 md:col-start-1">
-      <img
-        [src]="img.url"
-        [alt]="img.alt"
-        loading="eager"
-        fetchpriority="high"
-        [attr.width]="img.width || 800"
-        [attr.height]="img.height || 600"
-      />
+      @if (img.publicId) {
+        <ui-image [publicId]="img.publicId"></ui-image>
+      } @else {
+        <img
+          [src]="img.url"
+          [alt]="img.alt"
+          loading="eager"
+          fetchpriority="high"
+          [attr.width]="img.width || 800"
+          [attr.height]="img.height || 600"
+        />
+      }
     </div>
   }
 </div>

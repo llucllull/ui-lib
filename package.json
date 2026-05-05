@@ -16,6 +16,8 @@
         "format:check": "prettier --check \"projects/ui-lib/src/**/*.{ts,html,scss,json,md}\""
     },
     "dependencies": {
+        "@cloudinary/ng": "^2.1.6",
+        "@cloudinary/url-gen": "^1.22.0",
         "simple-icons": "^15.12.0",
         "tslib": "^2.6.2"
     },

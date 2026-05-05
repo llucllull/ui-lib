@@ -26,7 +26,7 @@
     &--media {
       justify-self: center;
 
-      img {
+      img, ui-image {
         transform: rotate(45deg);
         width: 50rem;
       }
@@ -34,7 +34,7 @@
       @include respond-max(sm) {
         top: 16rem;
 
-        img {
+        img, ui-image {
           width: 15rem;
           height: auto;
         }
