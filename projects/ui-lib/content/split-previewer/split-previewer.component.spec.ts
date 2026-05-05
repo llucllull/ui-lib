@@ -55,15 +55,16 @@ describe('SplitPreviewerComponent', () => {
         });
 
         it('should update when set', () => {
-            component.activeImage.set('https://cdn.example.com/alpha.jpg');
-            expect(component.activeImage()).toBe('https://cdn.example.com/alpha.jpg');
+            const mockImg = { url: 'https://cdn.example.com/alpha.jpg', alt: 'Test' };
+            component.activeImage.set(mockImg);
+            expect(component.activeImage()).toEqual(mockImg);
         });
 
         it('should reset to undefined on mouseleave', () => {
             fixture.componentRef.setInput('items', mockItems);
             fixture.detectChanges();
 
-            component.activeImage.set('https://cdn.example.com/alpha.jpg');
+            component.activeImage.set({ url: 'https://cdn.example.com/alpha.jpg', alt: 'Test' });
 
             const el = fixture.nativeElement.querySelector('.split-previewer__items');
             el.dispatchEvent(new Event('mouseleave'));
@@ -129,7 +130,7 @@ describe('SplitPreviewerComponent', () => {
                 alt: 'Default Image',
             };
 
-            component.activeImage.set('https://cdn.example.com/active.jpg');
+            component.activeImage.set({ url: 'https://cdn.example.com/active.jpg', alt: 'Test' });
             fixture.detectChanges();
 
             const img = fixture.nativeElement.querySelector('img.preview-img');
@@ -160,7 +161,7 @@ describe('SplitPreviewerComponent', () => {
             firstLink.dispatchEvent(new Event('mouseenter'));
             fixture.detectChanges();
 
-            expect(component.activeImage()).toBe('https://cdn.example.com/alpha.jpg');
+            expect(component.activeImage()).toEqual(mockItems[0].image);
         });
     });
 });
