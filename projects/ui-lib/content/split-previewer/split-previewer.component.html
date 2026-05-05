@@ -17,7 +17,7 @@
       @for (item of items; track item.title) {
         <a
           [href]="item.link?.url"
-          (mouseenter)="activeImage.set(item.image?.url)"
+          (mouseenter)="activeImage.set(item.image)"
           class="split-previewer__item-link"
         >
           <div class="split-previewer__item">
@@ -38,14 +38,21 @@
 
   <div class="split-previewer__media">
     <div class="split-previewer__media-inner">
-      <img
-        [src]="activeImage() || imageDefault?.url"
-        [alt]="imageDefault?.alt"
-        class="preview-img"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-      />
+      @if ((activeImage() || imageDefault)?.publicId) {
+        <ui-image 
+          [publicId]="(activeImage() || imageDefault)!.publicId!" 
+          class="preview-img"
+        ></ui-image>
+      } @else {
+        <img
+          [src]="(activeImage() || imageDefault)?.url"
+          [alt]="(activeImage() || imageDefault)?.alt"
+          class="preview-img"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      }
     </div>
   </div>
 </div>

@@ -10,11 +10,12 @@ import {
     signal,
 } from '@angular/core';
 import { UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
+import { UiImageComponent } from '@lluc_llull/ui-lib/shared';
 
 @Component({
     selector: 'lib-media-split',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, UiImageComponent],
     templateUrl: './media-split.component.html',
     styleUrl: './media-split.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,

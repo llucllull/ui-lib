@@ -9,12 +9,12 @@ import {
 } from '@angular/core';
 import { LinkTypeDirective, ScrollRevealDirective } from '@lluc_llull/ui-lib/directives';
 import { UiLibButtonI, UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
-import { UiIconComponent } from '@lluc_llull/ui-lib/shared';
+import { UiIconComponent, UiImageComponent } from '@lluc_llull/ui-lib/shared';
 
 @Component({
     selector: 'lib-hero-section',
     standalone: true,
-    imports: [CommonModule, LinkTypeDirective, UiIconComponent, ScrollRevealDirective],
+    imports: [CommonModule, LinkTypeDirective, UiIconComponent, UiImageComponent, ScrollRevealDirective],
     templateUrl: './hero-section.component.html',
     styleUrl: './hero-section.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,

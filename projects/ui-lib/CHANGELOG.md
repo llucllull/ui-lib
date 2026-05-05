@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 - add ui-image component with cloudinary integration
 
 ### Changed
-- add ui-image to contact-minimal component
+- add ui-image to contact-minimal, hero-section, media-split, mosaic-parallax and split-previewer components
 
 ## [0.27.4] - 2026-05-05
 ### Changed

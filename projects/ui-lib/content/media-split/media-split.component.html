@@ -6,14 +6,22 @@
 
     @if (images?.length) {
       <div class="image-stack" (mouseleave)="resetImage()">
-        <img
-          [src]="currentImage().url"
-          [alt]="currentImage().alt"
-          class="img-responsive active-image"
-          [class.loaded]="imageLoaded()"
-          loading="eager"
-          fetchpriority="high"
-        />
+        @if (currentImage().publicId) {
+          <ui-image
+            [publicId]="currentImage().publicId!"
+            class="img-responsive active-image"
+            [class.loaded]="imageLoaded()"
+          ></ui-image>
+        } @else {
+          <img
+            [src]="currentImage().url"
+            [alt]="currentImage().alt"
+            class="img-responsive active-image"
+            [class.loaded]="imageLoaded()"
+            loading="eager"
+            fetchpriority="high"
+          />
+        }
 
         <div class="hover-grid">
           @for (image of images; track $index) {
