@@ -18,6 +18,9 @@
         color: var(--color-secondary-60);
         text-transform: capitalize;
         font-size: 1.1rem;
+        &::hover {
+          color: var(--color-secondary);
+        }
       }
     }
 
@@ -33,6 +36,9 @@
           color: var(--color-secondary-60);
           text-transform: uppercase;
           font-size: 1.1rem;
+          &::hover {
+            color: var(--color-secondary);
+          }
         }
       }
     }
@@ -49,6 +55,9 @@
           color: var(--color-secondary-60);
           text-decoration: underline;
           font-size: 1.1rem;
+          &::hover {
+            color: var(--color-secondary);
+          }
         }
       }
     }
