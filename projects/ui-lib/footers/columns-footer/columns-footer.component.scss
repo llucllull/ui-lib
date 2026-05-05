@@ -18,7 +18,7 @@
         color: var(--color-secondary-60);
         text-transform: capitalize;
         font-size: 1.1rem;
-        &::hover {
+        &:hover {
           color: var(--color-secondary);
         }
       }
@@ -32,11 +32,12 @@
       &-item {
         margin-bottom: 1rem;
         justify-items: center;
+        justify-self: center;
         a {
           color: var(--color-secondary-60);
           text-transform: uppercase;
           font-size: 1.1rem;
-          &::hover {
+          &:hover {
             color: var(--color-secondary);
           }
         }
@@ -53,12 +54,46 @@
         }
         a {
           color: var(--color-secondary-60);
-          text-decoration: underline;
+          text-decoration: none;
           font-size: 1.1rem;
-          &::hover {
-            color: var(--color-secondary);
+          display: inline-block;
+          padding-bottom: 2px;
+
+          background-image: linear-gradient(var(--color-secondary-60), var(--color-secondary-60));
+          background-size: 100% 1px;
+          background-position: 0% 100%;
+          background-repeat: no-repeat;
+
+          transition:
+            background-size 0.3s ease-in-out,
+            background-position 0.3s ease-in-out;
+
+          &:hover {
+            background-size: 0% 1px;
+            background-position: 100% 100%;
+
+            animation: linkMove 0.4s forwards;
           }
         }
+      }
+    }
+
+    @keyframes linkMove {
+      0% {
+        background-size: 100% 1px;
+        background-position: 0% 100%;
+      }
+      50% {
+        background-size: 0% 1px;
+        background-position: 100% 100%;
+      }
+      51% {
+        background-size: 0% 1px;
+        background-position: 0% 100%;
+      }
+      100% {
+        background-size: 100% 1px;
+        background-position: 0% 100%;
       }
     }
 
