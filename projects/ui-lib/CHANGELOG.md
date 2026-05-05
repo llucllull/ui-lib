@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.27.3] - 2026-05-05
+### Changed
+- change color on columns-footer items
+
 ## [0.27.2] - 2026-05-05
 ### Added
 - add stories for columns-footer component

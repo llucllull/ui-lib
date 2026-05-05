@@ -15,7 +15,7 @@
         color: var(--color-secondary);
       }
       &-item a {
-        color: var(--color-secondary-60);
+        color: var(--color-secondary-70);
         text-transform: capitalize;
         font-size: 1.1rem;
         &:hover {
@@ -41,7 +41,7 @@
           justify-self: start;
         }
         a {
-          color: var(--color-secondary-60);
+          color: var(--color-secondary-70);
           text-transform: uppercase;
           font-size: 1.1rem;
           &:hover {
@@ -60,13 +60,13 @@
           margin-top: 1.5rem;
         }
         a {
-          color: var(--color-secondary-60);
+          color: var(--color-secondary-70);
           text-decoration: none;
           font-size: 1.1rem;
           display: inline-block;
           padding-bottom: 2px;
 
-          background-image: linear-gradient(var(--color-secondary-60), var(--color-secondary-60));
+          background-image: linear-gradient(var(--color-secondary-70), var(--color-secondary-70));
           background-size: 100% 1px;
           background-position: 0% 100%;
           background-repeat: no-repeat;
@@ -109,7 +109,7 @@
       flex-direction: column;
       align-items: center;
       margin-block: 6rem 2rem;
-      color: var(--color-secondary-60);
+      color: var(--color-secondary-70);
     }
   }
 }
