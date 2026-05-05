@@ -1,0 +1,64 @@
+@use '../../../ui-lib/src/lib/styles/abstracts' as *;
+
+.columns-footer-wrapper {
+  background-color: var(--color-primary);
+
+  /* full bleed */
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+
+  .columns-footer {
+    &__one {
+      &-title {
+        color: var(--color-secondary);
+      }
+      &-item a {
+        color: var(--color-secondary-60);
+        text-transform: capitalize;
+        font-size: 1.1rem;
+      }
+    }
+
+    &__two {
+      justify-items: center;
+      &-title {
+        color: var(--color-secondary);
+      }
+      &-item {
+        margin-bottom: 1rem;
+        justify-items: center;
+        a {
+          color: var(--color-secondary-60);
+          text-transform: uppercase;
+          font-size: 1.1rem;
+        }
+      }
+    }
+
+    &__three {
+      &-title {
+        color: var(--color-secondary);
+      }
+      &-item {
+        &.mt-separator {
+          margin-top: 1.5rem;
+        }
+        a {
+          color: var(--color-secondary-60);
+          text-decoration: underline;
+          font-size: 1.1rem;
+        }
+      }
+    }
+
+    &__copyright-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-block: 6rem 2rem;
+      color: var(--color-secondary-60);
+    }
+  }
+}

@@ -14,9 +14,7 @@ import { UiLibButtonI } from '@lluc_llull/ui-lib/interfaces';
     },
 })
 export class ColumnsFooterComponent {
-  @Input() column1Item?: ColumnsFooterItemI;
-  @Input() column2Item?: ColumnsFooterItemI;
-  @Input() column3Item?: ColumnsFooterItemI;
+  @Input() columns?: ColumnsFooterItemI[];
   @Input() copyright?: ColumnsFooterCopyRightI;
 }
 

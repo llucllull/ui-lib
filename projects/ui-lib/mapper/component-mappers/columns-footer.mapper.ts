@@ -2,21 +2,13 @@ import { mapButtons } from '@lluc_llull/ui-lib/utils';
 import { ComponentMapperFn } from './types';
 
 export const mapColumnsFooter: ComponentMapperFn = (props) => ({
-    column1Item: props?.column1?.map((item: any) => ({
-        title: item?.title,
-        items: mapButtons(item?.buttons),
+    columns: props?.columns?.map((col: any) => ({
+        title: col?.texts?.title,
+        items: mapButtons(col?.buttons),
     })),
-    column2Item: props?.column2?.map((item: any) => ({
-        title: item?.title,
-        items: mapButtons(item?.buttons),
-    })),
-    column3Item: props?.column3?.map((item: any) => ({
-        title: item?.title,
-        items: mapButtons(item?.buttons),
-    })),
-    copyright: props?.copyright?.map((item: any) => ({
-        year: item?.year,
-        name: item?.name,
-        rights: item?.rights,
-    })),
+    copyright: {
+        year: props?.copyright?.texts?.year,
+        name: props?.copyright?.texts?.name,
+        rights: props?.copyright?.texts?.rights,
+    },
 });

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.27.0] - 2026-05-05
+### Added
+- add color opacity vars
+- add default styles on lists
+- add columns-footer component
+
 ## [0.26.4] - 2026-05-04
 ### Changed
 - update styles header adapting it to main grid
