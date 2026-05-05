@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.28.1] - 2026-05-05
+### Changed
+- update ui-image to improve performance 
+
 ## [0.28.0] - 2026-05-05
 ### Added
 - add ui-image component with cloudinary integration

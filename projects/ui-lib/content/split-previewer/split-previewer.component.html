@@ -41,6 +41,7 @@
       @if ((activeImage() || imageDefault)?.publicId) {
         <ui-image 
           [publicId]="(activeImage() || imageDefault)!.publicId!" 
+          [eager]="true"
           class="preview-img"
         ></ui-image>
       } @else {

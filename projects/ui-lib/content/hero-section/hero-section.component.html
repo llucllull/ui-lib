@@ -9,6 +9,7 @@
       @if (image.publicId) {
         <ui-image 
           [publicId]="image.publicId" 
+          [eager]="true"
           class="hero-img"
         ></ui-image>
       } @else {

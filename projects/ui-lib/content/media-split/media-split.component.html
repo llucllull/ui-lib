@@ -9,6 +9,7 @@
         @if (currentImage().publicId) {
           <ui-image
             [publicId]="currentImage().publicId!"
+            [eager]="true"
             class="img-responsive active-image"
             [class.loaded]="imageLoaded()"
           ></ui-image>
