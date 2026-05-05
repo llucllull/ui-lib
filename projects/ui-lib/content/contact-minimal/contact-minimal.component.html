@@ -1,6 +1,6 @@
-<div class="contact-minimal col-span-full md:col-span-12 md:col-start-1" scrollReveal>
-  <div class="contact-minimal__content">
-    <div class="contact-minimal__content--left">
+<div class="contact-minimal main-grid col-span-full md:col-span-12 md:col-start-1" scrollReveal>
+  <div class="contact-minimal__content col-span-full md:col-span-12 md:col-start-1">
+    <div class="contact-minimal__content--left col-span-6 col-start-1">
       @if (contactsTitle) {
         <h2 class="subtitle" [highlight]="'#FFFFFF'">{{ contactsTitle }}</h2>
       }
@@ -14,7 +14,7 @@
         </div>
       }
     </div>
-    <div class="contact-minimal__content--right">
+    <div class="contact-minimal__content--right col-span-6 col-start-7">
       @if (socialsTitle) {
         <h2 class="subtitle" [highlight]="'#FFFFFF'">{{ socialsTitle }}</h2>
       }
@@ -28,17 +28,17 @@
         </div>
       }
     </div>
-    @if (img) {
-      <div class="contact-minimal__content--media">
-        <img
-          [src]="img.url"
-          [alt]="img.alt"
-          loading="eager"
-          fetchpriority="high"
-          [attr.width]="img.width || 800"
-          [attr.height]="img.height || 600"
-        />
-      </div>
-    }
   </div>
+  @if (img) {
+    <div class="contact-minimal__content--media col-span-full md:col-span-12 md:col-start-1">
+      <img
+        [src]="img.url"
+        [alt]="img.alt"
+        loading="eager"
+        fetchpriority="high"
+        [attr.width]="img.width || 800"
+        [attr.height]="img.height || 600"
+      />
+    </div>
+  }
 </div>
