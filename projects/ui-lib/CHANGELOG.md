@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.27.4] - 2026-05-05
+### Changed
+- remove borders from grid guidelines
+
 ## [0.27.3] - 2026-05-05
 ### Changed
 - change color on columns-footer items
