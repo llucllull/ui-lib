@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.28.3] - 2026-05-06
+### Added
+- add new color vars
+- add header-scroll directive and apply it to header-clear
+
 ## [0.28.2] - 2026-05-06
 ### Changed
 - update logo size on headers
