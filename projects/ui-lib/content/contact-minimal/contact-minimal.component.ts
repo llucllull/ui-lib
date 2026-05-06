@@ -6,10 +6,11 @@ import {
     ScrollRevealDirective,
 } from '@lluc_llull/ui-lib/directives';
 import { UiLibButtonI, UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
+import { UiImageComponent } from '@lluc_llull/ui-lib/shared';
 
 @Component({
     selector: 'lib-contact-minimal',
-    imports: [CommonModule, HighlightDirective, LinkTypeDirective, ScrollRevealDirective],
+    imports: [CommonModule, HighlightDirective, LinkTypeDirective, ScrollRevealDirective, UiImageComponent],
     templateUrl: './contact-minimal.component.html',
     styleUrl: './contact-minimal.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,0 +1,67 @@
+<div class="columns-footer-wrapper col-span-full">
+  <div class="columns-footer main-grid col-span-full sm:col-span-12 sm:col-start-1">
+    @if (columns?.[0]; as column1) {
+      <div class="columns-footer__one col-span-full sm:col-span-3 sm:col-start-1">
+        @if (column1.title) {
+          <h4 class="columns-footer__one-title">
+            {{ column1.title }}
+          </h4>
+        }
+        @if (column1.items && column1.items.length > 0) {
+          <ul class="columns-footer__one-list">
+            @for (item of column1.items; track $index) {
+              <li class="columns-footer__one-item">
+                <a [href]="item.url" [linkType]="item.linkType">{{ item.label }}</a>
+              </li>
+            }
+          </ul>
+        }
+      </div>
+    }
+    @if (columns?.[1]; as column2) {
+      <div class="columns-footer__two col-span-full sm:col-span-6 sm:col-start-4">
+        @if (column2.title) {
+          <h4 class="columns-footer__two-title">
+            {{ column2.title }}
+          </h4>
+        }
+        @if (column2.items && column2.items.length > 0) {
+          <ul class="columns-footer__two-list">
+            @for (item of column2.items; track $index) {
+              <li class="columns-footer__two-item">
+                <a [href]="item.url" [linkType]="item.linkType">{{ item.label }}</a>
+              </li>
+            }
+          </ul>
+        }
+      </div>
+    }
+    @if (columns?.[2]; as column3) {
+      <div class="columns-footer__three col-span-full sm:col-span-3 sm:col-start-10">
+        @if (column3.title) {
+          <h4 class="columns-footer__three-title">
+            {{ column3.title }}
+          </h4>
+        }
+        @if (column3.items && column3.items.length > 0) {
+          <ul class="columns-footer__three-list">
+            @for (item of column3.items; track $index) {
+              <li class="columns-footer__three-item" [class.mt-separator]="$index > 0 && item.linkType !== column3.items[$index - 1].linkType">
+                <a [href]="item.url" [linkType]="item.linkType">{{ item.label }}</a>
+              </li>
+            }
+          </ul>
+        }
+      </div>
+    }
+  </div>
+  <div class="columns-footer__copyright col-span-full sm:col-span-12 sm:col-start-1">
+    @if (copyright) {
+      <div class="columns-footer__copyright-text">
+        <span>{{ copyright.year }}</span>
+        <span>{{ copyright.name }}</span>
+        <span>{{ copyright.rights }}</span>
+      </div>
+    }
+  </div>
+</div>

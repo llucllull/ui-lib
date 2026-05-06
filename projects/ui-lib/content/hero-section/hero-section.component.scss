@@ -26,7 +26,7 @@
   z-index: 0;
   overflow: hidden;
 
-  .hero-img {
+  .hero-img, ui-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -166,12 +166,14 @@
     display: none;
   }
 
-  .hero-section__bg img {
+  .hero-section__bg img,
+  .hero-section__bg ui-image {
     filter: scale(1.05);
     transition: transform 6s ease;
   }
 
-  .hero-section:hover .hero-img {
+  .hero-section:hover .hero-img,
+  .hero-section:hover ui-image {
     transform: scale(1.1);
   }
 }

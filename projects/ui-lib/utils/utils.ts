@@ -34,9 +34,20 @@ export function mapImage(data: any, cdn?: string): UiLibImageI | null {
     if (!data || typeof data !== 'object') return null;
 
     const src = data.url ?? data.src ?? '';
+    const fullUrl = src.startsWith('http') ? src : (cdn ?? '') + src;
+    
+    let publicId = data.public_id ?? data.publicId;
+
+    if (!publicId && fullUrl.includes('cloudinary.com')) {
+        const match = fullUrl.match(/\/upload\/(?:v\d+\/)?([^\.]+)/);
+        if (match) {
+            publicId = match[1];
+        }
+    }
 
     return {
-        url: src.startsWith('http') ? src : (cdn ?? '') + src,
+        url: fullUrl,
+        publicId: publicId,
         alt: data.alt ?? '',
         width: data.width,
         height: data.height,

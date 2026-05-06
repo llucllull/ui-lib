@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.28.2] - 2026-05-06
+### Changed
+- update logo size on headers
+
+## [0.28.1] - 2026-05-05
+### Changed
+- update ui-image to improve performance 
+
+## [0.28.0] - 2026-05-05
+### Added
+- add ui-image component with cloudinary integration
+
+### Changed
+- add ui-image to contact-minimal, hero-section, media-split, mosaic-parallax and split-previewer components
+
+## [0.27.4] - 2026-05-05
+### Changed
+- remove borders from grid guidelines
+
+## [0.27.3] - 2026-05-05
+### Changed
+- change color on columns-footer items
+
+## [0.27.2] - 2026-05-05
+### Added
+- add stories for columns-footer component
+- add tests for columns-footer component
+
+### Changed
+- fix styles columns-footer on responsive
+
+## [0.27.1] - 2026-05-05
+### Changed
+- update contact-minimal grid and styles
+- fix underline on btn-link common styles
+
+## [0.27.0] - 2026-05-05
+### Added
+- add color opacity vars
+- add default styles on lists
+- add columns-footer component
+
 ## [0.26.4] - 2026-05-04
 ### Changed
 - update styles header adapting it to main grid

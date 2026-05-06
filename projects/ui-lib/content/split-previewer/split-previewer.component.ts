@@ -6,10 +6,11 @@ import {
     ScrollRevealDirective,
 } from '@lluc_llull/ui-lib/directives';
 import { UiLibButtonI, UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
+import { UiImageComponent } from '@lluc_llull/ui-lib/shared';
 
 @Component({
     selector: 'lib-split-previewer',
-    imports: [CommonModule, LinkTypeDirective, HighlightDirective, ScrollRevealDirective],
+    imports: [CommonModule, LinkTypeDirective, HighlightDirective, ScrollRevealDirective, UiImageComponent],
     templateUrl: './split-previewer.component.html',
     styleUrl: './split-previewer.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -23,7 +24,7 @@ export class SplitPreviewerComponent implements OnInit {
     @Input() imageDefault?: UiLibImageI;
     @Input() direction: 'left' | 'right' = 'right';
 
-    activeImage = signal<string | undefined>(undefined);
+    activeImage = signal<UiLibImageI | undefined>(undefined);
 
     get count(): number {
         return this.items?.length || 0;

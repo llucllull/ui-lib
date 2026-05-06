@@ -1,0 +1,7 @@
+@if (img) {
+  @if (eager) {
+    <img [src]="img.toURL()" fetchpriority="high" loading="eager" alt="" />
+  } @else {
+    <advanced-image [cldImg]="img" [plugins]="plugins"></advanced-image>
+  }
+}

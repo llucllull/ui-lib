@@ -24,91 +24,21 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ui-lib/content/category-progress/category-progress.stories.ts",
+                "file": "projects/ui-lib/effects/dynamic-background/dynamic-background.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n    args: {\r\n        pretitle: 'Pretítulo de ejemplo',\r\n        title: 'Título de ejemplo',\r\n        categories: [\r\n            {\r\n                title: 'Categoria 1',\r\n                items: [\r\n                    { label: 'Item 1', value: 75 },\r\n                    { label: 'Item 2', value: 35 },\r\n                ],\r\n            },\r\n            {\r\n                title: 'Categoria 2',\r\n                items: [\r\n                    { label: 'Item 1', value: 15 },\r\n                    { label: 'Item 2', value: 85 },\r\n                ],\r\n            },\r\n        ],\r\n    },\r\n}"
+                "defaultValue": "{\r\n    args: {\r\n        effect: 'sphere-deform',\r\n        rotationSpeed: 0.02,\r\n        size: 3,\r\n        backgroundColor: '#111111',\r\n        elementColor: '#00ffcc',\r\n    },\r\n}"
             },
             {
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ui-lib/content/contact-minimal/contact-minimal.stories.ts",
+                "file": "projects/ui-lib/footers/columns-footer/columns-footer.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n    args: {\r\n        contactsTitle: 'Contacto',\r\n        socialsTitle: 'Redes Sociales',\r\n        contacts: [\r\n            {\r\n                label: 'email@example.com',\r\n                url: 'mailto:email@example.com',\r\n                linkType: LinkType.External,\r\n            },\r\n            { label: '+34 123 456 789', url: 'tel:+34123456789', linkType: LinkType.External },\r\n        ],\r\n        socials: [\r\n            { label: 'Twitter', url: 'https://twitter.com', linkType: LinkType.External },\r\n            { label: 'LinkedIn', url: 'https://linkedin.com', linkType: LinkType.External },\r\n            { label: 'GitHub', url: 'https://github.com', linkType: LinkType.External },\r\n        ],\r\n        img: {\r\n            url: 'https://picsum.photos/seed/contact/400/300.jpg',\r\n            alt: 'Contact image',\r\n        },\r\n    },\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/ui-lib/content/media-split/media-split.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n    args: {\r\n        title: 'Galería Interactiva',\r\n        text: 'Explora nuestra colección de imágenes interactivas. Pasa el cursor sobre diferentes áreas para descubrir contenido único.',\r\n        images: [\r\n            {\r\n                url: 'https://picsum.photos/seed/mediasplit1/800/600.jpg',\r\n                alt: 'Imagen 1',\r\n            },\r\n            {\r\n                url: 'https://picsum.photos/seed/mediasplit2/800/600.jpg',\r\n                alt: 'Imagen 2',\r\n            },\r\n            {\r\n                url: 'https://picsum.photos/seed/mediasplit3/800/600.jpg',\r\n                alt: 'Imagen 3',\r\n            },\r\n            {\r\n                url: 'https://picsum.photos/seed/mediasplit4/800/600.jpg',\r\n                alt: 'Imagen 4',\r\n            },\r\n        ],\r\n    },\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/ui-lib/content/content-document/content-document.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n    args: {\r\n        title: 'Documentación Técnica',\r\n        items: [\r\n            {\r\n                title: 'Introducción',\r\n                text: 'Bienvenido a nuestra documentación técnica. Aquí encontrarás toda la información necesaria para utilizar nuestros productos y servicios de manera eficiente.',\r\n            },\r\n            {\r\n                title: 'Guía de Instalación',\r\n                text: 'Sigue nuestros pasos detallados para instalar y configurar el software en tu entorno. Compatible con Windows, macOS y Linux.',\r\n            },\r\n            {\r\n                title: 'Configuración Inicial',\r\n                text: 'Aprende a realizar la configuración inicial del sistema, incluyendo parámetros esenciales y personalizaciones recomendadas.',\r\n            },\r\n            {\r\n                title: 'API Reference',\r\n                text: 'Documentación completa de nuestra API con ejemplos de uso, endpoints disponibles y formatos de respuesta.',\r\n            },\r\n            {\r\n                title: 'Mejores Prácticas',\r\n                text: 'Conoce las mejores prácticas y recomendaciones para optimizar el rendimiento y seguridad de tus implementaciones.',\r\n            },\r\n            {\r\n                title: 'Solución de Problemas',\r\n                text: 'Guía de troubleshooting para resolver los problemas más comunes. Preguntas frecuentes y soluciones rápidas.',\r\n            },\r\n        ],\r\n    },\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/ui-lib/content/hero-section/hero-section.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n    args: {\r\n        variant: 'text',\r\n        pretitle: 'Bienvenido a',\r\n        title: 'Nuestra Plataforma',\r\n        subtitle: 'Descubre el futuro del desarrollo web',\r\n        text: 'Texto descriptivo de ejemplo para el Hero Section.',\r\n        highlight: 'Innovación',\r\n        buttons: [\r\n            { label: 'Comenzar', url: 'https://www.google.com', linkType: LinkType.External },\r\n            {\r\n                label: 'Más información',\r\n                url: 'https://www.google.com',\r\n                linkType: LinkType.External,\r\n            },\r\n        ],\r\n    },\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/ui-lib/content/mosaic-parallax/mosaic-parallax.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n    args: {\r\n        title: 'Mosaico Parallax',\r\n        text: 'Descubre nuestra increíble galería con efectos de paralaje y mosaico interactivo.',\r\n        images: [\r\n            {\r\n                url: 'https://picsum.photos/seed/mosaic1/400/300.jpg',\r\n                alt: 'Mosaico 1',\r\n            },\r\n            {\r\n                url: 'https://picsum.photos/seed/mosaic2/400/300.jpg',\r\n                alt: 'Mosaico 2',\r\n            },\r\n            {\r\n                url: 'https://picsum.photos/seed/mosaic3/400/300.jpg',\r\n                alt: 'Mosaico 3',\r\n            },\r\n            {\r\n                url: 'https://picsum.photos/seed/mosaic4/400/300.jpg',\r\n                alt: 'Mosaico 4',\r\n            }\r\n        ],\r\n    },\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/ui-lib/content/section-intro/section-intro.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n    args: {\r\n        pretitle: 'Pretítulo de ejemplo',\r\n        title: 'Título de ejemplo',\r\n        subtitle: 'Subtítulo de ejemplo',\r\n        text: 'Texto descriptivo de ejemplo para el Section Intro.',\r\n    },\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/ui-lib/content/split-previewer/split-previewer.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n    args: {\r\n        title: 'Galería de Proyectos',\r\n        direction: 'right',\r\n        imageDefault: {\r\n            url: 'https://picsum.photos/seed/default/800/600.jpg',\r\n            alt: 'Imagen por defecto',\r\n        },\r\n        items: [\r\n            {\r\n                title: 'Proyecto Alpha',\r\n                type: 'Desarrollo Web',\r\n                description: 'Sitio web moderno con diseño responsive y funcionalidades avanzadas.',\r\n                tags: ['React', 'TypeScript', 'Tailwind'],\r\n                link: {\r\n                    label: 'Ver proyecto',\r\n                    url: 'https://example.com/project-alpha',\r\n                    linkType: LinkType.External,\r\n                },\r\n                image: {\r\n                    url: 'https://picsum.photos/seed/alpha/400/300.jpg',\r\n                    alt: 'Proyecto Alpha',\r\n                },\r\n            },\r\n            {\r\n                title: 'Proyecto Beta',\r\n                type: 'Aplicación Móvil',\r\n                description: 'App nativa para iOS y Android con experiencia de usuario optimizada.',\r\n                tags: ['React Native', 'Firebase', 'Redux'],\r\n                link: {\r\n                    label: 'Ver proyecto',\r\n                    url: 'https://example.com/project-beta',\r\n                    linkType: LinkType.External,\r\n                },\r\n                image: {\r\n                    url: 'https://picsum.photos/seed/beta/400/300.jpg',\r\n                    alt: 'Proyecto Beta',\r\n                },\r\n            },\r\n            {\r\n                title: 'Proyecto Gamma',\r\n                type: 'E-commerce',\r\n                description: 'Plataforma de comercio electrónico con sistema de pagos integrado.',\r\n                tags: ['Angular', 'Node.js', 'MongoDB'],\r\n                link: {\r\n                    label: 'Ver proyecto',\r\n                    url: 'https://example.com/project-gamma',\r\n                    linkType: LinkType.External,\r\n                },\r\n                image: {\r\n                    url: 'https://picsum.photos/seed/gamma/400/300.jpg',\r\n                    alt: 'Proyecto Gamma',\r\n                },\r\n            },\r\n        ],\r\n    },\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/ui-lib/content/stacked-rows/stacked-rows.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n    args: {\r\n        title: 'Servicios Destacados',\r\n        text: 'Descubre nuestra gama completa de servicios diseñados para impulsar tu negocio.',\r\n        items: [\r\n            {\r\n                title: 'Desarrollo Web a Medida',\r\n                text: 'Creamos sitios web personalizados que se adaptan perfectamente a las necesidades de tu empresa, con diseño moderno y funcionalidades avanzadas.',\r\n            },\r\n            {\r\n                title: 'Aplicaciones Móviles',\r\n                text: 'Desarrollamos apps nativas y progresivas para iOS y Android, ofreciendo la mejor experiencia de usuario en cualquier dispositivo.',\r\n            },\r\n            {\r\n                title: 'Consultoría Tecnológica',\r\n                text: 'Asesoramiento experto para transformar digitalmente tu negocio, optimizando procesos e implementando las mejores tecnologías.',\r\n            },\r\n            {\r\n                title: 'Marketing Digital',\r\n                text: 'Estrategias integrales de marketing digital para aumentar tu visibilidad online y llegar a más clientes potenciales.',\r\n            },\r\n            {\r\n                title: 'Soporte Técnico',\r\n                text: 'Mantenimiento continuo y soporte técnico especializado para garantizar el correcto funcionamiento de tus sistemas.',\r\n            },\r\n        ],\r\n    },\r\n}"
+                "defaultValue": "{\n    args: {\n        columns: [\n            {\n                title: 'Servicios',\n                items: [\n                    {\n                        label: 'Desarrollo Web',\n                        url: 'https://www.google.com',\n                        linkType: LinkType.External,\n                    },\n                    {\n                        label: 'Aplicaciones Móviles',\n                        url: 'https://www.google.com',\n                        linkType: LinkType.External,\n                    },\n                    {\n                        label: 'Consultoría',\n                        url: 'https://www.google.com',\n                        linkType: LinkType.External,\n                    },\n                ],\n            },\n            {\n                title: 'Empresa',\n                items: [\n                    {\n                        label: 'Sobre Nosotros',\n                        url: 'https://www.google.com',\n                        linkType: LinkType.External,\n                    },\n                    {\n                        label: 'Nuestro Equipo',\n                        url: 'https://www.google.com',\n                        linkType: LinkType.External,\n                    },\n                    {\n                        label: 'Carreras',\n                        url: 'https://www.google.com',\n                        linkType: LinkType.External,\n                    },\n                ],\n            },\n            {\n                title: 'Recursos',\n                items: [\n                    { label: 'Blog', url: 'https://www.google.com', linkType: LinkType.External },\n                    {\n                        label: 'Documentación',\n                        url: 'https://www.google.com',\n                        linkType: LinkType.External,\n                    },\n                    {\n                        label: 'Soporte',\n                        url: 'https://www.google.com',\n                        linkType: LinkType.External,\n                    },\n                ],\n            },\n        ],\n        copyright: {\n            year: '2026',\n            name: 'Lluc Llull',\n            rights: 'Todos los derechos reservados',\n        },\n    },\n}"
             },
             {
                 "name": "Default",
@@ -144,11 +74,101 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ui-lib/effects/dynamic-background/dynamic-background.stories.ts",
+                "file": "projects/ui-lib/footers/visual-footer/visual-footer.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n    args: {\r\n        effect: 'sphere-deform',\r\n        rotationSpeed: 0.02,\r\n        size: 3,\r\n        backgroundColor: '#111111',\r\n        elementColor: '#00ffcc',\r\n    },\r\n}"
+                "defaultValue": "{\r\n    args: {\r\n        contactTitle: 'Contacto',\r\n        contactPhone: {\r\n            label: '+34 600 000 000',\r\n            url: 'tel:34600000000',\r\n            linkType: LinkType.External,\r\n            icon: '',\r\n        },\r\n        contactEmail: {\r\n            label: 'test@test.com',\r\n            url: 'mailto:test@test.com',\r\n            linkType: LinkType.External,\r\n            icon: '',\r\n        },\r\n        addressTitle: 'Dirección',\r\n        address: {\r\n            address: 'Calle Mayor, 15',\r\n            city: 'Madrid',\r\n            country: 'España',\r\n            cp: '28013',\r\n            province: 'Madrid',\r\n        },\r\n        socialsTitle: 'Redes Sociales',\r\n        socials: [\r\n            {\r\n                label: 'Facebook',\r\n                url: 'https://www.facebook.com',\r\n                linkType: LinkType.External,\r\n                icon: 'facebook',\r\n            },\r\n            {\r\n                label: 'Instagram',\r\n                url: 'https://www.instagram.com',\r\n                linkType: LinkType.External,\r\n                icon: 'instagram',\r\n            },\r\n            {\r\n                label: 'X',\r\n                url: 'https://www.x.com',\r\n                linkType: LinkType.External,\r\n                icon: 'twitter',\r\n            },\r\n            {\r\n                label: 'YouTube',\r\n                url: 'https://www.youtube.com',\r\n                linkType: LinkType.External,\r\n                icon: 'youtube',\r\n            },\r\n            {\r\n                label: 'Tiktok',\r\n                url: 'https://www.tiktok.com',\r\n                linkType: LinkType.External,\r\n                icon: 'tiktok',\r\n            },\r\n        ],\r\n        image: {\r\n            url: 'https://placehold.co/1300x870.png',\r\n            alt: 'image',\r\n        },\r\n    },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-lib/content/category-progress/category-progress.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    args: {\r\n        pretitle: 'Pretítulo de ejemplo',\r\n        title: 'Título de ejemplo',\r\n        categories: [\r\n            {\r\n                title: 'Categoria 1',\r\n                items: [\r\n                    { label: 'Item 1', value: 75 },\r\n                    { label: 'Item 2', value: 35 },\r\n                ],\r\n            },\r\n            {\r\n                title: 'Categoria 2',\r\n                items: [\r\n                    { label: 'Item 1', value: 15 },\r\n                    { label: 'Item 2', value: 85 },\r\n                ],\r\n            },\r\n        ],\r\n    },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-lib/content/contact-minimal/contact-minimal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    args: {\r\n        contactsTitle: 'Contacto',\r\n        socialsTitle: 'Redes Sociales',\r\n        contacts: [\r\n            {\r\n                label: 'email@example.com',\r\n                url: 'mailto:email@example.com',\r\n                linkType: LinkType.External,\r\n            },\r\n            { label: '+34 123 456 789', url: 'tel:+34123456789', linkType: LinkType.External },\r\n        ],\r\n        socials: [\r\n            { label: 'Twitter', url: 'https://twitter.com', linkType: LinkType.External },\r\n            { label: 'LinkedIn', url: 'https://linkedin.com', linkType: LinkType.External },\r\n            { label: 'GitHub', url: 'https://github.com', linkType: LinkType.External },\r\n        ],\r\n        img: {\r\n            url: 'https://picsum.photos/seed/contact/400/300.jpg',\r\n            alt: 'Contact image',\r\n        },\r\n    },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-lib/content/content-document/content-document.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    args: {\r\n        title: 'Documentación Técnica',\r\n        items: [\r\n            {\r\n                title: 'Introducción',\r\n                text: 'Bienvenido a nuestra documentación técnica. Aquí encontrarás toda la información necesaria para utilizar nuestros productos y servicios de manera eficiente.',\r\n            },\r\n            {\r\n                title: 'Guía de Instalación',\r\n                text: 'Sigue nuestros pasos detallados para instalar y configurar el software en tu entorno. Compatible con Windows, macOS y Linux.',\r\n            },\r\n            {\r\n                title: 'Configuración Inicial',\r\n                text: 'Aprende a realizar la configuración inicial del sistema, incluyendo parámetros esenciales y personalizaciones recomendadas.',\r\n            },\r\n            {\r\n                title: 'API Reference',\r\n                text: 'Documentación completa de nuestra API con ejemplos de uso, endpoints disponibles y formatos de respuesta.',\r\n            },\r\n            {\r\n                title: 'Mejores Prácticas',\r\n                text: 'Conoce las mejores prácticas y recomendaciones para optimizar el rendimiento y seguridad de tus implementaciones.',\r\n            },\r\n            {\r\n                title: 'Solución de Problemas',\r\n                text: 'Guía de troubleshooting para resolver los problemas más comunes. Preguntas frecuentes y soluciones rápidas.',\r\n            },\r\n        ],\r\n    },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-lib/content/hero-section/hero-section.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    args: {\r\n        variant: 'text',\r\n        pretitle: 'Bienvenido a',\r\n        title: 'Nuestra Plataforma',\r\n        subtitle: 'Descubre el futuro del desarrollo web',\r\n        text: 'Texto descriptivo de ejemplo para el Hero Section.',\r\n        highlight: 'Innovación',\r\n        buttons: [\r\n            { label: 'Comenzar', url: 'https://www.google.com', linkType: LinkType.External },\r\n            {\r\n                label: 'Más información',\r\n                url: 'https://www.google.com',\r\n                linkType: LinkType.External,\r\n            },\r\n        ],\r\n    },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-lib/content/mosaic-parallax/mosaic-parallax.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    args: {\r\n        title: 'Mosaico Parallax',\r\n        text: 'Descubre nuestra increíble galería con efectos de paralaje y mosaico interactivo.',\r\n        images: [\r\n            {\r\n                url: 'https://picsum.photos/seed/mosaic1/400/300.jpg',\r\n                alt: 'Mosaico 1',\r\n            },\r\n            {\r\n                url: 'https://picsum.photos/seed/mosaic2/400/300.jpg',\r\n                alt: 'Mosaico 2',\r\n            },\r\n            {\r\n                url: 'https://picsum.photos/seed/mosaic3/400/300.jpg',\r\n                alt: 'Mosaico 3',\r\n            },\r\n            {\r\n                url: 'https://picsum.photos/seed/mosaic4/400/300.jpg',\r\n                alt: 'Mosaico 4',\r\n            }\r\n        ],\r\n    },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-lib/content/media-split/media-split.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    args: {\r\n        title: 'Galería Interactiva',\r\n        text: 'Explora nuestra colección de imágenes interactivas. Pasa el cursor sobre diferentes áreas para descubrir contenido único.',\r\n        images: [\r\n            {\r\n                url: 'https://picsum.photos/seed/mediasplit1/800/600.jpg',\r\n                alt: 'Imagen 1',\r\n            },\r\n            {\r\n                url: 'https://picsum.photos/seed/mediasplit2/800/600.jpg',\r\n                alt: 'Imagen 2',\r\n            },\r\n            {\r\n                url: 'https://picsum.photos/seed/mediasplit3/800/600.jpg',\r\n                alt: 'Imagen 3',\r\n            },\r\n            {\r\n                url: 'https://picsum.photos/seed/mediasplit4/800/600.jpg',\r\n                alt: 'Imagen 4',\r\n            },\r\n        ],\r\n    },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-lib/content/section-intro/section-intro.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    args: {\r\n        pretitle: 'Pretítulo de ejemplo',\r\n        title: 'Título de ejemplo',\r\n        subtitle: 'Subtítulo de ejemplo',\r\n        text: 'Texto descriptivo de ejemplo para el Section Intro.',\r\n    },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-lib/content/split-previewer/split-previewer.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    args: {\r\n        title: 'Galería de Proyectos',\r\n        direction: 'right',\r\n        imageDefault: {\r\n            url: 'https://picsum.photos/seed/default/800/600.jpg',\r\n            alt: 'Imagen por defecto',\r\n        },\r\n        items: [\r\n            {\r\n                title: 'Proyecto Alpha',\r\n                type: 'Desarrollo Web',\r\n                description: 'Sitio web moderno con diseño responsive y funcionalidades avanzadas.',\r\n                tags: ['React', 'TypeScript', 'Tailwind'],\r\n                link: {\r\n                    label: 'Ver proyecto',\r\n                    url: 'https://example.com/project-alpha',\r\n                    linkType: LinkType.External,\r\n                },\r\n                image: {\r\n                    url: 'https://picsum.photos/seed/alpha/400/300.jpg',\r\n                    alt: 'Proyecto Alpha',\r\n                },\r\n            },\r\n            {\r\n                title: 'Proyecto Beta',\r\n                type: 'Aplicación Móvil',\r\n                description: 'App nativa para iOS y Android con experiencia de usuario optimizada.',\r\n                tags: ['React Native', 'Firebase', 'Redux'],\r\n                link: {\r\n                    label: 'Ver proyecto',\r\n                    url: 'https://example.com/project-beta',\r\n                    linkType: LinkType.External,\r\n                },\r\n                image: {\r\n                    url: 'https://picsum.photos/seed/beta/400/300.jpg',\r\n                    alt: 'Proyecto Beta',\r\n                },\r\n            },\r\n            {\r\n                title: 'Proyecto Gamma',\r\n                type: 'E-commerce',\r\n                description: 'Plataforma de comercio electrónico con sistema de pagos integrado.',\r\n                tags: ['Angular', 'Node.js', 'MongoDB'],\r\n                link: {\r\n                    label: 'Ver proyecto',\r\n                    url: 'https://example.com/project-gamma',\r\n                    linkType: LinkType.External,\r\n                },\r\n                image: {\r\n                    url: 'https://picsum.photos/seed/gamma/400/300.jpg',\r\n                    alt: 'Proyecto Gamma',\r\n                },\r\n            },\r\n        ],\r\n    },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-lib/content/stacked-rows/stacked-rows.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    args: {\r\n        title: 'Servicios Destacados',\r\n        text: 'Descubre nuestra gama completa de servicios diseñados para impulsar tu negocio.',\r\n        items: [\r\n            {\r\n                title: 'Desarrollo Web a Medida',\r\n                text: 'Creamos sitios web personalizados que se adaptan perfectamente a las necesidades de tu empresa, con diseño moderno y funcionalidades avanzadas.',\r\n            },\r\n            {\r\n                title: 'Aplicaciones Móviles',\r\n                text: 'Desarrollamos apps nativas y progresivas para iOS y Android, ofreciendo la mejor experiencia de usuario en cualquier dispositivo.',\r\n            },\r\n            {\r\n                title: 'Consultoría Tecnológica',\r\n                text: 'Asesoramiento experto para transformar digitalmente tu negocio, optimizando procesos e implementando las mejores tecnologías.',\r\n            },\r\n            {\r\n                title: 'Marketing Digital',\r\n                text: 'Estrategias integrales de marketing digital para aumentar tu visibilidad online y llegar a más clientes potenciales.',\r\n            },\r\n            {\r\n                title: 'Soporte Técnico',\r\n                text: 'Mantenimiento continuo y soporte técnico especializado para garantizar el correcto funcionamiento de tus sistemas.',\r\n            },\r\n        ],\r\n    },\r\n}"
             },
             {
                 "name": "Default",
@@ -159,16 +179,6 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n    args: {\r\n        logo: {\r\n            url: 'https://ujpxanmobdxrwjsndrzq.supabase.co/storage/v1/object/public/branding/logos/logo-primary.svg',\r\n            alt: 'Logo',\r\n        },\r\n        lang: 'ES',\r\n        navItems: [\r\n            { label: 'Menu 1', url: 'https://www.google.com', linkType: LinkType.External },\r\n            { label: 'Menu 2', url: 'https://www.google.com', linkType: LinkType.External },\r\n            { label: 'Menu 3', url: 'https://www.google.com', linkType: LinkType.External },\r\n            { label: 'Menu 4', url: 'https://www.google.com', linkType: LinkType.External },\r\n            { label: 'Menu 5', url: 'https://www.google.com', linkType: LinkType.External },\r\n        ],\r\n    },\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/ui-lib/footers/visual-footer/visual-footer.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n    args: {\r\n        contactTitle: 'Contacto',\r\n        contactPhone: {\r\n            label: '+34 600 000 000',\r\n            url: 'tel:34600000000',\r\n            linkType: LinkType.External,\r\n            icon: '',\r\n        },\r\n        contactEmail: {\r\n            label: 'test@test.com',\r\n            url: 'mailto:test@test.com',\r\n            linkType: LinkType.External,\r\n            icon: '',\r\n        },\r\n        addressTitle: 'Dirección',\r\n        address: {\r\n            address: 'Calle Mayor, 15',\r\n            city: 'Madrid',\r\n            country: 'España',\r\n            cp: '28013',\r\n            province: 'Madrid',\r\n        },\r\n        socialsTitle: 'Redes Sociales',\r\n        socials: [\r\n            {\r\n                label: 'Facebook',\r\n                url: 'https://www.facebook.com',\r\n                linkType: LinkType.External,\r\n                icon: 'facebook',\r\n            },\r\n            {\r\n                label: 'Instagram',\r\n                url: 'https://www.instagram.com',\r\n                linkType: LinkType.External,\r\n                icon: 'instagram',\r\n            },\r\n            {\r\n                label: 'X',\r\n                url: 'https://www.x.com',\r\n                linkType: LinkType.External,\r\n                icon: 'twitter',\r\n            },\r\n            {\r\n                label: 'YouTube',\r\n                url: 'https://www.youtube.com',\r\n                linkType: LinkType.External,\r\n                icon: 'youtube',\r\n            },\r\n            {\r\n                label: 'Tiktok',\r\n                url: 'https://www.tiktok.com',\r\n                linkType: LinkType.External,\r\n                icon: 'tiktok',\r\n            },\r\n        ],\r\n        image: {\r\n            url: 'https://placehold.co/1300x870.png',\r\n            alt: 'image',\r\n        },\r\n    },\r\n}"
             },
             {
                 "name": "FastRotation",
@@ -237,8 +247,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<CategoryProgressComponent>",
-                "file": "projects/ui-lib/content/category-progress/category-progress.stories.ts",
+                "rawtype": "StoryObj<DynamicBackgroundComponent>",
+                "file": "projects/ui-lib/effects/dynamic-background/dynamic-background.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -248,85 +258,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ContactMinimalComponent>",
-                "file": "projects/ui-lib/content/contact-minimal/contact-minimal.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<MediaSplitComponent>",
-                "file": "projects/ui-lib/content/media-split/media-split.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<ContentDocumentComponent>",
-                "file": "projects/ui-lib/content/content-document/content-document.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<HeroSectionComponent>",
-                "file": "projects/ui-lib/content/hero-section/hero-section.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<MosaicParallaxComponent>",
-                "file": "projects/ui-lib/content/mosaic-parallax/mosaic-parallax.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<SectionIntroComponent>",
-                "file": "projects/ui-lib/content/section-intro/section-intro.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<SplitPreviewerComponent>",
-                "file": "projects/ui-lib/content/split-previewer/split-previewer.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<StackedRowsComponent>",
-                "file": "projects/ui-lib/content/stacked-rows/stacked-rows.stories.ts",
+                "rawtype": "StoryObj<ColumnsFooterComponent>",
+                "file": "projects/ui-lib/footers/columns-footer/columns-footer.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -369,8 +302,107 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<DynamicBackgroundComponent>",
-                "file": "projects/ui-lib/effects/dynamic-background/dynamic-background.stories.ts",
+                "rawtype": "StoryObj<VisualFooterComponent>",
+                "file": "projects/ui-lib/footers/visual-footer/visual-footer.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<CategoryProgressComponent>",
+                "file": "projects/ui-lib/content/category-progress/category-progress.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ContactMinimalComponent>",
+                "file": "projects/ui-lib/content/contact-minimal/contact-minimal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ContentDocumentComponent>",
+                "file": "projects/ui-lib/content/content-document/content-document.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<HeroSectionComponent>",
+                "file": "projects/ui-lib/content/hero-section/hero-section.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<MosaicParallaxComponent>",
+                "file": "projects/ui-lib/content/mosaic-parallax/mosaic-parallax.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<MediaSplitComponent>",
+                "file": "projects/ui-lib/content/media-split/media-split.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<SectionIntroComponent>",
+                "file": "projects/ui-lib/content/section-intro/section-intro.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<SplitPreviewerComponent>",
+                "file": "projects/ui-lib/content/split-previewer/split-previewer.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<StackedRowsComponent>",
+                "file": "projects/ui-lib/content/stacked-rows/stacked-rows.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -382,17 +414,6 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<HeaderClearComponent>",
                 "file": "projects/ui-lib/headers/header-clear/header-clear.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<VisualFooterComponent>",
-                "file": "projects/ui-lib/footers/visual-footer/visual-footer.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -411,6 +432,108 @@
                     "deprecationMessage": "",
                     "type": "StorybookConfig",
                     "defaultValue": "{\r\n  stories: [\r\n    \"../**/*.mdx\", \r\n    \"../**/*.stories.@(js|jsx|mjs|ts|tsx)\"\r\n  ],\r\n  addons: [\r\n    \"@storybook/addon-essentials\",\r\n    \"@storybook/addon-onboarding\",\r\n    \"@storybook/addon-interactions\",\r\n    \"@storybook/addon-docs\"\r\n  ],\r\n  framework: {\r\n    name: \"@storybook/angular\",\r\n    options: {}\r\n  },\r\n  staticDirs: ['../src/lib/styles'],\r\n  docs: {\r\n    autodocs: 'tag',\r\n  },\r\n}"
+                }
+            ],
+            "projects/ui-lib/effects/dynamic-background/dynamic-background.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-lib/effects/dynamic-background/dynamic-background.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    args: {\r\n        effect: 'sphere-deform',\r\n        rotationSpeed: 0.02,\r\n        size: 3,\r\n        backgroundColor: '#111111',\r\n        elementColor: '#00ffcc',\r\n    },\r\n}"
+                },
+                {
+                    "name": "FastRotation",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-lib/effects/dynamic-background/dynamic-background.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    args: {\r\n        effect: 'sphere-deform',\r\n        rotationSpeed: 0.08,\r\n        size: 3,\r\n        backgroundColor: '#222222',\r\n        elementColor: '#ffaa00',\r\n    },\r\n}"
+                },
+                {
+                    "name": "LargeSphere",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-lib/effects/dynamic-background/dynamic-background.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    args: {\r\n        effect: 'sphere-deform',\r\n        size: 6,\r\n        rotationSpeed: 0.01,\r\n        backgroundColor: '#000000',\r\n        elementColor: '#ff0066',\r\n    },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-lib/effects/dynamic-background/dynamic-background.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<DynamicBackgroundComponent>",
+                    "defaultValue": "{\r\n    title: 'Effects/Dynamic Background',\r\n    component: DynamicBackgroundComponent,\r\n    decorators: [\r\n        moduleMetadata({\r\n            imports: [CommonModule, DynamicBackgroundComponent],\r\n        }),\r\n    ],\r\n    tags: ['autodocs'],\r\n    parameters: {\r\n        docs: {\r\n            description: {\r\n                component: `\r\nUn fondo animado en 3D usando **Three.js**.\r\n\r\nEste componente renderiza efectos dinámicos (por ejemplo una esfera deformada).  \r\nPuedes personalizar el **efecto**, la **velocidad de rotación**, el **tamaño** y los **colores**.\r\n        `,\r\n            },\r\n        },\r\n        layout: 'fullscreen',\r\n    },\r\n    argTypes: {\r\n        effect: {\r\n            control: { type: 'select' },\r\n            options: ['sphere-deform', 'ring-transform', 'particles'],\r\n            description: 'Efecto visual a renderizar.',\r\n        },\r\n        rotationSpeed: {\r\n            control: { type: 'number', min: 0, max: 0.1, step: 0.01 },\r\n            description: 'Velocidad de rotación del efecto.',\r\n        },\r\n        size: {\r\n            control: { type: 'number', min: 1, max: 10, step: 1 },\r\n            description: 'Tamaño base del objeto 3D.',\r\n        },\r\n        backgroundColor: {\r\n            control: 'color',\r\n            description: 'Color de fondo del canvas.',\r\n        },\r\n        elementColor: {\r\n            control: 'color',\r\n            description: 'Color del objeto renderizado (si aplica).',\r\n        },\r\n    },\r\n}"
+                }
+            ],
+            "projects/ui-lib/footers/columns-footer/columns-footer.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-lib/footers/columns-footer/columns-footer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n    args: {\n        columns: [\n            {\n                title: 'Servicios',\n                items: [\n                    {\n                        label: 'Desarrollo Web',\n                        url: 'https://www.google.com',\n                        linkType: LinkType.External,\n                    },\n                    {\n                        label: 'Aplicaciones Móviles',\n                        url: 'https://www.google.com',\n                        linkType: LinkType.External,\n                    },\n                    {\n                        label: 'Consultoría',\n                        url: 'https://www.google.com',\n                        linkType: LinkType.External,\n                    },\n                ],\n            },\n            {\n                title: 'Empresa',\n                items: [\n                    {\n                        label: 'Sobre Nosotros',\n                        url: 'https://www.google.com',\n                        linkType: LinkType.External,\n                    },\n                    {\n                        label: 'Nuestro Equipo',\n                        url: 'https://www.google.com',\n                        linkType: LinkType.External,\n                    },\n                    {\n                        label: 'Carreras',\n                        url: 'https://www.google.com',\n                        linkType: LinkType.External,\n                    },\n                ],\n            },\n            {\n                title: 'Recursos',\n                items: [\n                    { label: 'Blog', url: 'https://www.google.com', linkType: LinkType.External },\n                    {\n                        label: 'Documentación',\n                        url: 'https://www.google.com',\n                        linkType: LinkType.External,\n                    },\n                    {\n                        label: 'Soporte',\n                        url: 'https://www.google.com',\n                        linkType: LinkType.External,\n                    },\n                ],\n            },\n        ],\n        copyright: {\n            year: '2026',\n            name: 'Lluc Llull',\n            rights: 'Todos los derechos reservados',\n        },\n    },\n}"
+                }
+            ],
+            "projects/ui-lib/footers/legal-footer/legal-footer.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-lib/footers/legal-footer/legal-footer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    args: {\r\n        brand: 'Lluc Llull',\r\n        year: 2025,\r\n        credits: 'Diseñado por Lluc Llull',\r\n        links: [\r\n            {\r\n                label: 'Link 1',\r\n                url: 'https://www.google.com',\r\n                linkType: LinkType.External,\r\n                icon: '',\r\n            },\r\n            {\r\n                label: 'Link 2',\r\n                url: 'https://www.google.com',\r\n                linkType: LinkType.External,\r\n                icon: '',\r\n            },\r\n            {\r\n                label: 'Link 3',\r\n                url: 'https://www.google.com',\r\n                linkType: LinkType.External,\r\n                icon: '',\r\n            },\r\n            {\r\n                label: 'Link 4',\r\n                url: 'https://www.google.com',\r\n                linkType: LinkType.External,\r\n                icon: '',\r\n            },\r\n            {\r\n                label: 'Link 5',\r\n                url: 'https://www.google.com',\r\n                linkType: LinkType.External,\r\n                icon: '',\r\n            },\r\n        ],\r\n    },\r\n}"
+                }
+            ],
+            "projects/ui-lib/footers/links-footer/links-footer.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-lib/footers/links-footer/links-footer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    args: {\r\n        links: [\r\n            {\r\n                label: 'Link 1',\r\n                url: 'https://www.google.com',\r\n                linkType: LinkType.External,\r\n                icon: '',\r\n            },\r\n            {\r\n                label: 'Link 2',\r\n                url: 'https://www.google.com',\r\n                linkType: LinkType.External,\r\n                icon: '',\r\n            },\r\n            {\r\n                label: 'Link 3',\r\n                url: 'https://www.google.com',\r\n                linkType: LinkType.External,\r\n                icon: '',\r\n            },\r\n            {\r\n                label: 'Link 4',\r\n                url: 'https://www.google.com',\r\n                linkType: LinkType.External,\r\n                icon: '',\r\n            },\r\n            {\r\n                label: 'Link 5',\r\n                url: 'https://www.google.com',\r\n                linkType: LinkType.External,\r\n                icon: '',\r\n            },\r\n        ],\r\n    },\r\n}"
+                }
+            ],
+            "projects/ui-lib/footers/social-footer/social-footer.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-lib/footers/social-footer/social-footer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    args: {\r\n        images: [\r\n            {\r\n                url: 'https://placehold.co/600x400.png',\r\n                alt: 'image1',\r\n            },\r\n            {\r\n                url: 'https://placehold.co/600x400.png',\r\n                alt: 'image2',\r\n            },\r\n            {\r\n                url: 'https://placehold.co/600x400.png',\r\n                alt: 'image3',\r\n            },\r\n            {\r\n                url: 'https://placehold.co/600x400.png',\r\n                alt: 'image4',\r\n            },\r\n            {\r\n                url: 'https://placehold.co/600x400.png',\r\n                alt: 'image5',\r\n            },\r\n            {\r\n                url: 'https://placehold.co/600x400.png',\r\n                alt: 'image6',\r\n            },\r\n            {\r\n                url: 'https://placehold.co/600x400.png',\r\n                alt: 'image7',\r\n            },\r\n            {\r\n                url: 'https://placehold.co/600x400.png',\r\n                alt: 'image8',\r\n            },\r\n        ],\r\n        socials: [\r\n            {\r\n                label: 'Facebook',\r\n                url: 'https://www.facebook.com',\r\n                linkType: LinkType.External,\r\n                icon: 'facebook',\r\n            },\r\n            {\r\n                label: 'Instagram',\r\n                url: 'https://www.instagram.com',\r\n                linkType: LinkType.External,\r\n                icon: 'instagram',\r\n            },\r\n            {\r\n                label: 'X',\r\n                url: 'https://www.x.com',\r\n                linkType: LinkType.External,\r\n                icon: 'twitter',\r\n            },\r\n            {\r\n                label: 'YouTube',\r\n                url: 'https://www.youtube.com',\r\n                linkType: LinkType.External,\r\n                icon: 'youtube',\r\n            },\r\n            {\r\n                label: 'Tiktok',\r\n                url: 'https://www.tiktok.com',\r\n                linkType: LinkType.External,\r\n                icon: 'tiktok',\r\n            },\r\n        ],\r\n        hashtag: '#Hastag',\r\n    },\r\n}"
+                }
+            ],
+            "projects/ui-lib/footers/visual-footer/visual-footer.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-lib/footers/visual-footer/visual-footer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    args: {\r\n        contactTitle: 'Contacto',\r\n        contactPhone: {\r\n            label: '+34 600 000 000',\r\n            url: 'tel:34600000000',\r\n            linkType: LinkType.External,\r\n            icon: '',\r\n        },\r\n        contactEmail: {\r\n            label: 'test@test.com',\r\n            url: 'mailto:test@test.com',\r\n            linkType: LinkType.External,\r\n            icon: '',\r\n        },\r\n        addressTitle: 'Dirección',\r\n        address: {\r\n            address: 'Calle Mayor, 15',\r\n            city: 'Madrid',\r\n            country: 'España',\r\n            cp: '28013',\r\n            province: 'Madrid',\r\n        },\r\n        socialsTitle: 'Redes Sociales',\r\n        socials: [\r\n            {\r\n                label: 'Facebook',\r\n                url: 'https://www.facebook.com',\r\n                linkType: LinkType.External,\r\n                icon: 'facebook',\r\n            },\r\n            {\r\n                label: 'Instagram',\r\n                url: 'https://www.instagram.com',\r\n                linkType: LinkType.External,\r\n                icon: 'instagram',\r\n            },\r\n            {\r\n                label: 'X',\r\n                url: 'https://www.x.com',\r\n                linkType: LinkType.External,\r\n                icon: 'twitter',\r\n            },\r\n            {\r\n                label: 'YouTube',\r\n                url: 'https://www.youtube.com',\r\n                linkType: LinkType.External,\r\n                icon: 'youtube',\r\n            },\r\n            {\r\n                label: 'Tiktok',\r\n                url: 'https://www.tiktok.com',\r\n                linkType: LinkType.External,\r\n                icon: 'tiktok',\r\n            },\r\n        ],\r\n        image: {\r\n            url: 'https://placehold.co/1300x870.png',\r\n            alt: 'image',\r\n        },\r\n    },\r\n}"
                 }
             ],
             "projects/ui-lib/content/category-progress/category-progress.stories.ts": [
@@ -435,18 +558,6 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n    args: {\r\n        contactsTitle: 'Contacto',\r\n        socialsTitle: 'Redes Sociales',\r\n        contacts: [\r\n            {\r\n                label: 'email@example.com',\r\n                url: 'mailto:email@example.com',\r\n                linkType: LinkType.External,\r\n            },\r\n            { label: '+34 123 456 789', url: 'tel:+34123456789', linkType: LinkType.External },\r\n        ],\r\n        socials: [\r\n            { label: 'Twitter', url: 'https://twitter.com', linkType: LinkType.External },\r\n            { label: 'LinkedIn', url: 'https://linkedin.com', linkType: LinkType.External },\r\n            { label: 'GitHub', url: 'https://github.com', linkType: LinkType.External },\r\n        ],\r\n        img: {\r\n            url: 'https://picsum.photos/seed/contact/400/300.jpg',\r\n            alt: 'Contact image',\r\n        },\r\n    },\r\n}"
-                }
-            ],
-            "projects/ui-lib/content/media-split/media-split.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-lib/content/media-split/media-split.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n    args: {\r\n        title: 'Galería Interactiva',\r\n        text: 'Explora nuestra colección de imágenes interactivas. Pasa el cursor sobre diferentes áreas para descubrir contenido único.',\r\n        images: [\r\n            {\r\n                url: 'https://picsum.photos/seed/mediasplit1/800/600.jpg',\r\n                alt: 'Imagen 1',\r\n            },\r\n            {\r\n                url: 'https://picsum.photos/seed/mediasplit2/800/600.jpg',\r\n                alt: 'Imagen 2',\r\n            },\r\n            {\r\n                url: 'https://picsum.photos/seed/mediasplit3/800/600.jpg',\r\n                alt: 'Imagen 3',\r\n            },\r\n            {\r\n                url: 'https://picsum.photos/seed/mediasplit4/800/600.jpg',\r\n                alt: 'Imagen 4',\r\n            },\r\n        ],\r\n    },\r\n}"
                 }
             ],
             "projects/ui-lib/content/content-document/content-document.stories.ts": [
@@ -495,6 +606,18 @@
                     "defaultValue": "{\r\n    args: {\r\n        title: 'Mosaico Parallax',\r\n        text: 'Descubre nuestra increíble galería con efectos de paralaje y mosaico interactivo.',\r\n        images: [\r\n            {\r\n                url: 'https://picsum.photos/seed/mosaic1/400/300.jpg',\r\n                alt: 'Mosaico 1',\r\n            },\r\n            {\r\n                url: 'https://picsum.photos/seed/mosaic2/400/300.jpg',\r\n                alt: 'Mosaico 2',\r\n            },\r\n            {\r\n                url: 'https://picsum.photos/seed/mosaic3/400/300.jpg',\r\n                alt: 'Mosaico 3',\r\n            },\r\n            {\r\n                url: 'https://picsum.photos/seed/mosaic4/400/300.jpg',\r\n                alt: 'Mosaico 4',\r\n            }\r\n        ],\r\n    },\r\n}"
                 }
             ],
+            "projects/ui-lib/content/media-split/media-split.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-lib/content/media-split/media-split.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    args: {\r\n        title: 'Galería Interactiva',\r\n        text: 'Explora nuestra colección de imágenes interactivas. Pasa el cursor sobre diferentes áreas para descubrir contenido único.',\r\n        images: [\r\n            {\r\n                url: 'https://picsum.photos/seed/mediasplit1/800/600.jpg',\r\n                alt: 'Imagen 1',\r\n            },\r\n            {\r\n                url: 'https://picsum.photos/seed/mediasplit2/800/600.jpg',\r\n                alt: 'Imagen 2',\r\n            },\r\n            {\r\n                url: 'https://picsum.photos/seed/mediasplit3/800/600.jpg',\r\n                alt: 'Imagen 3',\r\n            },\r\n            {\r\n                url: 'https://picsum.photos/seed/mediasplit4/800/600.jpg',\r\n                alt: 'Imagen 4',\r\n            },\r\n        ],\r\n    },\r\n}"
+                }
+            ],
             "projects/ui-lib/content/section-intro/section-intro.stories.ts": [
                 {
                     "name": "Default",
@@ -541,84 +664,6 @@
                     "defaultValue": "{\r\n    args: {\r\n        title: 'Servicios Destacados',\r\n        text: 'Descubre nuestra gama completa de servicios diseñados para impulsar tu negocio.',\r\n        items: [\r\n            {\r\n                title: 'Desarrollo Web a Medida',\r\n                text: 'Creamos sitios web personalizados que se adaptan perfectamente a las necesidades de tu empresa, con diseño moderno y funcionalidades avanzadas.',\r\n            },\r\n            {\r\n                title: 'Aplicaciones Móviles',\r\n                text: 'Desarrollamos apps nativas y progresivas para iOS y Android, ofreciendo la mejor experiencia de usuario en cualquier dispositivo.',\r\n            },\r\n            {\r\n                title: 'Consultoría Tecnológica',\r\n                text: 'Asesoramiento experto para transformar digitalmente tu negocio, optimizando procesos e implementando las mejores tecnologías.',\r\n            },\r\n            {\r\n                title: 'Marketing Digital',\r\n                text: 'Estrategias integrales de marketing digital para aumentar tu visibilidad online y llegar a más clientes potenciales.',\r\n            },\r\n            {\r\n                title: 'Soporte Técnico',\r\n                text: 'Mantenimiento continuo y soporte técnico especializado para garantizar el correcto funcionamiento de tus sistemas.',\r\n            },\r\n        ],\r\n    },\r\n}"
                 }
             ],
-            "projects/ui-lib/footers/legal-footer/legal-footer.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-lib/footers/legal-footer/legal-footer.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n    args: {\r\n        brand: 'Lluc Llull',\r\n        year: 2025,\r\n        credits: 'Diseñado por Lluc Llull',\r\n        links: [\r\n            {\r\n                label: 'Link 1',\r\n                url: 'https://www.google.com',\r\n                linkType: LinkType.External,\r\n                icon: '',\r\n            },\r\n            {\r\n                label: 'Link 2',\r\n                url: 'https://www.google.com',\r\n                linkType: LinkType.External,\r\n                icon: '',\r\n            },\r\n            {\r\n                label: 'Link 3',\r\n                url: 'https://www.google.com',\r\n                linkType: LinkType.External,\r\n                icon: '',\r\n            },\r\n            {\r\n                label: 'Link 4',\r\n                url: 'https://www.google.com',\r\n                linkType: LinkType.External,\r\n                icon: '',\r\n            },\r\n            {\r\n                label: 'Link 5',\r\n                url: 'https://www.google.com',\r\n                linkType: LinkType.External,\r\n                icon: '',\r\n            },\r\n        ],\r\n    },\r\n}"
-                }
-            ],
-            "projects/ui-lib/footers/links-footer/links-footer.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-lib/footers/links-footer/links-footer.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n    args: {\r\n        links: [\r\n            {\r\n                label: 'Link 1',\r\n                url: 'https://www.google.com',\r\n                linkType: LinkType.External,\r\n                icon: '',\r\n            },\r\n            {\r\n                label: 'Link 2',\r\n                url: 'https://www.google.com',\r\n                linkType: LinkType.External,\r\n                icon: '',\r\n            },\r\n            {\r\n                label: 'Link 3',\r\n                url: 'https://www.google.com',\r\n                linkType: LinkType.External,\r\n                icon: '',\r\n            },\r\n            {\r\n                label: 'Link 4',\r\n                url: 'https://www.google.com',\r\n                linkType: LinkType.External,\r\n                icon: '',\r\n            },\r\n            {\r\n                label: 'Link 5',\r\n                url: 'https://www.google.com',\r\n                linkType: LinkType.External,\r\n                icon: '',\r\n            },\r\n        ],\r\n    },\r\n}"
-                }
-            ],
-            "projects/ui-lib/footers/social-footer/social-footer.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-lib/footers/social-footer/social-footer.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n    args: {\r\n        images: [\r\n            {\r\n                url: 'https://placehold.co/600x400.png',\r\n                alt: 'image1',\r\n            },\r\n            {\r\n                url: 'https://placehold.co/600x400.png',\r\n                alt: 'image2',\r\n            },\r\n            {\r\n                url: 'https://placehold.co/600x400.png',\r\n                alt: 'image3',\r\n            },\r\n            {\r\n                url: 'https://placehold.co/600x400.png',\r\n                alt: 'image4',\r\n            },\r\n            {\r\n                url: 'https://placehold.co/600x400.png',\r\n                alt: 'image5',\r\n            },\r\n            {\r\n                url: 'https://placehold.co/600x400.png',\r\n                alt: 'image6',\r\n            },\r\n            {\r\n                url: 'https://placehold.co/600x400.png',\r\n                alt: 'image7',\r\n            },\r\n            {\r\n                url: 'https://placehold.co/600x400.png',\r\n                alt: 'image8',\r\n            },\r\n        ],\r\n        socials: [\r\n            {\r\n                label: 'Facebook',\r\n                url: 'https://www.facebook.com',\r\n                linkType: LinkType.External,\r\n                icon: 'facebook',\r\n            },\r\n            {\r\n                label: 'Instagram',\r\n                url: 'https://www.instagram.com',\r\n                linkType: LinkType.External,\r\n                icon: 'instagram',\r\n            },\r\n            {\r\n                label: 'X',\r\n                url: 'https://www.x.com',\r\n                linkType: LinkType.External,\r\n                icon: 'twitter',\r\n            },\r\n            {\r\n                label: 'YouTube',\r\n                url: 'https://www.youtube.com',\r\n                linkType: LinkType.External,\r\n                icon: 'youtube',\r\n            },\r\n            {\r\n                label: 'Tiktok',\r\n                url: 'https://www.tiktok.com',\r\n                linkType: LinkType.External,\r\n                icon: 'tiktok',\r\n            },\r\n        ],\r\n        hashtag: '#Hastag',\r\n    },\r\n}"
-                }
-            ],
-            "projects/ui-lib/effects/dynamic-background/dynamic-background.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-lib/effects/dynamic-background/dynamic-background.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n    args: {\r\n        effect: 'sphere-deform',\r\n        rotationSpeed: 0.02,\r\n        size: 3,\r\n        backgroundColor: '#111111',\r\n        elementColor: '#00ffcc',\r\n    },\r\n}"
-                },
-                {
-                    "name": "FastRotation",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-lib/effects/dynamic-background/dynamic-background.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n    args: {\r\n        effect: 'sphere-deform',\r\n        rotationSpeed: 0.08,\r\n        size: 3,\r\n        backgroundColor: '#222222',\r\n        elementColor: '#ffaa00',\r\n    },\r\n}"
-                },
-                {
-                    "name": "LargeSphere",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-lib/effects/dynamic-background/dynamic-background.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n    args: {\r\n        effect: 'sphere-deform',\r\n        size: 6,\r\n        rotationSpeed: 0.01,\r\n        backgroundColor: '#000000',\r\n        elementColor: '#ff0066',\r\n    },\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-lib/effects/dynamic-background/dynamic-background.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<DynamicBackgroundComponent>",
-                    "defaultValue": "{\r\n    title: 'Effects/Dynamic Background',\r\n    component: DynamicBackgroundComponent,\r\n    decorators: [\r\n        moduleMetadata({\r\n            imports: [CommonModule, DynamicBackgroundComponent],\r\n        }),\r\n    ],\r\n    tags: ['autodocs'],\r\n    parameters: {\r\n        docs: {\r\n            description: {\r\n                component: `\r\nUn fondo animado en 3D usando **Three.js**.\r\n\r\nEste componente renderiza efectos dinámicos (por ejemplo una esfera deformada).  \r\nPuedes personalizar el **efecto**, la **velocidad de rotación**, el **tamaño** y los **colores**.\r\n        `,\r\n            },\r\n        },\r\n        layout: 'fullscreen',\r\n    },\r\n    argTypes: {\r\n        effect: {\r\n            control: { type: 'select' },\r\n            options: ['sphere-deform', 'ring-transform', 'particles'],\r\n            description: 'Efecto visual a renderizar.',\r\n        },\r\n        rotationSpeed: {\r\n            control: { type: 'number', min: 0, max: 0.1, step: 0.01 },\r\n            description: 'Velocidad de rotación del efecto.',\r\n        },\r\n        size: {\r\n            control: { type: 'number', min: 1, max: 10, step: 1 },\r\n            description: 'Tamaño base del objeto 3D.',\r\n        },\r\n        backgroundColor: {\r\n            control: 'color',\r\n            description: 'Color de fondo del canvas.',\r\n        },\r\n        elementColor: {\r\n            control: 'color',\r\n            description: 'Color del objeto renderizado (si aplica).',\r\n        },\r\n    },\r\n}"
-                }
-            ],
             "projects/ui-lib/headers/header-clear/header-clear.stories.ts": [
                 {
                     "name": "Default",
@@ -629,18 +674,6 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n    args: {\r\n        logo: {\r\n            url: 'https://ujpxanmobdxrwjsndrzq.supabase.co/storage/v1/object/public/branding/logos/logo-primary.svg',\r\n            alt: 'Logo',\r\n        },\r\n        lang: 'ES',\r\n        navItems: [\r\n            { label: 'Menu 1', url: 'https://www.google.com', linkType: LinkType.External },\r\n            { label: 'Menu 2', url: 'https://www.google.com', linkType: LinkType.External },\r\n            { label: 'Menu 3', url: 'https://www.google.com', linkType: LinkType.External },\r\n            { label: 'Menu 4', url: 'https://www.google.com', linkType: LinkType.External },\r\n            { label: 'Menu 5', url: 'https://www.google.com', linkType: LinkType.External },\r\n        ],\r\n    },\r\n}"
-                }
-            ],
-            "projects/ui-lib/footers/visual-footer/visual-footer.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-lib/footers/visual-footer/visual-footer.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n    args: {\r\n        contactTitle: 'Contacto',\r\n        contactPhone: {\r\n            label: '+34 600 000 000',\r\n            url: 'tel:34600000000',\r\n            linkType: LinkType.External,\r\n            icon: '',\r\n        },\r\n        contactEmail: {\r\n            label: 'test@test.com',\r\n            url: 'mailto:test@test.com',\r\n            linkType: LinkType.External,\r\n            icon: '',\r\n        },\r\n        addressTitle: 'Dirección',\r\n        address: {\r\n            address: 'Calle Mayor, 15',\r\n            city: 'Madrid',\r\n            country: 'España',\r\n            cp: '28013',\r\n            province: 'Madrid',\r\n        },\r\n        socialsTitle: 'Redes Sociales',\r\n        socials: [\r\n            {\r\n                label: 'Facebook',\r\n                url: 'https://www.facebook.com',\r\n                linkType: LinkType.External,\r\n                icon: 'facebook',\r\n            },\r\n            {\r\n                label: 'Instagram',\r\n                url: 'https://www.instagram.com',\r\n                linkType: LinkType.External,\r\n                icon: 'instagram',\r\n            },\r\n            {\r\n                label: 'X',\r\n                url: 'https://www.x.com',\r\n                linkType: LinkType.External,\r\n                icon: 'twitter',\r\n            },\r\n            {\r\n                label: 'YouTube',\r\n                url: 'https://www.youtube.com',\r\n                linkType: LinkType.External,\r\n                icon: 'youtube',\r\n            },\r\n            {\r\n                label: 'Tiktok',\r\n                url: 'https://www.tiktok.com',\r\n                linkType: LinkType.External,\r\n                icon: 'tiktok',\r\n            },\r\n        ],\r\n        image: {\r\n            url: 'https://placehold.co/1300x870.png',\r\n            alt: 'image',\r\n        },\r\n    },\r\n}"
                 }
             ],
             "projects/ui-lib/.storybook/preview.ts": [
@@ -659,117 +692,26 @@
         "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
-            "projects/ui-lib/content/category-progress/category-progress.stories.ts": [
+            "projects/ui-lib/effects/dynamic-background/dynamic-background.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<CategoryProgressComponent>",
-                    "file": "projects/ui-lib/content/category-progress/category-progress.stories.ts",
+                    "rawtype": "StoryObj<DynamicBackgroundComponent>",
+                    "file": "projects/ui-lib/effects/dynamic-background/dynamic-background.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
                     "kind": 184
                 }
             ],
-            "projects/ui-lib/content/contact-minimal/contact-minimal.stories.ts": [
+            "projects/ui-lib/footers/columns-footer/columns-footer.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<ContactMinimalComponent>",
-                    "file": "projects/ui-lib/content/contact-minimal/contact-minimal.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "projects/ui-lib/content/media-split/media-split.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<MediaSplitComponent>",
-                    "file": "projects/ui-lib/content/media-split/media-split.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "projects/ui-lib/content/content-document/content-document.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ContentDocumentComponent>",
-                    "file": "projects/ui-lib/content/content-document/content-document.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "projects/ui-lib/content/hero-section/hero-section.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<HeroSectionComponent>",
-                    "file": "projects/ui-lib/content/hero-section/hero-section.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "projects/ui-lib/content/mosaic-parallax/mosaic-parallax.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<MosaicParallaxComponent>",
-                    "file": "projects/ui-lib/content/mosaic-parallax/mosaic-parallax.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "projects/ui-lib/content/section-intro/section-intro.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<SectionIntroComponent>",
-                    "file": "projects/ui-lib/content/section-intro/section-intro.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "projects/ui-lib/content/split-previewer/split-previewer.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<SplitPreviewerComponent>",
-                    "file": "projects/ui-lib/content/split-previewer/split-previewer.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "projects/ui-lib/content/stacked-rows/stacked-rows.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<StackedRowsComponent>",
-                    "file": "projects/ui-lib/content/stacked-rows/stacked-rows.stories.ts",
+                    "rawtype": "StoryObj<ColumnsFooterComponent>",
+                    "file": "projects/ui-lib/footers/columns-footer/columns-footer.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -815,13 +757,130 @@
                     "kind": 184
                 }
             ],
-            "projects/ui-lib/effects/dynamic-background/dynamic-background.stories.ts": [
+            "projects/ui-lib/footers/visual-footer/visual-footer.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<DynamicBackgroundComponent>",
-                    "file": "projects/ui-lib/effects/dynamic-background/dynamic-background.stories.ts",
+                    "rawtype": "StoryObj<VisualFooterComponent>",
+                    "file": "projects/ui-lib/footers/visual-footer/visual-footer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/ui-lib/content/category-progress/category-progress.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<CategoryProgressComponent>",
+                    "file": "projects/ui-lib/content/category-progress/category-progress.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/ui-lib/content/contact-minimal/contact-minimal.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ContactMinimalComponent>",
+                    "file": "projects/ui-lib/content/contact-minimal/contact-minimal.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/ui-lib/content/content-document/content-document.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ContentDocumentComponent>",
+                    "file": "projects/ui-lib/content/content-document/content-document.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/ui-lib/content/hero-section/hero-section.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<HeroSectionComponent>",
+                    "file": "projects/ui-lib/content/hero-section/hero-section.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/ui-lib/content/mosaic-parallax/mosaic-parallax.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<MosaicParallaxComponent>",
+                    "file": "projects/ui-lib/content/mosaic-parallax/mosaic-parallax.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/ui-lib/content/media-split/media-split.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<MediaSplitComponent>",
+                    "file": "projects/ui-lib/content/media-split/media-split.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/ui-lib/content/section-intro/section-intro.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<SectionIntroComponent>",
+                    "file": "projects/ui-lib/content/section-intro/section-intro.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/ui-lib/content/split-previewer/split-previewer.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<SplitPreviewerComponent>",
+                    "file": "projects/ui-lib/content/split-previewer/split-previewer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/ui-lib/content/stacked-rows/stacked-rows.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<StackedRowsComponent>",
+                    "file": "projects/ui-lib/content/stacked-rows/stacked-rows.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -835,19 +894,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<HeaderClearComponent>",
                     "file": "projects/ui-lib/headers/header-clear/header-clear.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "projects/ui-lib/footers/visual-footer/visual-footer.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<VisualFooterComponent>",
-                    "file": "projects/ui-lib/footers/visual-footer/visual-footer.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1127,6 +1173,26 @@
             },
             {
                 "filePath": "projects/ui-lib/effects/dynamic-background/dynamic-background.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-lib/footers/columns-footer/columns-footer.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-lib/footers/columns-footer/columns-footer.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",

@@ -4,16 +4,29 @@
   &__content {
     display: grid;
     grid-auto-flow: column;
-    justify-content: space-between;
+
+    &--left {
+      .btn {
+        justify-content: start;
+        font-size: 1.1rem;
+      }
+    }
+
+    &--right {
+      justify-self: end;
+      .btn-group {
+        align-items: end;
+      }
+      .btn {
+        justify-content: end;
+        font-size: 1.1rem;
+      }
+    }
 
     &--media {
-      display: flex;
-      position: absolute;
-      top: 25rem;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      justify-self: center;
 
-      img {
+      img, ui-image {
         transform: rotate(45deg);
         width: 50rem;
       }
@@ -21,7 +34,7 @@
       @include respond-max(sm) {
         top: 16rem;
 
-        img {
+        img, ui-image {
           width: 15rem;
           height: auto;
         }
@@ -32,11 +45,7 @@
   .btn-group {
     display: flex;
     flex-direction: column;
-    margin-top: 0;
+    margin-top: 1rem;
     gap: 0;
-  }
-
-  .btn {
-    justify-content: start;
   }
 }

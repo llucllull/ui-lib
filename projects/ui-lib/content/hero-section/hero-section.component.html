@@ -6,14 +6,22 @@
 >
   @if (variant === 'image' && image) {
     <div class="hero-section__bg">
-      <img
-        [src]="image.url"
-        [alt]="image.alt"
-        class="hero-img"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-      />
+      @if (image.publicId) {
+        <ui-image 
+          [publicId]="image.publicId" 
+          [eager]="true"
+          class="hero-img"
+        ></ui-image>
+      } @else {
+        <img
+          [src]="image.url"
+          [alt]="image.alt"
+          class="hero-img"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      }
     </div>
   }
 

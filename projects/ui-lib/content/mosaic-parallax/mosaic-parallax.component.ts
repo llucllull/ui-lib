@@ -11,9 +11,12 @@ import {
     ViewChild,
 } from '@angular/core';
 import { UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
+import { UiImageComponent } from '@lluc_llull/ui-lib/shared';
 
 @Component({
     selector: 'app-mosaic-parallax',
+    standalone: true,
+    imports: [UiImageComponent],
     templateUrl: './mosaic-parallax.component.html',
     styleUrls: ['./mosaic-parallax.component.scss'],
     host: {
