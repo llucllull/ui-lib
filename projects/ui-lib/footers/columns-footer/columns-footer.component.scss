@@ -1,7 +1,7 @@
 @use '../../../ui-lib/src/lib/styles/abstracts' as *;
 
 .columns-footer-wrapper {
-  background-color: var(--content-bg);
+  background-color: var(--content-bg-dark);
 
   /* full bleed */
   margin-left: calc(-50vw + 50%);
