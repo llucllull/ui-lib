@@ -13,7 +13,7 @@ type Story = StoryObj<HeaderClearComponent>;
 export const Default: Story = {
     args: {
         logo: {
-            url: 'https://ujpxanmobdxrwjsndrzq.supabase.co/storage/v1/object/public/branding/logos/logo-primary.svg',
+            url: 'https://cdn.llucllull.dev/assets/v1/logos/logo-metalico-v2.webp',
             alt: 'Logo',
         },
         lang: 'ES',
