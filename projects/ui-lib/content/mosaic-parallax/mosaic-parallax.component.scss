@@ -43,9 +43,9 @@ $card-width: 95%;
   width: $card-width;
   display: flex;
   flex-direction: column;
-  border: 2px solid var(--color-primary);
+  border: 2px solid var(--border-primary);
   overflow: hidden;
-  background: #f2f2f2;
+  background: var(--content-bg-light);
   margin-top: calc(var(--item-index) * #{$stagger-step});
   transform: translateY(100px);
   transition:
@@ -76,19 +76,19 @@ $card-width: 95%;
     justify-content: space-between;
     padding: 1.2rem 1.5rem;
     min-height: 11rem;
-    background: var(--color-primary);
-    color: #f2f2f2;
-    border-top: 2px solid var(--color-primary);
+    background: var(--content-bg-dark);
+    color: var(--text-inverse);
+    border-top: 2px solid var(--border-primary);
   }
 
   &:nth-child(2n) {
     .mosaic-item__content {
-      background: #f2f2f2;
-      color: var(--color-primary);
+      background: var(--content-bg-light);
+      color: var(--text-primary);
     }
     .mosaic-item__index {
-      background: var(--color-primary);
-      color: #f2f2f2;
+      background: var(--content-bg-dark);
+      color: var(--text-inverse);
     }
   }
 
@@ -116,9 +116,9 @@ $card-width: 95%;
     font-weight: 900;
     line-height: 1;
     background: #f2f2f2;
-    color: var(--color-primary);
+    color: var(--text-primary);
     padding: 0.5rem 1rem;
-    border-left: 2px solid var(--color-primary);
+    border-left: 2px solid var(--border-primary);
     margin: 0 -1.5rem -1.2rem 0;
   }
 }
