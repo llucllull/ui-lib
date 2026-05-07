@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.28.4] - 2026-05-07
+### Added
+- add individual secondary entry points to components
+
 ## [0.28.3] - 2026-05-06
 ### Added
 - add new color vars
