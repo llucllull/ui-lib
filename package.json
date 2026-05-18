@@ -10,8 +10,8 @@
         "test": "ng test --watch=false --browsers=ChromeHeadless",
         "deploy-local": "sh ./deploy-ui-lib.sh",
         "build-styles": "sass projects/ui-lib/src/lib/styles/main.scss projects/ui-lib/src/lib/styles/main.css",
-        "storybook": "npm run build-styles && ng run ui-lib:storybook",
-        "build-storybook": "npm run build-styles && ng run ui-lib:build-storybook",
+        "storybook": "pnpm build-styles && ng run ui-lib:storybook",
+        "build-storybook": "pnpm build-styles && ng run ui-lib:build-storybook",
         "format": "prettier --write \"projects/ui-lib/src/**/*.{ts,html,scss,json,md}\"",
         "format:check": "prettier --check \"projects/ui-lib/src/**/*.{ts,html,scss,json,md}\""
     },

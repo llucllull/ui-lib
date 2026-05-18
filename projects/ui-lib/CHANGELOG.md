@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.28.5] - 2026-05-18
+### Changed
+- add pnpm workspace configuration to allow specific builds
+
 ## [0.28.4] - 2026-05-07
 ### Added
 - add individual secondary entry points to components
