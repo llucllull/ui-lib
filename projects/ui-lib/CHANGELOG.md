@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.29.0] - 2026-05-18
+### Added
+- add split showcase component with associated styles, template, and mapper
+
 ## [0.28.5] - 2026-05-18
 ### Changed
 - add pnpm workspace configuration to allow specific builds
