@@ -44,7 +44,7 @@ jobs:
               run: pnpm run build-styles
 
             - name: Build library
-              run: ppx ng-packagr -p projects/ui-lib/ng-package.json
+              run: pnpm exec ng-packagr -p projects/ui-lib/ng-package.json
 
             - name: Copy CSS
               run: |
