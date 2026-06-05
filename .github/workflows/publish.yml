@@ -31,7 +31,7 @@ jobs:
               with:
                   node-version: 20
                   registry-url: https://registry.npmjs.org
-                  # Eliminamos el scope de aquí, es mejor gestionarlo en el comando o package.json
+                  scope: '@lluc_llull'
 
             # 3. Instalar dependencias con PNPM
             - name: Install dependencies
@@ -77,3 +77,4 @@ jobs:
               run: pnpm publish ./dist/ui-lib --access public --no-git-checks --provenance
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
