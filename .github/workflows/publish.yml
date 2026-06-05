@@ -25,18 +25,18 @@ jobs:
               with:
                   version: 9
 
-            # 2. Configurar Node enlazándolo con PNPM
+            # 2. Configurar Node
             - name: Setup Node
               uses: actions/setup-node@v4
               with:
                   node-version: 20
                   registry-url: https://registry.npmjs.org
-                  scope: '@lluc_llull'
 
             # 3. Instalar dependencias con PNPM
             - name: Install dependencies
               run: pnpm install --frozen-lockfile
 
+            # 4. Tests y Compilación de la librería
             - name: Run unit tests
               run: pnpm test
 
@@ -72,9 +72,10 @@ jobs:
                     exit 1
                   fi
 
-            # 4. Publicar usando PNPM con Trusted Publisher (OIDC sin contraseñas)
+            # 5. Publicar usando el flujo nativo de PNPM para Trusted Publisher
             - name: Publish to npm
-              run: pnpm publish ./dist/ui-lib --access public --no-git-checks --provenance
+              run: |
+                  cd dist/ui-lib
+                  pnpm publish --no-git-checks --provenance --access public
               env:
-                  NPM_CONFIG_PROVENANCE: true
-                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  NPM_CONFIG__AUTH: ${{ secrets.GITHUB_TOKEN }}
