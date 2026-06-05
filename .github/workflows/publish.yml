@@ -9,6 +9,7 @@ jobs:
     publish:
         runs-on: ubuntu-latest
 
+        # 🛑 REQUISITO CRUCIAL PARA OIDC: Permite a GitHub generar el token de identidad dinámico
         permissions:
             contents: read
             id-token: write
@@ -23,7 +24,7 @@ jobs:
             - name: Setup PNPM
               uses: pnpm/action-setup@v4
               with:
-                  version: 9 # Asegúrate de poner aquí la versión de pnpm que usas localmente
+                  version: 9
 
             # 2. Configurar Node enlazándolo con PNPM
             - name: Setup Node
@@ -72,9 +73,10 @@ jobs:
                     exit 1
                   fi
 
-            # 4. Publicar usando PNPM (asigna correctamente el auth token automáticamente)
+            # 4. Publicar usando PNPM con Trusted Publisher (OIDC sin contraseñas)
             - name: Publish to npm
-              run: pnpm publish ./dist/ui-lib --access public --no-git-checks --provenance
+              run: |
+                  pnpm config set //registry.npmjs.org/:_authToken=$ACTIONS_ID_TOKEN_REQUEST_TOKEN
+                  pnpm publish ./dist/ui-lib --access public --no-git-checks --provenance
               env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+                  ACTIONS_ID_TOKEN_REQUEST_TOKEN: ${{ secrets.GITHUB_TOKEN }}
