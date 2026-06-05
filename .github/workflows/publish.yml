@@ -74,8 +74,7 @@ jobs:
 
             # 4. Publicar usando PNPM con Trusted Publisher (OIDC sin contraseñas)
             - name: Publish to npm
-              run: |
-                  pnpm config set //registry.npmjs.org/:_authToken=$ACTIONS_ID_TOKEN_REQUEST_TOKEN
-                  pnpm publish ./dist/ui-lib --access public --no-git-checks --provenance
+              run: pnpm publish ./dist/ui-lib --access public --no-git-checks --provenance
               env:
-                  ACTIONS_ID_TOKEN_REQUEST_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  NPM_CONFIG_PROVENANCE: true
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
