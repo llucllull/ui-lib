@@ -70,11 +70,14 @@ jobs:
                     echo "❌ Tag ($TAG) does not match package.json version (${{ steps.version.outputs.version }})"
                     exit 1
                   fi
-
-            # 5. Publicar usando el NPM_TOKEN
-            - name: Publish to npm
+            
+            # 5. Configurar autenticación para npm usando el token de GitHub Actions
+            - name: Configure npm auth
               run: |
-                  cd dist/ui-lib
-                  pnpm publish --no-git-checks --access public
+                echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
+
+            # 6. Publicar usando el NPM_TOKEN
+            - name: Publish to npm
+              run: pnpm publish ./dist/ui-lib --no-git-checks --access public --registry https://registry.npmjs.org
               env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+                NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
