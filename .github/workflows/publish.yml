@@ -9,7 +9,6 @@ jobs:
     publish:
         runs-on: ubuntu-latest
 
-        # 🛑 REQUISITO CRUCIAL PARA OIDC: Permite a GitHub generar el token de identidad dinámico
         permissions:
             contents: read
             id-token: write
