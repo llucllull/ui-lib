@@ -19,24 +19,32 @@ jobs:
               with:
                   fetch-depth: 0
 
+            # 1. Instalar PNPM antes de configurar Node
+            - name: Setup PNPM
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 9 # Asegúrate de poner aquí la versión de pnpm que usas localmente
+
+            # 2. Configurar Node enlazándolo con PNPM
             - name: Setup Node
               uses: actions/setup-node@v4
               with:
                   node-version: 20
                   registry-url: https://registry.npmjs.org
-                  scope: '@lluc_llull'
+                  # Eliminamos el scope de aquí, es mejor gestionarlo en el comando o package.json
 
+            # 3. Instalar dependencias con PNPM
             - name: Install dependencies
-              run: npm ci --prefer-offline --no-audit
+              run: pnpm install --frozen-lockfile
 
             - name: Run unit tests
-              run: npm run test --if-present
+              run: pnpm run test --if-present
 
             - name: Build styles
-              run: npm run build-styles
+              run: pnpm run build-styles
 
             - name: Build library
-              run: npx ng-packagr -p projects/ui-lib/ng-package.json
+              run: ppx ng-packagr -p projects/ui-lib/ng-package.json
 
             - name: Copy CSS
               run: |
@@ -64,7 +72,8 @@ jobs:
                     exit 1
                   fi
 
+            # 4. Publicar usando PNPM (asigna correctamente el auth token automáticamente)
             - name: Publish to npm
-              run: npm publish ./dist/ui-lib --access public --provenance
+              run: pnpm publish ./dist/ui-lib --access public --no-git-checks --provenance
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
