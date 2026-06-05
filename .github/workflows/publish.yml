@@ -11,7 +11,6 @@ jobs:
 
         permissions:
             contents: read
-            id-token: write
 
         steps:
             - name: Checkout repository
@@ -25,7 +24,7 @@ jobs:
               with:
                   version: 9
 
-            # 2. Configurar Node
+            # 2. Configurar Node enlazado al registro de npm
             - name: Setup Node
               uses: actions/setup-node@v4
               with:
@@ -36,7 +35,7 @@ jobs:
             - name: Install dependencies
               run: pnpm install --frozen-lockfile
 
-            # 4. Tests y Compilación de la librería
+            # 4. Compilar la librería Angular
             - name: Run unit tests
               run: pnpm test
 
@@ -72,10 +71,10 @@ jobs:
                     exit 1
                   fi
 
-            # 5. Publicar usando el flujo nativo de PNPM para Trusted Publisher
+            # 5. Publicar usando el NPM_TOKEN
             - name: Publish to npm
               run: |
                   cd dist/ui-lib
-                  pnpm publish --no-git-checks --provenance --access public
+                  pnpm publish --no-git-checks --access public
               env:
-                  NPM_CONFIG__AUTH: ${{ secrets.GITHUB_TOKEN }}
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
