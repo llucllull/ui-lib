@@ -11,7 +11,6 @@ jobs:
 
         permissions:
             contents: read
-            id-token: write
 
         steps:
             - name: Checkout repository
@@ -23,20 +22,20 @@ jobs:
             - name: Setup PNPM
               uses: pnpm/action-setup@v4
               with:
-                  version: 9 # Asegúrate de poner aquí la versión de pnpm que usas localmente
+                  version: 9
 
-            # 2. Configurar Node enlazándolo con PNPM
+            # 2. Configurar Node enlazado al registro de npm
             - name: Setup Node
               uses: actions/setup-node@v4
               with:
                   node-version: 20
                   registry-url: https://registry.npmjs.org
-                  # Eliminamos el scope de aquí, es mejor gestionarlo en el comando o package.json
 
             # 3. Instalar dependencias con PNPM
             - name: Install dependencies
               run: pnpm install --frozen-lockfile
 
+            # 4. Compilar la librería Angular
             - name: Run unit tests
               run: pnpm test
 
@@ -71,9 +70,14 @@ jobs:
                     echo "❌ Tag ($TAG) does not match package.json version (${{ steps.version.outputs.version }})"
                     exit 1
                   fi
+            
+            # 5. Configurar autenticación para npm usando el token de GitHub Actions
+            - name: Configure npm auth
+              run: |
+                echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
 
-            # 4. Publicar usando PNPM (asigna correctamente el auth token automáticamente)
+            # 6. Publicar usando el NPM_TOKEN
             - name: Publish to npm
-              run: pnpm publish ./dist/ui-lib --access public --no-git-checks --provenance
+              run: pnpm publish ./dist/ui-lib --no-git-checks --access public --registry https://registry.npmjs.org
               env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+                NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
