@@ -1,0 +1,41 @@
+
+.split-showcase {
+    &__metas {
+        &--title {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        &--item {
+            &::after {
+                content: '';
+                display: block;
+                height: 1px;
+                width: 100%;
+                background-color: var(--text-disabled);
+                margin-block: 1rem;
+            }
+
+            &:last-child::after {
+                content: none;
+            }
+        } 
+        .btn-group {
+            margin-bottom: 2rem;
+        }
+    }
+
+    &__content {
+        &--subtitle {
+            font-size: 2rem;
+            padding-bottom: 0;
+            &::after {
+                content: '';
+                display: block;
+                height: 1px;
+                width: 100%;
+                background-color: var(--text-disabled);
+                margin-block: 2rem;
+            }
+        }
+    }
+}
