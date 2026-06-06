@@ -8,3 +8,4 @@ export * from './stacked-rows';
 export * from './mosaic-parallax';
 export * from './content-document';
 export * from './split-showcase';
+export * from './asymmetric-media';

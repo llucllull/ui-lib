@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.30.0] - 2026-06-06
+### Added
+- add asymemtric-media component with associated styles, template, and mapper
+
 ## [0.29.0] - 2026-05-18
 ### Added
 - add split showcase component with associated styles, template, and mapper

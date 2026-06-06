@@ -1,0 +1,41 @@
+<div 
+    class="asymmetric-media main-grid col-span-full md:col-span-12 md:col-start-1" 
+    scrollReveal
+>
+    @if(media && media.length > 0) {
+        <div class="asymmetric-media__items main-grid col-span-full md:col-span-12 md:col-start-1">
+            @if(direction === 'left') {
+                <div class="asymmetric-media__items--small col-span-full md:col-span-4 md:col-start-1">
+                    <ui-image
+                        [publicId]="media[0]!.publicId!" 
+                        [eager]="true"
+                        class="asymmetric-media-img"
+                    ></ui-image>
+                </div>
+                <div class="asymmetric-media__items--big col-span-full md:col-span-8 md:col-start-5">
+                    <ui-image
+                        [publicId]="media[1]!.publicId!" 
+                        [eager]="true"
+                        class="asymmetric-media-img"
+                    ></ui-image>
+                </div>
+            }
+            @if(direction === 'right') {
+                <div class="asymmetric-media__items--small col-span-full md:col-span-8 md:col-start-1">
+                    <ui-image
+                        [publicId]="media[0]!.publicId!" 
+                        [eager]="true"
+                        class="asymmetric-media-img"
+                    ></ui-image>
+                </div>
+                <div class="asymmetric-media__items--big col-span-full md:col-span-4 md:col-start-9">
+                    <ui-image
+                        [publicId]="media[1]!.publicId!" 
+                        [eager]="true"
+                        class="asymmetric-media-img"
+                    ></ui-image>
+                </div>
+            }
+        </div>
+    }
+</div>
