@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [0.31.1] - 2026-06-07
 ### Added
 - add media-intro tests
+- add direction to handle positioning on media-intro content
 
 ## [0.31.0] - 2026-06-07
 ### Added
