@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.30.1] - 2026-06-07
+### Changed
+- change title font on hero-section
+
 ## [0.30.0] - 2026-06-06
 ### Added
 - add asymemtric-media component with associated styles, template, and mapper
