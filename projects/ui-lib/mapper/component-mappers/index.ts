@@ -19,6 +19,7 @@ export * from './columns-footer.mapper';
 export * from './split-showcase.mapper';
 export * from './asymmetric-media.mapper';
 export * from './media-intro.mapper';
+export * from './columns-media-stacked.mapper';
 
 import { map404 } from './404.mapper';
 import { mapCategoryProgress } from './category-progress.mapper';
@@ -40,6 +41,7 @@ import { mapColumnsFooter } from './columns-footer.mapper';
 import { mapSplitShowcase } from './split-showcase.mapper';
 import { mapAsymmetricMedia } from './asymmetric-media.mapper';
 import { mapMediaIntro } from './media-intro.mapper';
+import { mapColumnsMediaStacked } from './columns-media-stacked.mapper';
 
 export const componentMappers: Record<string, (props: any, cdn?: string) => any> = {
     'hero-section': mapHeroSection,
@@ -62,4 +64,5 @@ export const componentMappers: Record<string, (props: any, cdn?: string) => any>
     'split-showcase': mapSplitShowcase,
     'asymmetric-media': mapAsymmetricMedia,
     'media-intro': mapMediaIntro,
+    'columns-media-stacked': mapColumnsMediaStacked,
 };

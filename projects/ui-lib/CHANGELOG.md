@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.32.0] - 2026-06-07
+### Added
+- add columns-media-stacked component with associated styles, template, and mapper
+
 ## [0.31.1] - 2026-06-07
 ### Added
 - add media-intro tests
