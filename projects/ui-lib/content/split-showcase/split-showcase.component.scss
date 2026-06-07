@@ -21,6 +21,9 @@
         } 
         .btn-group {
             margin-bottom: 2rem;
+            .btn-link {
+                justify-content: start;
+            }
         }
     }
 

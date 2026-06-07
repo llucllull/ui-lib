@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.30.2] - 2026-06-07
+### Changed
+- update positioning while responsive on btn-group on split-showcase
+
 ## [0.30.1] - 2026-06-07
 ### Changed
 - change title font on hero-section
