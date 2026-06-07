@@ -1,0 +1,35 @@
+<div class="columns-media-stacked main-grid col-span-full" scrollReveal>
+    <div class="columns-media-stacked__content main-grid col-span-full">
+        @if(leftColumn) {
+            <p 
+                class="columns-media-stacked__content-column col-span-full md:col-span-4"
+                [class.md:col-start-1]="direction === 'left'"
+                [class.md:col-start-5]="direction === 'right'"
+                [innerHTML]="leftColumn"
+            >   
+            </p>
+        }
+        @if(rightColumn) {
+            <p 
+                class="columns-media-stacked__content-column col-span-full md:col-span-4"
+                [class.md:col-start-5]="direction === 'left'"
+                [class.md:col-start-9]="direction === 'right'"
+                [innerHTML]="rightColumn"
+            >   
+            </p>
+        }
+    </div>
+    @if(image) {
+        <div 
+            class="columns-media-stacked__image col-span-full md:col-span-10"
+            [class.md:col-start-1]="direction === 'left'"
+            [class.md:col-start-3]="direction === 'right'"
+        >
+             <ui-image
+                [publicId]="image!.publicId!" 
+                [eager]="true"
+                class="media-intro-img"
+            ></ui-image>
+        </div>
+    }
+</div>
