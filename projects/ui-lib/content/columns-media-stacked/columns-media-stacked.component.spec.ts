@@ -1,7 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ColumnsMediaStackedComponent } from './columns-media-stacked.component';
-import { UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
-import { AnyPixelFormat } from 'three';
 
 describe('ColumnsMediaStackedComponent', () => {
   let component: ColumnsMediaStackedComponent;
@@ -9,14 +7,12 @@ describe('ColumnsMediaStackedComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      // Importamos el componente Standalone con todas sus dependencias reales
       imports: [ColumnsMediaStackedComponent]
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(ColumnsMediaStackedComponent);
     component = fixture.componentInstance;
-    // No ejecutamos detectChanges aquí para evitar congelar el estado inicial OnPush
   });
 
   it('should create', () => {
@@ -25,7 +21,6 @@ describe('ColumnsMediaStackedComponent', () => {
   });
 
   it('should render texts and apply classes for left direction', () => {
-    // Seteamos los inputs reales utilizando la API moderna de Angular
     fixture.componentRef.setInput('leftColumn', 'Contenido Columna Izquierda');
     fixture.componentRef.setInput('rightColumn', 'Contenido Columna Derecha');
     fixture.componentRef.setInput('direction', 'left');
@@ -34,16 +29,17 @@ describe('ColumnsMediaStackedComponent', () => {
 
     const compiled = fixture.nativeElement as HTMLElement;
 
-    // Seleccionamos los elementos basándonos en las clases que estructuramos antes
-    const leftTextEl = compiled.querySelector('.media-intro__content--main-text');
-    const rightTextEl = compiled.querySelector('.media-intro__content--secondary-text');
+    // Buscamos TODOS los párrafos que tengan tu clase real del HTML
+    const columns = compiled.querySelectorAll('.columns-media-stacked__content-column');
 
-    expect(leftTextEl?.textContent).toContain('Contenido Columna Izquierda');
-    expect(rightTextEl?.textContent).toContain('Contenido Columna Derecha');
+    // Validamos que se hayan renderizado ambos elementos
+    expect(columns.length).toBe(2);
+    expect(columns[0].textContent).toContain('Contenido Columna Izquierda');
+    expect(columns[1].textContent).toContain('Contenido Columna Derecha');
 
-    // Verificamos que con direction: 'left', la columna izquierda empiece en 1 y la derecha en 7
-    expect(leftTextEl?.classList.contains('md:col-start-1')).toBeTrue();
-    expect(rightTextEl?.classList.contains('md:col-start-7')).toBeTrue();
+    // Verificamos tus clases de posicionamiento reales para direction === 'left'
+    expect(columns[0].classList.contains('md:col-start-1')).toBeTrue();
+    expect(columns[1].classList.contains('md:col-start-5')).toBeTrue();
   });
 
   it('should swap positions when direction is right', () => {
@@ -54,27 +50,33 @@ describe('ColumnsMediaStackedComponent', () => {
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
-    const leftTextEl = compiled.querySelector('.media-intro__content--main-text');
-    const rightTextEl = compiled.querySelector('.media-intro__content--secondary-text');
+    const columns = compiled.querySelectorAll('.columns-media-stacked__content-column');
 
-    // Verificamos que al invertir a 'right', las posiciones del grid se intercambien (7 y 1)
-    expect(leftTextEl?.classList.contains('md:col-start-7')).toBeTrue();
-    expect(rightTextEl?.classList.contains('md:col-start-1')).toBeTrue();
+    expect(columns.length).toBe(2);
+
+    // Verificamos tus clases de posicionamiento reales para direction === 'right'
+    expect(columns[0].classList.contains('md:col-start-5')).toBeTrue();
+    expect(columns[1].classList.contains('md:col-start-9')).toBeTrue();
   });
 
-  it('should render image container when image input is provided', () => {
+  it('should render image container and match its layout direction classes', () => {
     const mockImage: any = {
+      publicId: 'v123456/test-image-id',
       src: 'assets/test-image.jpg',
       alt: 'Imagen de prueba'
     };
 
     fixture.componentRef.setInput('image', mockImage);
+    fixture.componentRef.setInput('direction', 'right'); // Probamos una dirección para la imagen
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
     
-    // Verificamos que el contenedor del media/image se renderice correctamente en el DOM
-    const imageContainer = compiled.querySelector('.media-intro__media');
+    // Buscamos el contenedor real de la imagen usando tu clase del HTML
+    const imageContainer = compiled.querySelector('.columns-media-stacked__image');
+    
     expect(imageContainer).toBeTruthy();
+    // Verificamos que al ser direction 'right', el contenedor de la imagen empiece en md:col-start-3
+    expect(imageContainer?.classList.contains('md:col-start-3')).toBeTrue();
   });
 });
