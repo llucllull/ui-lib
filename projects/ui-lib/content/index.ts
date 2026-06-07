@@ -10,3 +10,5 @@ export * from './content-document';
 export * from './split-showcase';
 export * from './asymmetric-media';
 export * from './media-intro';
+export * from './columns-media-stacked';
+export * from './mosaic-grid';
