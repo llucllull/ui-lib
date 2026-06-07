@@ -1,0 +1,23 @@
+<div class="media-intro main-grid col-span-full md:col-span-12 md:col-start-1" scrollReveal>
+    <div class="media-intro__content main-grid col-span-full md:col-span-12 md:col-start-1">
+        @if(highlightedText) {
+            <div class="media-intro__content--left main-grid col-span-full">
+                <h2 class="media-intro__content--main-text col-span-full md:col-span-6 md:col-start-1" [innerHTML]="highlightedText"></h2>
+            </div>
+        }
+        @if(secondaryText) {
+            <div class="media-intro__content--right main-grid col-span-full">
+                <p class="media-intro__content--secondary-text col-span-full md:col-span-6 md:col-start-7" [innerHTML]="secondaryText"></p>
+            </div>
+        }
+    </div>
+    @if(media) {
+        <div class="media-intro__media col-span-full md:col-span-12 md:col-start-1">
+            <ui-image
+                [publicId]="media!.publicId!" 
+                [eager]="true"
+                class="media-intro-img"
+            ></ui-image>
+        </div>
+    }
+</div>

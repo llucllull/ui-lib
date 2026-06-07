@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.31.0] - 2026-06-07
+### Added
+- add media-intro component with associated styles, template, and mapper
+
 ## [0.30.2] - 2026-06-07
 ### Changed
 - update positioning while responsive on btn-group on split-showcase
