@@ -1,0 +1,43 @@
+<div class="mosaic-grid main-grid" scrollReveal>
+  @if (text) {
+    <p
+      class="mosaic-grid__text col-span-full md:col-span-6 md:col-start-7"
+      [innerHTML]="text"
+    ></p>
+  }
+
+  @for (group of imageGroups; track $index) {
+
+    <!-- row 1: 3 imágenes -->
+    <div class="mosaic-grid__images main-grid col-span-full">
+      @for (img of group.row1; track $index) {
+        <ui-image
+          [publicId]="img.publicId!"
+          [eager]="true"
+          class="mosaic-grid__images md:col-span-4"
+          [class.image-half-height]="$index === 2"
+        ></ui-image>
+      }
+    </div>
+
+    <!-- row 2: 1 pequeña + 1 grande -->
+    @if (group.row2.length) {
+      <div class="mosaic-grid__images main-grid col-span-full">
+        <ui-image
+          [publicId]="group.row2[0]!.publicId!"
+          [eager]="true"
+          class="mosaic-grid__images md:col-span-4 md:col-start-1 image-half-height"
+        ></ui-image>
+
+        @if (group.row2[1]) {
+          <ui-image
+            [publicId]="group.row2[1]!.publicId!"
+            [eager]="true"
+            class="mosaic-grid__images md:col-span-8 md:col-start-5"
+          ></ui-image>
+        }
+      </div>
+    }
+
+  }
+</div>
