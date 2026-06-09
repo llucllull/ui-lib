@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.33.2] - 2026-06-09
+### Changed
+- simplify linkType directive and improve href handling
+
 ## [0.33.1] - 2026-06-09
 ### Added
 - unify default direction to 'left' in media mappers

@@ -1,22 +1,16 @@
 import { UiLibButtonI, UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
 
-export function mapButtons(data: any, lang: string = 'es'): UiLibButtonI[] {
+export function mapButtons(data: any): UiLibButtonI[] {
     if (!Array.isArray(data)) return [];
 
     return data
         .filter((item) => item && typeof item === 'object')
         .map((item): UiLibButtonI => {
-            // 1. Gestión de etiquetas bilingües
-            const labelValue =
-                item.label && typeof item.label === 'object'
-                    ? (item.label[lang] ?? item.label['es'] ?? '')
-                    : (item.label ?? '');
+            const labelValue = item.label ?? '';
 
-            // 2. Limpieza de 'home' y construcción de URL interna
             let finalUrl = '';
             if (item.link_type === 'internal') {
-                const slug = item.page === 'home' ? '' : (item.page ?? '');
-                finalUrl = slug === '' ? `/${lang}` : `/${lang}/${slug}`;
+                finalUrl = item.page === 'home' ? '' : (item.page ?? '');
             } else {
                 finalUrl = item.url ?? '';
             }
