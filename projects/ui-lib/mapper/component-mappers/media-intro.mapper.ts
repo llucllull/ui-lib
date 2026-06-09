@@ -4,6 +4,6 @@ import { ComponentMapperFn } from './types';
 export const mapMediaIntro: ComponentMapperFn = (props, cdn) => ({
     highlightedText: props?.texts?.highlightedText,
     secondaryText: props?.texts?.secondaryText,
-    direction: props?.direction || 'right',
+    direction: props?.direction ?? 'left',
     media: mapImage(props?.multimedia?.image, cdn),
 });

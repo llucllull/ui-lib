@@ -4,6 +4,6 @@ import { ComponentMapperFn } from './types';
 export const mapColumnsMediaStacked: ComponentMapperFn = (props, cdn) => ({
     leftColumn: props?.texts?.leftColumn,
     rightColumn: props?.texts?.rightColumn,
-    direction: props?.direction || 'right',
+    direction: props?.direction ?? 'left',
     image: mapImage(props?.multimedia?.image, cdn),
 });

@@ -11,5 +11,5 @@ export const mapSplitPreviewer: ComponentMapperFn = (props, cdn) => ({
         image: mapImage(item?.multimedia?.image, cdn),
     })),
     imageDefault: mapImage(props?.multimedia?.image, cdn),
-    direction: props?.direction || 'right',
+    direction: props?.direction ?? 'left',
 });

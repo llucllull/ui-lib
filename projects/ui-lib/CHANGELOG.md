@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.33.1] - 2026-06-09
+### Added
+- unify default direction to 'left' in media mappers
+
 ## [0.33.0] - 2026-06-09
 ### Added
 - add mosaic-grid component with associated styles, template, and mapper
