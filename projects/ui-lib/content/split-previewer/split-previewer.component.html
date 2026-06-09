@@ -17,6 +17,7 @@
       @for (item of items; track item.title) {
         <a
           [href]="item.link?.url"
+          [linkType]="item.link?.linkType"
           (mouseenter)="activeImage.set(item.image)"
           class="split-previewer__item-link"
         >
