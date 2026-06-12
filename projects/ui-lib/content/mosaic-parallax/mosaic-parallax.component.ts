@@ -1,6 +1,7 @@
 import { isPlatformBrowser } from '@angular/common';
 import {
     AfterViewInit,
+    ChangeDetectionStrategy,
     Component,
     ElementRef,
     Inject,
@@ -19,6 +20,7 @@ import { UiImageComponent } from '@lluc_llull/ui-lib/shared';
     imports: [UiImageComponent],
     templateUrl: './mosaic-parallax.component.html',
     styleUrls: ['./mosaic-parallax.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
         style: 'display: contents',
     },

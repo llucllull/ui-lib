@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.33.5] - 2026-06-12
+### Added
+- add changeDetection onPush on legalFooter and mosaicParallax
+
 ## [0.33.4] - 2026-06-09
 ### Changed
 - add min-width to header-clear title
