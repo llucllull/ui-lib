@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.33.6] - 2026-06-12
+### Added
+- enhance ui-icon and ui-image components with improved handling and attributes
+
 ## [0.33.5] - 2026-06-12
 ### Added
 - add changeDetection onPush on legalFooter and mosaicParallax

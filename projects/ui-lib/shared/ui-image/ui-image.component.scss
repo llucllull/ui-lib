@@ -1,6 +1,7 @@
 :host {
   display: inline-block;
   max-width: 100%;
+  aspect-ratio: var(--ui-image-ratio, auto);
 
   advanced-image, > img {
     display: block;
