@@ -14,7 +14,7 @@
         <ui-image
           [publicId]="img.publicId!"
           [eager]="true"
-          class="mosaic-grid__images md:col-span-4"
+          class="mosaic-grid__images col-span-full md:col-span-4"
           [class.image-half-height]="$index === 2"
         ></ui-image>
       }
@@ -26,14 +26,14 @@
         <ui-image
           [publicId]="group.row2[0]!.publicId!"
           [eager]="true"
-          class="mosaic-grid__images md:col-span-4 md:col-start-1 image-half-height"
+          class="mosaic-grid__images col-span-full md:col-span-4 md:col-start-1 image-half-height"
         ></ui-image>
 
         @if (group.row2[1]) {
           <ui-image
             [publicId]="group.row2[1]!.publicId!"
             [eager]="true"
-            class="mosaic-grid__images md:col-span-8 md:col-start-5"
+            class="mosaic-grid__images col-span-full md:col-span-8 md:col-start-5"
           ></ui-image>
         }
       </div>
