@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.33.8] - 2026-07-14
+### Added
+- adjust responsive images on mosaic-grid component
+
 ## [0.33.7] - 2026-07-14
 ### Added
 - add col-span-full to responsive images on mosaic-grid component

@@ -14,7 +14,7 @@
         <ui-image
           [publicId]="img.publicId!"
           [eager]="true"
-          class="mosaic-grid__images col-span-full md:col-span-4"
+          class="mosaic-grid__images col-span-full md:col-span-4 md:col-start-{{ $index * 4 + 1 }}"
           [class.image-half-height]="$index === 2"
         ></ui-image>
       }
