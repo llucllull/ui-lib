@@ -99,7 +99,8 @@ describe('ColumnsFooterComponent', () => {
     fixture.detectChanges();
 
     const signature = fixture.debugElement.query(By.css('.columns-footer__signature'));
-    expect(signature.nativeElement.textContent).toContain('Lluc Llull');
+    expect(signature.nativeElement.querySelector('em').textContent).toBe('Lluc');
+    expect(signature.nativeElement.querySelector('strong').textContent).toBe('Llull');
   });
 
   it('should not render copyright when not provided', () => {
