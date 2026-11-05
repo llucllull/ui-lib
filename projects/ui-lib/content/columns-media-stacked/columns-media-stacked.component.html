@@ -25,11 +25,11 @@
             [class.md:col-start-1]="direction === 'left'"
             [class.md:col-start-3]="direction === 'right'"
         >
-             <ui-image
-                [publicId]="image!.publicId!" 
-                [eager]="true"
-                class="media-intro-img"
-            ></ui-image>
+             @if (image.publicId) {
+                <ui-image [publicId]="image.publicId" [eager]="true" class="media-intro-img"></ui-image>
+             } @else {
+                <img [src]="image.url" [alt]="image.alt" class="media-intro-img" loading="eager" />
+             }
         </div>
     }
 </div>

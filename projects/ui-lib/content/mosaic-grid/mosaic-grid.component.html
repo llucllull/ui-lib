@@ -11,30 +11,29 @@
     <!-- row 1: 3 imágenes -->
     <div class="mosaic-grid__images main-grid col-span-full">
       @for (img of group.row1; track $index) {
-        <ui-image
-          [publicId]="img.publicId!"
-          [eager]="true"
-          class="mosaic-grid__images col-span-full md:col-span-4 md:col-start-{{ $index * 4 + 1 }}"
-          [class.image-half-height]="$index === 2"
-        ></ui-image>
+        @if (img.publicId) {
+          <ui-image [publicId]="img.publicId" [eager]="true" class="mosaic-grid__images col-span-full md:col-span-4 md:col-start-{{ $index * 4 + 1 }}" [class.image-half-height]="$index === 2"></ui-image>
+        } @else {
+          <img [src]="img.url" [alt]="img.alt" loading="eager" class="mosaic-grid__images col-span-full md:col-span-4 md:col-start-{{ $index * 4 + 1 }}" [class.image-half-height]="$index === 2" />
+        }
       }
     </div>
 
     <!-- row 2: 1 pequeña + 1 grande -->
     @if (group.row2.length) {
       <div class="mosaic-grid__images main-grid col-span-full">
-        <ui-image
-          [publicId]="group.row2[0]!.publicId!"
-          [eager]="true"
-          class="mosaic-grid__images col-span-full md:col-span-4 md:col-start-1 image-half-height"
-        ></ui-image>
+        @if (group.row2[0]!.publicId) {
+          <ui-image [publicId]="group.row2[0]!.publicId" [eager]="true" class="mosaic-grid__images col-span-full md:col-span-4 md:col-start-1 image-half-height"></ui-image>
+        } @else {
+          <img [src]="group.row2[0]!.url" [alt]="group.row2[0]!.alt" loading="eager" class="mosaic-grid__images col-span-full md:col-span-4 md:col-start-1 image-half-height" />
+        }
 
         @if (group.row2[1]) {
-          <ui-image
-            [publicId]="group.row2[1]!.publicId!"
-            [eager]="true"
-            class="mosaic-grid__images col-span-full md:col-span-8 md:col-start-5"
-          ></ui-image>
+          @if (group.row2[1]!.publicId) {
+            <ui-image [publicId]="group.row2[1]!.publicId" [eager]="true" class="mosaic-grid__images col-span-full md:col-span-8 md:col-start-5"></ui-image>
+          } @else {
+            <img [src]="group.row2[1]!.url" [alt]="group.row2[1]!.alt" loading="eager" class="mosaic-grid__images col-span-full md:col-span-8 md:col-start-5" />
+          }
         }
       </div>
     }

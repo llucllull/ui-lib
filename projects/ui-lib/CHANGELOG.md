@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.33.9] - 2026-10-05
+### Added
+- add missing storybooks
+- add missing tests
+
+### Changed
+- update tests for >80% coverage
+
 ## [0.33.8] - 2026-07-14
 ### Added
 - adjust responsive images on mosaic-grid component
