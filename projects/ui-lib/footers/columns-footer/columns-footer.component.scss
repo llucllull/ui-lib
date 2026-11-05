@@ -121,6 +121,10 @@
     text-align: center;
     user-select: none;
 
+    @include respond-max(xs) {
+      padding-bottom: 4rem;
+    }
+
     span {
       display: block;
       width: max-content;
@@ -132,6 +136,9 @@
       em {
         font-style: italic;
         margin-right: 5rem;
+        @include respond-max(xs) {
+          margin-right: 1rem;
+        }
       }
 
       strong {
