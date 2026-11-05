@@ -12,7 +12,7 @@ describe('mapping utilities', () => {
 
   it('normalizes image URLs and extracts Cloudinary public IDs', () => {
     expect(mapImage(null)).toBeNull();
-    expect(mapImage({ src: '/photo.jpg', alt: 'Photo' }, 'https://cdn.test')).toEqual(jasmine.objectContaining({ url: 'https://cdn.test/photo.jpg', alt: 'Photo' }));
+    expect(mapImage({ src: '/photo.jpg', alt: 'Photo' }, 'https://cdn.test')).toEqual(expect.objectContaining({ url: 'https://cdn.test/photo.jpg', alt: 'Photo' }));
     expect(mapImage({ url: 'https://res.cloudinary.com/demo/image/upload/v1/folder/photo.jpg' })!.publicId).toBe('folder/photo');
     expect(mapImage({ publicId: 'manual', url: '/photo.jpg' })!.publicId).toBe('manual');
   });

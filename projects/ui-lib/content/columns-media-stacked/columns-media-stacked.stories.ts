@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/angular';
+import { Meta, StoryObj } from '@storybook/angular-vite';
 import { ColumnsMediaStackedComponent } from './columns-media-stacked.component';
 
 export default { title: 'Content/ColumnsMediaStacked', component: ColumnsMediaStackedComponent, tags: ['autodocs'], argTypes: { direction: { control: 'radio', options: ['left', 'right'] }, image: { control: 'object' } } } as Meta<ColumnsMediaStackedComponent>;

@@ -132,7 +132,7 @@ describe('HeroSectionComponent', () => {
 
             fixture.detectChanges(); // ngOnInit
 
-            expect(documentMock.body.classList.contains('has-hero-image')).toBeTrue();
+            expect(documentMock.body.classList.contains('has-hero-image')).toBe(true);
         });
 
         it('no debería añadir la clase si variant es text', () => {
@@ -140,7 +140,7 @@ describe('HeroSectionComponent', () => {
 
             fixture.detectChanges();
 
-            expect(documentMock.body.classList.contains('has-hero-image')).toBeFalse();
+            expect(documentMock.body.classList.contains('has-hero-image')).toBe(false);
         });
 
         it('debería eliminar la clase al destruir el componente', () => {
@@ -149,7 +149,7 @@ describe('HeroSectionComponent', () => {
 
             fixture.destroy(); // ngOnDestroy
 
-            expect(documentMock.body.classList.contains('has-hero-image')).toBeFalse();
+            expect(documentMock.body.classList.contains('has-hero-image')).toBe(false);
         });
     });
 

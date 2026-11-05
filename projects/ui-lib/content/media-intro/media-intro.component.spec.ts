@@ -42,8 +42,8 @@ describe('MediaIntroComponent', () => {
     expect(secondaryTextEl?.textContent).toContain('Texto Secundario');
 
     // Verificamos que se apliquen las clases de posicionamiento para 'left'
-    expect(mainTextEl?.classList.contains('md:col-start-1')).toBeTrue();
-    expect(secondaryTextEl?.classList.contains('md:col-start-7')).toBeTrue();
+    expect(mainTextEl?.classList.contains('md:col-start-1')).toBe(true);
+    expect(secondaryTextEl?.classList.contains('md:col-start-7')).toBe(true);
   });
 
   it('should swap positions when direction is right', () => {
@@ -58,8 +58,8 @@ describe('MediaIntroComponent', () => {
     const secondaryTextEl = compiled.querySelector('.media-intro__content--secondary-text');
 
     // Verificamos que se inviertan las clases de inicio de grid según la directiva
-    expect(mainTextEl?.classList.contains('md:col-start-7')).toBeTrue();
-    expect(secondaryTextEl?.classList.contains('md:col-start-1')).toBeTrue();
+    expect(mainTextEl?.classList.contains('md:col-start-7')).toBe(true);
+    expect(secondaryTextEl?.classList.contains('md:col-start-1')).toBe(true);
   });
 
   it('should render media component when media input is provided', () => {

@@ -4,9 +4,9 @@
 // import { EFFECT_REGISTRY } from './effects/effect-registry';
 
 // class MockEffect implements DynamicEffect {
-//     init = jasmine.createSpy('init');
-//     animate = jasmine.createSpy('animate');
-//     dispose = jasmine.createSpy('dispose');
+//     init = vi.fn();
+//     animate = vi.fn();
+//     dispose = vi.fn();
 // }
 
 // describe('DynamicBackgroundComponent', () => {
@@ -59,7 +59,7 @@
 
 //     it('should dispose effect on destroy', () => {
 //         const effect = (component as any).currentEffect as MockEffect;
-//         const spyCancel = spyOn(window, 'cancelAnimationFrame');
+//         const spyCancel = vi.spyOn(window, 'cancelAnimationFrame');
 
 //         component['animationId'] = 123;
 

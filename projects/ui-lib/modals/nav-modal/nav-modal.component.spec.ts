@@ -80,7 +80,7 @@ describe('NavModalComponent', () => {
 
     describe('close output', () => {
         it('debería emitir close al hacer click en el botón de cerrar', () => {
-            spyOn(component.close, 'emit');
+            vi.spyOn(component.close, 'emit');
             fixture.detectChanges();
 
             const btn = fixture.debugElement.query(By.css('.close-btn')).nativeElement;
@@ -90,7 +90,7 @@ describe('NavModalComponent', () => {
         });
 
         it('debería emitir close al hacer click en un navItem', () => {
-            spyOn(component.close, 'emit');
+            vi.spyOn(component.close, 'emit');
             component.navItems = [{ label: 'Home', url: '/home', linkType: LinkType.Internal }];
             fixture.detectChanges();
 

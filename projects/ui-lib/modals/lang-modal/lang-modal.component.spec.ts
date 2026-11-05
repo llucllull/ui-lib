@@ -7,7 +7,7 @@ import { LangModalComponent } from './lang-modal.component';
 describe('LangModalComponent', () => {
     let component: LangModalComponent;
     let fixture: ComponentFixture<LangModalComponent>;
-    let dialogRefSpy: jasmine.SpyObj<MatDialogRef<LangModalComponent>>;
+    let dialogRefSpy: Pick<MatDialogRef<LangModalComponent>, 'close'> & { close: ReturnType<typeof vi.fn> };
 
     const mockLangs = [
         { code: 'es', label: 'Español' },
@@ -15,7 +15,7 @@ describe('LangModalComponent', () => {
     ];
 
     beforeEach(async () => {
-        dialogRefSpy = jasmine.createSpyObj('MatDialogRef', ['close']);
+        dialogRefSpy = { close: vi.fn() };
 
         await TestBed.configureTestingModule({
             imports: [LangModalComponent],
@@ -47,7 +47,7 @@ describe('LangModalComponent', () => {
         fixture.detectChanges();
 
         expect(dialogRefSpy.close).toHaveBeenCalledWith(
-            jasmine.objectContaining<UiLibLangItemI>({ code: 'en' }),
+            expect.objectContaining<UiLibLangItemI>({ code: 'en' }),
         );
     });
 

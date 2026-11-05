@@ -17,7 +17,7 @@ After building your library with `ng build ui-lib`, go to the dist folder `cd di
 
 ## Running unit tests
 
-Run `ng test ui-lib` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test ui-lib` to execute the unit tests via Vitest.
 
 ## Further help
 

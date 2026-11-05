@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.34.0] - 2026-10-05
+### Added
+- migrate the library workspace to Angular 22 with the modern `@angular/build` library and unit-test builders
+- replace Karma/Jasmine with Vitest and jsdom for unit testing
+- add a shared Vitest configuration with zoneless test execution
+- migrate Storybook to 10.6 with the Vite-based Angular framework
+
+### Changed
+- update Angular, Material, CDK, ng-packagr, TypeScript and related tooling dependencies to Angular 22-compatible versions
+- update TypeScript module resolution from `node` to `bundler` for modern Angular package exports
+- remove ZoneJS from the library and test configuration
+- migrate Jasmine spies and matchers in the test suite to Vitest equivalents
+- stop exporting Storybook stories from library entry points so stories are excluded from the published package
+
 ## [0.33.10] - 2026-10-05
 ### Added
 - fix padding-block on media-split

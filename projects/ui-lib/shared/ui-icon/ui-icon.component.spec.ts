@@ -14,14 +14,14 @@ describe('UiIconComponent', () => {
   it('resolves a brand icon and exposes its path', () => {
     component.name = 'github';
     component.ngOnChanges();
-    expect(component.isBrandIcon).toBeTrue();
+    expect(component.isBrandIcon).toBe(true);
     expect(component.brandIcon?.path).toBeTruthy();
   });
 
   it('falls back to Lucide for an unknown icon', () => {
     component.name = 'not-a-real-icon';
     component.ngOnChanges();
-    expect(component.isBrandIcon).toBeFalse();
+    expect(component.isBrandIcon).toBe(false);
     expect(component.brandIcon).toBeNull();
   });
 

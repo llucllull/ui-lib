@@ -41,7 +41,7 @@ describe('UiImageComponent', () => {
   });
 
   it('warns and leaves the image uninitialized without a cloud name', () => {
-    const warn = spyOn(console, 'warn');
+    const warn = vi.spyOn(console, 'warn');
     const imageWithoutCloud = new UiImageComponent(undefined);
     imageWithoutCloud.publicId = 'sample';
     imageWithoutCloud.ngOnInit();

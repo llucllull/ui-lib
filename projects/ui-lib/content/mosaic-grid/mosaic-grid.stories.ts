@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/angular';
+import { Meta, StoryObj } from '@storybook/angular-vite';
 import { MosaicGridComponent } from './mosaic-grid.component';
 
 export default { title: 'Content/MosaicGrid', component: MosaicGridComponent, tags: ['autodocs'], argTypes: { text: { control: 'text' }, images: { control: 'object' } } } as Meta<MosaicGridComponent>;

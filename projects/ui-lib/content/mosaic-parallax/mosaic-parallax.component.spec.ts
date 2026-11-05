@@ -3,9 +3,9 @@ import { MosaicParallaxComponent } from './mosaic-parallax.component';
 import { PLATFORM_ID } from '@angular/core';
 
 class MockIntersectionObserver {
-  observe = jasmine.createSpy('observe');
-  disconnect = jasmine.createSpy('disconnect');
-  unobserve = jasmine.createSpy('unobserve');
+  observe = vi.fn();
+  disconnect = vi.fn();
+  unobserve = vi.fn();
 
   private callback: any;
 
@@ -56,7 +56,7 @@ describe('MosaicParallaxComponent', () => {
 
       observer.trigger(true);
 
-      expect(component.isVisible()).toBeTrue();
+      expect(component.isVisible()).toBe(true);
       expect(observer.disconnect).toHaveBeenCalled();
     });
 
@@ -67,7 +67,7 @@ describe('MosaicParallaxComponent', () => {
 
       observer.trigger(false);
 
-      expect(component.isVisible()).toBeFalse();
+      expect(component.isVisible()).toBe(false);
     });
   });
 

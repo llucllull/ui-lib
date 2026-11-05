@@ -9,12 +9,13 @@ import { LucideAngularModule, Sun, Moon, Menu, X } from 'lucide-angular';
 describe('HeaderMobileComponent', () => {
     let component: HeaderMobileComponent;
     let fixture: ComponentFixture<HeaderMobileComponent>;
-    let themeServiceSpy: jasmine.SpyObj<ThemeService>;
+    let themeServiceSpy: Partial<ThemeService> & { toggleTheme: ReturnType<typeof vi.fn> };
 
     beforeEach(async () => {
-        themeServiceSpy = jasmine.createSpyObj('ThemeService', ['toggleTheme'], {
+        themeServiceSpy = {
+            toggleTheme: vi.fn(),
             currentTheme$: of('light'),
-        });
+        };
 
         await TestBed.configureTestingModule({
             imports: [
@@ -52,7 +53,7 @@ describe('HeaderMobileComponent', () => {
     });
 
     it('debería emitir langModal al hacer click en el botón de idioma', () => {
-        spyOn(component.langModal, 'emit');
+        vi.spyOn(component.langModal, 'emit');
         fixture.detectChanges();
 
         const btn = fixture.debugElement.query(By.css('.left .btn')).nativeElement;
@@ -66,9 +67,9 @@ describe('HeaderMobileComponent', () => {
 
         const btn = fixture.debugElement.query(By.css('.right .btn')).nativeElement;
         btn.click();
-        expect(component.isMenuOpen).toBeTrue();
+        expect(component.isMenuOpen).toBe(true);
 
         btn.click();
-        expect(component.isMenuOpen).toBeFalse();
+        expect(component.isMenuOpen).toBe(false);
     });
 });
