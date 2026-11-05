@@ -90,6 +90,18 @@ describe('ColumnsFooterComponent', () => {
     expect(copyright.nativeElement.textContent).toContain('2025');
   });
 
+  it('should render the large signature from the copyright name', () => {
+    component.copyright = {
+      year: '2025',
+      name: 'Lluc Llull',
+    };
+
+    fixture.detectChanges();
+
+    const signature = fixture.debugElement.query(By.css('.columns-footer__signature'));
+    expect(signature.nativeElement.textContent).toContain('Lluc Llull');
+  });
+
   it('should not render copyright when not provided', () => {
     component.copyright = undefined;
     fixture.detectChanges();

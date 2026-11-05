@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.34.1] - 2026-10-05
+### Added
+- add bottom signature to columnsFooter
+
 ## [0.34.0] - 2026-10-05
 ### Added
 - migrate the library workspace to Angular 22 with the modern `@angular/build` library and unit-test builders

@@ -64,4 +64,13 @@
       </div>
     }
   </div>
+  @if (copyright?.name; as signature) {
+    <div class="columns-footer__signature" aria-label="{{ signature }}">
+      @let signatureParts = signature.split(' ');
+      <span>
+        <em>{{ signatureParts[0] }}</em>
+        <strong>{{ signatureParts[1] }}</strong>
+      </span>
+    </div>
+  }
 </div>

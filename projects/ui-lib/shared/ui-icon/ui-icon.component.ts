@@ -2,12 +2,32 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnChanges } from '@angular/core';
 import type { SimpleIcon } from 'simple-icons';
 import * as simpleIcons from 'simple-icons';
-import { LucideAngularModule } from 'lucide-angular';
+import {
+    ArrowLeft,
+    ArrowRight,
+    Home,
+    LucideAngularModule,
+    LucideIconProvider,
+    LUCIDE_ICONS,
+    Moon,
+    MoveRight,
+    Sun,
+} from 'lucide-angular';
 
 @Component({
     selector: 'ui-icon',
     standalone: true,
-    imports: [CommonModule, LucideAngularModule],
+    imports: [
+        CommonModule,
+        LucideAngularModule,
+    ],
+    providers: [
+        {
+            provide: LUCIDE_ICONS,
+            multi: true,
+            useValue: new LucideIconProvider({ ArrowLeft, ArrowRight, Home, Moon, MoveRight, Sun }),
+        },
+    ],
     templateUrl: './ui-icon.component.html',
     styleUrls: ['./ui-icon.component.scss'],
 })
