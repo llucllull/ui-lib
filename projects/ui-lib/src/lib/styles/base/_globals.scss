@@ -10,6 +10,22 @@ body {
   background-color: var(--content-bg);
 }
 
+/* Shared motion primitives for Angular Material dialogs. */
+.cdk-overlay-backdrop {
+  opacity: 0;
+  transition: opacity 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cdk-overlay-backdrop {
+    transition-duration: 1ms;
+  }
+}
+
 a {
   text-decoration: none;
 }

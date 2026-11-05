@@ -32,10 +32,12 @@
   </div>
 </header>
 
-@if (isMenuOpen && navItems && navItems.length > 0) {
+@if ((isMenuOpen || isMenuClosing) && navItems && navItems.length > 0) {
   <lib-nav-modal
     [navItems]="navItems"
     [socialItems]="socialItems"
-    (close)="isMenuOpen = false"
+    [closing]="isMenuClosing"
+    (close)="closeMenu()"
+    (transitionend)="finishMenuClose($event)"
   ></lib-nav-modal>
 }

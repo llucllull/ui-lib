@@ -32,6 +32,7 @@ import { UiIconComponent } from '@lluc_llull/ui-lib/shared';
 })
 export class HeaderClearComponent implements OnInit, OnDestroy, OnChanges {
     isMenuOpen = false;
+    isMenuClosing = false;
     currentTheme: Theme = 'light';
     private themeSubscription?: Subscription;
 
@@ -72,6 +73,26 @@ export class HeaderClearComponent implements OnInit, OnDestroy, OnChanges {
     }
 
     toggleMenu(): void {
-        this.isMenuOpen = !this.isMenuOpen;
+        if (this.isMenuOpen) {
+            this.closeMenu();
+            return;
+        }
+
+        this.isMenuClosing = false;
+        this.isMenuOpen = true;
+    }
+
+    closeMenu(): void {
+        if (!this.isMenuOpen && !this.isMenuClosing) return;
+
+        this.isMenuClosing = true;
+        this.isMenuOpen = false;
+    }
+
+    finishMenuClose(event: TransitionEvent): void {
+        if (!this.isMenuClosing || event.propertyName !== 'visibility') return;
+        if (!(event.target instanceof HTMLElement) || !event.target.classList.contains('modal-content')) return;
+
+        this.isMenuClosing = false;
     }
 }

@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.34.2] - 2026-10-05
+### Changed
+- refactor modals animation
+- improve toggle functionality
+
 ## [0.34.1] - 2026-10-05
 ### Added
 - add bottom signature to columnsFooter
