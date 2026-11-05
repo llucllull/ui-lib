@@ -34,7 +34,7 @@
           "options": {
             "tsConfig": "projects/ui-lib/tsconfig.spec.json",
             "buildTarget": "ui-lib:build:development",
-            "runnerConfig": "vitest-base.config.ts"
+            "runnerConfig": "vitest-base.config.mts"
           }
         },
         "storybook": {

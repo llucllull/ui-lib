@@ -5,11 +5,12 @@ import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
 import { HeaderMobileComponent } from './header-mobile.component';
 import { ThemeService } from '@lluc_llull/ui-lib/theme';
 import { LucideAngularModule, Sun, Moon, Menu, X } from 'lucide-angular'; 
+import type { Mock } from 'vitest';
 
 describe('HeaderMobileComponent', () => {
     let component: HeaderMobileComponent;
     let fixture: ComponentFixture<HeaderMobileComponent>;
-    let themeServiceSpy: Partial<ThemeService> & { toggleTheme: ReturnType<typeof vi.fn> };
+    let themeServiceSpy: Omit<Partial<ThemeService>, 'toggleTheme'> & { toggleTheme: Mock<() => void> };
 
     beforeEach(async () => {
         themeServiceSpy = {

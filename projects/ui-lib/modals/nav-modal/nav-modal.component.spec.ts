@@ -4,6 +4,7 @@ import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
 import { LinkType } from '@lluc_llull/ui-lib/enums';
 import { NavModalComponent } from './nav-modal.component';
 import { LucideAngularModule, MoveRight, X } from 'lucide-angular';
+import { Router } from '@angular/router';
 
 describe('NavModalComponent', () => {
     let component: NavModalComponent;
@@ -15,6 +16,12 @@ describe('NavModalComponent', () => {
                 NavModalComponent, 
                 LinkTypeDirective,
                 LucideAngularModule.pick({ MoveRight })
+            ],
+            providers: [
+                {
+                    provide: Router,
+                    useValue: { url: '/es', navigateByUrl: vi.fn().mockResolvedValue(true) },
+                },
             ],
         }).compileComponents();
 

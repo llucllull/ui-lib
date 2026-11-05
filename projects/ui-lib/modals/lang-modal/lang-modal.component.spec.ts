@@ -3,11 +3,12 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { By } from '@angular/platform-browser';
 import { UiLibLangItemI } from '@lluc_llull/ui-lib/interfaces';
 import { LangModalComponent } from './lang-modal.component';
+import type { Mock } from 'vitest';
 
 describe('LangModalComponent', () => {
     let component: LangModalComponent;
     let fixture: ComponentFixture<LangModalComponent>;
-    let dialogRefSpy: Pick<MatDialogRef<LangModalComponent>, 'close'> & { close: ReturnType<typeof vi.fn> };
+    let dialogRefSpy: { close: Mock<(dialogResult?: any) => void> };
 
     const mockLangs = [
         { code: 'es', label: 'Español' },
@@ -47,7 +48,7 @@ describe('LangModalComponent', () => {
         fixture.detectChanges();
 
         expect(dialogRefSpy.close).toHaveBeenCalledWith(
-            expect.objectContaining<UiLibLangItemI>({ code: 'en' }),
+            expect.objectContaining<Partial<UiLibLangItemI>>({ code: 'en' }),
         );
     });
 

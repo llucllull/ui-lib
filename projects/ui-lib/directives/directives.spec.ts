@@ -67,7 +67,7 @@ describe('LinkTypeDirective', () => {
     target.id = 'section';
     vi.spyOn(target, 'getBoundingClientRect').mockReturnValue({ top: 400 } as DOMRect);
     document.body.appendChild(target);
-    vi.spyOn(window, 'scrollTo');
+    vi.spyOn(window, 'scrollTo').mockImplementation(() => undefined);
     vi.spyOn(directive.anchorClicked, 'emit');
     directive.linkType = 'anchor' as any;
     directive.href = '#section';
