@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [0.33.10] - 2026-10-05
 ### Added
 - fix padding-block on media-split
+- add headerScroll to header mobile
 
 ## [0.33.9] - 2026-10-05
 ### Added
