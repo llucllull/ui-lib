@@ -1,29 +1,39 @@
 name: Deploy Storybook
 
 on:
-  push:
-    branches:
-      - storybook
+    push:
+        branches:
+            - storybook
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+    build-and-deploy:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
+            # 1. Instalar PNPM antes de configurar Node
+            - name: Setup PNPM
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 9 # Usa la misma versión de pnpm que tengas en local
 
-      - name: Install dependencies
-        run: npm ci
+            # 2. Configurar Node enlazando la caché de pnpm
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '20'
+                  cache: 'pnpm' # <--- Cambiado de 'npm' a 'pnpm'
 
-      - name: Build Storybook
-        run: npm run build-storybook
+            # 3. Cambiar comandos de npm a pnpm
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile # <--- El equivalente a 'npm ci'
 
-      - name: Trigger Render Deploy
-        run: curl -X POST ${{ secrets.RENDER_STORYBOOK_DEPLOY_HOOK }}
+            # 4. Ejecutar el script con pnpm
+            - name: Build Storybook
+              run: pnpm run build-storybook
+
+            # 5. El trigger de Render se queda exactamente igual
+            - name: Trigger Render Deploy
+              run: curl -X POST ${{ secrets.RENDER_STORYBOOK_DEPLOY_HOOK }}

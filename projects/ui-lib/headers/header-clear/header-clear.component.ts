@@ -9,7 +9,7 @@ import {
     OnInit,
     Output,
 } from '@angular/core';
-import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
+import { HeaderScrollDirective, LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
 import {
     UiLibButtonI,
     UiLibImageI,
@@ -25,7 +25,7 @@ import { UiIconComponent } from '@lluc_llull/ui-lib/shared';
 @Component({
     selector: 'lib-header-clear',
     standalone: true,
-    imports: [CommonModule, LangModalComponent, NavModalComponent, LinkTypeDirective, UiIconComponent],
+    imports: [CommonModule, LangModalComponent, NavModalComponent, LinkTypeDirective, UiIconComponent, HeaderScrollDirective],
     templateUrl: './header-clear.component.html',
     styleUrl: './header-clear.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,

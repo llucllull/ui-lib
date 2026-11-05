@@ -1,5 +1,4 @@
-<!-- SimpleIcons -->
-<ng-container *ngIf="isBrandIcon; else lucideIcon">
+@if (isBrandIcon) {
   <svg
     class="ui-icon ui-icon--brand"
     [attr.width]="size"
@@ -10,14 +9,11 @@
   >
     <path [attr.d]="brandIcon?.path"></path>
   </svg>
-</ng-container>
-
-<!-- Lucide -->
-<ng-template #lucideIcon>
+} @else {
   <lucide-icon
     class="ui-icon ui-icon--lucide"
     [name]="name"
     [size]="size"
     [color]="color"
   ></lucide-icon>
-</ng-template>
+}

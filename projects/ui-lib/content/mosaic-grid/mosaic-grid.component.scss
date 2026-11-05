@@ -1,0 +1,8 @@
+@use '../../../ui-lib/src/lib/styles/abstracts' as *;
+
+ui-image {
+    object-fit: cover;
+    &.image-half-height {
+        height: 50% !important; 
+    }
+}

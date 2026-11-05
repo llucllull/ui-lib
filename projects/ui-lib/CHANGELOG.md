@@ -2,6 +2,92 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.33.9] - 2026-10-05
+### Added
+- add missing storybooks
+- add missing tests
+
+### Changed
+- update tests for >80% coverage
+
+## [0.33.8] - 2026-07-14
+### Added
+- adjust responsive images on mosaic-grid component
+
+## [0.33.7] - 2026-07-14
+### Added
+- add col-span-full to responsive images on mosaic-grid component
+
+## [0.33.6] - 2026-06-12
+### Added
+- enhance ui-icon and ui-image components with improved handling and attributes
+
+## [0.33.5] - 2026-06-12
+### Added
+- add changeDetection onPush on legalFooter and mosaicParallax
+
+## [0.33.4] - 2026-06-09
+### Changed
+- add min-width to header-clear title
+
+## [0.33.3] - 2026-06-09
+### Added
+- add missing linkType on split-previewer
+
+## [0.33.2] - 2026-06-09
+### Changed
+- simplify linkType directive and improve href handling
+
+## [0.33.1] - 2026-06-09
+### Added
+- unify default direction to 'left' in media mappers
+
+## [0.33.0] - 2026-06-09
+### Added
+- add mosaic-grid component with associated styles, template, and mapper
+
+## [0.32.0] - 2026-06-07
+### Added
+- add columns-media-stacked component with associated styles, template, and mapper
+
+## [0.31.1] - 2026-06-07
+### Added
+- add media-intro tests
+- add direction to handle positioning on media-intro content
+
+## [0.31.0] - 2026-06-07
+### Added
+- add media-intro component with associated styles, template, and mapper
+
+## [0.30.2] - 2026-06-07
+### Changed
+- update positioning while responsive on btn-group on split-showcase
+
+## [0.30.1] - 2026-06-07
+### Changed
+- change title font on hero-section
+
+## [0.30.0] - 2026-06-06
+### Added
+- add asymemtric-media component with associated styles, template, and mapper
+
+## [0.29.0] - 2026-05-18
+### Added
+- add split showcase component with associated styles, template, and mapper
+
+## [0.28.5] - 2026-05-18
+### Changed
+- add pnpm workspace configuration to allow specific builds
+
+## [0.28.4] - 2026-05-07
+### Added
+- add individual secondary entry points to components
+
+## [0.28.3] - 2026-05-06
+### Added
+- add new color vars
+- add header-scroll directive and apply it to header-clear
+
 ## [0.28.2] - 2026-05-06
 ### Changed
 - update logo size on headers

@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import type { SimpleIcon } from 'simple-icons';
 import * as simpleIcons from 'simple-icons';
-import {LucideAngularModule } from 'lucide-angular';
+import { LucideAngularModule } from 'lucide-angular';
 
 @Component({
     selector: 'ui-icon',
@@ -11,7 +11,7 @@ import {LucideAngularModule } from 'lucide-angular';
     templateUrl: './ui-icon.component.html',
     styleUrls: ['./ui-icon.component.scss'],
 })
-export class UiIconComponent {
+export class UiIconComponent implements OnChanges {
     @Input() name!: string;
     @Input() size = 24;
     @Input() color = 'currentColor';
@@ -19,7 +19,7 @@ export class UiIconComponent {
     private icon?: SimpleIcon | null;
 
     ngOnChanges() {
-        this.icon = this.resolveBrandIcon();
+        this.resolveBrandIcon();
     }
 
     get isBrandIcon(): boolean {
@@ -30,12 +30,15 @@ export class UiIconComponent {
         return this.icon ?? null;
     }
 
-    private resolveBrandIcon(): SimpleIcon | null {
-        if (!this.name) return null;
+    private resolveBrandIcon(): void {
+        if (!this.name) {
+            this.icon = null;
+            return;
+        }
 
         const key =
             'si' + this.name.replace(/[^a-z0-9]/gi, '').replace(/^\w/, (c) => c.toUpperCase());
 
-        return (simpleIcons as any)[key] ?? null;
+        this.icon = (simpleIcons as any)[key] ?? null;
     }
 }

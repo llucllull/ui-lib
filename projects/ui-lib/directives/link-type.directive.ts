@@ -6,7 +6,6 @@ import {
     HostListener,
     Inject,
     Input,
-    OnInit,
     Output,
     PLATFORM_ID,
 } from '@angular/core';
@@ -17,9 +16,24 @@ import { LinkType } from '@lluc_llull/ui-lib/enums';
     selector: '[linkType]',
     standalone: true,
 })
-export class LinkTypeDirective implements OnInit {
-    @Input() linkType?: LinkType;
-    @Input() href?: string;
+export class LinkTypeDirective {
+    private _linkType?: LinkType;
+    private _href?: string;
+
+    @Input() 
+    set linkType(value: LinkType | undefined) {
+        this._linkType = value;
+        this.updateElementAttributes();
+    }
+    get linkType(): LinkType | undefined { return this._linkType; }
+
+    @Input() 
+    set href(value: string | undefined) {
+        this._href = value;
+        this.updateElementAttributes();
+    }
+    get href(): string { return this._href ?? ''; }
+
     @Output() anchorClicked = new EventEmitter<void>();
 
     constructor(
@@ -32,10 +46,6 @@ export class LinkTypeDirective implements OnInit {
         return isPlatformBrowser(this.platformId);
     }
 
-    ngOnInit(): void {
-        this.setupAttributes();
-    }
-
     @HostListener('click', ['$event'])
     onClick(event: Event): void {
         if (!this.linkType || !this.href) return;
@@ -43,7 +53,9 @@ export class LinkTypeDirective implements OnInit {
         switch (this.linkType) {
             case 'internal':
                 event.preventDefault();
-                this.navigateInternal(this.href);
+                const targetUrl = this.elRef.nativeElement.getAttribute('href') ?? this.href;
+                this.router.navigateByUrl(targetUrl);
+                this.anchorClicked.emit();
                 break;
 
             case 'anchor':
@@ -62,25 +74,27 @@ export class LinkTypeDirective implements OnInit {
         }
     }
 
-    private setupAttributes(): void {
+    private updateElementAttributes(): void {
         const element = this.elRef.nativeElement;
+        if (!this.href) {
+            element.removeAttribute('href');
+            return;
+        }
+
         const resolvedHref = this.resolveHref();
-
-        if (!resolvedHref) return;
-
         element.setAttribute('href', resolvedHref);
 
         if (this.linkType === 'external' || this.linkType === 'pdf') {
             element.setAttribute('target', '_blank');
             element.setAttribute('rel', 'noopener noreferrer nofollow');
+        } else {
+            element.removeAttribute('target');
+            element.removeAttribute('rel');
         }
     }
 
     private resolveHref(): string {
-        if (!this.href) return '';
-
-        // si ya es absoluta, no tocarla
-        if (this.href.startsWith('/')) {
+        if (this.href.startsWith('/') || this.href.startsWith('http') || this.href.startsWith('#')) {
             return this.href;
         }
 
@@ -90,19 +104,6 @@ export class LinkTypeDirective implements OnInit {
         }
 
         return this.href;
-    }
-
-    private navigateInternal(url: string): void {
-        // si ya es absoluta, navega directamente
-        if (url.startsWith('/')) {
-            this.router.navigateByUrl(url);
-            return;
-        }
-
-        const lang = this.getCurrentLang();
-
-        this.anchorClicked.emit();
-        this.router.navigate(['/', lang, url]);
     }
 
     private getCurrentLang(): string {
@@ -129,6 +130,4 @@ export class LinkTypeDirective implements OnInit {
         this.anchorClicked.emit();
     }
 }
-
 export { LinkType };
-

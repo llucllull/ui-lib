@@ -8,6 +8,7 @@
 
 # Node
 /node_modules
+**/node_modules/
 npm-debug.log
 yarn-error.log
 
@@ -43,6 +44,7 @@ Thumbs.db
 
 # Storybook
 *storybook.log
+/storybook-static
 
 # CSS Global
 projects/ui-lib/src/lib/styles/main.css

@@ -1,0 +1,31 @@
+<div
+  class="split-showcase main-grid col-span-full md:col-span-12 md:col-start-1"
+  scrollReveal
+>
+    <div class="split-showcase__metas col-span-full md:col-span-5 md:col-start-1">
+        <h2 class="split-showcase__metas--title">{{ title }}</h2>
+        @if (buttons && buttons.length > 0) {
+            <div class="btn-group">
+                @for (button of buttons; track $index) {
+                <a class="btn btn-link" [href]="button.url" [linkType]="button.linkType">
+                    <ui-icon [name]="button.icon!" [size]="17" [color]="'var(--color-primary)'"></ui-icon>
+                    {{ button.label }}
+                </a>
+                }
+            </div>
+        }
+        <div class="split-showcase__metas--items">
+            @for (meta of metas; track meta.label) {
+                <div class="split-showcase__metas--item">
+                    <span class="split-showcase__metas--item-label">{{ meta.label }}: </span>
+                    <span class="split-showcase__metas--item-value">{{ meta.value }}</span> 
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="split-showcase__content col-span-full md:col-span-5 md:col-start-8">
+        <h3 class="split-showcase__content--subtitle">{{ subtitle }}</h3>
+        <p class="split-showcase__content--description">{{ description }}</p>
+    </div>
+</div>

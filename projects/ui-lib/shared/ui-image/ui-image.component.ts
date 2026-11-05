@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Inject, Input, OnChanges, OnInit, Optional } from '@angular/core';
+import { Component, HostBinding, Inject, Input, OnChanges, OnInit, Optional } from '@angular/core';
 import { CloudinaryModule, lazyload, responsive } from '@cloudinary/ng';
 import { CloudinaryImage } from '@cloudinary/url-gen';
 import { format, quality } from '@cloudinary/url-gen/actions/delivery';
@@ -20,6 +20,8 @@ export class UiImageComponent implements OnChanges, OnInit {
     @Input() cloudName?: string;
     @Input() transformations?: any;
     @Input() eager: boolean = false;
+    @Input() width?: number | null;
+    @Input() height?: number | null;
 
     img!: CloudinaryImage;
     plugins: any[] = [];
@@ -34,6 +36,14 @@ export class UiImageComponent implements OnChanges, OnInit {
         this.initImage();
     }
 
+    @HostBinding('style.--ui-image-ratio')
+    get aspectRatioStyle(): string | null {
+        if (this.width && this.height) {
+            return `${this.width} / ${this.height}`;
+        }
+        return null;
+    }
+
     private initImage(): void {
         const activeCloudName = this.cloudName || this.globalCloudName;
 
@@ -41,10 +51,10 @@ export class UiImageComponent implements OnChanges, OnInit {
             this.img = new CloudinaryImage(this.publicId, { cloudName: activeCloudName })
                 .delivery(format(auto()))
                 .delivery(quality(qAuto()))
-                .resize(limitFit().width(1920)); // Límite máximo para SSG
+                .resize(limitFit().width(1920));
 
             this.plugins = [responsive({ steps: 200 })];
-            
+
             if (!this.eager) {
                 this.plugins.push(lazyload());
             }

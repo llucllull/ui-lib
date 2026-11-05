@@ -1,0 +1,10 @@
+@use '../../../ui-lib/src/lib/styles/abstracts' as *;
+
+.media-intro {
+    &__content--left {
+        padding-block: 0 !important;
+    }
+    &__content--right {
+        padding-block: 0 !important;
+    }
+}

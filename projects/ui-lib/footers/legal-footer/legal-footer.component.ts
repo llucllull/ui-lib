@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { UiLibButtonI } from '@lluc_llull/ui-lib/interfaces';
 import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
 
@@ -11,6 +11,7 @@ export type LegalFooterVariant = 'simple' | 'extended';
     imports: [CommonModule, LinkTypeDirective],
     templateUrl: './legal-footer.component.html',
     styleUrl: './legal-footer.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
         style: 'display: contents',
     },
