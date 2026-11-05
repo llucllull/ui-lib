@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.34.3] - 2026-10-05
+### Added
+- add missing icon to ui-icon component
+
 ## [0.34.2] - 2026-10-05
 ### Changed
 - refactor modals animation

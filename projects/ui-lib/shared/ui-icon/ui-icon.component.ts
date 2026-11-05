@@ -5,6 +5,7 @@ import * as simpleIcons from 'simple-icons';
 import {
     ArrowLeft,
     ArrowRight,
+    ArrowUpRight,
     Home,
     LucideAngularModule,
     LucideIconProvider,
@@ -25,7 +26,7 @@ import {
         {
             provide: LUCIDE_ICONS,
             multi: true,
-            useValue: new LucideIconProvider({ ArrowLeft, ArrowRight, Home, Moon, MoveRight, Sun }),
+            useValue: new LucideIconProvider({ ArrowLeft, ArrowRight, ArrowUpRight, Home, Moon, MoveRight, Sun }),
         },
     ],
     templateUrl: './ui-icon.component.html',
