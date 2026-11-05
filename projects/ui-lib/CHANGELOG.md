@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file.
 - remove ZoneJS from the library and test configuration
 - migrate Jasmine spies and matchers in the test suite to Vitest equivalents
 - stop exporting Storybook stories from library entry points so stories are excluded from the published package
+- update publish.yml testing script
 
 ## [0.33.10] - 2026-10-05
 ### Added
