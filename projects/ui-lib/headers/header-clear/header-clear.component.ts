@@ -19,13 +19,13 @@ import {
 import { Theme, ThemeService } from '@lluc_llull/ui-lib/theme';
 import { Subscription } from 'rxjs';
 import { mapNavModal } from '@lluc_llull/ui-lib/mapper';
-import { LangModalComponent, NavModalComponent } from '@lluc_llull/ui-lib/modals';
+import { NavModalComponent } from '@lluc_llull/ui-lib/modals';
 import { UiIconComponent } from '@lluc_llull/ui-lib/shared';
 
 @Component({
     selector: 'lib-header-clear',
     standalone: true,
-    imports: [CommonModule, LangModalComponent, NavModalComponent, LinkTypeDirective, UiIconComponent, HeaderScrollDirective],
+    imports: [CommonModule, NavModalComponent, LinkTypeDirective, UiIconComponent, HeaderScrollDirective],
     templateUrl: './header-clear.component.html',
     styleUrl: './header-clear.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,

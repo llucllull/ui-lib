@@ -19,13 +19,13 @@ import {
 import { Theme, ThemeService } from '@lluc_llull/ui-lib/theme';
 import { Subscription } from 'rxjs';
 import { mapNavModal } from '@lluc_llull/ui-lib/mapper';
-import { LangModalComponent, NavModalComponent } from '@lluc_llull/ui-lib/modals';
+import { NavModalComponent } from '@lluc_llull/ui-lib/modals';
 import { UiIconComponent } from '@lluc_llull/ui-lib/shared';
 
 @Component({
     selector: 'lib-header-mobile',
     standalone: true,
-    imports: [CommonModule, LangModalComponent, NavModalComponent, HeaderScrollDirective, LinkTypeDirective, UiIconComponent],
+    imports: [CommonModule, NavModalComponent, HeaderScrollDirective, LinkTypeDirective, UiIconComponent],
     templateUrl: './header-mobile.component.html',
     styleUrl: './header-mobile.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
