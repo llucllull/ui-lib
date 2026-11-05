@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - add missing storybooks
 - add missing tests
+- edit publish.yml to handle trusted publishing
 
 ### Changed
 - update tests for >80% coverage
