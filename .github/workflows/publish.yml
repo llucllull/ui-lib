@@ -11,6 +11,7 @@ jobs:
 
         permissions:
             contents: read
+            id-token: write
 
         steps:
             - name: Checkout repository
@@ -28,7 +29,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v4
               with:
-                  node-version: 20
+                  node-version: 24
                   registry-url: https://registry.npmjs.org
 
             # 3. Instalar dependencias con PNPM
@@ -71,13 +72,6 @@ jobs:
                     exit 1
                   fi
             
-            # 5. Configurar autenticación para npm usando el token de GitHub Actions
-            - name: Configure npm auth
-              run: |
-                echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
-
-            # 6. Publicar usando el NPM_TOKEN
+            # 5. Publicar mediante Trusted Publishing/OIDC
             - name: Publish to npm
-              run: pnpm publish ./dist/ui-lib --no-git-checks --access public --registry https://registry.npmjs.org
-              env:
-                NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+              run: npm publish ./dist/ui-lib --access public --registry https://registry.npmjs.org
