@@ -13,6 +13,8 @@
   &.is-scrolled {
     background: var(--header-bg-fixed-dark);
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border: 4px solid var(--border-primary);
+    
     .header-logo {
       a {
         padding-inline: 1.5rem;
@@ -25,10 +27,10 @@
     .header-actions {
       padding-inline: 1.5rem;
       .btn-header {
-        color: var(--button-header-text-hover);
+        border: 4px solid var(--border-primary);
+        // color: var(--button-header-text-hover);
         background: var(--header-bg-fixed-light);
         &:hover {
-          border: 4px solid var(--border-primary);
           background: var(--button-header-bg-scrolled-hover) !important;
         }
       }
