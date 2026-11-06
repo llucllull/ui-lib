@@ -40,6 +40,15 @@
     pointer-events: none;
   }
 
+  .btn-primary {
+    border: 4px solid var(--border-primary);
+    border-radius: var(--border-radius);
+    &:hover {
+      color: var(--button-primary-text-hover);
+      background-color: var(--button-primary-bg-hover);
+    }
+  }
+
   @include respond-max(md) {
     &__highlight {
       font-size: 12rem;
