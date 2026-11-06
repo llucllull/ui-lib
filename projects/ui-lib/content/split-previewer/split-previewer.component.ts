@@ -23,6 +23,8 @@ export class SplitPreviewerComponent implements OnInit {
     @Input() items?: SplitPreviewerItemI[];
     @Input() imageDefault?: UiLibImageI;
     @Input() direction: 'left' | 'right' = 'right';
+    @Input() highlightColor = 'var(--content-highlight)';
+    @Input() highlightThickness = 30;
 
     activeImage = signal<UiLibImageI | undefined>(undefined);
 

@@ -104,6 +104,36 @@ describe('SplitPreviewerComponent', () => {
             expect(links.length).toBe(2);
         });
 
+        it('should use the theme highlight variable by default', () => {
+            fixture.componentRef.setInput('items', mockItems);
+            fixture.detectChanges();
+
+            const title = fixture.nativeElement.querySelector('.split-previewer__item-title');
+            expect(title.style.backgroundImage).toContain('var(--content-highlight)');
+        });
+
+        it('should allow overriding the highlight color', () => {
+            fixture.componentRef.setInput('items', mockItems);
+            fixture.componentRef.setInput('highlightColor', 'var(--text-primary)');
+            fixture.detectChanges();
+
+            const title = fixture.nativeElement.querySelector('.split-previewer__item-title');
+            expect(title.style.backgroundImage).toContain('var(--text-primary)');
+        });
+
+        it('should allow adjusting the highlight thickness', () => {
+            fixture.componentRef.setInput('items', mockItems);
+            fixture.detectChanges();
+
+            const title = fixture.nativeElement.querySelector('.split-previewer__item-title');
+            expect(title.style.backgroundImage).toContain('95%');
+
+            fixture.componentRef.setInput('highlightThickness', 40);
+            fixture.detectChanges();
+
+            expect(title.style.backgroundImage).toContain('105%');
+        });
+
         it('should render tags for items that have them', () => {
             fixture.componentRef.setInput('items', mockItems);
             fixture.detectChanges();

@@ -17,6 +17,8 @@ export class CategoryProgressComponent {
     @Input() pretitle?: string;
     @Input() title?: string;
     @Input() categories?: ProgressCategoryI[];
+    @Input() highlightColor = 'var(--content-highlight)';
+    @Input() highlightThickness = 30;
 }
 
 export interface ProgressItemI {

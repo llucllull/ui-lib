@@ -75,4 +75,23 @@ describe('NotFoundComponent', () => {
         const subtitleEl = fixture.debugElement.query(By.css('.notfound__subtitle'));
         expect(subtitleEl).toBeTruthy();
     });
+
+    it('debería usar la variable de highlight del tema por defecto', () => {
+        component.subtitle = 'Subtítulo';
+        fixture.detectChanges();
+
+        const el = fixture.debugElement.query(By.css('.notfound__subtitle'))
+            .nativeElement as HTMLElement;
+        expect(el.style.backgroundImage).toContain('var(--content-highlight)');
+    });
+
+    it('debería permitir sobreescribir el color del highlight', () => {
+        component.subtitle = 'Subtítulo';
+        component.highlightColor = 'var(--text-primary)';
+        fixture.detectChanges();
+
+        const el = fixture.debugElement.query(By.css('.notfound__subtitle'))
+            .nativeElement as HTMLElement;
+        expect(el.style.backgroundImage).toContain('var(--text-primary)');
+    });
 });

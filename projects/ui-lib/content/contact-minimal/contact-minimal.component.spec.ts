@@ -179,6 +179,23 @@ describe('ContactMinimalComponent', () => {
         expect(imgEl).toBeNull();
     });
 
+    it('should use the theme highlight variable by default', () => {
+        component.contactsTitle = 'Contacto';
+        fixture.detectChanges();
+
+        const title = fixture.debugElement.query(By.css('h2.subtitle')).nativeElement as HTMLElement;
+        expect(title.style.backgroundImage).toContain('var(--content-highlight)');
+    });
+
+    it('should allow overriding the highlight color', () => {
+        component.contactsTitle = 'Contacto';
+        component.highlightColor = 'var(--text-primary)';
+        fixture.detectChanges();
+
+        const title = fixture.debugElement.query(By.css('h2.subtitle')).nativeElement as HTMLElement;
+        expect(title.style.backgroundImage).toContain('var(--text-primary)');
+    });
+
     it('should render full component content correctly', () => {
         component.contactsTitle = 'Contacto';
         component.socialsTitle = 'Síguenos';

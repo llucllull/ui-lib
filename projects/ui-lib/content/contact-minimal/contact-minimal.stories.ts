@@ -12,6 +12,8 @@ export default {
         contacts: { control: 'object' },
         socials: { control: 'object' },
         img: { control: 'object' },
+        highlightColor: { control: 'text' },
+        highlightThickness: { control: 'number' },
     },
 } as Meta<ContactMinimalComponent>;
 

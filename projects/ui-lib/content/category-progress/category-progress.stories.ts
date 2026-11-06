@@ -5,6 +5,10 @@ export default {
     title: 'Content/CategoryProgress',
     component: CategoryProgressComponent,
     tags: ['autodocs'],
+    argTypes: {
+        highlightColor: { control: 'text' },
+        highlightThickness: { control: 'number' },
+    },
 } as Meta<CategoryProgressComponent>;
 
 type Story = StoryObj<CategoryProgressComponent>;

@@ -8,6 +8,9 @@ All notable changes to this project will be documented in this file.
 - add text-color on scroll animation on mediaSplit component
 - add slide-top on scroll animation on stackedRows component
 
+### Changed
+- add color var on highlight on categoryProgress, contactMinimal, splitPreviewer and 404
+
 ## [0.34.3] - 2026-10-05
 ### Added
 - add missing icon to ui-icon component

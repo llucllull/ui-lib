@@ -82,5 +82,26 @@ describe('CategoryProgressComponent', () => {
                 .nativeElement as HTMLElement;
             expect(firstItemFill.style.width).toBe('80%');
         });
+
+        it('debería usar la variable de highlight del tema por defecto', () => {
+            component.categories = [
+                { title: 'Frontend', items: [{ label: 'Angular', value: 80 }] },
+            ];
+            fixture.detectChanges();
+
+            const el = fixture.debugElement.query(By.css('.subtitle')).nativeElement as HTMLElement;
+            expect(el.style.backgroundImage).toContain('var(--content-highlight)');
+        });
+
+        it('debería permitir sobreescribir el color del highlight', () => {
+            component.categories = [
+                { title: 'Frontend', items: [{ label: 'Angular', value: 80 }] },
+            ];
+            component.highlightColor = 'var(--text-primary)';
+            fixture.detectChanges();
+
+            const el = fixture.debugElement.query(By.css('.subtitle')).nativeElement as HTMLElement;
+            expect(el.style.backgroundImage).toContain('var(--text-primary)');
+        });
     });
 });

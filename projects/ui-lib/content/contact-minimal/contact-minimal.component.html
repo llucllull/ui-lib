@@ -2,7 +2,7 @@
   <div class="contact-minimal__content col-span-full md:col-span-12 md:col-start-1">
     <div class="contact-minimal__content--left col-span-6 col-start-1">
       @if (contactsTitle) {
-        <h2 class="subtitle" [highlight]="'#FFFFFF'">{{ contactsTitle }}</h2>
+        <h2 class="subtitle" [highlight]="highlightColor" [highlightThickness]="highlightThickness">{{ contactsTitle }}</h2>
       }
       @if (contacts && contacts.length > 0) {
         <div class="btn-group">
@@ -16,7 +16,7 @@
     </div>
     <div class="contact-minimal__content--right col-span-6 col-start-7">
       @if (socialsTitle) {
-        <h2 class="subtitle" [highlight]="'#FFFFFF'">{{ socialsTitle }}</h2>
+        <h2 class="subtitle" [highlight]="highlightColor" [highlightThickness]="highlightThickness">{{ socialsTitle }}</h2>
       }
       @if (socials && socials.length > 0) {
         <div class="btn-group">

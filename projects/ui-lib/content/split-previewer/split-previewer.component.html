@@ -22,7 +22,7 @@
           class="split-previewer__item-link"
         >
           <div class="split-previewer__item">
-            <h2 class="split-previewer__item-title" [highlight]="'#FFFFFF'">{{ item.title }}</h2>
+            <h2 class="split-previewer__item-title" [highlight]="highlightColor" [highlightThickness]="highlightThickness">{{ item.title }}</h2>
             <p class="split-previewer__item-text">{{ item.description }}</p>
             @if (item.tags?.length) {
               <div class="split-previewer__item-tags">

@@ -11,6 +11,8 @@ export default {
         direction: { control: 'radio', options: ['left', 'right'] },
         items: { control: 'object' },
         imageDefault: { control: 'object' },
+        highlightColor: { control: 'text' },
+        highlightThickness: { control: 'number' },
     },
 } as Meta<SplitPreviewerComponent>;
 
