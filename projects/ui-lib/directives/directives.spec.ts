@@ -4,6 +4,7 @@ import { HeaderScrollDirective } from './header-scroll.directive';
 import { HighlightDirective } from './highlight.directive';
 import { LinkTypeDirective } from './link-type.directive';
 import { ScrollRevealDirective } from './scroll-reveal.directive';
+import { ScrollTextRevealDirective } from './scroll-text-reveal.directive';
 
 describe('HeaderScrollDirective', () => {
   it('updates the scrolled state according to the threshold', () => {
@@ -90,5 +91,105 @@ describe('ScrollRevealDirective', () => {
     directive.ngOnInit();
     expect(styles['opacity']).toBe('1');
     expect(styles['transform']).toBe('translateY(0)');
+  });
+});
+
+describe('ScrollTextRevealDirective', () => {
+  const create = (html = 'Hola<br><br>Mundo') => {
+    const element = document.createElement('p');
+    element.innerHTML = html;
+    const directive = new ScrollTextRevealDirective(new ElementRef(element), 'browser');
+    vi.spyOn(window, 'innerHeight', 'get').mockReturnValue(1000);
+    const rect = vi.spyOn(element, 'getBoundingClientRect');
+    return { element, directive, rect };
+  };
+
+  beforeEach(() => {
+    vi.stubGlobal('requestAnimationFrame', (callback: FrameRequestCallback) => {
+      callback(0);
+      return 1;
+    });
+    vi.stubGlobal('cancelAnimationFrame', () => undefined);
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
+  });
+
+  it('splits text into characters while preserving line breaks', () => {
+    const { element, directive, rect } = create();
+    vi.spyOn(window, 'scrollY', 'get').mockReturnValue(0);
+    rect.mockReturnValue({ top: 900, height: 100, bottom: 1000 } as DOMRect);
+
+    directive.ngOnInit();
+
+    const chars = element.querySelectorAll<HTMLElement>('.text-reveal-char');
+    expect(chars.length).toBe(9);
+    expect(element.querySelectorAll('br').length).toBe(2);
+    expect(chars[0].style.color).toBe('var(--text-secondary)');
+    directive.ngOnDestroy();
+  });
+
+  it('starts revealing from the first character on scroll', () => {
+    const { element, directive, rect } = create();
+    const scrollY = vi.spyOn(window, 'scrollY', 'get').mockReturnValue(0);
+    rect.mockReturnValue({ top: 500, height: 100, bottom: 600 } as DOMRect);
+
+    directive.ngOnInit();
+
+    let chars = element.querySelectorAll<HTMLElement>('.text-reveal-char');
+    expect(chars[0].style.color).toBe('var(--text-secondary)');
+
+    scrollY.mockReturnValue(250);
+    directive.updateProgress();
+
+    chars = element.querySelectorAll<HTMLElement>('.text-reveal-char');
+    expect(chars[4].style.color).toBe('var(--text-primary)');
+    expect(chars[5].style.color).toBe('var(--text-secondary)');
+
+    scrollY.mockReturnValue(500);
+    directive.updateProgress();
+
+    expect(chars[8].style.color).toBe('var(--text-primary)');
+    directive.ngOnDestroy();
+  });
+
+  it('does not start until the component is in view', () => {
+    const { element, directive, rect } = create();
+    const scrollY = vi.spyOn(window, 'scrollY', 'get').mockReturnValue(0);
+    rect.mockReturnValue({ top: 1200, height: 100, bottom: 1300 } as DOMRect);
+
+    directive.ngOnInit();
+
+    scrollY.mockReturnValue(400);
+    directive.updateProgress();
+
+    let chars = element.querySelectorAll<HTMLElement>('.text-reveal-char');
+    expect(chars[0].style.color).toBe('var(--text-secondary)');
+
+    rect.mockReturnValue({ top: 700, height: 100, bottom: 800 } as DOMRect);
+    scrollY.mockReturnValue(600);
+    directive.updateProgress();
+
+    chars = element.querySelectorAll<HTMLElement>('.text-reveal-char');
+    expect(chars[0].style.color).toBe('var(--text-secondary)');
+
+    scrollY.mockReturnValue(850);
+    directive.updateProgress();
+
+    expect(chars[4].style.color).toBe('var(--text-primary)');
+    expect(chars[5].style.color).toBe('var(--text-secondary)');
+    directive.ngOnDestroy();
+  });
+
+  it('does not split text during server rendering', () => {
+    const element = document.createElement('p');
+    element.innerHTML = 'Hola';
+    const directive = new ScrollTextRevealDirective(new ElementRef(element), 'server');
+
+    directive.ngOnInit();
+
+    expect(element.querySelectorAll('.text-reveal-char').length).toBe(0);
   });
 });

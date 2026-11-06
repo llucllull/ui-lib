@@ -9,13 +9,14 @@ import {
     PLATFORM_ID,
     signal,
 } from '@angular/core';
+import { ScrollTextRevealDirective } from '@lluc_llull/ui-lib/directives';
 import { UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
 import { UiImageComponent } from '@lluc_llull/ui-lib/shared';
 
 @Component({
     selector: 'lib-media-split',
     standalone: true,
-    imports: [CommonModule, UiImageComponent],
+    imports: [CommonModule, UiImageComponent, ScrollTextRevealDirective],
     templateUrl: './media-split.component.html',
     styleUrl: './media-split.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,

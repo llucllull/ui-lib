@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [0.34.4] - 2026-10-06
 ### Added
 - add hover effect for modal items and buttons
+- add text-color on scroll animation on mediaSplit component
 
 ## [0.34.3] - 2026-10-05
 ### Added
