@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.34.4] - 2026-10-06
+### Added
+- add hover effect for modal items and buttons
+
 ## [0.34.3] - 2026-10-05
 ### Added
 - add missing icon to ui-icon component

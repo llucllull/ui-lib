@@ -146,4 +146,7 @@ li::before {
   @media (max-width: 768px) {
     font-size: 3rem;
   }
+  &:hover {
+    color: var(--modal-hover);
+  } 
 }
