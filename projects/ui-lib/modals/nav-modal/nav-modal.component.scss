@@ -173,14 +173,13 @@ li::before {
 
 .btn-link {
   text-transform: none;
-  &:hover {
-    color: var(--modal-hover);
-  } 
 }
 
 .modal-item {
   &:hover {
-    color: var(--modal-hover);
+    background: var(--modal-hover);
+    padding: 4px;
+    border: 4px solid black;
   } 
   @media (max-width: 768px) {
     font-size: 2.5rem;
