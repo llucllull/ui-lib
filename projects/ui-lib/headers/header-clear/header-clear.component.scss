@@ -25,7 +25,11 @@
     .header-actions {
       padding-inline: 1.5rem;
       .btn-header {
+        color: var(--button-header-text-hover);
         background: var(--header-bg-fixed-light);
+        &:hover {
+          background: var(--button-header-bg-scrolled-hover) !important;
+        }
       }
     }
   }

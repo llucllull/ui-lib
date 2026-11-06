@@ -4,6 +4,7 @@ import { of } from 'rxjs';
 import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
 import { ThemeService } from '@lluc_llull/ui-lib/theme';
 import { HeaderClearComponent } from './header-clear.component';
+import { UiIconComponent } from '@lluc_llull/ui-lib/shared';
 import { LucideAngularModule, Sun, Moon, Menu } from 'lucide-angular';
 import type { Mock } from 'vitest';
 
@@ -51,6 +52,14 @@ describe('HeaderClearComponent', () => {
 
         const langEl = fixture.debugElement.query(By.css('.lang')).nativeElement;
         expect(langEl.textContent).toBe('EN');
+    });
+
+    it('debería hacer que el icono herede el color del botón', () => {
+        fixture.detectChanges();
+
+        const icon = fixture.debugElement.query(By.css('ui-icon'))
+            .componentInstance as UiIconComponent;
+        expect(icon.color).toBe('currentColor');
     });
 
     it('debería emitir langModal al hacer click en el botón de idioma', () => {
