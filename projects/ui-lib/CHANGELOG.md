@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - add slide-left items on scroll on splitPreviewer component
 - add border on hover modal links
 - add border to header buttons
+- add scrollTop button on columnsFooter
 
 ### Changed
 - add color var on highlight on categoryProgress, contactMinimal, splitPreviewer and 404

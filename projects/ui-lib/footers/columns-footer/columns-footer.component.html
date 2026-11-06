@@ -16,6 +16,14 @@
             }
           </ul>
         }
+        <button
+          type="button"
+          class="columns-footer__one-to-top"
+          aria-label="Volver arriba"
+          (click)="scrollToTop()"
+        >
+          <ui-icon name="arrow-up-right" [size]="20" color="currentColor"></ui-icon>
+        </button>
       </div>
     }
     @if (columns?.[1]; as column2) {

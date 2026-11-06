@@ -68,6 +68,29 @@ describe('ColumnsFooterComponent', () => {
     expect(links[0].nativeElement.getAttribute('href')).toBe('/link1');
   });
 
+  it('should render a back-to-top button in the first column', () => {
+    component.columns = mockColumns;
+    fixture.detectChanges();
+
+    const button = fixture.debugElement.query(
+      By.css('.columns-footer__one .columns-footer__one-to-top'),
+    );
+    expect(button).toBeTruthy();
+    expect(button.nativeElement.getAttribute('aria-label')).toBe('Volver arriba');
+  });
+
+  it('should scroll to the top when the back-to-top button is clicked', () => {
+    component.columns = mockColumns;
+    fixture.detectChanges();
+
+    const scrollTo = vi.spyOn(window, 'scrollTo').mockImplementation(() => undefined);
+    const button = fixture.debugElement.query(By.css('.columns-footer__one-to-top'));
+    button.nativeElement.click();
+
+    expect(scrollTo).toHaveBeenCalledWith({ top: 0, behavior: 'smooth' });
+    scrollTo.mockRestore();
+  });
+
   it('should not render columns if input is undefined', () => {
     component.columns = undefined;
     fixture.detectChanges();

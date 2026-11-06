@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
 import { UiLibButtonI } from '@lluc_llull/ui-lib/interfaces';
+import { UiIconComponent } from '@lluc_llull/ui-lib/shared';
 
 @Component({
     selector: 'lib-columns-footer',
-    imports: [CommonModule, LinkTypeDirective],
+    imports: [CommonModule, LinkTypeDirective, UiIconComponent],
     templateUrl: './columns-footer.component.html',
     styleUrl: './columns-footer.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -16,6 +17,10 @@ import { UiLibButtonI } from '@lluc_llull/ui-lib/interfaces';
 export class ColumnsFooterComponent {
   @Input() columns?: ColumnsFooterItemI[];
   @Input() copyright?: ColumnsFooterCopyRightI;
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }
 
 export interface ColumnsFooterItemI {
