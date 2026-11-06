@@ -179,7 +179,7 @@ li::before {
   &:hover {
     background: var(--modal-hover);
     padding: 4px;
-    border: 4px solid black;
+    border: 4px solid var(--border-primary);
   } 
   @media (max-width: 768px) {
     font-size: 2.5rem;
