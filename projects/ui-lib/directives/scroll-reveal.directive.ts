@@ -8,7 +8,8 @@ import { Directive, ElementRef, Inject, Input, OnInit, PLATFORM_ID, Renderer2 } 
 export class ScrollRevealDirective implements OnInit {
     @Input() distance = '30px';
     @Input() duration = '0.8s';
-    @Input() from: 'top' | 'bottom' = 'top';
+    @Input() from: 'top' | 'bottom' | 'left' | 'right' = 'top';
+    @Input() delay = 0;
 
     constructor(
         private el: ElementRef,
@@ -22,8 +23,15 @@ export class ScrollRevealDirective implements OnInit {
         const isBrowser = isPlatformBrowser(this.platformId);
         const hasIntersectionObserver =
             typeof globalThis !== 'undefined' && 'IntersectionObserver' in globalThis;
+        const prefersReducedMotion =
+            isBrowser &&
+            typeof window.matchMedia === 'function' &&
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        if (!isBrowser || !hasIntersectionObserver) {
+        if (!isBrowser || !hasIntersectionObserver || prefersReducedMotion) {
+            if (prefersReducedMotion) {
+                this.renderer.setStyle(this.el.nativeElement, 'transition', 'none');
+            }
             this.reveal();
             return;
         }
@@ -43,20 +51,30 @@ export class ScrollRevealDirective implements OnInit {
         observer.observe(this.el.nativeElement);
     }
 
+    private get isHorizontal(): boolean {
+        return this.from === 'left' || this.from === 'right';
+    }
+
     private setupInitialStyles() {
-        const offset = this.from === 'bottom' ? this.distance : `-${this.distance}`;
+        const axis = this.isHorizontal ? 'X' : 'Y';
+        const offset =
+            this.from === 'bottom' || this.from === 'right'
+                ? this.distance
+                : `-${this.distance}`;
 
         this.renderer.setStyle(this.el.nativeElement, 'opacity', '0');
-        this.renderer.setStyle(this.el.nativeElement, 'transform', `translateY(${offset})`);
+        this.renderer.setStyle(this.el.nativeElement, 'transform', `translate${axis}(${offset})`);
         this.renderer.setStyle(
             this.el.nativeElement,
             'transition',
-            `all ${this.duration} ease-out`,
+            `opacity ${this.duration} ease-out ${this.delay}ms, transform ${this.duration} ease-out ${this.delay}ms`,
         );
     }
 
     private reveal() {
+        const axis = this.isHorizontal ? 'X' : 'Y';
+
         this.renderer.setStyle(this.el.nativeElement, 'opacity', '1');
-        this.renderer.setStyle(this.el.nativeElement, 'transform', 'translateY(0)');
+        this.renderer.setStyle(this.el.nativeElement, 'transform', `translate${axis}(0)`);
     }
 }

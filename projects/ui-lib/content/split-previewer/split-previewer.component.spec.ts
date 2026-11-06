@@ -182,6 +182,21 @@ describe('SplitPreviewerComponent', () => {
             expect(el.classList).toContain('split-previewer--right');
         });
 
+        it('should stagger the reveal of the header and items from the left', () => {
+            fixture.componentRef.setInput('title', 'Proyectos');
+            fixture.componentRef.setInput('items', mockItems);
+            fixture.detectChanges();
+
+            const header = fixture.nativeElement.querySelector(
+                '.split-previewer__header',
+            ) as HTMLElement;
+            const links = fixture.nativeElement.querySelectorAll('.split-previewer__item-link');
+
+            expect(header.style.transition).toContain('0ms');
+            expect((links[0] as HTMLElement).style.transition).toContain('180ms');
+            expect((links[1] as HTMLElement).style.transition).toContain('360ms');
+        });
+
         it('should set activeImage on mouseenter of an item', () => {
             fixture.componentRef.setInput('items', mockItems);
             fixture.detectChanges();

@@ -109,6 +109,24 @@ describe('ScrollRevealDirective', () => {
     (directive as any).setupInitialStyles();
     expect(styles['transform']).toBe('translateY(40px)');
   });
+
+  it('supports horizontal offsets and delays', () => {
+    const { directive, styles } = create();
+    directive.distance = '40px';
+    directive.delay = 120;
+    directive.from = 'left';
+
+    (directive as any).setupInitialStyles();
+    expect(styles['transform']).toBe('translateX(-40px)');
+    expect(styles['transition']).toContain('120ms');
+
+    (directive as any).reveal();
+    expect(styles['transform']).toBe('translateX(0)');
+
+    directive.from = 'right';
+    (directive as any).setupInitialStyles();
+    expect(styles['transform']).toBe('translateX(40px)');
+  });
 });
 
 describe('ScrollTextRevealDirective', () => {

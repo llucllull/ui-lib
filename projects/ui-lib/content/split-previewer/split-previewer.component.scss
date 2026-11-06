@@ -47,6 +47,7 @@
   &__items {
     display: flex;
     flex-direction: column;
+    gap: 2rem;
     min-width: 0;
   }
 
@@ -65,26 +66,36 @@
       margin-bottom: 0.5rem;
       display: inline-block;
       min-width: 0;
+      color: var(--text-primary-60);
+      transition: color 0.3s ease;
     }
 
     &-text {
       line-height: 1.6;
       max-width: min(1000px, 100%);
-      opacity: 0.8;
+      color: var(--text-primary-60);
+      transition: color 0.3s ease;
       overflow-wrap: break-word;
       font-size: 1.2rem;
     }
 
     &-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-block: 1rem;
+      display: grid;
+      grid-template-rows: 0fr;
+      margin-top: 0;
       opacity: 0;
-      transform: translateY(10px);
       transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
+        grid-template-rows 0.45s ease,
+        margin-top 0.45s ease,
+        opacity 0.3s ease;
+
+      &-inner {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        min-height: 0;
+        overflow: hidden;
+      }
     }
 
     &-tag {
@@ -103,12 +114,14 @@
       padding-left: 1rem;
 
       &-tags {
+        grid-template-rows: 1fr;
+        margin-top: 1rem;
         opacity: 1;
-        transform: translateY(0);
       }
 
+      &-title,
       &-text {
-        opacity: 1;
+        color: var(--text-primary) !important;
       }
     }
   }
@@ -173,13 +186,9 @@
       .split-previewer__item {
         padding-left: 0;
 
-        &-tags {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-
+        &-title,
         &-text {
-          opacity: 0.8;
+          color: var(--text-primary-60) !important;
         }
       }
     }
@@ -203,12 +212,14 @@
         padding-left: 0;
 
         &-tags {
+          grid-template-rows: 0fr;
+          margin-top: 0;
           opacity: 0;
-          transform: translateY(10px);
         }
 
+        &-title,
         &-text {
-          opacity: 0.8;
+          color: var(--text-primary-60) !important;
         }
       }
     }

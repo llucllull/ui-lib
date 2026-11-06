@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 - add hover effect for modal items and buttons
 - add text-color on scroll animation on mediaSplit component
 - add slide-top on scroll animation on stackedRows component
+- add slide-left items on scroll on splitPreviewer component
 
 ### Changed
 - add color var on highlight on categoryProgress, contactMinimal, splitPreviewer and 404
