@@ -8,6 +8,7 @@ import { Directive, ElementRef, Inject, Input, OnInit, PLATFORM_ID, Renderer2 } 
 export class ScrollRevealDirective implements OnInit {
     @Input() distance = '30px';
     @Input() duration = '0.8s';
+    @Input() from: 'top' | 'bottom' = 'top';
 
     constructor(
         private el: ElementRef,
@@ -43,8 +44,10 @@ export class ScrollRevealDirective implements OnInit {
     }
 
     private setupInitialStyles() {
+        const offset = this.from === 'bottom' ? this.distance : `-${this.distance}`;
+
         this.renderer.setStyle(this.el.nativeElement, 'opacity', '0');
-        this.renderer.setStyle(this.el.nativeElement, 'transform', `translateY(-${this.distance})`);
+        this.renderer.setStyle(this.el.nativeElement, 'transform', `translateY(${offset})`);
         this.renderer.setStyle(
             this.el.nativeElement,
             'transition',

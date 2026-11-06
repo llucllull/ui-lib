@@ -78,6 +78,16 @@
   --text-secondary-90: rgba(var(--text-secondary-raw), 0.9);
   --text-disabled: rgba(226, 232, 240, 0.3);
   --text-inverse: #0f1117;
+  --text-inverse-raw: 12, 12, 12;
+  --text-inverse-10: rgba(var(--text-inverse-raw), 0.1);
+  --text-inverse-20: rgba(var(--text-inverse-raw), 0.2);
+  --text-inverse-30: rgba(var(--text-inverse-raw), 0.3);
+  --text-inverse-40: rgba(var(--text-inverse-raw), 0.4);
+  --text-inverse-50: rgba(var(--text-inverse-raw), 0.5);
+  --text-inverse-60: rgba(var(--text-inverse-raw), 0.6);
+  --text-inverse-70: rgba(var(--text-inverse-raw), 0.7);
+  --text-inverse-80: rgba(var(--text-inverse-raw), 0.8);
+  --text-inverse-90: rgba(var(--text-inverse-raw), 0.9);
 
   //Surfaces
   --surface-primary: #1a1d21; // cards, panels
@@ -92,7 +102,27 @@
 
   //Borders
   --border-primary: #2a2e36;
+  --border-primary-raw: 12, 12, 12;
+  --border-primary-10: rgba(var(--border-primary-raw), 0.1);
+  --border-primary-20: rgba(var(--border-primary-raw), 0.2);
+  --border-primary-30: rgba(var(--border-primary-raw), 0.3);
+  --border-primary-40: rgba(var(--border-primary-raw), 0.4);
+  --border-primary-50: rgba(var(--border-primary-raw), 0.5);
+  --border-primary-60: rgba(var(--border-primary-raw), 0.6);
+  --border-primary-70: rgba(var(--border-primary-raw), 0.7);
+  --border-primary-80: rgba(var(--border-primary-raw), 0.8);
+  --border-primary-90: rgba(var(--border-primary-raw), 0.9);
   --border-secondary: #343840;
+  --border-secondary-raw: 12, 12, 12;
+  --border-secondary-10: rgba(var(--border-secondary-raw), 0.1);
+  --border-secondary-20: rgba(var(--border-secondary-raw), 0.2);
+  --border-secondary-30: rgba(var(--border-secondary-raw), 0.3);
+  --border-secondary-40: rgba(var(--border-secondary-raw), 0.4);
+  --border-secondary-50: rgba(var(--border-secondary-raw), 0.5);
+  --border-secondary-60: rgba(var(--border-secondary-raw), 0.6);
+  --border-secondary-70: rgba(var(--border-secondary-raw), 0.7);
+  --border-secondary-80: rgba(var(--border-secondary-raw), 0.8);
+  --border-secondary-90: rgba(var(--border-secondary-raw), 0.9);
   --border-focus: #60a5fa;
   --divider: rgba(226, 232, 240, 0.08);
 

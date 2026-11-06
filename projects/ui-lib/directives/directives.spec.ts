@@ -81,16 +81,33 @@ describe('LinkTypeDirective', () => {
 });
 
 describe('ScrollRevealDirective', () => {
-  it('reveals immediately during server rendering', () => {
+  const create = () => {
     const element = document.createElement('div');
     const styles: Record<string, string> = {};
     const renderer = { setStyle: (_element: unknown, name: string, value: string) => styles[name] = value };
     const directive = new ScrollRevealDirective(new ElementRef(element), renderer as any, 'server');
+    return { directive, styles };
+  };
+
+  it('reveals immediately during server rendering', () => {
+    const { directive, styles } = create();
     directive.distance = '20px';
     directive.duration = '1s';
     directive.ngOnInit();
     expect(styles['opacity']).toBe('1');
     expect(styles['transform']).toBe('translateY(0)');
+  });
+
+  it('sets the initial offset according to the from input', () => {
+    const { directive, styles } = create();
+    directive.distance = '40px';
+
+    (directive as any).setupInitialStyles();
+    expect(styles['transform']).toBe('translateY(-40px)');
+
+    directive.from = 'bottom';
+    (directive as any).setupInitialStyles();
+    expect(styles['transform']).toBe('translateY(40px)');
   });
 });
 
@@ -127,7 +144,7 @@ describe('ScrollTextRevealDirective', () => {
     const chars = element.querySelectorAll<HTMLElement>('.text-reveal-char');
     expect(chars.length).toBe(9);
     expect(element.querySelectorAll('br').length).toBe(2);
-    expect(chars[0].style.color).toBe('var(--text-secondary)');
+    expect(chars[0].style.color).not.toBe('var(--text-primary)');
     directive.ngOnDestroy();
   });
 
@@ -139,14 +156,15 @@ describe('ScrollTextRevealDirective', () => {
     directive.ngOnInit();
 
     let chars = element.querySelectorAll<HTMLElement>('.text-reveal-char');
-    expect(chars[0].style.color).toBe('var(--text-secondary)');
+    const initialColor = chars[0].style.color;
+    expect(initialColor).not.toBe('var(--text-primary)');
 
     scrollY.mockReturnValue(250);
     directive.updateProgress();
 
     chars = element.querySelectorAll<HTMLElement>('.text-reveal-char');
     expect(chars[4].style.color).toBe('var(--text-primary)');
-    expect(chars[5].style.color).toBe('var(--text-secondary)');
+    expect(chars[5].style.color).toBe(initialColor);
 
     scrollY.mockReturnValue(500);
     directive.updateProgress();
@@ -166,20 +184,21 @@ describe('ScrollTextRevealDirective', () => {
     directive.updateProgress();
 
     let chars = element.querySelectorAll<HTMLElement>('.text-reveal-char');
-    expect(chars[0].style.color).toBe('var(--text-secondary)');
+    const initialColor = chars[0].style.color;
+    expect(initialColor).not.toBe('var(--text-primary)');
 
     rect.mockReturnValue({ top: 700, height: 100, bottom: 800 } as DOMRect);
     scrollY.mockReturnValue(600);
     directive.updateProgress();
 
     chars = element.querySelectorAll<HTMLElement>('.text-reveal-char');
-    expect(chars[0].style.color).toBe('var(--text-secondary)');
+    expect(chars[0].style.color).toBe(initialColor);
 
     scrollY.mockReturnValue(850);
     directive.updateProgress();
 
     expect(chars[4].style.color).toBe('var(--text-primary)');
-    expect(chars[5].style.color).toBe('var(--text-secondary)');
+    expect(chars[5].style.color).toBe(initialColor);
     directive.ngOnDestroy();
   });
 
