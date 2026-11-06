@@ -17,6 +17,7 @@ All notable changes to this project will be documented in this file.
 - change colors on header-clear
 - change on tag border on splitPreviewer
 - change button styles on 404
+- fix spacing on modal contents
 
 ## [0.34.3] - 2026-10-05
 ### Added

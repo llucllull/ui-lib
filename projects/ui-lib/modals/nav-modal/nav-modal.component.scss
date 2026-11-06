@@ -45,6 +45,10 @@
 .modal-content {
   position: relative;
   z-index: 1;
+  display: grid;
+  justify-items: center;
+  inline-size: fit-content;
+  max-inline-size: calc(100vw - 2rem);
   opacity: 1;
   transform: translateY(0) scale(1);
   transform-origin: center;
@@ -121,8 +125,8 @@ ol {
   padding: 0;
   margin: 0;
   text-align: center;
-  width: 100%;
-  max-width: 450px;
+  inline-size: fit-content;
+  max-inline-size: 100%;
   list-style: none;
   counter-reset: item;
 }
@@ -176,11 +180,15 @@ li::before {
 }
 
 .modal-item {
+  display: inline-block;
+  padding: 4px;
+  border: 4px solid transparent;
+
   &:hover {
     background: var(--modal-hover);
-    padding: 4px;
     border: 4px solid var(--border-primary);
-  } 
+  }
+
   @media (max-width: 768px) {
     font-size: 2.5rem;
   }
