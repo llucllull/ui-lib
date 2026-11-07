@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file.
 - add border to header buttons
 - add scrollTop button on columnsFooter
 - enhance header scroll directive and styles for light/dark backgrounds
+- add animation on loading hero-section
 
 ### Changed
 - add color var on highlight on categoryProgress, contactMinimal, splitPreviewer and 404
