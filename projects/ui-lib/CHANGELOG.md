@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 - add border on hover modal links
 - add border to header buttons
 - add scrollTop button on columnsFooter
+- enhance header scroll directive and styles for light/dark backgrounds
 
 ### Changed
 - add color var on highlight on categoryProgress, contactMinimal, splitPreviewer and 404

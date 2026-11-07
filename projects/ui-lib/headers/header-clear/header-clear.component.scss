@@ -29,10 +29,27 @@
       .btn-header {
         border: 4px solid var(--border-primary);
         // color: var(--button-header-text-hover);
-        background: var(--header-bg-fixed-light);
+        background: var(--button-header-bg);
         &:hover {
           background: var(--button-header-bg-scrolled-hover) !important;
         }
+      }
+    }
+  }
+
+  &.is-scrolled.is-over-light {
+    background: var(--header-bg-fixed-light);
+
+    .header-logo span {
+      color: var(--header-logo-text-light);
+    }
+  }
+
+  &.is-scrolled.is-over-dark {
+    border: 4px solid var(--border-secondary);
+    .header-actions {
+      .btn-header {
+        border: 4px solid var(--border-secondary);
       }
     }
   }
