@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - add animations to contact-form
 - add animation to grid showing
+- add animation to tags and highlight on splitPreviewer
 
 ## [0.36.0] - 2026-10-08
 ### Added

@@ -109,7 +109,7 @@ describe('SplitPreviewerComponent', () => {
             fixture.detectChanges();
 
             const title = fixture.nativeElement.querySelector('.split-previewer__item-title');
-            expect(title.style.backgroundImage).toContain('var(--content-highlight)');
+            expect(title.style.getPropertyValue('--highlight-color')).toBe('var(--content-highlight)');
         });
 
         it('should allow overriding the highlight color', () => {
@@ -118,7 +118,7 @@ describe('SplitPreviewerComponent', () => {
             fixture.detectChanges();
 
             const title = fixture.nativeElement.querySelector('.split-previewer__item-title');
-            expect(title.style.backgroundImage).toContain('var(--text-primary)');
+            expect(title.style.getPropertyValue('--highlight-color')).toBe('var(--text-primary)');
         });
 
         it('should allow adjusting the highlight thickness', () => {
@@ -126,12 +126,12 @@ describe('SplitPreviewerComponent', () => {
             fixture.detectChanges();
 
             const title = fixture.nativeElement.querySelector('.split-previewer__item-title');
-            expect(title.style.backgroundImage).toContain('95%');
+            expect(title.style.getPropertyValue('--highlight-thickness')).toBe('30%');
 
             fixture.componentRef.setInput('highlightThickness', 40);
             fixture.detectChanges();
 
-            expect(title.style.backgroundImage).toContain('105%');
+            expect(title.style.getPropertyValue('--highlight-thickness')).toBe('40%');
         });
 
         it('should render tags for items that have them', () => {
