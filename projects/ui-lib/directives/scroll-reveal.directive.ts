@@ -10,6 +10,8 @@ export class ScrollRevealDirective implements OnInit {
     @Input() duration = '0.8s';
     @Input() from: 'top' | 'bottom' | 'left' | 'right' = 'top';
     @Input() delay = 0;
+    @Input() threshold = 0.1;
+    @Input() rootMargin = '0px';
 
     constructor(
         private el: ElementRef,
@@ -45,8 +47,8 @@ export class ScrollRevealDirective implements OnInit {
                     }
                 });
             },
-            { threshold: 0.1 },
-        ); // Se dispara cuando el 10% del componente es visible
+            { threshold: this.threshold, rootMargin: this.rootMargin },
+        );
 
         observer.observe(this.el.nativeElement);
     }

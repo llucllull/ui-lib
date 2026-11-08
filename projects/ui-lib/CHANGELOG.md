@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file.
 - enhance header scroll directive and styles for light/dark backgrounds
 - add animation on loading hero-section
 - add slide right/left on scroll animation on splitShowcase component
+- add slide up/down on scroll animation on asymmetricMedia component
 
 ### Changed
 - add color var on highlight on categoryProgress, contactMinimal, splitPreviewer and 404
