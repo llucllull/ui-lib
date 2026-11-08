@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.35.0] - 2026-10-06
+## [0.35.0] - 2026-10-08
 ### Added
 - add hover effect for modal items and buttons
 - add text-color on scroll animation on mediaSplit component
@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 - add scrollTop button on columnsFooter
 - enhance header scroll directive and styles for light/dark backgrounds
 - add animation on loading hero-section
+- add slide right/left on scroll animation on splitShowcase component
 
 ### Changed
 - add color var on highlight on categoryProgress, contactMinimal, splitPreviewer and 404
