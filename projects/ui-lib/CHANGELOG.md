@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [0.36.1] - 2026-10-08
 ### Added
 - add animations to contact-form
+- add animation to grid showing
 
 ## [0.36.0] - 2026-10-08
 ### Added
