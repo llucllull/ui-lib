@@ -1,11 +1,18 @@
-<div class="media-intro main-grid col-span-full md:col-span-12 md:col-start-1" scrollReveal>
+<div class="media-intro main-grid col-span-full md:col-span-12 md:col-start-1">
     <div class="media-intro__content main-grid col-span-full md:col-span-12 md:col-start-1">
         @if(highlightedText) {
             <div class="media-intro__content--left main-grid col-span-full">
                 <h2 class="media-intro__content--main-text col-span-full md:col-span-6" 
                     [class.md:col-start-1]="direction === 'left'"
                     [class.md:col-start-7]="direction === 'right'"
-                    [innerHTML]="highlightedText">
+                    [innerHTML]="highlightedText"
+                    scrollReveal
+                    [from]="direction === 'left' ? 'left' : 'right'"
+                    distance="48px"
+                    duration="0.7s"
+                    [delay]="0"
+                    [threshold]="0"
+                    rootMargin="0px 0px -20% 0px">
                 </h2>
             </div>
         }
@@ -15,12 +22,28 @@
                    [class.md:col-start-7]="direction === 'left'"
                    [class.md:col-start-1]="direction === 'right'"
                    [innerHTML]="secondaryText"
+                   scrollReveal
+                   [from]="direction === 'left' ? 'right' : 'left'"
+                   distance="48px"
+                   duration="0.7s"
+                   [delay]="120"
+                   [threshold]="0"
+                   rootMargin="0px 0px -20% 0px"
                 ></p>
             </div>
         }
     </div>
     @if(media) {
-        <div class="media-intro__media col-span-full md:col-span-12 md:col-start-1">
+        <div
+            class="media-intro__media col-span-full md:col-span-12 md:col-start-1"
+            scrollReveal
+            from="bottom"
+            distance="64px"
+            duration="0.8s"
+            [delay]="180"
+            [threshold]="0"
+            rootMargin="0px 0px -20% 0px"
+        >
             @if (media.publicId) {
                 <ui-image [publicId]="media.publicId" [eager]="true" class="media-intro-img"></ui-image>
             } @else {
