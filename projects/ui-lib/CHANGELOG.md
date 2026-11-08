@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.36.2] - 2026-10-09
+### Changed
+- enhance icon component with LinkedIn support and refactor brand icon handling
+
 ## [0.36.1] - 2026-10-08
 ### Added
 - add animations to contact-form
