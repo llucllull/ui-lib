@@ -1,8 +1,15 @@
-<div class="mosaic-grid main-grid" scrollReveal>
+<div class="mosaic-grid main-grid">
   @if (text) {
     <p
       class="mosaic-grid__text col-span-full md:col-span-6 md:col-start-7"
       [innerHTML]="text"
+      scrollReveal
+      from="right"
+      distance="48px"
+      duration="0.7s"
+      [delay]="0"
+      [threshold]="0"
+      rootMargin="0px 0px -20% 0px"
     ></p>
   }
 
@@ -12,9 +19,25 @@
     <div class="mosaic-grid__images main-grid col-span-full">
       @for (img of group.row1; track $index) {
         @if (img.publicId) {
-          <ui-image [publicId]="img.publicId" [eager]="true" class="mosaic-grid__images col-span-full md:col-span-4 md:col-start-{{ $index * 4 + 1 }}" [class.image-half-height]="$index === 2"></ui-image>
+          <ui-image [publicId]="img.publicId" [eager]="true" class="mosaic-grid__images col-span-full md:col-span-4 md:col-start-{{ $index * 4 + 1 }}" [class.image-half-height]="$index === 2"
+            scrollReveal
+            from="bottom"
+            distance="40px"
+            duration="0.6s"
+            [delay]="$index * 90"
+            [threshold]="0"
+            rootMargin="0px 0px -15% 0px"
+          ></ui-image>
         } @else {
-          <img [src]="img.url" [alt]="img.alt" loading="eager" class="mosaic-grid__images col-span-full md:col-span-4 md:col-start-{{ $index * 4 + 1 }}" [class.image-half-height]="$index === 2" />
+          <img [src]="img.url" [alt]="img.alt" loading="eager" class="mosaic-grid__images col-span-full md:col-span-4 md:col-start-{{ $index * 4 + 1 }}" [class.image-half-height]="$index === 2"
+            scrollReveal
+            from="bottom"
+            distance="40px"
+            duration="0.6s"
+            [delay]="$index * 90"
+            [threshold]="0"
+            rootMargin="0px 0px -15% 0px"
+          />
         }
       }
     </div>
@@ -23,16 +46,48 @@
     @if (group.row2.length) {
       <div class="mosaic-grid__images main-grid col-span-full">
         @if (group.row2[0]!.publicId) {
-          <ui-image [publicId]="group.row2[0]!.publicId" [eager]="true" class="mosaic-grid__images col-span-full md:col-span-4 md:col-start-1 image-half-height"></ui-image>
+          <ui-image [publicId]="group.row2[0]!.publicId" [eager]="true" class="mosaic-grid__images col-span-full md:col-span-4 md:col-start-1 image-half-height"
+            scrollReveal
+            from="bottom"
+            distance="40px"
+            duration="0.6s"
+            [delay]="0"
+            [threshold]="0"
+            rootMargin="0px 0px -15% 0px"
+          ></ui-image>
         } @else {
-          <img [src]="group.row2[0]!.url" [alt]="group.row2[0]!.alt" loading="eager" class="mosaic-grid__images col-span-full md:col-span-4 md:col-start-1 image-half-height" />
+          <img [src]="group.row2[0]!.url" [alt]="group.row2[0]!.alt" loading="eager" class="mosaic-grid__images col-span-full md:col-span-4 md:col-start-1 image-half-height"
+            scrollReveal
+            from="bottom"
+            distance="40px"
+            duration="0.6s"
+            [delay]="0"
+            [threshold]="0"
+            rootMargin="0px 0px -15% 0px"
+          />
         }
 
         @if (group.row2[1]) {
           @if (group.row2[1]!.publicId) {
-            <ui-image [publicId]="group.row2[1]!.publicId" [eager]="true" class="mosaic-grid__images col-span-full md:col-span-8 md:col-start-5"></ui-image>
+            <ui-image [publicId]="group.row2[1]!.publicId" [eager]="true" class="mosaic-grid__images col-span-full md:col-span-8 md:col-start-5"
+              scrollReveal
+              from="bottom"
+              distance="40px"
+              duration="0.6s"
+              [delay]="120"
+              [threshold]="0"
+              rootMargin="0px 0px -15% 0px"
+            ></ui-image>
           } @else {
-            <img [src]="group.row2[1]!.url" [alt]="group.row2[1]!.alt" loading="eager" class="mosaic-grid__images col-span-full md:col-span-8 md:col-start-5" />
+            <img [src]="group.row2[1]!.url" [alt]="group.row2[1]!.alt" loading="eager" class="mosaic-grid__images col-span-full md:col-span-8 md:col-start-5"
+              scrollReveal
+              from="bottom"
+              distance="40px"
+              duration="0.6s"
+              [delay]="120"
+              [threshold]="0"
+              rootMargin="0px 0px -15% 0px"
+            />
           }
         }
       </div>
