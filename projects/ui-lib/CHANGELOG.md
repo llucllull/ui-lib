@@ -16,6 +16,7 @@ All notable changes to this project will be documented in this file.
 - add slide right/left on scroll animation on splitShowcase component
 - add slide up/down on scroll animation on asymmetricMedia component
 - add slide on scroll animation on mediaIntro component
+- add slide on scroll animation on columnsMediaStacked component
 
 ### Changed
 - add color var on highlight on categoryProgress, contactMinimal, splitPreviewer and 404
