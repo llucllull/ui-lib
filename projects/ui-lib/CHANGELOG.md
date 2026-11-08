@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.36.1] - 2026-10-08
+### Added
+- add animations to contact-form
+
 ## [0.36.0] - 2026-10-08
 ### Added
 - Implemented `ContactFormComponent` with reactive form controls for name, surname, email, phone, and message.

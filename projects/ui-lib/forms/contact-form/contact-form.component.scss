@@ -8,6 +8,55 @@
   padding-top: 0 !important;
 }
 
+.contact-form-heading,
+.contact-form-required-hint,
+.contact-form-grid,
+.contact-form-image,
+.contact-form-footer {
+  opacity: 1;
+  transform: translateX(0);
+  transition:
+    opacity 360ms ease-out,
+    transform 520ms cubic-bezier(0.25, 1, 0.5, 1);
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+.contact-form-heading,
+.contact-form-grid,
+.contact-form-required-hint,
+.contact-form-footer {
+  @starting-style {
+    transform: translateX(-2rem);
+  }
+}
+
+.contact-form-heading {
+  transition-delay: 0ms;
+}
+
+.contact-form-required-hint {
+  transition-delay: 70ms;
+}
+
+.contact-form-grid {
+  transition-delay: 120ms;
+}
+
+.contact-form-image {
+  transition-delay: 170ms;
+
+  @starting-style {
+    transform: translateX(2rem);
+  }
+}
+
+.contact-form-footer {
+  transition-delay: 220ms;
+}
+
 .title {
   text-transform: uppercase;
 }
@@ -39,6 +88,7 @@
     width: 100%;
     min-height: 20rem;
     object-fit: cover;
+    transform: scaleX(-1);
   }
 }
 
@@ -115,6 +165,7 @@
     }
 
 .contact-form-footer button {
+  touch-action: manipulation;
   padding-bottom: 2rem;
   display: inline-flex;
   min-height: 3.5rem;
@@ -141,6 +192,11 @@
     transform: translateY(-2px);
   }
 
+  &:active:not(:disabled) {
+    transform: translateY(0) scale(0.98);
+    transition-duration: 100ms;
+  }
+
   &:focus-visible {
     outline: 2px solid var(--color-secondary);
     outline-offset: 4px;
@@ -160,6 +216,16 @@
   margin: 0;
   font-family: var(--font-base);
   line-height: 1.5;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 180ms ease-out,
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  @starting-style {
+    opacity: 0;
+    transform: translateY(0.4rem);
+  }
 
   &--success {
     color: #18794e;
@@ -181,7 +247,36 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+.contact-form-heading,
+.contact-form-required-hint,
+.contact-form-grid,
+.contact-form-image,
+.contact-form-footer {
+    transform: none;
+    transition:
+      opacity 120ms ease-out,
+      transform 120ms ease-out;
+    transition-delay: 0ms;
+
+    @starting-style {
+      transform: none;
+    }
+  }
+
   .contact-form-footer button {
     transition: none;
+
+    &:active:not(:disabled) {
+      transform: none;
+    }
+  }
+
+  .contact-form-status {
+    transform: none;
+    transition: opacity 120ms ease-out;
+
+    @starting-style {
+      transform: none;
+    }
   }
 }
