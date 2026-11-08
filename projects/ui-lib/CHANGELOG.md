@@ -18,6 +18,7 @@ All notable changes to this project will be documented in this file.
 - add slide on scroll animation on mediaIntro component
 - add slide on scroll animation on columnsMediaStacked component
 - add slide on scroll animation on mosaicGrid component
+- add animation on 404 component
 
 ### Changed
 - add color var on highlight on categoryProgress, contactMinimal, splitPreviewer and 404
