@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.36.0] - 2026-10-08
+### Added
+- Implemented `ContactFormComponent` with reactive form controls for name, surname, email, phone, and message.
+- Added HTML and SCSS for the contact form layout and styling.
+- Created interfaces for form texts and submission data.
+- Integrated form field components for better reusability.
+- Added mapping function `mapContactForm` to handle image mapping and props.
+- Updated component mappers to include the new contact form.
+- Added tests for the contact form mapping functionality.
+- Updated package.json to include Angular forms as a peer dependency.
+
 ## [0.35.0] - 2026-10-08
 ### Added
 - add hover effect for modal items and buttons

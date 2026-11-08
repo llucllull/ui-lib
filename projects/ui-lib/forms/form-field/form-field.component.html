@@ -1,0 +1,15 @@
+@if (label) {
+    <label [for]="controlId">
+        {{ label }}
+        @if (required) {
+            <span class="form-field-required" aria-hidden="true">*</span>
+        }
+    </label>
+}
+<ng-content />
+@if (hint && !error) {
+    <span class="form-field-hint" [id]="hintId">{{ hint }}</span>
+}
+@if (error) {
+    <span class="form-field-error" [id]="errorId" role="alert">{{ error }}</span>
+}

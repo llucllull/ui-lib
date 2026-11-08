@@ -1,0 +1,31 @@
+:host {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.65rem;
+
+  > label {
+    color: var(--text-primary);
+    font-family: var(--font-base);
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding-top: 1rem;
+  }
+}
+
+.form-field-required {
+  color: var(--color-secondary);
+}
+
+.form-field-hint {
+  color: var(--text-primary-60);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.form-field-error {
+  color: #b42318;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}

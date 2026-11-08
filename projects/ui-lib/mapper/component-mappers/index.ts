@@ -1,6 +1,7 @@
 export * from './404.mapper';
 export * from './category-progress.mapper';
 export * from './contact-minimal.mapper';
+export * from './contact-form.mapper';
 export * from './header-clear.mapper';
 export * from './hero-section.mapper';
 export * from './lang-modal.mapper';
@@ -25,6 +26,7 @@ export * from './mosaic-grid.mapper';
 import { map404 } from './404.mapper';
 import { mapCategoryProgress } from './category-progress.mapper';
 import { mapContactMinimal } from './contact-minimal.mapper';
+import { mapContactForm } from './contact-form.mapper';
 import { mapHeaderClear } from './header-clear.mapper';
 import { mapHeroSection } from './hero-section.mapper';
 import { mapLangModal } from './lang-modal.mapper';
@@ -58,6 +60,7 @@ export const componentMappers: Record<string, (props: any, cdn?: string) => any>
     'not-found': map404,
     'split-previewer': mapSplitPreviewer,
     'contact-minimal': mapContactMinimal,
+    'contact-form': mapContactForm,
     'media-split': mapMediaSplit,
     'stacked-rows': mapStackedRows,
     'mosaic-parallax': mapMosaicParallax,

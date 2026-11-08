@@ -1,0 +1,66 @@
+:host {
+  display: inline-block;
+}
+
+.form-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  font: 1rem/1.5 var(--font-base);
+}
+
+.form-toggle input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.form-toggle-track {
+  display: inline-flex;
+  width: 2.75rem;
+  height: 1.5rem;
+  align-items: center;
+  border: 1px solid var(--border-primary-50);
+  padding: 0.15rem;
+  background: var(--surface-secondary);
+  transition: background-color 160ms ease;
+
+  > span {
+    width: 1rem;
+    height: 1rem;
+    background: var(--text-primary);
+    transition: transform 160ms ease;
+  }
+}
+
+.form-toggle input:checked + .form-toggle-track {
+  border-color: var(--color-secondary);
+  background: var(--color-secondary);
+
+  > span {
+    background: var(--color-primary);
+    transform: translateX(1.2rem);
+  }
+}
+
+.form-toggle input:focus-visible + .form-toggle-track {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 3px;
+}
+
+.form-toggle input:disabled + .form-toggle-track,
+.form-toggle input:disabled ~ .form-toggle-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .form-toggle-track,
+  .form-toggle-track > span {
+    transition: none;
+  }
+}

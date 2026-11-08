@@ -1,0 +1,18 @@
+<textarea
+    [id]="id"
+    [value]="value"
+    [placeholder]="placeholder"
+    [rows]="rows"
+    [attr.maxlength]="maxLength ?? null"
+    [attr.aria-describedby]="describedBy || null"
+    [attr.aria-invalid]="invalid ? 'true' : null"
+    [required]="required"
+    [disabled]="disabled"
+    (input)="handleInput($event)"
+    (blur)="handleBlur()"
+></textarea>
+@if (showCounter && maxLength) {
+    <span class="form-textarea-counter" aria-live="polite">
+        {{ value.length }} / {{ maxLength }}
+    </span>
+}
