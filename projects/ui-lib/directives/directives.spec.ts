@@ -1,4 +1,5 @@
-import { ElementRef } from '@angular/core';
+import { ElementRef, PLATFORM_ID } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { HeaderScrollDirective } from './header-scroll.directive';
 import { HighlightDirective } from './highlight.directive';
@@ -8,7 +9,14 @@ import { ScrollTextRevealDirective } from './scroll-text-reveal.directive';
 
 describe('HeaderScrollDirective', () => {
   it('updates the scrolled state according to the threshold', () => {
-    const directive = new HeaderScrollDirective();
+    TestBed.configureTestingModule({
+      providers: [
+        { provide: ElementRef, useValue: new ElementRef(document.createElement('header')) },
+        { provide: PLATFORM_ID, useValue: 'browser' },
+      ],
+    });
+
+    const directive = TestBed.runInInjectionContext(() => new HeaderScrollDirective());
     directive.scrollThreshold = 60;
     const scrollY = vi.spyOn(window, 'scrollY', 'get').mockReturnValue(61);
     directive.onScroll();
