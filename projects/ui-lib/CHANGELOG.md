@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.36.3] - 2026-11-09
+### Added
+- add entrance and scroll reveal animations to content-document
+
 ## [0.36.2] - 2026-10-09
 ### Changed
 - enhance icon component with LinkedIn support and refactor brand icon handling
