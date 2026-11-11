@@ -8,6 +8,33 @@ import { ScrollRevealDirective } from './scroll-reveal.directive';
 import { ScrollTextRevealDirective } from './scroll-text-reveal.directive';
 
 describe('HeaderScrollDirective', () => {
+  const coloredElement = (color: string) => {
+    const element = document.createElement('div');
+    element.style.backgroundColor = color;
+    return element;
+  };
+
+  const createHeader = () => {
+    const header = document.createElement('header');
+    TestBed.configureTestingModule({
+      providers: [
+        { provide: ElementRef, useValue: new ElementRef(header) },
+        { provide: PLATFORM_ID, useValue: 'browser' },
+      ],
+    });
+
+    const directive = TestBed.runInInjectionContext(() => new HeaderScrollDirective());
+    vi.spyOn(header, 'getBoundingClientRect').mockReturnValue({
+      top: 0,
+      bottom: 100,
+      left: 0,
+      right: 200,
+      height: 100,
+    } as DOMRect);
+
+    return { header, directive };
+  };
+
   it('updates the scrolled state according to the threshold', () => {
     TestBed.configureTestingModule({
       providers: [
@@ -24,6 +51,95 @@ describe('HeaderScrollDirective', () => {
     scrollY.mockReturnValue(60);
     directive.onScroll();
     expect(directive.isScrolled).toBe(false);
+  });
+
+  it('detects light backgrounds behind the header', () => {
+    const { directive } = createHeader();
+    const fromPoint = vi.fn(() => [coloredElement('rgb(255, 255, 255)')]);
+    (document as any).elementsFromPoint = fromPoint;
+
+    directive.onScroll();
+
+    expect(fromPoint).toHaveBeenCalledWith(100, 99);
+    expect(directive.isOverLight).toBe(true);
+    expect(directive.isOverDark).toBe(false);
+
+    delete (document as any).elementsFromPoint;
+  });
+
+  it('detects dark backgrounds behind the header', () => {
+    const { directive } = createHeader();
+    (document as any).elementsFromPoint = vi.fn(() => [coloredElement('rgb(10, 10, 10)')]);
+
+    directive.onScroll();
+
+    expect(directive.isOverDark).toBe(true);
+    expect(directive.isOverLight).toBe(false);
+
+    delete (document as any).elementsFromPoint;
+  });
+
+  it('ignores elements contained inside the header', () => {
+    const { directive, header } = createHeader();
+    const child = document.createElement('span');
+    header.appendChild(child);
+    (document as any).elementsFromPoint = vi.fn(() => [child, coloredElement('rgb(10, 10, 10)')]);
+
+    directive.onResize();
+
+    expect(directive.isOverDark).toBe(true);
+
+    header.innerHTML = '';
+    delete (document as any).elementsFromPoint;
+  });
+
+  it('keeps the tone unchanged when every background is transparent', () => {
+    const { directive } = createHeader();
+    (document as any).elementsFromPoint = vi.fn(() => [coloredElement('rgba(0, 0, 0, 0)')]);
+
+    directive.onScroll();
+
+    expect(directive.isOverLight).toBe(false);
+    expect(directive.isOverDark).toBe(false);
+
+    delete (document as any).elementsFromPoint;
+  });
+
+  it('skips tone detection for hidden headers', () => {
+    const { directive, header } = createHeader();
+    vi.spyOn(header, 'getBoundingClientRect').mockReturnValue({
+      top: 0,
+      bottom: 0,
+      left: 0,
+      right: 200,
+      height: 0,
+    } as DOMRect);
+    const fromPoint = vi.fn(() => []);
+    (document as any).elementsFromPoint = fromPoint;
+
+    directive.ngAfterViewInit();
+
+    expect(fromPoint).not.toHaveBeenCalled();
+
+    delete (document as any).elementsFromPoint;
+  });
+
+  it('does nothing outside the browser', () => {
+    TestBed.configureTestingModule({
+      providers: [
+        { provide: ElementRef, useValue: new ElementRef(document.createElement('header')) },
+        { provide: PLATFORM_ID, useValue: 'server' },
+      ],
+    });
+
+    const directive = TestBed.runInInjectionContext(() => new HeaderScrollDirective());
+    const scrollY = vi.spyOn(window, 'scrollY', 'get').mockReturnValue(999);
+
+    directive.ngAfterViewInit();
+    directive.onScroll();
+
+    expect(directive.isScrolled).toBe(false);
+    scrollY.mockRestore();
   });
 });
 
@@ -135,6 +251,117 @@ describe('ScrollRevealDirective', () => {
     (directive as any).setupInitialStyles();
     expect(styles['transform']).toBe('translateX(40px)');
   });
+
+  const createBrowser = () => {
+    const element = document.createElement('div');
+    const styles: Record<string, string> = {};
+    const renderer = {
+      setStyle: (_element: unknown, name: string, value: string) => (styles[name] = value),
+    };
+    return { element, styles, renderer };
+  };
+
+  it('observes the element and reveals it when it intersects', () => {
+    const { element, styles, renderer } = createBrowser();
+
+    let observerCallback: IntersectionObserverCallback | undefined;
+    const observer: IntersectionObserver = {
+      root: null,
+      rootMargin: '0px',
+      scrollMargin: '0px',
+      thresholds: [],
+      observe: vi.fn(),
+      unobserve: vi.fn(),
+      disconnect: vi.fn(),
+      takeRecords: vi.fn(() => []),
+    };
+    const observerConstructor = vi.fn(function (callback: IntersectionObserverCallback) {
+      observerCallback = callback;
+      return observer;
+    });
+    (globalThis as any).IntersectionObserver = observerConstructor;
+
+    const directive = new ScrollRevealDirective(
+      new ElementRef(element),
+      renderer as any,
+      'browser',
+    );
+    directive.threshold = 0.5;
+    directive.rootMargin = '10px';
+    directive.ngOnInit();
+
+    expect(observerConstructor).toHaveBeenCalledWith(expect.any(Function), {
+      threshold: 0.5,
+      rootMargin: '10px',
+    });
+    expect(observer.observe).toHaveBeenCalledWith(element);
+
+    observerCallback!([{ isIntersecting: true } as IntersectionObserverEntry], observer);
+
+    expect(styles['opacity']).toBe('1');
+    expect(styles['transform']).toBe('translateY(0)');
+    expect(observer.unobserve).toHaveBeenCalledWith(element);
+
+    delete (globalThis as any).IntersectionObserver;
+  });
+
+  it('keeps observing elements that have not intersected yet', () => {
+    const { element, styles, renderer } = createBrowser();
+
+    let observerCallback: IntersectionObserverCallback | undefined;
+    const observer: IntersectionObserver = {
+      root: null,
+      rootMargin: '0px',
+      scrollMargin: '0px',
+      thresholds: [],
+      observe: vi.fn(),
+      unobserve: vi.fn(),
+      disconnect: vi.fn(),
+      takeRecords: vi.fn(() => []),
+    };
+    (globalThis as any).IntersectionObserver = vi.fn(function (callback: IntersectionObserverCallback) {
+      observerCallback = callback;
+      return observer;
+    });
+
+    const directive = new ScrollRevealDirective(
+      new ElementRef(element),
+      renderer as any,
+      'browser',
+    );
+    directive.ngOnInit();
+
+    observerCallback!([{ isIntersecting: false } as IntersectionObserverEntry], observer);
+
+    expect(styles['opacity']).toBe('0');
+    expect(observer.unobserve).not.toHaveBeenCalled();
+
+    delete (globalThis as any).IntersectionObserver;
+  });
+
+  it('reveals immediately with reduced motion and no transition', () => {
+    const { element, styles, renderer } = createBrowser();
+    const originalMatchMedia = Object.getOwnPropertyDescriptor(window, 'matchMedia');
+    Object.defineProperty(window, 'matchMedia', {
+      configurable: true,
+      value: vi.fn().mockReturnValue({ matches: true }),
+    });
+
+    const directive = new ScrollRevealDirective(
+      new ElementRef(element),
+      renderer as any,
+      'browser',
+    );
+    directive.ngOnInit();
+
+    expect(styles['transition']).toBe('none');
+    expect(styles['opacity']).toBe('1');
+    if (originalMatchMedia) {
+      Object.defineProperty(window, 'matchMedia', originalMatchMedia);
+    } else {
+      delete (window as any).matchMedia;
+    }
+  });
 });
 
 describe('ScrollTextRevealDirective', () => {
@@ -236,5 +463,56 @@ describe('ScrollTextRevealDirective', () => {
     directive.ngOnInit();
 
     expect(element.querySelectorAll('.text-reveal-char').length).toBe(0);
+  });
+
+  it('reveals characters when the window scrolls', () => {
+    const { element, directive, rect } = create();
+    const scrollY = vi.spyOn(window, 'scrollY', 'get').mockReturnValue(0);
+    rect.mockReturnValue({ top: 500, height: 100, bottom: 600 } as DOMRect);
+
+    directive.ngOnInit();
+
+    scrollY.mockReturnValue(500);
+    window.dispatchEvent(new Event('scroll'));
+
+    const chars = element.querySelectorAll<HTMLElement>('.text-reveal-char');
+    expect(chars[8].style.color).toBe('var(--text-primary)');
+    directive.ngOnDestroy();
+  });
+
+  it('dims characters again when scrolling back', () => {
+    const { element, directive, rect } = create();
+    const scrollY = vi.spyOn(window, 'scrollY', 'get').mockReturnValue(0);
+    rect.mockReturnValue({ top: 500, height: 100, bottom: 600 } as DOMRect);
+
+    directive.ngOnInit();
+
+    scrollY.mockReturnValue(500);
+    directive.updateProgress();
+
+    const chars = element.querySelectorAll<HTMLElement>('.text-reveal-char');
+    expect(chars[8].style.color).toBe('var(--text-primary)');
+
+    scrollY.mockReturnValue(250);
+    directive.updateProgress();
+
+    expect(chars[4].style.color).toBe('var(--text-primary)');
+    expect(chars[5].style.color).toBe('var(--text-primary-60)');
+    directive.ngOnDestroy();
+  });
+
+  it('cancels pending frames on destroy', () => {
+    const { element, directive } = create();
+    const scrollY = vi.spyOn(window, 'scrollY', 'get').mockReturnValue(0);
+
+    directive.ngOnInit();
+
+    (directive as any).frame = 7;
+    const cancelSpy = vi.fn();
+    vi.stubGlobal('cancelAnimationFrame', cancelSpy);
+
+    directive.ngOnDestroy();
+
+    expect(cancelSpy).toHaveBeenCalledWith(7);
   });
 });

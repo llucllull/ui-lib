@@ -5,7 +5,7 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     coverage: {
-      reporter: ['text-summary', 'html'],
+      reporter: ['text', 'text-summary', 'html', 'json-summary'],
       reportsDirectory: './coverage',
     },
   },

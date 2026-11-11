@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CLOUDINARY_CLOUD_NAME } from '@lluc_llull/ui-lib/mapper';
 import { LinkType } from '../../directives';
 import { SplitPreviewerComponent, SplitPreviewerItemI } from './split-previewer.component';
 
@@ -26,11 +27,16 @@ describe('SplitPreviewerComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             imports: [SplitPreviewerComponent],
+            providers: [{ provide: CLOUDINARY_CLOUD_NAME, useValue: 'demo' }],
         }).compileComponents();
 
         fixture = TestBed.createComponent(SplitPreviewerComponent);
         component = fixture.componentInstance;
         // ❌ quitamos detectChanges aquí
+    });
+
+    afterEach(() => {
+        vi.unstubAllGlobals();
     });
 
     it('should create', () => {
@@ -167,6 +173,35 @@ describe('SplitPreviewerComponent', () => {
             expect(img.src).toContain('active.jpg');
         });
 
+        it('should render a cloudinary image when imageDefault has a publicId', () => {
+            component.imageDefault = {
+                publicId: 'split-default',
+                url: 'https://cdn.example.com/default.jpg',
+                alt: 'Default Image',
+            };
+            fixture.detectChanges();
+
+            const uiImage = fixture.nativeElement.querySelector('ui-image.preview-img');
+
+            expect(uiImage).not.toBeNull();
+            expect(uiImage.querySelector('img').src).toContain('split-default');
+            expect(fixture.nativeElement.querySelector('img.preview-img')).toBeNull();
+        });
+
+        it('should render a cloudinary image when activeImage has a publicId', () => {
+            component.activeImage.set({
+                publicId: 'split-active',
+                url: 'https://cdn.example.com/active.jpg',
+                alt: 'Active Image',
+            });
+            fixture.detectChanges();
+
+            const uiImage = fixture.nativeElement.querySelector('ui-image.preview-img');
+
+            expect(uiImage).not.toBeNull();
+            expect(uiImage.querySelector('img').src).toContain('split-active');
+        });
+
         it('should apply direction class', () => {
             fixture.componentRef.setInput('direction', 'left');
             fixture.detectChanges();
@@ -207,6 +242,29 @@ describe('SplitPreviewerComponent', () => {
             fixture.detectChanges();
 
             expect(component.activeImage()).toEqual(mockItems[0].image);
+        });
+    });
+
+    describe('preloading', () => {
+        it('should preload item images when requestIdleCallback is available', () => {
+            const preloaded: string[] = [];
+            vi.stubGlobal('Image', class {
+                set src(value: string) {
+                    preloaded.push(value);
+                }
+            });
+            vi.stubGlobal('requestIdleCallback', (cb: () => void) => {
+                cb();
+                return 0;
+            });
+
+            fixture.componentRef.setInput('items', [
+                mockItems[0],
+                { title: 'Project Gamma', description: 'A project without image' },
+            ]);
+            fixture.detectChanges();
+
+            expect(preloaded).toEqual(['https://cdn.example.com/alpha.jpg']);
         });
     });
 });

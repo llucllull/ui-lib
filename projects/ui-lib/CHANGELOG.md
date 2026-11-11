@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.36.4] - 2026-11-10
+## [0.36.5] - 2026-11-11
+
+### Changed
+
+- update testings to handle >90% coverage
+
+## [0.36.4] - 2026-11-11
 
 ### Added
 
