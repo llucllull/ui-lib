@@ -10,7 +10,12 @@
 <link rel="stylesheet" href="main.css" />
 
 <script>
-  document.title = "Ui-Lib Components";
+  document.title = 'Ui-Lib Components';
+
+  // Los temas de la lib viven bajo :root[data-theme=...] (main.css).
+  // Sin esto, ninguna variable (--content-bg, --text-primary, ...) resuelve en el preview.
+  document.documentElement.setAttribute(
+    'data-theme',
+    window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
+  );
 </script>
-
-

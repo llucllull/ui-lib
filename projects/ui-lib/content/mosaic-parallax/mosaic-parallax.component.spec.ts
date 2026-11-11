@@ -1,134 +1,167 @@
+import { PLATFORM_ID } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MosaicParallaxComponent } from './mosaic-parallax.component';
-import { PLATFORM_ID } from '@angular/core';
 
 class MockIntersectionObserver {
-  observe = vi.fn();
-  disconnect = vi.fn();
-  unobserve = vi.fn();
+    observe = vi.fn();
+    disconnect = vi.fn();
+    unobserve = vi.fn();
 
-  private callback: any;
+    private callback: any;
 
-  constructor(callback: any) {
-    this.callback = callback;
-  }
+    constructor(callback: any) {
+        this.callback = callback;
+    }
 
-  trigger(isIntersecting: boolean) {
-    this.callback([{ isIntersecting }]);
-  }
+    trigger(isIntersecting: boolean) {
+        this.callback([{ isIntersecting }]);
+    }
 }
 
 describe('MosaicParallaxComponent', () => {
-  let component: MosaicParallaxComponent;
-  let fixture: ComponentFixture<MosaicParallaxComponent>;
+    let component: MosaicParallaxComponent;
+    let fixture: ComponentFixture<MosaicParallaxComponent>;
 
-  beforeEach(async () => {
-    // 👇 mock correcto (constructor real)
-    (window as any).IntersectionObserver = MockIntersectionObserver;
+    beforeEach(async () => {
+        // 👇 mock correcto (constructor real)
+        (window as any).IntersectionObserver = MockIntersectionObserver;
 
-    await TestBed.configureTestingModule({
-      imports: [MosaicParallaxComponent],
-      providers: [{ provide: PLATFORM_ID, useValue: 'browser' }],
-    }).compileComponents();
+        await TestBed.configureTestingModule({
+            imports: [MosaicParallaxComponent],
+            providers: [{ provide: PLATFORM_ID, useValue: 'browser' }],
+        }).compileComponents();
 
-    fixture = TestBed.createComponent(MosaicParallaxComponent);
-    component = fixture.componentInstance;
-  });
-
-  it('should create', () => {
-    fixture.detectChanges();
-    expect(component).toBeTruthy();
-  });
-
-  describe('IntersectionObserver', () => {
-    it('should initialize observer on AfterViewInit', () => {
-      fixture.detectChanges();
-
-      const observer = (component as any).observer;
-      expect(observer).toBeTruthy();
-      expect(observer.observe).toHaveBeenCalled();
+        fixture = TestBed.createComponent(MosaicParallaxComponent);
+        component = fixture.componentInstance;
     });
 
-    it('should set isVisible to true when intersecting', () => {
-      fixture.detectChanges();
-
-      const observer = (component as any).observer as MockIntersectionObserver;
-
-      observer.trigger(true);
-
-      expect(component.isVisible()).toBe(true);
-      expect(observer.disconnect).toHaveBeenCalled();
+    it('should create', () => {
+        fixture.detectChanges();
+        expect(component).toBeTruthy();
     });
 
-    it('should NOT set isVisible when not intersecting', () => {
-      fixture.detectChanges();
+    describe('IntersectionObserver', () => {
+        it('should initialize observer on AfterViewInit', () => {
+            fixture.detectChanges();
 
-      const observer = (component as any).observer as MockIntersectionObserver;
+            const observer = (component as any).observer;
+            expect(observer).toBeTruthy();
+            expect(observer.observe).toHaveBeenCalled();
+        });
 
-      observer.trigger(false);
+        it('should set isVisible to true when intersecting', () => {
+            fixture.detectChanges();
 
-      expect(component.isVisible()).toBe(false);
-    });
-  });
+            const observer = (component as any).observer as MockIntersectionObserver;
 
-  describe('template rendering', () => {
-    it('should render title if provided', () => {
-      fixture.componentRef.setInput('title', 'Test Title');
-      fixture.detectChanges();
+            observer.trigger(true);
 
-      const el = fixture.nativeElement.querySelector('h2.subtitle');
-      expect(el?.textContent.trim()).toBe('Test Title');
-    });
+            expect(component.isVisible()).toBe(true);
+            expect(observer.disconnect).toHaveBeenCalled();
+        });
 
-    it('should NOT render title if not provided', () => {
-      fixture.detectChanges();
+        it('should NOT set isVisible when not intersecting', () => {
+            fixture.detectChanges();
 
-      const el = fixture.nativeElement.querySelector('h2.subtitle');
-      expect(el).toBeNull();
-    });
+            const observer = (component as any).observer as MockIntersectionObserver;
 
-    it('should render text if provided', () => {
-      fixture.componentRef.setInput('text', 'Test text');
-      fixture.detectChanges();
+            observer.trigger(false);
 
-      const el = fixture.nativeElement.querySelector('p.text');
-      expect(el?.textContent.trim()).toBe('Test text');
+            expect(component.isVisible()).toBe(false);
+        });
     });
 
-    it('should render images when provided', () => {
-      fixture.componentRef.setInput('images', [
-        { url: 'img1.jpg', alt: 'img1' },
-        { url: 'img2.jpg', alt: 'img2' },
-      ]);
-      fixture.detectChanges();
+    describe('diagonalFraction', () => {
+        it('should return 0 for a single item', () => {
+            fixture.componentRef.setInput('images', [{ url: 'img1.jpg', alt: 'img1' }]);
 
-      const items = fixture.nativeElement.querySelectorAll('.mosaic-item');
-      expect(items.length).toBe(2);
+            expect(component.diagonalFraction(0)).toBe(0);
+        });
+
+        it('should ascend monotonically from 0 to 1', () => {
+            fixture.componentRef.setInput('images', [
+                { url: 'img1.jpg', alt: 'img1' },
+                { url: 'img2.jpg', alt: 'img2' },
+                { url: 'img3.jpg', alt: 'img3' },
+                { url: 'img4.jpg', alt: 'img4' },
+            ]);
+
+            const fractions = [0, 1, 2, 3].map((index) => component.diagonalFraction(index));
+
+            expect(fractions[0]).toBe(0);
+            expect(fractions[3]).toBe(1);
+            fractions.forEach((fraction, index) => {
+                if (index > 0) {
+                    expect(fraction).toBeGreaterThan(fractions[index - 1]);
+                }
+            });
+        });
+
+        it('should stay within 0 and 1 for any number of items', () => {
+            for (let index = 0; index < 100; index++) {
+                const fraction = component.diagonalFraction(index);
+                expect(fraction).toBeGreaterThanOrEqual(0);
+                expect(fraction).toBeLessThanOrEqual(1);
+            }
+        });
     });
 
-    it('should apply visible class when isVisible is true', () => {
-      fixture.componentRef.setInput('images', [
-        { url: 'img1.jpg', alt: 'img1' },
-      ]);
-      fixture.detectChanges();
+    describe('template rendering', () => {
+        it('should render title if provided', () => {
+            fixture.componentRef.setInput('title', 'Test Title');
+            fixture.detectChanges();
 
-      component.isVisible.set(true);
-      fixture.detectChanges();
+            const el = fixture.nativeElement.querySelector('h2.subtitle');
+            expect(el?.textContent.trim()).toBe('Test Title');
+        });
 
-      const item = fixture.nativeElement.querySelector('.mosaic-item');
-      expect(item.classList).toContain('mosaic-item--visible');
+        it('should NOT render title if not provided', () => {
+            fixture.detectChanges();
+
+            const el = fixture.nativeElement.querySelector('h2.subtitle');
+            expect(el).toBeNull();
+        });
+
+        it('should render text if provided', () => {
+            fixture.componentRef.setInput('text', 'Test text');
+            fixture.detectChanges();
+
+            const el = fixture.nativeElement.querySelector('p.text');
+            expect(el?.textContent.trim()).toBe('Test text');
+        });
+
+        it('should render images when provided', () => {
+            fixture.componentRef.setInput('images', [
+                { url: 'img1.jpg', alt: 'img1' },
+                { url: 'img2.jpg', alt: 'img2' },
+            ]);
+            fixture.detectChanges();
+
+            const items = fixture.nativeElement.querySelectorAll('.mosaic-item');
+            expect(items.length).toBe(2);
+        });
+
+        it('should apply entrance class to the section when isVisible is true', () => {
+            fixture.componentRef.setInput('images', [{ url: 'img1.jpg', alt: 'img1' }]);
+            fixture.detectChanges();
+
+            component.isVisible.set(true);
+            fixture.detectChanges();
+
+            const section = fixture.nativeElement.querySelector('.mosaic-parallax');
+            expect(section.classList).toContain('mosaic-parallax--in');
+        });
     });
-  });
 
-  describe('ngOnDestroy', () => {
-    it('should disconnect observer on destroy', () => {
-      fixture.detectChanges();
+    describe('ngOnDestroy', () => {
+        it('should disconnect observer on destroy', () => {
+            fixture.detectChanges();
 
-      const observer = (component as any).observer;
+            const observer = (component as any).observer;
 
-      component.ngOnDestroy();
+            component.ngOnDestroy();
 
-      expect(observer.disconnect).toHaveBeenCalled();
+            expect(observer.disconnect).toHaveBeenCalled();
+        });
     });
-  });
 });
