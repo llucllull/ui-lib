@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnChanges } from '@angular/core';
 import {
+    ArrowDownRight,
     ArrowLeft,
     ArrowRight,
     ArrowUpRight,
+    ArrowUp,
     Home,
     Linkedin,
     LUCIDE_ICONS,
@@ -32,7 +34,9 @@ const brandIcons: Record<string, SimpleIcon> = {
             useValue: new LucideIconProvider({
                 ArrowLeft,
                 ArrowRight,
+                ArrowUp,
                 ArrowUpRight,
+                ArrowDownRight,
                 Home,
                 Linkedin,
                 Mail,

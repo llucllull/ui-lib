@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.37.1] - 2026-11-12
+
+### Added
+
+- add new icons
+
 ## [0.37.0] - 2026-11-12
 
 ### Added
