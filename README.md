@@ -1,6 +1,6 @@
 # UiLib
 
-An Angular UI component library for building modular, accessible, and reusable web interfaces. This project is based on Angular 19 and is designed to be published as an npm package from `projects/ui-lib`.
+An Angular UI component library for building modular, accessible, and reusable web interfaces. This project is based on Angular 22 and is designed to be published as an npm package from `projects/ui-lib`.
 
 ## What’s inside
 
@@ -244,6 +244,6 @@ The package is configured in `projects/ui-lib/ng-package.json`, and the public A
 
 ## Quick notes
 
-- This repository targets Angular 19 and uses `@angular/*` 19.x packages.
+- This repository targets Angular 22 and uses `@angular/*` 22.x packages.
 - The package name is `@lluc_llull/ui-lib` as defined in `projects/ui-lib/package.json`.
 - See `projects/ui-lib/documentation.json` and `projects/ui-lib/CHANGELOG.md` for extra documentation and release history.

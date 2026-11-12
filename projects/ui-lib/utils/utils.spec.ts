@@ -10,16 +10,40 @@ describe('mapping utilities', () => {
     ]);
   });
 
+  it('defaults labels, urls and link types for sparse buttons', () => {
+    expect(mapButtons([{ label: 'About', link_type: 'internal', page: 'about' }, { label: 'No page', link_type: 'internal' }, { link_type: 'external' }, {}])).toEqual([
+      { label: 'About', url: 'about', linkType: LinkType.Internal, icon: undefined },
+      { label: 'No page', url: '', linkType: LinkType.Internal, icon: undefined },
+      { label: '', url: '', linkType: LinkType.External, icon: undefined },
+      { label: '', url: '', linkType: 'none', icon: undefined },
+    ]);
+  });
+
+  it('returns an empty list for non-array button data', () => {
+    expect(mapButtons({})).toEqual([]);
+    expect(mapButtons('invalid')).toEqual([]);
+  });
+
   it('normalizes image URLs and extracts Cloudinary public IDs', () => {
     expect(mapImage(null)).toBeNull();
-    expect(mapImage({ src: '/photo.jpg', alt: 'Photo' }, 'https://cdn.test')).toEqual(jasmine.objectContaining({ url: 'https://cdn.test/photo.jpg', alt: 'Photo' }));
+    expect(mapImage({ src: '/photo.jpg', alt: 'Photo' }, 'https://cdn.test')).toEqual(expect.objectContaining({ url: 'https://cdn.test/photo.jpg', alt: 'Photo' }));
     expect(mapImage({ url: 'https://res.cloudinary.com/demo/image/upload/v1/folder/photo.jpg' })!.publicId).toBe('folder/photo');
     expect(mapImage({ publicId: 'manual', url: '/photo.jpg' })!.publicId).toBe('manual');
+  });
+
+  it('skips Cloudinary public IDs when the URL has no upload path', () => {
+    const image = mapImage({ url: 'https://res.cloudinary.com/demo' });
+    expect(image!.publicId).toBeUndefined();
+    expect(image!.url).toBe('https://res.cloudinary.com/demo');
   });
 
   it('supports gallery wrappers, arrays and empty values', () => {
     expect(mapImageOrGallery(undefined)).toEqual([]);
     expect(mapImageOrGallery({ images: [{ url: '/one.jpg' }, null] }, 'cdn/').length).toBe(1);
     expect(mapImageOrGallery({ url: '/single.jpg' }, 'cdn/')[0].url).toBe('cdn//single.jpg');
+  });
+
+  it('returns an empty list when a single image cannot be mapped', () => {
+    expect(mapImageOrGallery('invalid')).toEqual([]);
   });
 });

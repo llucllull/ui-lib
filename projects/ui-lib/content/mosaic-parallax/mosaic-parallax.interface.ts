@@ -1,7 +1,7 @@
-import { UiLibImageI } from "@lluc_llull/ui-lib/interfaces";
+import { UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
 
-export interface MosaicParallaxI{
-  title?: string;
-  text?: string;
-  images?: UiLibImageI[];
+export interface MosaicParallaxI {
+    title?: string;
+    text?: string;
+    images?: UiLibImageI[];
 }

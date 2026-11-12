@@ -8,9 +8,28 @@
   border-radius: 0px;
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
-  // background-color: var(--header-mobile-bg);
-  width: 100vw;
+  box-sizing: border-box;
+  background: var(--header-bg);
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &.is-scrolled {
+    background: var(--header-bg-fixed-dark);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border: 4px solid black;
+  }
+
+  &.is-scrolled.is-over-light {
+    background: var(--header-bg-fixed-light);
+  }
+
+  &.is-scrolled.is-over-dark {
+    border: 4px solid var(--border-secondary);
+  }
 }
 
 .header-logo {
@@ -39,6 +58,7 @@
   background-color: var(--header-mobile-bg);
   z-index: 100;
   box-sizing: border-box;
+  border: 4px solid black;
 }
 
 .header-actions .center {

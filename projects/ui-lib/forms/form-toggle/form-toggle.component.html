@@ -1,0 +1,14 @@
+<label class="form-toggle" [for]="id">
+    <input
+        [id]="id"
+        type="checkbox"
+        role="switch"
+        [checked]="checked"
+        [attr.aria-describedby]="describedBy || null"
+        [disabled]="disabled"
+        (change)="handleChange($event)"
+        (blur)="handleBlur()"
+    />
+    <span class="form-toggle-track" aria-hidden="true"><span></span></span>
+    <span class="form-toggle-label"><ng-content /></span>
+</label>

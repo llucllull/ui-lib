@@ -9,7 +9,7 @@ import {
     OnInit,
     Output,
 } from '@angular/core';
-import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
+import { HeaderScrollDirective, LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
 import {
     UiLibButtonI,
     UiLibImageI,
@@ -19,19 +19,20 @@ import {
 import { Theme, ThemeService } from '@lluc_llull/ui-lib/theme';
 import { Subscription } from 'rxjs';
 import { mapNavModal } from '@lluc_llull/ui-lib/mapper';
-import { LangModalComponent, NavModalComponent } from '@lluc_llull/ui-lib/modals';
+import { NavModalComponent } from '@lluc_llull/ui-lib/modals';
 import { UiIconComponent } from '@lluc_llull/ui-lib/shared';
 
 @Component({
     selector: 'lib-header-mobile',
     standalone: true,
-    imports: [CommonModule, LangModalComponent, NavModalComponent, LinkTypeDirective, UiIconComponent],
+    imports: [CommonModule, NavModalComponent, HeaderScrollDirective, LinkTypeDirective, UiIconComponent],
     templateUrl: './header-mobile.component.html',
     styleUrl: './header-mobile.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderMobileComponent implements OnInit, OnChanges, OnDestroy {
     isMenuOpen = false;
+    isMenuClosing = false;
     currentTheme: Theme = 'light';
     private themeSubscription?: Subscription;
 
@@ -72,6 +73,26 @@ export class HeaderMobileComponent implements OnInit, OnChanges, OnDestroy {
     }
 
     toggleMenu(): void {
-        this.isMenuOpen = !this.isMenuOpen;
+        if (this.isMenuOpen) {
+            this.closeMenu();
+            return;
+        }
+
+        this.isMenuClosing = false;
+        this.isMenuOpen = true;
+    }
+
+    closeMenu(): void {
+        if (!this.isMenuOpen && !this.isMenuClosing) return;
+
+        this.isMenuClosing = true;
+        this.isMenuOpen = false;
+    }
+
+    finishMenuClose(event: TransitionEvent): void {
+        if (!this.isMenuClosing || event.propertyName !== 'visibility') return;
+        if (!(event.target instanceof HTMLElement) || !event.target.classList.contains('modal-content')) return;
+
+        this.isMenuClosing = false;
     }
 }

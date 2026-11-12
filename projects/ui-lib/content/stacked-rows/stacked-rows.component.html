@@ -1,6 +1,6 @@
-<div class="stacked-rows main-grid col-span-full md:col-span-12 md:col-start-1" scrollReveal>
+<div class="stacked-rows main-grid col-span-full md:col-span-12 md:col-start-1">
   <!-- INTRO -->
-  <div class="stacked-rows__intro main-grid col-span-full">
+  <div class="stacked-rows__intro main-grid col-span-full" scrollReveal from="bottom">
     @if (title) {
       <h1 class="subtitle col-span-full md:col-span-3 md:col-start-1">
         {{ title }}
@@ -18,7 +18,7 @@
   @if (items) {
     <div class="stacked-rows__items col-span-full">
       @for (item of items; track $index) {
-        <div class="stacked-rows__items--item main-grid">
+        <div class="stacked-rows__items--item main-grid" scrollReveal from="bottom">
           <h2 class="stacked-rows__items--item_title col-span-full md:col-span-3 md:col-start-1">
             {{ item.title }}
           </h2>

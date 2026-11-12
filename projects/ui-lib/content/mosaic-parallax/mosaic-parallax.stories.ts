@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/angular';
+import { Meta, StoryObj } from '@storybook/angular-vite';
 import { MosaicParallaxComponent } from './mosaic-parallax.component';
 
 export default {
@@ -14,27 +14,15 @@ export default {
 
 type Story = StoryObj<MosaicParallaxComponent>;
 
+const images = Array.from({ length: 8 }, (_, index) => ({
+    url: `https://picsum.photos/seed/mosaic${index + 1}/400/300.jpg`,
+    alt: `Mosaico ${index + 1}`,
+}));
+
 export const Default: Story = {
     args: {
         title: 'Mosaico Parallax',
-        text: 'Descubre nuestra increíble galería con efectos de paralaje y mosaico interactivo.',
-        images: [
-            {
-                url: 'https://picsum.photos/seed/mosaic1/400/300.jpg',
-                alt: 'Mosaico 1',
-            },
-            {
-                url: 'https://picsum.photos/seed/mosaic2/400/300.jpg',
-                alt: 'Mosaico 2',
-            },
-            {
-                url: 'https://picsum.photos/seed/mosaic3/400/300.jpg',
-                alt: 'Mosaico 3',
-            },
-            {
-                url: 'https://picsum.photos/seed/mosaic4/400/300.jpg',
-                alt: 'Mosaico 4',
-            }
-        ],
+        text: 'Descubre nuestra increíble galería con efectos de paralaje y mosaico interactivo. Haz scroll para recorrer el slider diagonal.',
+        images,
     },
 };

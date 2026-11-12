@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { By } from '@angular/platform-browser';
 import { UiLibLangItemI } from '@lluc_llull/ui-lib/interfaces';
 import { LangModalComponent } from './lang-modal.component';
@@ -7,26 +6,19 @@ import { LangModalComponent } from './lang-modal.component';
 describe('LangModalComponent', () => {
     let component: LangModalComponent;
     let fixture: ComponentFixture<LangModalComponent>;
-    let dialogRefSpy: jasmine.SpyObj<MatDialogRef<LangModalComponent>>;
-
     const mockLangs = [
-        { code: 'es', label: 'Español' },
-        { code: 'en', label: 'English' },
+        { id: 1, code: 'es', label: 'Español' },
+        { id: 2, code: 'en', label: 'English' },
     ];
 
     beforeEach(async () => {
-        dialogRefSpy = jasmine.createSpyObj('MatDialogRef', ['close']);
-
         await TestBed.configureTestingModule({
             imports: [LangModalComponent],
-            providers: [
-                { provide: MAT_DIALOG_DATA, useValue: { langs: mockLangs, currentLang: 'es' } },
-                { provide: MatDialogRef, useValue: dialogRefSpy },
-            ],
         }).compileComponents();
 
         fixture = TestBed.createComponent(LangModalComponent);
         component = fixture.componentInstance;
+        fixture.componentRef.setInput('langs', mockLangs);
         fixture.detectChanges();
     });
 
@@ -37,25 +29,25 @@ describe('LangModalComponent', () => {
     it('debería renderizar la lista de idiomas', () => {
         const items = fixture.debugElement.queryAll(By.css('.modal-item'));
         expect(items.length).toBe(2);
-        expect(items[0].nativeElement.textContent).toContain('es');
-        expect(items[1].nativeElement.textContent).toContain('en');
+        expect(items[0].nativeElement.textContent).toContain('Español');
+        expect(items[1].nativeElement.textContent).toContain('English');
     });
 
     it('debería cerrar el modal con el idioma seleccionado al hacer click', () => {
+        const selectSpy = vi.spyOn(component.select, 'emit');
         const items = fixture.debugElement.queryAll(By.css('li'));
         items[1].nativeElement.click();
         fixture.detectChanges();
 
-        expect(dialogRefSpy.close).toHaveBeenCalledWith(
-            jasmine.objectContaining<UiLibLangItemI>({ code: 'en' }),
-        );
+        expect(selectSpy).toHaveBeenCalledWith(expect.objectContaining<Partial<UiLibLangItemI>>({ code: 'en' }));
     });
 
     it('debería cerrar el modal al hacer click en el botón de cerrar', () => {
+        const closeSpy = vi.spyOn(component.close, 'emit');
         const closeBtn = fixture.debugElement.query(By.css('.close-btn')).nativeElement;
         closeBtn.click();
         fixture.detectChanges();
 
-        expect(dialogRefSpy.close).toHaveBeenCalledWith();
+        expect(closeSpy).toHaveBeenCalled();
     });
 });

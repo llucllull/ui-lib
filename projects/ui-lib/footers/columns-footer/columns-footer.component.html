@@ -16,6 +16,14 @@
             }
           </ul>
         }
+        <button
+          type="button"
+          class="columns-footer__one-to-top"
+          aria-label="Volver arriba"
+          (click)="scrollToTop()"
+        >
+          <ui-icon name="arrow-up" [size]="20" color="currentColor"></ui-icon>
+        </button>
       </div>
     }
     @if (columns?.[1]; as column2) {
@@ -64,4 +72,13 @@
       </div>
     }
   </div>
+  @if (copyright?.name; as signature) {
+    <div class="columns-footer__signature" aria-label="{{ signature }}">
+      @let signatureParts = signature.split(' ');
+      <span>
+        <em>{{ signatureParts[0] }}</em>
+        <strong>{{ signatureParts[1] }}</strong>
+      </span>
+    </div>
+  }
 </div>

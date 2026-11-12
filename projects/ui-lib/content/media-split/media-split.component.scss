@@ -6,7 +6,7 @@
   grid-template-columns: repeat($grid-columns, minmax(0, 1fr));
   column-gap: $grid-gutter;
   align-items: end;
-  padding-block: $section-padding-y;
+  padding-block: 0rem;
 
   &__visual {
     display: flex;
@@ -22,6 +22,10 @@
   &__info {
     align-self: end;
     padding-bottom: 0.5rem;
+
+    .text {
+      color: var(--text-primary-60);
+    }
   }
 }
 

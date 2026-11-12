@@ -1,0 +1,191 @@
+<section
+  class="contact-form-section main-grid col-span-full md:col-span-12 md:col-start-1"
+  aria-labelledby="contact-form-title"
+>
+  <div class="contact-form-heading col-span-full md:col-span-12 md:col-start-1">
+    @if(texts.title) {
+      <h2 class="title" id="contact-form-title">{{ texts.title }}</h2>  
+    }
+    @if(texts.intro) {
+      <p class="text">{{ texts.intro }}</p>
+    }
+  </div>
+
+  <form
+    class="contact-form col-span-full"
+    [formGroup]="form"
+    (ngSubmit)="submit()"
+    [attr.aria-busy]="status() === 'sending' ? 'true' : null"
+    novalidate
+  >
+    <p class="contact-form-required-hint col-span-full">{{ texts.requiredHint }}</p>
+
+    <div class="contact-form-body main-grid col-span-full">
+      <div class="contact-form-grid col-span-full md:col-span-6 md:col-start-1">
+        <lib-form-field
+          class="col-span-full md:col-span-6"
+          controlId="contact-name"
+          [label]="texts.name"
+          [required]="true"
+          [error]="getError('name')"
+        >
+          <lib-form-input
+            id="contact-name"
+            formControlName="name"
+            autocomplete="given-name"
+            [placeholder]="texts.namePlaceholder"
+            [describedBy]="getError('name') ? 'contact-name-error' : ''"
+            [invalid]="!!getError('name')"
+            [required]="true"
+            [maxLength]="80"
+          />
+        </lib-form-field>
+
+        <lib-form-field
+          class="col-span-full md:col-span-6"
+          controlId="contact-surname"
+          [label]="texts.surname"
+        >
+          <lib-form-input
+            id="contact-surname"
+            formControlName="surname"
+            autocomplete="family-name"
+            [placeholder]="texts.surnamePlaceholder"
+            [maxLength]="100"
+          />
+        </lib-form-field>
+
+        <lib-form-field
+          class="col-span-full md:col-span-6"
+          controlId="contact-email"
+          [label]="texts.email"
+          [required]="true"
+          [error]="getError('email')"
+        >
+          <lib-form-input
+            id="contact-email"
+            type="email"
+            formControlName="email"
+            autocomplete="email"
+            [placeholder]="texts.emailPlaceholder"
+            [describedBy]="getError('email') ? 'contact-email-error' : ''"
+            [invalid]="!!getError('email')"
+            [required]="true"
+            [maxLength]="254"
+          />
+        </lib-form-field>
+
+        <lib-form-field
+          class="col-span-full md:col-span-6"
+          controlId="contact-phone"
+          [label]="texts.phone"
+        >
+          <lib-form-input
+            id="contact-phone"
+            type="tel"
+            formControlName="phone"
+            autocomplete="tel"
+            [placeholder]="texts.phonePlaceholder"
+            [maxLength]="40"
+          />
+        </lib-form-field>
+
+        <lib-form-field
+      class="contact-form-field--message col-span-full"
+      controlId="contact-message"
+      [label]="texts.message"
+      [required]="true"
+      [error]="getError('message')"
+    >
+      <lib-form-textarea
+        id="contact-message"
+        formControlName="message"
+        [placeholder]="texts.messagePlaceholder"
+        [describedBy]="getError('message') ? 'contact-message-error' : ''"
+        [invalid]="!!getError('message')"
+        [required]="true"
+        [maxLength]="5000"
+        [rows]="6"
+        [showCounter]="true"
+      />
+    </lib-form-field>
+
+      </div>
+
+      @if (img) {
+        <figure class="contact-form-image col-span-full md:col-span-6 md:col-start-7">
+          @if (img.publicId) {
+            <ui-image
+              [publicId]="img.publicId"
+              [width]="img.width"
+              [height]="img.height"
+              [eager]="true"
+            />
+          } @else {
+            <img
+              [src]="img.url"
+              [alt]="img.alt"
+              loading="eager"
+              fetchpriority="high"
+              [attr.width]="img.width || 800"
+              [attr.height]="img.height || 600"
+            />
+          }
+        </figure>
+      }
+    </div>
+
+    <div class="contact-form-honeypot" aria-hidden="true">
+      <label for="contact-website">Website</label>
+      <input
+        id="contact-website"
+        type="text"
+        formControlName="website"
+        tabindex="-1"
+        autocomplete="off"
+      />
+    </div>
+
+    <div class="contact-form-footer col-span-full">
+      <p class="contact-form-privacy col-span-full md:col-span-8">
+        <strong>{{ texts.privacyTitle }}</strong>
+        {{ texts.privacyResponsible }}
+        {{ texts.privacyPurpose }}
+        {{ texts.privacyLegalBasis }}
+        {{ texts.privacyRecipients }}
+        {{ texts.privacyRetention }}
+        {{ texts.privacyRights }}
+        {{ texts.privacyLinkLead }}
+        <a class="contact-form-privacy__link" [href]="privacyUrl">{{ texts.privacyLink }}</a>
+        {{ texts.privacyLinkTail }}
+      </p>
+
+      <button
+        class="contact-form-submit col-span-full md:col-span-4"
+        type="submit"
+        [disabled]="status() === 'sending'"
+      >
+        <span>{{ status() === 'sending' ? texts.sending : texts.send }}</span>
+        <ui-icon name="arrow-up-right" [size]="20" color="currentColor"></ui-icon>
+      </button>
+    </div>
+
+    @if (status() !== 'idle') {
+      <p
+        class="contact-form-status col-span-full"
+        [class.contact-form-status--success]="status() === 'success'"
+        [class.contact-form-status--error]="status() === 'error'"
+        [attr.role]="status() === 'error' ? 'alert' : 'status'"
+        aria-live="polite"
+      >
+        {{
+          status() === 'sending'
+            ? texts.sending
+            : status() === 'success'
+              ? texts.success
+              : submissionError() || texts.error
+        }}
+      </p>
+    }
+  </form>
+</section>

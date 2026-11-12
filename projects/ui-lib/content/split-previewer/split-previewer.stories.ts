@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/angular';
+import { Meta, StoryObj } from '@storybook/angular-vite';
 import { LinkType } from "@lluc_llull/ui-lib/enums";
 import { SplitPreviewerComponent } from './split-previewer.component';
 
@@ -11,6 +11,8 @@ export default {
         direction: { control: 'radio', options: ['left', 'right'] },
         items: { control: 'object' },
         imageDefault: { control: 'object' },
+        highlightColor: { control: 'text' },
+        highlightThickness: { control: 'number' },
     },
 } as Meta<SplitPreviewerComponent>;
 

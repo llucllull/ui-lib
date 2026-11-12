@@ -1,0 +1,29 @@
+<section
+  class="text-mosaic main-grid col-span-full"
+  [class.text-mosaic--in]="isVisible()"
+  #section
+>
+  <div class="text-mosaic__grid col-span-full">
+    @for (image of visibleImages; track $index) {
+      <figure class="text-mosaic__tile" [style.--tile-index]="$index">
+        @if (image.publicId) {
+          <ui-image [publicId]="image.publicId" class="text-mosaic__image"></ui-image>
+        } @else {
+          <img
+            [src]="image.url"
+            [alt]="image.alt"
+            class="text-mosaic__image"
+            loading="lazy"
+            decoding="async"
+          />
+        }
+      </figure>
+    }
+  </div>
+
+  @if (title) {
+    <h1 class="text-mosaic__title">
+      <span class="text-mosaic__title-inner">{{ title }}</span>
+    </h1>
+  }
+</section>

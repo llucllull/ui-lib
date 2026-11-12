@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
+import { Meta, StoryObj, moduleMetadata } from '@storybook/angular-vite';
 import { DynamicBackgroundComponent } from './dynamic-background.component';
 
 const meta: Meta<DynamicBackgroundComponent> = {

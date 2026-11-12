@@ -10,11 +10,15 @@ import { UiIconComponent } from '@lluc_llull/ui-lib/shared';
     imports: [CommonModule, LinkTypeDirective, UiIconComponent],
     templateUrl: './nav-modal.component.html',
     styleUrl: './nav-modal.component.scss',
+    host: {
+        '[class.is-closing]': 'closing',
+    },
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavModalComponent {
     @Input() navItems?: UiLibNavItemsI[];
     @Input() socialItems?: UiLibSocialItemsI[];
+    @Input() closing = false;
 
     @Output() close = new EventEmitter<void>();
 

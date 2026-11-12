@@ -21,7 +21,7 @@
       <ui-icon
         [name]="currentTheme === 'dark' ? 'sun' : 'moon'"
         [size]="17"
-        [color]="'var(--color-primary)'"
+        [color]="'currentColor'"
       ></ui-icon>
     </button>
 
@@ -32,10 +32,12 @@
   </div>
 </header>
 
-@if (isMenuOpen && navItems && navItems.length > 0) {
+@if ((isMenuOpen || isMenuClosing) && navItems && navItems.length > 0) {
   <lib-nav-modal
     [navItems]="navItems"
     [socialItems]="socialItems"
-    (close)="isMenuOpen = false"
+    [closing]="isMenuClosing"
+    (close)="closeMenu()"
+    (transitionend)="finishMenuClose($event)"
   ></lib-nav-modal>
 }

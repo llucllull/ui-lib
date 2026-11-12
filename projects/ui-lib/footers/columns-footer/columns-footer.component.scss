@@ -22,6 +22,37 @@
           color: var(--text-secondary);
         }
       }
+
+      &-to-top {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 3rem;
+        height: 3rem;
+        margin-top: 2rem;
+        padding: 0;
+        border: 4px solid var(--text-secondary-70);
+        background: transparent;
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition:
+          color 0.3s ease,
+          background-color 0.3s ease,
+          border-color 0.3s ease,
+          transform 0.3s ease;
+
+        &:hover {
+          background-color: var(--text-secondary);
+          border-color: var(--text-secondary);
+          color: var(--content-bg-dark);
+          transform: translateY(-2px);
+        }
+
+        &:focus-visible {
+          outline: 2px solid var(--text-secondary);
+          outline-offset: 3px;
+        }
+      }
     }
 
     &__two {
@@ -110,6 +141,40 @@
       align-items: center;
       margin-block: 6rem 2rem;
       color: var(--text-secondary-70);
+    }
+  }
+
+  .columns-footer__signature {
+    width: 100%;
+    overflow: hidden;
+    color: var(--text-secondary-70);
+    line-height: 0.72;
+    text-align: center;
+    user-select: none;
+
+    @include respond-max(xs) {
+      padding-bottom: 4rem;
+    }
+
+    span {
+      display: block;
+      width: max-content;
+      margin-inline: auto;
+      font-size: clamp(5rem, 22vw, 21rem);
+      font-weight: 900;
+      white-space: nowrap;
+
+      em {
+        font-style: italic;
+        margin-right: 5rem;
+        @include respond-max(xs) {
+          margin-right: 1rem;
+        }
+      }
+
+      strong {
+        font-style: normal;
+      }
     }
   }
 }

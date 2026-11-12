@@ -1,4 +1,4 @@
-<header class="header-mobile">
+<header class="header-mobile" headerScroll [scrollThreshold]="60">
   <a [href]="homeLink?.url" [linkType]="homeLink?.linkType">
     <div class="header-logo">
       <!-- Logo -->
@@ -37,10 +37,12 @@
   </div>
 </div>
 
-@if (isMenuOpen && navItems && navItems.length > 0) {
+@if ((isMenuOpen || isMenuClosing) && navItems && navItems.length > 0) {
   <lib-nav-modal
     [navItems]="navItems"
     [socialItems]="socialItems"
-    (close)="isMenuOpen = false"
+    [closing]="isMenuClosing"
+    (close)="closeMenu()"
+    (transitionend)="finishMenuClose($event)"
   ></lib-nav-modal>
 }

@@ -1,0 +1,19 @@
+<select
+    [id]="id"
+    [value]="value"
+    [attr.aria-describedby]="describedBy || null"
+    [attr.aria-invalid]="invalid ? 'true' : null"
+    [required]="required"
+    [disabled]="disabled"
+    (change)="handleChange($event)"
+    (blur)="handleBlur()"
+>
+    @if (placeholder) {
+        <option value="" disabled>{{ placeholder }}</option>
+    }
+    @for (option of options; track option.value) {
+        <option [value]="option.value" [disabled]="option.disabled ?? false">
+            {{ option.label }}
+        </option>
+    }
+</select>

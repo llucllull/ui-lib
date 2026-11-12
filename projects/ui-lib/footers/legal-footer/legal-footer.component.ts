@@ -1,14 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { UiLibButtonI } from '@lluc_llull/ui-lib/interfaces';
-import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
 
 export type LegalFooterVariant = 'simple' | 'extended';
 
 @Component({
     selector: 'lib-legal-footer',
     standalone: true,
-    imports: [CommonModule, LinkTypeDirective],
+    imports: [CommonModule],
     templateUrl: './legal-footer.component.html',
     styleUrl: './legal-footer.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,

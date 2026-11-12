@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/angular';
+import { Meta, StoryObj } from '@storybook/angular-vite';
 import { AsymmetricMediaComponent } from './asymmetric-media.component';
 
 export default { title: 'Content/AsymmetricMedia', component: AsymmetricMediaComponent, tags: ['autodocs'], argTypes: { media: { control: 'object' }, direction: { control: 'radio', options: ['left', 'right'] } } } as Meta<AsymmetricMediaComponent>;

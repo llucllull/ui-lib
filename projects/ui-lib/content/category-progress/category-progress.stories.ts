@@ -1,10 +1,14 @@
-import { Meta, StoryObj } from '@storybook/angular';
+import { Meta, StoryObj } from '@storybook/angular-vite';
 import { CategoryProgressComponent } from './category-progress.component';
 
 export default {
     title: 'Content/CategoryProgress',
     component: CategoryProgressComponent,
     tags: ['autodocs'],
+    argTypes: {
+        highlightColor: { control: 'text' },
+        highlightThickness: { control: 'number' },
+    },
 } as Meta<CategoryProgressComponent>;
 
 type Story = StoryObj<CategoryProgressComponent>;

@@ -1,10 +1,9 @@
 <div
   class="split-previewer col-span-full md:col-span-12 md:col-start-1"
   [class]="'split-previewer--' + direction"
-  scrollReveal
 >
   <div class="split-previewer__text-column">
-    <div class="split-previewer__header">
+    <div class="split-previewer__header" scrollReveal from="left" duration="1.2s">
       @if (title) {
         <h1 class="title">{{ title }}</h1>
       }
@@ -20,15 +19,33 @@
           [linkType]="item.link?.linkType"
           (mouseenter)="activeImage.set(item.image)"
           class="split-previewer__item-link"
+          scrollReveal
+          from="left"
+          duration="1.2s"
+          [delay]="($index + 1) * 180"
         >
           <div class="split-previewer__item">
-            <h2 class="split-previewer__item-title" [highlight]="'#FFFFFF'">{{ item.title }}</h2>
+            <h2
+              class="split-previewer__item-title"
+              [style.--highlight-color]="highlightColor"
+              [style.--highlight-thickness]="highlightThickness + '%'"
+            >
+              {{ item.title }}
+            </h2>
             <p class="split-previewer__item-text">{{ item.description }}</p>
             @if (item.tags?.length) {
               <div class="split-previewer__item-tags">
-                @for (tag of item.tags; track tag) {
-                  <span class="split-previewer__item-tag">{{ tag }}</span>
-                }
+                <div
+                  class="split-previewer__item-tags-inner"
+                  [style.--tag-count]="item.tags.length"
+                >
+                  @for (tag of item.tags; track tag) {
+                    <span
+                      class="split-previewer__item-tag"
+                      [style.--tag-index]="$index"
+                    >{{ tag }}</span>
+                  }
+                </div>
               </div>
             }
           </div>

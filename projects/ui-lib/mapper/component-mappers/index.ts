@@ -1,6 +1,7 @@
 export * from './404.mapper';
 export * from './category-progress.mapper';
 export * from './contact-minimal.mapper';
+export * from './contact-form.mapper';
 export * from './header-clear.mapper';
 export * from './hero-section.mapper';
 export * from './lang-modal.mapper';
@@ -21,10 +22,12 @@ export * from './asymmetric-media.mapper';
 export * from './media-intro.mapper';
 export * from './columns-media-stacked.mapper';
 export * from './mosaic-grid.mapper';
+export * from './text-mosaic-hero.mapper';
 
 import { map404 } from './404.mapper';
 import { mapCategoryProgress } from './category-progress.mapper';
 import { mapContactMinimal } from './contact-minimal.mapper';
+import { mapContactForm } from './contact-form.mapper';
 import { mapHeaderClear } from './header-clear.mapper';
 import { mapHeroSection } from './hero-section.mapper';
 import { mapLangModal } from './lang-modal.mapper';
@@ -44,6 +47,7 @@ import { mapAsymmetricMedia } from './asymmetric-media.mapper';
 import { mapMediaIntro } from './media-intro.mapper';
 import { mapColumnsMediaStacked } from './columns-media-stacked.mapper';
 import { mapMosaicGrid } from './mosaic-grid.mapper';
+import { mapTextMosaicHero } from './text-mosaic-hero.mapper';
 
 export const componentMappers: Record<string, (props: any, cdn?: string) => any> = {
     'hero-section': mapHeroSection,
@@ -58,6 +62,7 @@ export const componentMappers: Record<string, (props: any, cdn?: string) => any>
     'not-found': map404,
     'split-previewer': mapSplitPreviewer,
     'contact-minimal': mapContactMinimal,
+    'contact-form': mapContactForm,
     'media-split': mapMediaSplit,
     'stacked-rows': mapStackedRows,
     'mosaic-parallax': mapMosaicParallax,
@@ -68,4 +73,5 @@ export const componentMappers: Record<string, (props: any, cdn?: string) => any>
     'media-intro': mapMediaIntro,
     'columns-media-stacked': mapColumnsMediaStacked,
     'mosaic-grid': mapMosaicGrid,
+    'text-mosaic-hero': mapTextMosaicHero,
 };

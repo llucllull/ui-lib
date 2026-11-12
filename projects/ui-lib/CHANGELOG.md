@@ -2,431 +2,757 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.33.9] - 2026-10-05
+## [0.37.1] - 2026-11-12
+
 ### Added
+
+- add new icons
+
+## [0.37.0] - 2026-11-12
+
+### Added
+
+- add textMosaicHero component
+
+## [0.36.5] - 2026-11-11
+
+### Changed
+
+- update testings to handle >90% coverage
+
+## [0.36.4] - 2026-11-11
+
+### Added
+
+- add pinned diagonal scroll slider to mosaic-parallax (scroll drives a horizontal slide while the viewport stays fixed, then releases)
+- add ascending diagonal normalization so mosaic-parallax accepts any number of items while keeping a single left-to-right upward diagonal
+- overlay mosaic-parallax text on the pinned slider: the first card sits right below the header and the following cards rise beside it
+
+### Changed
+
+- refine mosaic-parallax entrance animation (one-shot keyframes, 80ms stagger, fade + rise)
+- keep mosaic items reachable with reduced motion or without JS (wrapping mosaic fallback)
+
+### Fixed
+
+- apply the ui-lib theme in the Storybook preview so CSS variables resolve (mosaic-parallax text no longer overlaps images sliding behind it)
+
+## [0.36.3] - 2026-11-09
+
+### Added
+
+- add entrance and scroll reveal animations to content-document
+
+## [0.36.2] - 2026-10-09
+
+### Changed
+
+- enhance icon component with LinkedIn support and refactor brand icon handling
+
+## [0.36.1] - 2026-10-08
+
+### Added
+
+- add animations to contact-form
+- add animation to grid showing
+- add animation to tags and highlight on splitPreviewer
+
+## [0.36.0] - 2026-10-08
+
+### Added
+
+- Implemented `ContactFormComponent` with reactive form controls for name, surname, email, phone, and message.
+- Added HTML and SCSS for the contact form layout and styling.
+- Created interfaces for form texts and submission data.
+- Integrated form field components for better reusability.
+- Added mapping function `mapContactForm` to handle image mapping and props.
+- Updated component mappers to include the new contact form.
+- Added tests for the contact form mapping functionality.
+- Updated package.json to include Angular forms as a peer dependency.
+
+## [0.35.0] - 2026-10-08
+
+### Added
+
+- add hover effect for modal items and buttons
+- add text-color on scroll animation on mediaSplit component
+- add slide-top on scroll animation on stackedRows component
+- add slide-left items on scroll on splitPreviewer component
+- add border on hover modal links
+- add border to header buttons
+- add scrollTop button on columnsFooter
+- enhance header scroll directive and styles for light/dark backgrounds
+- add animation on loading hero-section
+- add slide right/left on scroll animation on splitShowcase component
+- add slide up/down on scroll animation on asymmetricMedia component
+- add slide on scroll animation on mediaIntro component
+- add slide on scroll animation on columnsMediaStacked component
+- add slide on scroll animation on mosaicGrid component
+- add animation on 404 component
+
+### Changed
+
+- add color var on highlight on categoryProgress, contactMinimal, splitPreviewer and 404
+- change colors on header-clear
+- change on tag border on splitPreviewer
+- change button styles on 404
+- fix spacing on modal contents
+
+## [0.34.3] - 2026-10-05
+
+### Added
+
+- add missing icon to ui-icon component
+
+## [0.34.2] - 2026-10-05
+
+### Changed
+
+- refactor modals animation
+- improve toggle functionality
+
+## [0.34.1] - 2026-10-05
+
+### Added
+
+- add bottom signature to columnsFooter
+
+## [0.34.0] - 2026-10-05
+
+### Added
+
+- migrate the library workspace to Angular 22 with the modern `@angular/build` library and unit-test builders
+- replace Karma/Jasmine with Vitest and jsdom for unit testing
+- add a shared Vitest configuration with zoneless test execution
+- migrate Storybook to 10.6 with the Vite-based Angular framework
+
+### Changed
+
+- update Angular, Material, CDK, ng-packagr, TypeScript and related tooling dependencies to Angular 22-compatible versions
+- update TypeScript module resolution from `node` to `bundler` for modern Angular package exports
+- remove ZoneJS from the library and test configuration
+- migrate Jasmine spies and matchers in the test suite to Vitest equivalents
+- stop exporting Storybook stories from library entry points so stories are excluded from the published package
+- update publish.yml testing script
+
+## [0.33.10] - 2026-10-05
+
+### Added
+
+- fix padding-block on media-split
+- add headerScroll to header mobile
+
+## [0.33.9] - 2026-10-05
+
+### Added
+
 - add missing storybooks
 - add missing tests
 - edit publish.yml to handle trusted publishing
 
 ### Changed
+
 - update tests for >80% coverage
 
 ## [0.33.8] - 2026-07-14
+
 ### Added
+
 - adjust responsive images on mosaic-grid component
 
 ## [0.33.7] - 2026-07-14
+
 ### Added
+
 - add col-span-full to responsive images on mosaic-grid component
 
 ## [0.33.6] - 2026-06-12
+
 ### Added
+
 - enhance ui-icon and ui-image components with improved handling and attributes
 
 ## [0.33.5] - 2026-06-12
+
 ### Added
+
 - add changeDetection onPush on legalFooter and mosaicParallax
 
 ## [0.33.4] - 2026-06-09
+
 ### Changed
+
 - add min-width to header-clear title
 
 ## [0.33.3] - 2026-06-09
+
 ### Added
+
 - add missing linkType on split-previewer
 
 ## [0.33.2] - 2026-06-09
+
 ### Changed
+
 - simplify linkType directive and improve href handling
 
 ## [0.33.1] - 2026-06-09
+
 ### Added
+
 - unify default direction to 'left' in media mappers
 
 ## [0.33.0] - 2026-06-09
+
 ### Added
+
 - add mosaic-grid component with associated styles, template, and mapper
 
 ## [0.32.0] - 2026-06-07
+
 ### Added
+
 - add columns-media-stacked component with associated styles, template, and mapper
 
 ## [0.31.1] - 2026-06-07
+
 ### Added
+
 - add media-intro tests
 - add direction to handle positioning on media-intro content
 
 ## [0.31.0] - 2026-06-07
+
 ### Added
+
 - add media-intro component with associated styles, template, and mapper
 
 ## [0.30.2] - 2026-06-07
+
 ### Changed
+
 - update positioning while responsive on btn-group on split-showcase
 
 ## [0.30.1] - 2026-06-07
+
 ### Changed
+
 - change title font on hero-section
 
 ## [0.30.0] - 2026-06-06
+
 ### Added
+
 - add asymemtric-media component with associated styles, template, and mapper
 
 ## [0.29.0] - 2026-05-18
+
 ### Added
+
 - add split showcase component with associated styles, template, and mapper
 
 ## [0.28.5] - 2026-05-18
+
 ### Changed
+
 - add pnpm workspace configuration to allow specific builds
 
 ## [0.28.4] - 2026-05-07
+
 ### Added
+
 - add individual secondary entry points to components
 
 ## [0.28.3] - 2026-05-06
+
 ### Added
+
 - add new color vars
 - add header-scroll directive and apply it to header-clear
 
 ## [0.28.2] - 2026-05-06
+
 ### Changed
+
 - update logo size on headers
 
 ## [0.28.1] - 2026-05-05
+
 ### Changed
-- update ui-image to improve performance 
+
+- update ui-image to improve performance
 
 ## [0.28.0] - 2026-05-05
+
 ### Added
+
 - add ui-image component with cloudinary integration
 
 ### Changed
+
 - add ui-image to contact-minimal, hero-section, media-split, mosaic-parallax and split-previewer components
 
 ## [0.27.4] - 2026-05-05
+
 ### Changed
+
 - remove borders from grid guidelines
 
 ## [0.27.3] - 2026-05-05
+
 ### Changed
+
 - change color on columns-footer items
 
 ## [0.27.2] - 2026-05-05
+
 ### Added
+
 - add stories for columns-footer component
 - add tests for columns-footer component
 
 ### Changed
+
 - fix styles columns-footer on responsive
 
 ## [0.27.1] - 2026-05-05
+
 ### Changed
+
 - update contact-minimal grid and styles
 - fix underline on btn-link common styles
 
 ## [0.27.0] - 2026-05-05
+
 ### Added
+
 - add color opacity vars
 - add default styles on lists
 - add columns-footer component
 
 ## [0.26.4] - 2026-05-04
+
 ### Changed
+
 - update styles header adapting it to main grid
 
 ## [0.26.3] - 2026-05-04
+
 ### Added
+
 - update styles footers adapting them to main grid
 
 ## [0.26.2] - 2026-05-04
+
 ### Added
+
 - add missing storybooks
 
 ## [0.26.1] - 2026-05-01
+
 ### Added
+
 - add innerHTML to item text on content-document
 
 ## [0.26.0] - 2026-04-30
+
 ### Added
+
 - add content-document page and mapper
 
 ## [0.25.5] - 2026-04-30
+
 ### Changed
+
 - add tests to mosaic-parallax component
 
 ## [0.25.4] - 2026-04-30
+
 ### Changed
+
 - invert theme logos
 
 ## [0.25.3] - 2026-04-30
+
 ### Changed
+
 - remove host styles and apply them on the .ts file
 - fix img sticky on split-previewer
 
 ## [0.25.2] - 2026-04-30
+
 ### Changed
+
 - adjust styles, transition and visibility on mosaic-parallax
 
 ## [0.25.1] - 2026-04-25
+
 ### Changed
+
 - fix cards grid-row on mosaic-parallax on responsive
 
 ## [0.25.0] - 2026-04-25
+
 ### Added
+
 - add texts interface
 - add mosaic parallax component with mapping and styles
 
 ## [0.24.3] - 2026-04-24
+
 ### Changed
+
 enhance hero section with image variant and background handling
 
 ## [0.24.2] - 2026-04-24
+
 ### Changed
+
 - add grid to 404 component
 
 ## [0.24.1] - 2026-04-24
+
 ### Changed
+
 - refactor stacked rows to use main-grid
 
 ## [0.24.0] - 2026-04-24
+
 ### Changed
+
 - add stacked-rows component
 
 ## [0.23.5] - 2026-04-24
+
 ### Changed
+
 - fix image handling on split-preview
 
 ## [0.23.4] - 2026-04-24
+
 ### Added
+
 - optimize images on split-previewer
 
 ## [0.23.3] - 2026-04-24
+
 ### Added
+
 - optimize img to handle better performance on media-split
 - fix media-split test to handle new optimized image handling
 
 ## [0.23.2] - 2026-04-23
+
 ### Added
+
 - adjust padding and image object position in header-clear component
 
 ## [0.23.1] - 2026-04-23
+
 ### Added
+
 - update text rendering to use innerHTML for media-split component; adjust font sizes in split-previewer and typography styles
 
 ## [0.23.0] - 2026-04-23
+
 ### Added
+
 - add media-split component
 
 ## [0.22.11] - 2026-04-23
+
 ### Added
+
 - update layout and styles for category-progress, contact-minimal, section-intro, and split-previewer components
 - update package-lock.json and package.json dependencies; modify split-previewer component tests for improved input handling
 
 ## [0.22.10] - 2026-04-21
+
 ### Added
+
 - add split-previewer tests
 
 ## [0.22.9] - 2026-04-16
+
 ### Added
+
 - add aria-label to header buttons
 
 ## [0.22.8] - 2026-04-16
+
 ### Changed
+
 - fix height on contact-minimal image
 
 ## [0.22.7] - 2026-04-16
+
 ### Changed
+
 - enhance image loading attributes for contact-minimal and split-previewer components
 
 ## [0.22.6] - 2026-04-16
+
 ### Changed
+
 - adjust img responsive positioning on contact-minimal
 
 ## [0.22.5] - 2026-04-16
+
 ### Changed
+
 - adjust img styles on contact-minimal
 
 ## [0.22.4] - 2026-04-14
+
 ### Changed
+
 - fix scrollReveal errors on SSG contexts
 - undo splitPreviewer style changes
 
 ## [0.22.3] - 2026-04-14
+
 ### Changed
+
 - fix scrollReveal errors on SSG contexts
 
 ## [0.22.2] - 2026-04-14
+
 ### Added
+
 - add contact-minimal tests
 
 ## [0.22.1] - 2026-04-14
+
 ### Changed
+
 - adjust grid on responsive
 
 ## [0.22.0] - 2026-04-13
+
 ### Added
+
 - add responsive grid architecture and column utilities
 - add column and start system on grid
 
 ### Changed
+
 - adjust components with grid changes
 
 ## [0.21.0] - 2026-04-13
+
 ### Added
+
 - create scrollReveal directive
 - add scrollReveal to all content components
 
 ## [0.20.0] - 2026-04-13
+
 ### Added
+
 - add contact minimal component
 
 ## [0.19.3] - 2026-04-01
+
 ### Changed
+
 - adjust font-size on navmodal on responsive devices
 
 ## [0.19.2] - 2026-04-01
+
 ### Changed
+
 - change item styles on categoryProgress
 
 ## [0.19.1] - 2026-03-30
+
 ### Changed
+
 - handle undefined router URL in getCurrentLang
 - set default width in ScreenSizerService
 
 ## [0.19.0] - 2026-03-30
+
 ### Added
+
 - add tag color and background variables to dark and light themes
 - add split previewer component with styles, tests, and mappers
 
 ## [0.18.4] - 2026-03-27
+
 ### Added
+
 - create layout-padding
 
 ### Changed
+
 - refactor styles from category-progress
 - update styles folders and reorganize variables to handle layout padding
 
 ## [0.18.3] - 2026-03-27
+
 ### Changed
+
 - update button of sectionIntro
 - fix icon on sectionIntro test
 
 ## [0.18.2] - 2026-03-27
+
 ### Added
+
 - add 404 test
 
 ### Changed
+
 - refactor icon buttons on navModal, heroSection, 404
 - update common button styles to handle ui-icons
 - update herosection, navModal tests
 
 ## [0.18.1] - 2026-03-27
+
 ### Added
+
 - add styles btn-header
 - add btn-header to theme styles
 
 ### Changed
+
 - update header buttons
 - remove theme from headers tests
 - update headers tests
 
 ## [0.18.0] - 2026-03-22
+
 ### Added
+
 - add new global class to handle btn groups
 - add highlight directive
 
 ### Changed
+
 - update nav-modal tests
 
 ## [0.17.3] - 2026-03-22
+
 ### Changed
+
 - update styles wave on hero-section
 
 ## [0.17.2] - 2026-03-22
+
 ### Changed
+
 - update styles 404 page
 
 ## [0.17.1] - 2026-03-22
+
 ### Added
+
 - add --font-title-home to style variables
 
 ### Changed
+
 - change styles on heroSection font
 - improve styles on responsive on modals
 
 ## [0.17.0] - 2026-03-22
+
 ### Changed
+
 - refactor all injects and locate them on constructors
 
 ## [0.16.2] - 2026-03-22
+
 ### Changed
+
 - undo changes on deploy script
 
 ## [0.16.1] - 2026-03-22
+
 ### Changed
+
 - change sourceRoot to handle testing
 
 ## [0.16.0] - 2026-03-17
+
 ### Added
+
 - define enums as secondary entry point
 - add paths to secondary entry points
 - move effects, sliders, interfaces, directives, services, utils, components and enums outside src to generate the secondary entry points
 
 ### Changed
+
 - update deploy script
 
 ## [0.15.2] - 2026-03-17
+
 ### Changed
+
 - rename Enum directory
 - remove enum and effects from public-api
 
 ## [0.15.1] - 2026-03-17
+
 ### Added
+
 - add icon mock to run test
 
 ### Changed
+
 - refactor ui-icon component without icon.module
 - exclude '.stories.ts' and '.d.ts' from build
 - refactor socialFooter tests to handle icon mock
 
 ### Removed
+
 - remove icon module
 
 ## [0.15.0] - 2026-03-13
+
 ### Added
+
 - add 404 component with styles, template, and tests
 
 ## [0.14.2] - 2026-03-13
+
 ### Changed
+
 - update mapButtons util to handle all available linktypes
 - refactor linkType directive to handle all available linktypes
 
 ## [0.14.1] - 2026-03-11
+
 ### Added
+
 - update github workflows with npm OIDC github actions
 
 ## [0.14.0] - 2026-03-09
+
 ### Added
+
 - migrate to Angular 19
 - add package.json to effects and sliders ng-packages
 
 ### Changed
+
 - fix import swiper on link/social footers test
 - remove dynamic-background tests
 - update test script on package.json
 - update deploy github actions
 
 ## [0.13.0] - 2026-03-09
+
 ### Added
+
 - add CDN_BASE_URL injection token and update image mapping logic
 - add dynamic background component with effects and swiper directive to its own ng-package
-- add missing sass:map import in _mixins.scss
+- add missing sass:map import in \_mixins.scss
 - implement language mapping in HeaderMobileComponent for improved navigation
 
 ### Changed
+
 - reorder import statements in social-footer component for clarity
-- correct syntax for map functions in _mixins.scss
+- correct syntax for map functions in \_mixins.scss
 - restore allowedNonPeerDependencies in ng-package.json
 - reorganize package.json dependencies for clarity and consistency
 - update component mappers to include CDN support and refactor mapping functions
@@ -436,52 +762,73 @@ enhance hero section with image variant and background handling
 - simplify internal navigation by removing URL cleanup in LinkTypeDirective
 
 ## [0.12.5] - 2025-10-29
+
 ### Added
+
 - add format command scripts to package.json
 
 ### Changed
+
 - format all files
 
 ## [0.12.4] - 2025-10-29
+
 ### Added
+
 - add prettier config and plugins setup
 
 ## [0.12.3] - 2025-10-23
+
 ### Added
+
 - fixes branches
 
 ## [0.12.2] - 2025-10-23
+
 ### Added
+
 - refactor components folder and split contents
 
 ## [0.12.1] - 2025-09-02
+
 ### Added
+
 - Update dynamic-background component
 - Update dynamic-background stories
 - Add dynamic effects with SphereDeformEffect and registry
 
 ## [0.12.0] - 2025-09-01
+
 ### Added
+
 - Import three.js
 - Add dynamic-background component
 - Add stories for dynamic-background component
 - Add /effects import to public-api
 
 ## [0.11.0] - 2025-08-28
+
 ### Added
+
 - Add unit tests for ui-lib components
 - Add unit tests step to CI workflow
 
 ## [0.10.2] - 2025-08-27
+
 ### Added
+
 - Fix LinkTypeDirective import
 
 ## [0.10.1] - 2025-08-27
+
 ### Added
+
 - Fix UiIcon import
 
 ## [0.10.0] - 2025-08-26
+
 ### Added
+
 - Add UiLibAddres interface
 - Add visual-footer component
 - Add stories for social-footer
@@ -489,17 +836,23 @@ enhance hero section with image variant and background handling
 - Update light color styles
 
 ## [0.9.2] - 2025-08-26
+
 ### Added
+
 - Fix display lucide icons
 - Update styles for social-footer
 - Add new color variables for footer arrows
 
 ## [0.9.1] - 2025-08-26
+
 ### Added
+
 - Update styles for Storybook
 
 ## [0.9.0] - 2025-08-25
+
 ### Added
+
 - Import swiper.js + create swiper directive
 - Add social-footer component
 - Add stories for social-footer
@@ -509,94 +862,126 @@ enhance hero section with image variant and background handling
 - Create Ui Icon shared component
 
 ## [0.8.0] - 2025-08-23
+
 ### Added
+
 - Add legal-footer component
 - Add stories for legal-footer
 - Add mapper for legal-footer
 - Add footer color variables for themes
 
 ## [0.7.0] - 2025-08-23
+
 ### Added
+
 - Add links-footer component
 - Add stories for links-footer
 - Add mapper for links-footer
 
 ## [0.6.0] - 2025-08-23
+
 ### Added
+
 - Add deploy for Storybook
 
 ## [0.5.2] - 2025-08-14
+
 ### Added
+
 - Add optionallity to icon
 - Change font-size for btn-link
 - Add stories for category-progress and section-intro
 - Update story for header-clear
 
 ## [0.5.1] - 2025-08-14
+
 ### Added
+
 - Update font-size on hero-section component
 - Update modal item styles and introduce new font variables
 - Add social items support to header and nav modal components
 
 ## [0.5.0] - 2025-08-14
+
 ### Added
+
 - Add variables for theme color handle
 - Theme toggle functionality in header components
 - Add theme service for managing light and dark themes
 - Change logo depending on the theme
 
 ## [0.4.5] - 2025-08-14
+
 ### Added
+
 - Fix styles hero-section
 - Update color variables for header and buttons
 - Add home link functionality to header components
 - Update styles for modals
 
 ## [0.4.4] - 2025-08-13
+
 ### Added
+
 - Update imports for ui-lib
 - Add animation highlight to hero-section component
 
 ## [0.4.3] - 2025-08-13
+
 ### Added
+
 - Fix style from close-btn in modals
 - Add pretitle to hero-section component
 - Update styles from hero-section
 
 ## [0.4.2] - 2025-08-11
+
 ### Added
+
 - Update styles for lang and nav modals
 - Refactor CSS variables for consistency across components
 - Add button icon to hero-section component
 - Update btn-link common styles
 
 ## [0.4.1] - 2025-08-11
+
 ### Added
+
 - Update mapImage function
 - Add logo to headers
 
 ## [0.4.0] - 2025-07-31
+
 ### Added
+
 - Add new component CategoryProgress
 - Add mapper for CategoryProgress
 
 ## [0.3.0] - 2025-07-29
+
 ### Added
+
 - Add new component SectionIntro
 - Add mapper for SectionIntro
 - Create typography styles file
 
 ## [0.2.3] - 2025-07-29
+
 ### Added
+
 - Enhance deploy script with CSS compilation and validation
 - Change styles for HeroSection
 
 ## [0.2.2] - 2025-07-28
+
 ### Added
+
 - Update package.json and workflows for style building and publishing
 
 ## [0.2.1] - 2025-07-28
+
 ### Added
+
 - Add HeaderMobile component
 - Create screenSizer service
 - Update mixins functions
@@ -604,7 +989,9 @@ enhance hero section with image variant and background handling
 - Update Storybook configuration
 
 ## [0.2.0] - 2025-07-28
+
 ### Added
+
 - Integration of Storybook with configuration and documentation
 - Add HeroSection component stories for Storybook
 - Add global, common, variables, breakpoints and mixins styles
@@ -612,26 +999,36 @@ enhance hero section with image variant and background handling
 - Create styles for HeaderClear component
 
 ## [0.1.6] - 2025-07-23
+
 ### Added
+
 - Add nav-modal functionalities
 
 ## [0.1.5] - 2025-07-22
+
 ### Added
+
 - Add new imports from new interfaces
 
 ## [0.1.4] - 2025-07-22
+
 ### Added
+
 - Update 'lang-modal' component and mapper
 
 ## [0.1.3] - 2025-07-20
+
 ### Added
+
 - Create 'header-clear', 'lang-modal' and 'nav-modal' components
 - Update PageComponent interface
 - Create NavItems interface
 - Create 'header-clear', 'lang-modal' and 'nav-modal' mappers
 
 ## [0.1.2] - 2025-07-12
+
 ### Added
+
 - Rename 'top-slider' to 'hero-section'
 - Add utils functions and interfaces for buttons and images
 - Edit Prettier formatter
@@ -639,11 +1036,15 @@ enhance hero section with image variant and background handling
 - Code and map hero-section
 
 ## [0.1.1] - 2025-07-10
+
 ### Added
+
 - Fix deploy script command
 
 ## [0.1.0] - 2025-07-10
+
 ### Added
+
 - MapperService`: logic to dynamically map components by name and props.
 - Individual mapper structure (`component-mappers/`) to easily scale components.
 - BodyComponent<T>` and other interfaces centralised in the library.
@@ -651,5 +1052,7 @@ enhance hero section with image variant and background handling
 - Base configuration to consume interfaces and services from external apps (e.g. `portfolio`).
 
 ## [0.0.2] - 2025-07-01
+
 ### Added
+
 - First basic component generated in the `ui-lib` library.

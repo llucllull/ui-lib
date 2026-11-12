@@ -1,0 +1,14 @@
+<input
+    [id]="id"
+    [type]="type"
+    [value]="value"
+    [placeholder]="placeholder"
+    [attr.autocomplete]="autocomplete || null"
+    [attr.maxlength]="maxLength ?? null"
+    [attr.aria-describedby]="describedBy || null"
+    [attr.aria-invalid]="invalid ? 'true' : null"
+    [required]="required"
+    [disabled]="disabled"
+    (input)="handleInput($event)"
+    (blur)="handleBlur()"
+/>

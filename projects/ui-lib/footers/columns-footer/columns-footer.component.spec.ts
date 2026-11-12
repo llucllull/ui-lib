@@ -68,6 +68,29 @@ describe('ColumnsFooterComponent', () => {
     expect(links[0].nativeElement.getAttribute('href')).toBe('/link1');
   });
 
+  it('should render a back-to-top button in the first column', () => {
+    component.columns = mockColumns;
+    fixture.detectChanges();
+
+    const button = fixture.debugElement.query(
+      By.css('.columns-footer__one .columns-footer__one-to-top'),
+    );
+    expect(button).toBeTruthy();
+    expect(button.nativeElement.getAttribute('aria-label')).toBe('Volver arriba');
+  });
+
+  it('should scroll to the top when the back-to-top button is clicked', () => {
+    component.columns = mockColumns;
+    fixture.detectChanges();
+
+    const scrollTo = vi.spyOn(window, 'scrollTo').mockImplementation(() => undefined);
+    const button = fixture.debugElement.query(By.css('.columns-footer__one-to-top'));
+    button.nativeElement.click();
+
+    expect(scrollTo).toHaveBeenCalledWith({ top: 0, behavior: 'smooth' });
+    scrollTo.mockRestore();
+  });
+
   it('should not render columns if input is undefined', () => {
     component.columns = undefined;
     fixture.detectChanges();
@@ -88,6 +111,19 @@ describe('ColumnsFooterComponent', () => {
     const copyright = fixture.debugElement.query(By.css('.columns-footer__copyright-text'));
     expect(copyright).toBeTruthy();
     expect(copyright.nativeElement.textContent).toContain('2025');
+  });
+
+  it('should render the large signature from the copyright name', () => {
+    component.copyright = {
+      year: '2025',
+      name: 'Lluc Llull',
+    };
+
+    fixture.detectChanges();
+
+    const signature = fixture.debugElement.query(By.css('.columns-footer__signature'));
+    expect(signature.nativeElement.querySelector('em').textContent).toBe('Lluc');
+    expect(signature.nativeElement.querySelector('strong').textContent).toBe('Llull');
   });
 
   it('should not render copyright when not provided', () => {

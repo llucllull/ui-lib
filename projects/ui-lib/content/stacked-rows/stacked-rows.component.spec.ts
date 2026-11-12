@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { ScrollRevealDirective } from '@lluc_llull/ui-lib/directives';
 import { StackedRowItemI, StackedRowsComponent } from './stacked-rows.component';
 
 describe('StackedRowsComponent', () => {
@@ -62,6 +64,20 @@ describe('StackedRowsComponent', () => {
 
             expect(firstItemTitle?.textContent?.trim()).toContain('Item 1');
             expect(firstItemText?.textContent?.trim()).toContain('Text 1');
+        });
+    });
+
+    describe('scroll reveal', () => {
+        it('reveals the intro and each item from below while scrolling', () => {
+            fixture.componentRef.setInput('title', 'Servicios');
+            fixture.componentRef.setInput('text', 'Descripción general');
+            fixture.componentRef.setInput('items', mockItems);
+            fixture.detectChanges();
+
+            const reveals = fixture.debugElement.queryAll(By.directive(ScrollRevealDirective));
+
+            expect(reveals.length).toBe(3);
+            expect(reveals.every((reveal) => reveal.injector.get(ScrollRevealDirective).from === 'bottom')).toBe(true);
         });
     });
 

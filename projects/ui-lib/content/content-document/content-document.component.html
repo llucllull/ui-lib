@@ -1,6 +1,12 @@
-<div class="content-document main-grid col-span-full sm:col-span-12 sm:col-start-1" scrollReveal>
+<div class="content-document main-grid col-span-full sm:col-span-12 sm:col-start-1">
   @if (title) {
-    <div class="content-document__title main-grid col-span-full">
+    <div
+      class="content-document__title main-grid col-span-full"
+      scrollReveal
+      from="bottom"
+      distance="24px"
+      duration="0.7s"
+    >
       <h1 class="title col-span-full">{{ title }}</h1>
     </div>
   }
@@ -8,10 +14,24 @@
     <div class="content-document__items col-span-full">
       @for (item of items; track $index) {
         <div class="content-document__items--item main-grid">
-          <h2 class="content-document__items--item_title col-span-full sm:col-span-12 sm:col-start-1">
+          <h2
+            class="content-document__items--item_title col-span-full sm:col-span-12 sm:col-start-1"
+            scrollReveal
+            from="bottom"
+            distance="20px"
+            duration="0.6s"
+          >
             {{ item.title }}
           </h2>
-          <p class="content-document__items--item_text col-span-full sm:col-span-4 sm:col-start-5" [innerHTML]="item.text"></p>
+          <p
+            class="content-document__items--item_text col-span-full sm:col-span-4 sm:col-start-5"
+            scrollReveal
+            from="bottom"
+            distance="20px"
+            duration="0.6s"
+            [delay]="90"
+            [innerHTML]="item.text"
+          ></p>
         </div>
       }
     </div>

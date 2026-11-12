@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CLOUDINARY_CLOUD_NAME } from '@lluc_llull/ui-lib/mapper';
 import { LinkType } from '../../directives';
 import { SplitPreviewerComponent, SplitPreviewerItemI } from './split-previewer.component';
 
@@ -26,11 +27,16 @@ describe('SplitPreviewerComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             imports: [SplitPreviewerComponent],
+            providers: [{ provide: CLOUDINARY_CLOUD_NAME, useValue: 'demo' }],
         }).compileComponents();
 
         fixture = TestBed.createComponent(SplitPreviewerComponent);
         component = fixture.componentInstance;
         // ❌ quitamos detectChanges aquí
+    });
+
+    afterEach(() => {
+        vi.unstubAllGlobals();
     });
 
     it('should create', () => {
@@ -104,6 +110,36 @@ describe('SplitPreviewerComponent', () => {
             expect(links.length).toBe(2);
         });
 
+        it('should use the theme highlight variable by default', () => {
+            fixture.componentRef.setInput('items', mockItems);
+            fixture.detectChanges();
+
+            const title = fixture.nativeElement.querySelector('.split-previewer__item-title');
+            expect(title.style.getPropertyValue('--highlight-color')).toBe('var(--content-highlight)');
+        });
+
+        it('should allow overriding the highlight color', () => {
+            fixture.componentRef.setInput('items', mockItems);
+            fixture.componentRef.setInput('highlightColor', 'var(--text-primary)');
+            fixture.detectChanges();
+
+            const title = fixture.nativeElement.querySelector('.split-previewer__item-title');
+            expect(title.style.getPropertyValue('--highlight-color')).toBe('var(--text-primary)');
+        });
+
+        it('should allow adjusting the highlight thickness', () => {
+            fixture.componentRef.setInput('items', mockItems);
+            fixture.detectChanges();
+
+            const title = fixture.nativeElement.querySelector('.split-previewer__item-title');
+            expect(title.style.getPropertyValue('--highlight-thickness')).toBe('30%');
+
+            fixture.componentRef.setInput('highlightThickness', 40);
+            fixture.detectChanges();
+
+            expect(title.style.getPropertyValue('--highlight-thickness')).toBe('40%');
+        });
+
         it('should render tags for items that have them', () => {
             fixture.componentRef.setInput('items', mockItems);
             fixture.detectChanges();
@@ -137,6 +173,35 @@ describe('SplitPreviewerComponent', () => {
             expect(img.src).toContain('active.jpg');
         });
 
+        it('should render a cloudinary image when imageDefault has a publicId', () => {
+            component.imageDefault = {
+                publicId: 'split-default',
+                url: 'https://cdn.example.com/default.jpg',
+                alt: 'Default Image',
+            };
+            fixture.detectChanges();
+
+            const uiImage = fixture.nativeElement.querySelector('ui-image.preview-img');
+
+            expect(uiImage).not.toBeNull();
+            expect(uiImage.querySelector('img').src).toContain('split-default');
+            expect(fixture.nativeElement.querySelector('img.preview-img')).toBeNull();
+        });
+
+        it('should render a cloudinary image when activeImage has a publicId', () => {
+            component.activeImage.set({
+                publicId: 'split-active',
+                url: 'https://cdn.example.com/active.jpg',
+                alt: 'Active Image',
+            });
+            fixture.detectChanges();
+
+            const uiImage = fixture.nativeElement.querySelector('ui-image.preview-img');
+
+            expect(uiImage).not.toBeNull();
+            expect(uiImage.querySelector('img').src).toContain('split-active');
+        });
+
         it('should apply direction class', () => {
             fixture.componentRef.setInput('direction', 'left');
             fixture.detectChanges();
@@ -152,6 +217,21 @@ describe('SplitPreviewerComponent', () => {
             expect(el.classList).toContain('split-previewer--right');
         });
 
+        it('should stagger the reveal of the header and items from the left', () => {
+            fixture.componentRef.setInput('title', 'Proyectos');
+            fixture.componentRef.setInput('items', mockItems);
+            fixture.detectChanges();
+
+            const header = fixture.nativeElement.querySelector(
+                '.split-previewer__header',
+            ) as HTMLElement;
+            const links = fixture.nativeElement.querySelectorAll('.split-previewer__item-link');
+
+            expect(header.style.transition).toContain('0ms');
+            expect((links[0] as HTMLElement).style.transition).toContain('180ms');
+            expect((links[1] as HTMLElement).style.transition).toContain('360ms');
+        });
+
         it('should set activeImage on mouseenter of an item', () => {
             fixture.componentRef.setInput('items', mockItems);
             fixture.detectChanges();
@@ -162,6 +242,29 @@ describe('SplitPreviewerComponent', () => {
             fixture.detectChanges();
 
             expect(component.activeImage()).toEqual(mockItems[0].image);
+        });
+    });
+
+    describe('preloading', () => {
+        it('should preload item images when requestIdleCallback is available', () => {
+            const preloaded: string[] = [];
+            vi.stubGlobal('Image', class {
+                set src(value: string) {
+                    preloaded.push(value);
+                }
+            });
+            vi.stubGlobal('requestIdleCallback', (cb: () => void) => {
+                cb();
+                return 0;
+            });
+
+            fixture.componentRef.setInput('items', [
+                mockItems[0],
+                { title: 'Project Gamma', description: 'A project without image' },
+            ]);
+            fixture.detectChanges();
+
+            expect(preloaded).toEqual(['https://cdn.example.com/alpha.jpg']);
         });
     });
 });

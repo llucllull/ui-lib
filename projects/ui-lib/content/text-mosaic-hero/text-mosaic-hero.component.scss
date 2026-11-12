@@ -1,0 +1,229 @@
+@use '../../../ui-lib/src/lib/styles/abstracts' as *;
+
+$fallback-duration: 0.9s;
+$title-duration: 1s;
+$stage-height: 100svh;
+$pin-runway: 80svh;
+
+// The section is the subject of the scroll timeline: cards start scattered
+// while it is still entering and snap into the grid while the stage is pinned.
+.text-mosaic {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  padding-block: clamp(2rem, 6vh, 4rem);
+  view-timeline-name: --text-mosaic;
+  view-timeline-axis: block;
+
+  @include respond-min(md) {
+    // Pinning needs a runway: the row is taller than the sticky stage, so the
+    // stage can travel through it while the scroll progresses.
+    grid-template-rows: calc(#{$stage-height} + #{$pin-runway});
+    align-content: start;
+    padding-block: 0;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1rem, 3vw, 2.75rem);
+    // Keep a generous grid while leaving enough room between the tiles.
+    width: min(100%, 60rem, 120svh);
+    margin-inline: auto;
+    padding-inline: clamp(0.25rem, 1.5vw, 1rem);
+    perspective: 1400px;
+
+    @include respond-min(md) {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-row: 1;
+      grid-column: 1 / -1;
+      position: sticky;
+      top: 0;
+      align-self: start;
+      box-sizing: border-box;
+      height: $stage-height;
+      align-content: center;
+    }
+  }
+
+  &__tile {
+    // Pseudo-random scatter derived from the rendered order, so columns and
+    // rows never repeat the same tilt. Values are angles/lengths only.
+    --tile-i: var(--tile-index, 0);
+    --enter-x: calc(sin((var(--tile-i) + 1) * 2.399) * 90%);
+    --enter-y: calc(28% + cos((var(--tile-i) + 1) * 1.717) * 42%);
+    --enter-rz: calc(sin((var(--tile-i) + 1) * 1.113) * 24deg);
+    --enter-rx: calc(20deg + cos((var(--tile-i) + 1) * 0.731) * 16deg);
+    --enter-scale: calc(0.48 + sin((var(--tile-i) + 1) * 1.531) * 0.06);
+
+    position: relative;
+    margin: 0;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 0;
+    background: var(--content-bg-light);
+    box-shadow: none;
+    opacity: 0;
+    transform: translate3d(var(--enter-x, 0), var(--enter-y, 3.5rem), 0)
+      rotateX(var(--enter-rx, 18deg)) rotateZ(var(--enter-rz, 0deg)) scale(var(--enter-scale, 0.72));
+    transform-origin: center 70%;
+    transition:
+      opacity 0.7s ease-out calc(var(--tile-index, 0) * 45ms + 60ms),
+      transform $fallback-duration cubic-bezier(0.16, 1, 0.3, 1)
+        calc(var(--tile-index, 0) * 45ms + 60ms);
+  }
+
+  &__image,
+  ui-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__title {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: clamp(1rem, 3vw, 3rem);
+    color: var(--text-primary);
+    font-family: var(--font-titles);
+    font-size: clamp(3.5rem, 15vw, 15rem);
+    font-weight: 900;
+    line-height: 0.76;
+    letter-spacing: -0.055em;
+    text-align: center;
+    text-transform: uppercase;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate3d(0, 10%, 0);
+    transition:
+      opacity $title-duration ease-out 120ms,
+      transform $title-duration cubic-bezier(0.16, 1, 0.3, 1) 120ms;
+
+    @include respond-min(md) {
+      // Shares the pinned row with the grid, so the title stays over the cards
+      // while they assemble behind it.
+      position: sticky;
+      inset: auto;
+      top: 0;
+      grid-row: 1;
+      grid-column: 1 / -1;
+      align-self: start;
+      box-sizing: border-box;
+      height: $stage-height;
+      padding: clamp(1rem, 3vw, 3rem);
+    }
+  }
+
+  &__title-inner {
+    display: inline-block;
+    max-width: 100vw;
+    overflow-wrap: anywhere;
+    transform: scaleX(0.82);
+    transform-origin: center;
+  }
+
+  &--in {
+    .text-mosaic__tile {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) rotateX(0) rotateZ(0) scale(1);
+    }
+
+    .text-mosaic__title {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+
+// The grid settles first, then holds before the title begins to expand.
+@supports (animation-timeline: view()) {
+  .text-mosaic__tile {
+    animation: text-mosaic-tile-settle linear both;
+    animation-timeline: --text-mosaic;
+    animation-range: contain calc(4% + var(--tile-index, 0) * 0.35%) contain
+      calc(38% + var(--tile-index, 0) * 1.3%);
+    transition: none;
+  }
+
+  .text-mosaic__title-inner {
+    animation: text-mosaic-title-expand linear both;
+    animation-timeline: --text-mosaic;
+    animation-range: contain 82% contain 100%;
+  }
+
+  @include respond-min(md) {
+    .text-mosaic__tile {
+      will-change: transform, opacity;
+    }
+  }
+}
+
+@keyframes text-mosaic-tile-settle {
+  from {
+    opacity: 0;
+    transform: translate3d(var(--enter-x, 0), var(--enter-y, 3.5rem), 0)
+      rotateX(var(--enter-rx, 18deg)) rotateZ(var(--enter-rz, 0deg)) scale(var(--enter-scale, 0.72));
+  }
+
+  35% {
+    opacity: 0.75;
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotateX(0) rotateZ(0) scale(1);
+  }
+}
+
+@keyframes text-mosaic-title-expand {
+  from {
+    transform: scaleX(0.82);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+:host-context([data-theme='dark']) .text-mosaic__title {
+  mix-blend-mode: screen;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-mosaic {
+    grid-template-rows: auto;
+    padding-block: clamp(2rem, 6vh, 4rem);
+  }
+
+  .text-mosaic__grid {
+    position: static;
+    height: auto;
+  }
+
+  .text-mosaic__title {
+    position: absolute;
+    inset: 0;
+    height: auto;
+  }
+
+  .text-mosaic__tile,
+  .text-mosaic__title {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+
+  .text-mosaic__title-inner {
+    animation: none;
+    transform: none;
+  }
+}

@@ -1,71 +1,248 @@
-// import { ComponentFixture, TestBed } from '@angular/core/testing';
-// import { DynamicBackgroundComponent } from './dynamic-background.component';
-// import { DynamicEffect } from './effects/dynamic-effect.interface';
-// import { EFFECT_REGISTRY } from './effects/effect-registry';
+import { PLATFORM_ID } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import * as THREE from 'three';
+import { DynamicBackgroundComponent } from './dynamic-background.component';
 
-// class MockEffect implements DynamicEffect {
-//     init = jasmine.createSpy('init');
-//     animate = jasmine.createSpy('animate');
-//     dispose = jasmine.createSpy('dispose');
-// }
+vi.mock('three', () => {
+  class Color {
+    constructor(public value?: string) {}
+  }
 
-// describe('DynamicBackgroundComponent', () => {
-//     let component: DynamicBackgroundComponent;
-//     let fixture: ComponentFixture<DynamicBackgroundComponent>;
+  class Scene {
+    background: unknown;
+    readonly objects: unknown[] = [];
 
-//     beforeEach(async () => {
-//         // Registrar efecto mock
-//         (EFFECT_REGISTRY as any)['sphere-deform'] = MockEffect;
+    add = vi.fn((...objects: unknown[]) => {
+      this.objects.push(...objects);
+    });
+  }
 
-//         await TestBed.configureTestingModule({
-//             imports: [DynamicBackgroundComponent],
-//         }).compileComponents();
+  class PerspectiveCamera {
+    aspect = 1;
+    position = { z: 0 };
+    updateProjectionMatrix = vi.fn();
+  }
 
-//         fixture = TestBed.createComponent(DynamicBackgroundComponent);
-//         component = fixture.componentInstance;
+  class WebGLRenderer {
+    setSize = vi.fn();
+    render = vi.fn();
+    dispose = vi.fn();
+  }
 
-//         // Evita crear WebGL real
-//         spyOn<any>(component, 'initScene').and.callFake(() => {
-//             (component as any).currentEffect = new MockEffect();
-//             (component as any).currentEffect.init();
-//         });
+  class DirectionalLight {
+    readonly position = {
+      set: vi.fn(() => ({ normalize: vi.fn() })),
+    };
+  }
 
-//         fixture.detectChanges();
-//     });
+  class Vector3 {
+    x = 1;
+    y = 2;
+    z = 3;
 
-//     it('should create', () => {
-//         expect(component).toBeTruthy();
-//     });
+    fromBufferAttribute = vi.fn((attribute: any, index: number) => {
+      this.x = attribute.getX(index);
+      this.y = attribute.getY(index);
+      this.z = attribute.getZ(index);
+      return this;
+    });
+    normalize = vi.fn(() => this);
+    multiplyScalar = vi.fn((scalar: number) => {
+      this.x *= scalar;
+      this.y *= scalar;
+      this.z *= scalar;
+      return this;
+    });
+  }
 
-//     it('should render a canvas element', () => {
-//         const canvas = fixture.nativeElement.querySelector('canvas');
-//         expect(canvas).toBeTruthy();
-//     });
+  class PositionAttribute {
+    private readonly values = [
+      [2, 0, 0],
+      [0, 2, 0],
+      [0, 0, 2],
+    ];
+    readonly count = this.values.length;
+    version = 0;
 
-//     it('should load and init effect on init', () => {
-//         component.ngOnInit();
+    getX(index: number) {
+      return this.values[index][0];
+    }
 
-//         expect((component as any).currentEffect).toBeTruthy();
-//         expect((component as any).currentEffect.init).toHaveBeenCalled();
-//     });
+    getY(index: number) {
+      return this.values[index][1];
+    }
 
-//     it('should call animate on currentEffect', () => {
-//         const effect = (component as any).currentEffect as MockEffect;
+    getZ(index: number) {
+      return this.values[index][2];
+    }
 
-//         component['animate']();
+    setXYZ(index: number, x: number, y: number, z: number) {
+      this.values[index] = [x, y, z];
+    }
 
-//         expect(effect.animate).toHaveBeenCalled();
-//     });
+    set needsUpdate(value: boolean) {
+      if (value) this.version++;
+    }
+  }
 
-//     it('should dispose effect on destroy', () => {
-//         const effect = (component as any).currentEffect as MockEffect;
-//         const spyCancel = spyOn(window, 'cancelAnimationFrame');
+  class SphereGeometry {
+    readonly type = 'SphereGeometry';
+    readonly attributes = {
+      position: new PositionAttribute(),
+    };
+    computeVertexNormals = vi.fn();
+    dispose = vi.fn();
+  }
 
-//         component['animationId'] = 123;
+  class Mesh {
+    readonly isMesh = true;
+    readonly rotation = { y: 0 };
 
-//         component.ngOnDestroy();
+    constructor(
+      public geometry: unknown,
+      public material: unknown,
+    ) {}
+  }
 
-//         expect(spyCancel).toHaveBeenCalledWith(123);
-//         expect(effect.dispose).toHaveBeenCalled();
-//     });
-// });
+  class MeshStandardMaterial {
+    readonly type = 'MeshStandardMaterial';
+    dispose = vi.fn();
+  }
+
+  class MeshNormalMaterial {
+    readonly type = 'MeshNormalMaterial';
+    dispose = vi.fn();
+  }
+
+  return {
+    Color,
+    Scene,
+    PerspectiveCamera,
+    WebGLRenderer,
+    DirectionalLight,
+    Vector3,
+    SphereGeometry,
+    Mesh,
+    MeshStandardMaterial,
+    MeshNormalMaterial,
+  };
+});
+
+describe('DynamicBackgroundComponent', () => {
+  let component: DynamicBackgroundComponent;
+  let fixture: ComponentFixture<DynamicBackgroundComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [DynamicBackgroundComponent],
+      providers: [{ provide: PLATFORM_ID, useValue: 'server' }],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(DynamicBackgroundComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('creates the canvas without initializing WebGL during SSR', () => {
+    expect(component).toBeTruthy();
+    expect(component.isBrowser).toBe(false);
+    expect(fixture.nativeElement.querySelector('canvas')).toBeTruthy();
+  });
+});
+
+describe('DynamicBackgroundComponent (browser)', () => {
+  let component: DynamicBackgroundComponent;
+  let fixture: ComponentFixture<DynamicBackgroundComponent>;
+  const cancelFrame = vi.fn();
+
+  beforeEach(async () => {
+    TestBed.resetTestingModule();
+    cancelFrame.mockClear();
+    vi.stubGlobal('requestAnimationFrame', () => 42);
+    vi.stubGlobal('cancelAnimationFrame', cancelFrame);
+
+    await TestBed.configureTestingModule({
+      imports: [DynamicBackgroundComponent],
+      providers: [{ provide: PLATFORM_ID, useValue: 'browser' }],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(DynamicBackgroundComponent);
+    component = fixture.componentInstance;
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('initializes the scene, renderer and effect on the browser', () => {
+    fixture.detectChanges();
+
+    const renderer = (component as any).renderer;
+    const scene = (component as any).scene;
+    const effect = (component as any).currentEffect;
+
+    expect(renderer).toBeInstanceOf(THREE.WebGLRenderer);
+    expect(renderer.setSize).toHaveBeenCalledWith(window.innerWidth, window.innerHeight);
+    expect(scene).toBeInstanceOf(THREE.Scene);
+    expect(scene.background).toBeInstanceOf(THREE.Color);
+    expect(scene.objects).toHaveLength(2);
+    expect(renderer.render).toHaveBeenCalledWith(scene, (component as any).camera);
+    expect((component as any).animationId).toBe(42);
+    expect(effect).toBeTruthy();
+    expect(effect.mesh.isMesh).toBe(true);
+    expect(effect.mesh.geometry.type).toBe('SphereGeometry');
+    expect(effect.mesh.geometry.attributes.position.count).toBeGreaterThan(0);
+  });
+
+  it('uses a standard material when elementColor is provided', () => {
+    fixture.componentRef.setInput('elementColor', '#ff8800');
+    fixture.detectChanges();
+
+    const material = (component as any).currentEffect.mesh.material;
+    expect(material.type).toBe('MeshStandardMaterial');
+  });
+
+  it('falls back to a normal material without elementColor', () => {
+    fixture.detectChanges();
+
+    const material = (component as any).currentEffect.mesh.material;
+    expect(material.type).toBe('MeshNormalMaterial');
+  });
+
+  it('throws when the effect key is not registered', () => {
+    fixture.componentRef.setInput('effect', 'unknown-effect');
+
+    expect(() => fixture.detectChanges()).toThrow(/no está registrado/);
+  });
+
+  it('updates the camera and the renderer on resize', () => {
+    fixture.detectChanges();
+
+    const camera = (component as any).camera;
+    const renderer = (component as any).renderer;
+    const updateProjectionMatrix = vi.spyOn(camera, 'updateProjectionMatrix');
+    renderer.setSize.mockClear();
+
+    window.dispatchEvent(new Event('resize'));
+
+    expect(camera.aspect).toBe(window.innerWidth / window.innerHeight);
+    expect(updateProjectionMatrix).toHaveBeenCalled();
+    expect(renderer.setSize).toHaveBeenCalledWith(window.innerWidth, window.innerHeight);
+  });
+
+  it('disposes the renderer and the effect on destroy', () => {
+    fixture.detectChanges();
+
+    const renderer = (component as any).renderer;
+    const effect = (component as any).currentEffect;
+    const geometryDispose = vi.spyOn(effect.mesh.geometry, 'dispose');
+    const materialDispose = vi.spyOn(effect.mesh.material, 'dispose');
+
+    component.ngOnDestroy();
+
+    expect(cancelFrame).toHaveBeenCalledWith(42);
+    expect(renderer.dispose).toHaveBeenCalled();
+    expect(geometryDispose).toHaveBeenCalled();
+    expect(materialDispose).toHaveBeenCalled();
+  });
+});

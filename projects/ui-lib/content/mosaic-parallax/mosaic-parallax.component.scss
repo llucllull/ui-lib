@@ -1,68 +1,73 @@
 @use '../../../ui-lib/src/lib/styles/abstracts' as *;
 
-$stagger-step: 80px;
-$card-width: 95%;
+$diagonal-total: 200px;
+$track-gap: $grid-gutter * 1.5;
+$card-width: clamp(15rem, 24vw, 22rem);
+$enter-distance: 64px;
+$enter-duration: 0.8s;
 
 /* =========================
-   WRAPPER — altura natural, sin sticky
+   WRAPPER
 ========================= */
 .mosaic-parallax {
   position: relative;
-  // width: 100%;
-  // display: flex;
-  // flex-direction: column;
   align-items: start;
   padding-block: 4rem;
 }
 
 /* =========================
-   TRACK — fila centrada horizontalmente
-   overflow hidden para que las cards que caen no generen scroll
+   STAGE — scroll runway.
+   The height is extended in JS via --scroll-distance so the
+   viewport can stay pinned while the track slides.
 ========================= */
-.text {
-  grid-row: 2;
-}
-
-.mosaic-parallax__track {
-  grid-row: 2;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
-  align-items: start;
-  justify-content: center;
-  gap: $grid-gutter * 1.5;
-  width: 100%;
-  overflow: hidden;
-  padding-block: 0 4rem;
+.mosaic-parallax__stage {
+  grid-column: 1 / -1;
 }
 
 /* =========================
-   ITEM — escalera + animación de entrada
+   STICKY / GROUP —
+   plain block flow on small screens and without JS
 ========================= */
-.mosaic-item {
-  flex-shrink: 0;
-  width: $card-width;
+.mosaic-parallax__sticky {
+  display: block;
+}
+
+.mosaic-parallax__header {
   display: flex;
   flex-direction: column;
+  margin-bottom: $track-gap;
+}
+
+/* =========================
+   TRACK — vertical list on small screens
+========================= */
+.mosaic-parallax__track {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $track-gap;
+  width: 100%;
+}
+
+/* =========================
+   ITEM — rest state (visible by default, no JS required)
+========================= */
+.mosaic-item {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
   border: 2px solid var(--border-primary);
   overflow: hidden;
   background: var(--content-bg-light);
-  margin-top: calc(var(--item-index) * #{$stagger-step});
-  transform: translateY(100px);
-  transition:
-    transform 1.4s cubic-bezier(0.16, 1, 0.3, 1) var(--anim-delay),
-    opacity 0.8s ease var(--anim-delay);
-
-  &--visible {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  transform-origin: center bottom;
 
   &__media {
     width: 100%;
     aspect-ratio: 4 / 3;
     overflow: hidden;
 
-    img, ui-image {
+    img,
+    ui-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -124,27 +129,112 @@ $card-width: 95%;
 }
 
 /* =========================
-   RESPONSIVE
+   ENTRANCE — one-shot, predetermined sequence
 ========================= */
-@include respond-max(md) {
-  .mosaic-parallax__track {
-    flex-direction: column;
-    align-items: center;
-    justify-items: center;
-    overflow: visible;
-    grid-row: 3;
-  }
+.mosaic-parallax--in .mosaic-item {
+  animation: mosaic-item-enter $enter-duration cubic-bezier(0.16, 1, 0.3, 1) var(--anim-delay, 0ms)
+    both;
+}
 
-  .mosaic-item {
-    width: 90%;
-    height: 90%;
-    margin-top: 0 !important;
+@keyframes mosaic-item-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, $enter-distance, 0) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 
-@include respond-max(sm) {
+/* =========================
+   DESKTOP — diagonal mosaic fallback
+   (no JS, or reduced motion: every item stays reachable)
+========================= */
+@include respond-min(md) {
+  .mosaic-parallax__track {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .mosaic-item {
+    flex: 0 0 $card-width;
+    width: $card-width;
+    /* Ascending diagonal: leftmost card lowest, rightmost highest.
+       --diagonal-total is fitted to the viewport by JS when the slider runs. */
+    margin-top: calc((1 - var(--item-fraction, 0)) * var(--diagonal-total, #{$diagonal-total}));
+  }
+}
+
+/* =========================
+   DESKTOP — pinned slider with the text overlaid (JS activated)
+   The header sits top-left over the full-width track; the diagonal
+   is fitted to the header height so the first card clears the text
+   and the following cards rise beside it.
+========================= */
+@include respond-min(md) {
+  .mosaic-parallax--slider {
+    .mosaic-parallax__stage {
+      height: calc(100vh + var(--scroll-distance, 0px));
+      height: calc(100svh + var(--scroll-distance, 0px));
+    }
+
+    .mosaic-parallax__sticky {
+      position: sticky;
+      top: 0;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      height: 100vh;
+      height: 100svh;
+      overflow: hidden;
+      overflow: clip;
+      padding-block: clamp(3rem, 6vh, 5rem);
+    }
+
+    .mosaic-parallax__group {
+      position: relative;
+      width: 100%;
+    }
+
+    .mosaic-parallax__header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: calc(#{$card-width} + #{$track-gap});
+      margin-bottom: 0;
+      /* Solid page background: cards leaving through the left pass
+         behind the text instead of through it. */
+      background: var(--content-bg);
+    }
+
+    .mosaic-parallax__track {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      flex: 0 0 auto;
+      width: max-content;
+      will-change: transform;
+    }
+  }
+}
+
+/* =========================
+   SMALL SCREENS
+========================= */
+@media (max-width: 767.98px) {
   .mosaic-item {
     width: 85%;
-    margin-top: 0 !important;
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+@media (prefers-reduced-motion: reduce) {
+  .mosaic-parallax--in .mosaic-item {
+    animation: none;
   }
 }

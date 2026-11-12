@@ -1,7 +1,6 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Inject, Input, OnInit, PLATFORM_ID, signal } from '@angular/core';
 import {
-    HighlightDirective,
     LinkTypeDirective,
     ScrollRevealDirective,
 } from '@lluc_llull/ui-lib/directives';
@@ -10,7 +9,7 @@ import { UiImageComponent } from '@lluc_llull/ui-lib/shared';
 
 @Component({
     selector: 'lib-split-previewer',
-    imports: [CommonModule, LinkTypeDirective, HighlightDirective, ScrollRevealDirective, UiImageComponent],
+    imports: [CommonModule, LinkTypeDirective, ScrollRevealDirective, UiImageComponent],
     templateUrl: './split-previewer.component.html',
     styleUrl: './split-previewer.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -23,6 +22,8 @@ export class SplitPreviewerComponent implements OnInit {
     @Input() items?: SplitPreviewerItemI[];
     @Input() imageDefault?: UiLibImageI;
     @Input() direction: 'left' | 'right' = 'right';
+    @Input() highlightColor = 'var(--content-highlight)';
+    @Input() highlightThickness = 30;
 
     activeImage = signal<UiLibImageI | undefined>(undefined);
 

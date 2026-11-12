@@ -4,6 +4,7 @@ import {
   mapCategoryProgress,
   mapColumnsFooter,
   mapColumnsMediaStacked,
+  mapContactForm,
   mapContactMinimal,
   mapContentDocument,
   mapHeaderClear,
@@ -21,6 +22,7 @@ import {
   mapSplitPreviewer,
   mapSplitShowcase,
   mapStackedRows,
+  mapTextMosaicHero,
   mapVisualFooter,
   mapSocialLinks,
 } from './index';
@@ -30,6 +32,12 @@ describe('component mappers', () => {
   const button = { label: 'Open', url: '/open', link_type: 'internal' };
 
   it('maps simple text components', () => {
+    const contactFormProps = {
+      privacyUrl: '/es/privacy',
+      texts: { title: 'Contact', send: 'Send message' },
+    };
+    expect(mapContactForm(contactFormProps)).toMatchObject(contactFormProps);
+    expect(mapContactForm(contactFormProps).img).toBeNull();
     expect(map404({ texts: { title: '404', subtitle: 'Missing', highlight: 'Oops' }, buttons: [button] }).title).toBe('404');
     expect(mapCategoryProgress({ texts: { pretitle: 'Skills', title: 'Progress' }, items: [{ title: 'Web', items: [{ name: 'Angular', progress: 80 }] }] }).categories[0].items[0]).toEqual({ label: 'Angular', value: 80 });
     expect(mapContentDocument({ texts: { title: 'Docs' }, items: [{ title: 'One', text: 'Text' }] }).items[0]).toEqual({ title: 'One', text: 'Text' });
@@ -39,12 +47,16 @@ describe('component mappers', () => {
   });
 
   it('maps media components and passes the CDN through', () => {
+    expect(mapContactForm({ multimedia: { image } }, 'https://cdn.test').img.url).toBe(
+      'https://cdn.test/image.jpg',
+    );
     expect(mapAsymmetricMedia({ multimedia: { images: [image] }, direction: 'left' }, 'https://cdn.test').media[0].url).toBe('https://cdn.test/image.jpg');
     expect(mapColumnsMediaStacked({ texts: { leftColumn: 'L', rightColumn: 'R' }, multimedia: { image } }, 'https://cdn.test').image.alt).toBe('Image');
     expect(mapMediaIntro({ texts: { highlightedText: 'Main' }, multimedia: { image } }, 'https://cdn.test').media.publicId).toBeUndefined();
     expect(mapMediaSplit({ texts: { title: 'Media' }, multimedia: { images: [image] } }, 'https://cdn.test').images.length).toBe(1);
     expect(mapMosaicGrid({ texts: { editorialText: 'Grid' }, multimedia: { images: [image] } }, 'https://cdn.test').text).toBe('Grid');
     expect(mapMosaicParallax({ texts: { title: 'Mosaic' }, multimedia: { images: [image] } }, 'https://cdn.test').images[0].alt).toBe('Image');
+    expect(mapTextMosaicHero({ texts: { title: 'WHO DAAT BOY' }, multimedia: { images: [image] } }, 'https://cdn.test').images[0].url).toBe('https://cdn.test/image.jpg');
     expect(mapSocialFooter({ multimedia: [image], social_links: [button], texts: { hashtag: '#test' } }).hashtag).toBe('#test');
     expect(mapVisualFooter({ texts: { contactTitle: 'Contact' }, contactPhone: [button], multimedia: image }).contactTitle).toBe('Contact');
   });

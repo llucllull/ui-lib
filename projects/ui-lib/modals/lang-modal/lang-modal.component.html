@@ -1,5 +1,13 @@
-<div class="modal-content">
-  <button (click)="closeModal()" class="close-btn">✕</button>
+<button
+  (click)="closeModal()"
+  class="close-btn"
+  [class.is-closing]="closing"
+  type="button"
+  aria-label="Close modal"
+>
+  ✕
+</button>
+<div class="modal-content" [class.is-closing]="closing">
   @if (langs && langs.length > 0) {
     <ol>
       @for (lang of langs; track lang.id) {

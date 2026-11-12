@@ -38,7 +38,7 @@ jobs:
 
             # 4. Compilar la librería Angular
             - name: Run unit tests
-              run: pnpm test
+              run: pnpm test:coverage
 
             - name: Build styles
               run: pnpm run build-styles

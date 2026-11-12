@@ -1,5 +1,5 @@
 import { LinkType } from '@lluc_llull/ui-lib/enums';
-import { Meta, StoryObj } from '@storybook/angular';
+import { Meta, StoryObj } from '@storybook/angular-vite';
 import { ColumnsFooterComponent } from './columns-footer.component';
 
 export default {

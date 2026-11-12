@@ -3,8 +3,6 @@ import { By } from '@angular/platform-browser';
 import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
 import { LinkType } from '@lluc_llull/ui-lib/enums';
 import { SwiperDirective } from '@lluc_llull/ui-lib/sliders';
-import { UiIconComponent } from '@lluc_llull/ui-lib/shared';
-import { MockUiIconComponent } from '@lluc_llull/ui-lib/shared';
 import { SocialFooterComponent } from './social-footer.component';
 
 describe('SocialFooterComponent', () => {
@@ -14,16 +12,7 @@ describe('SocialFooterComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             imports: [SocialFooterComponent, LinkTypeDirective, SwiperDirective],
-        })
-            .overrideComponent(SocialFooterComponent, {
-                remove: {
-                    imports: [UiIconComponent],
-                },
-                add: {
-                    imports: [MockUiIconComponent],
-                },
-            })
-            .compileComponents();
+        }).compileComponents();
 
         fixture = TestBed.createComponent(SocialFooterComponent);
         component = fixture.componentInstance;
@@ -65,16 +54,16 @@ describe('SocialFooterComponent', () => {
         it('debería renderizar tantos enlaces sociales como se pasen en @Input socials', () => {
             component.socials = [
                 {
-                    label: 'Facebook',
+                    label: 'Mail',
                     url: 'https://facebook.com',
                     linkType: LinkType.External,
-                    icon: 'facebook',
+                    icon: 'mail',
                 },
                 {
-                    label: 'Twitter',
-                    url: 'https://twitter.com',
+                    label: 'LinkedIn',
+                    url: 'https://linkedin.com',
                     linkType: LinkType.External,
-                    icon: 'twitter',
+                    icon: 'linkedin',
                 },
             ];
             fixture.detectChanges();
@@ -82,8 +71,27 @@ describe('SocialFooterComponent', () => {
             const links = fixture.debugElement.queryAll(By.css('.social-footer__socials a'));
             expect(links.length).toBe(2);
             expect(links[0].nativeElement.getAttribute('href')).toBe('https://facebook.com');
-            expect(links[0].nativeElement.getAttribute('aria-label')).toBe('Facebook');
-            expect(links[1].nativeElement.getAttribute('href')).toBe('https://twitter.com');
+            expect(links[0].nativeElement.getAttribute('aria-label')).toBe('Mail');
+            expect(links[1].nativeElement.getAttribute('href')).toBe('https://linkedin.com');
+        });
+
+        it('debería renderizar el enlace sin icono cuando el social no tiene icon', () => {
+            component.socials = [
+                { label: 'Sin icono', url: 'https://example.com', linkType: LinkType.External } as any,
+            ];
+            fixture.detectChanges();
+
+            const link = fixture.debugElement.query(By.css('.social-footer__socials a'))?.nativeElement;
+            expect(link).toBeTruthy();
+            expect(link.querySelector('ui-icon')).toBeNull();
+        });
+
+        it('debería usar un alt vacío cuando la imagen no tiene alt', () => {
+            component.images = [{ url: '/img3.jpg' } as any];
+            fixture.detectChanges();
+
+            const img = fixture.debugElement.query(By.css('.swiper-slide img'))?.nativeElement;
+            expect(img.getAttribute('alt')).toBe('');
         });
     });
 

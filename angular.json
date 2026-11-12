@@ -15,7 +15,7 @@
       },
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "builder": "@angular/build:ng-packagr",
           "options": {
             "project": "projects/ui-lib/ng-package.json"
           },
@@ -30,42 +30,24 @@
           "defaultConfiguration": "production"
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
             "tsConfig": "projects/ui-lib/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
+            "buildTarget": "ui-lib:build:development",
+            "runnerConfig": "vitest-base.config.mts"
           }
         },
         "storybook": {
-          "builder": "@storybook/angular:start-storybook",
+          "builder": "@storybook/angular-vite:start-storybook",
           "options": {
             "configDir": "projects/ui-lib/.storybook",
-            "browserTarget": "ui-lib:build",
-            "compodoc": true,
-            "compodocArgs": [
-              "-e",
-              "json",
-              "-d",
-              "projects/ui-lib"
-            ],
             "port": 6006
           }
         },
         "build-storybook": {
-          "builder": "@storybook/angular:build-storybook",
+          "builder": "@storybook/angular-vite:build-storybook",
           "options": {
             "configDir": "projects/ui-lib/.storybook",
-            "browserTarget": "ui-lib:build",
-            "compodoc": true,
-            "compodocArgs": [
-              "-e",
-              "json",
-              "-d",
-              "projects/ui-lib"
-            ],
             "outputDir": "storybook-static"
           }
         }

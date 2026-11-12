@@ -4,6 +4,7 @@ import { LinkTypeDirective } from '@lluc_llull/ui-lib/directives';
 import { LinkType } from '@lluc_llull/ui-lib/enums';
 import { NavModalComponent } from './nav-modal.component';
 import { LucideAngularModule, MoveRight, X } from 'lucide-angular';
+import { Router } from '@angular/router';
 
 describe('NavModalComponent', () => {
     let component: NavModalComponent;
@@ -15,6 +16,12 @@ describe('NavModalComponent', () => {
                 NavModalComponent, 
                 LinkTypeDirective,
                 LucideAngularModule.pick({ MoveRight })
+            ],
+            providers: [
+                {
+                    provide: Router,
+                    useValue: { url: '/es', navigateByUrl: vi.fn().mockResolvedValue(true) },
+                },
             ],
         }).compileComponents();
 
@@ -80,7 +87,7 @@ describe('NavModalComponent', () => {
 
     describe('close output', () => {
         it('debería emitir close al hacer click en el botón de cerrar', () => {
-            spyOn(component.close, 'emit');
+            vi.spyOn(component.close, 'emit');
             fixture.detectChanges();
 
             const btn = fixture.debugElement.query(By.css('.close-btn')).nativeElement;
@@ -90,7 +97,7 @@ describe('NavModalComponent', () => {
         });
 
         it('debería emitir close al hacer click en un navItem', () => {
-            spyOn(component.close, 'emit');
+            vi.spyOn(component.close, 'emit');
             component.navItems = [{ label: 'Home', url: '/home', linkType: LinkType.Internal }];
             fixture.detectChanges();
 

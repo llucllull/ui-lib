@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { UiLibImageI } from '@lluc_llull/ui-lib/interfaces';
+import { CLOUDINARY_CLOUD_NAME } from '@lluc_llull/ui-lib/mapper';
 import { MediaSplitComponent } from './media-split.component';
 
 describe('MediaSplitComponent', () => {
@@ -20,10 +21,15 @@ describe('MediaSplitComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             imports: [MediaSplitComponent],
+            providers: [{ provide: CLOUDINARY_CLOUD_NAME, useValue: 'demo' }],
         }).compileComponents();
 
         fixture = TestBed.createComponent(MediaSplitComponent);
         component = fixture.componentInstance;
+    });
+
+    afterEach(() => {
+        vi.unstubAllGlobals();
     });
 
     it('should create', () => {
@@ -55,6 +61,27 @@ describe('MediaSplitComponent', () => {
             const img = fixture.nativeElement.querySelector('img');
 
             expect(img.src).toContain('test1.png');
+        });
+
+        it('should render a cloudinary image when the current image has a publicId', () => {
+            fixture.componentRef.setInput('images', [
+                {
+                    publicId: 'media-split-main',
+                    url: '/images/test1.png',
+                    alt: 'Test 1',
+                },
+                {
+                    url: '/images/test2.png',
+                    alt: 'Test 2',
+                },
+            ]);
+            fixture.detectChanges();
+
+            const uiImage = fixture.nativeElement.querySelector('ui-image.active-image');
+
+            expect(uiImage).not.toBeNull();
+            expect(uiImage.querySelector('img').src).toContain('media-split-main');
+            expect(fixture.nativeElement.querySelector('img.active-image')).toBeNull();
         });
 
         it('should change image when activeImageIndex changes', () => {
@@ -113,6 +140,26 @@ describe('MediaSplitComponent', () => {
             fixture.detectChanges();
 
             expect(component.activeImageIndex()).toBe(0);
+        });
+    });
+
+    describe('preloading', () => {
+        it('should preload the remaining images when requestIdleCallback is available', () => {
+            const preloaded: string[] = [];
+            vi.stubGlobal('Image', class {
+                set src(value: string) {
+                    preloaded.push(value);
+                }
+            });
+            vi.stubGlobal('requestIdleCallback', (cb: () => void) => {
+                cb();
+                return 0;
+            });
+
+            fixture.componentRef.setInput('images', mockImages);
+            fixture.detectChanges();
+
+            expect(preloaded).toEqual(['/images/test2.png']);
         });
     });
 });

@@ -19,5 +19,7 @@ export class NotFoundComponent {
     @Input() title?: string;
     @Input() subtitle?: string;
     @Input() highlight?: string;
+    @Input() highlightColor = 'var(--content-highlight)';
+    @Input() highlightThickness = 30;
     @Input() button?: UiLibButtonI;
 }

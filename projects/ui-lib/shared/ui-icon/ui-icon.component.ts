@@ -1,13 +1,51 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnChanges } from '@angular/core';
+import {
+    ArrowDownRight,
+    ArrowLeft,
+    ArrowRight,
+    ArrowUpRight,
+    ArrowUp,
+    Home,
+    Linkedin,
+    LUCIDE_ICONS,
+    LucideAngularModule,
+    LucideIconProvider,
+    Mail,
+    Moon,
+    MoveRight,
+    Sun,
+} from 'lucide-angular';
 import type { SimpleIcon } from 'simple-icons';
-import * as simpleIcons from 'simple-icons';
-import { LucideAngularModule } from 'lucide-angular';
+import { siGithub } from 'simple-icons';
+
+const brandIcons: Record<string, SimpleIcon> = {
+    siGithub,
+};
 
 @Component({
     selector: 'ui-icon',
     standalone: true,
     imports: [CommonModule, LucideAngularModule],
+    providers: [
+        {
+            provide: LUCIDE_ICONS,
+            multi: true,
+            useValue: new LucideIconProvider({
+                ArrowLeft,
+                ArrowRight,
+                ArrowUp,
+                ArrowUpRight,
+                ArrowDownRight,
+                Home,
+                Linkedin,
+                Mail,
+                Moon,
+                MoveRight,
+                Sun,
+            }),
+        },
+    ],
     templateUrl: './ui-icon.component.html',
     styleUrls: ['./ui-icon.component.scss'],
 })
@@ -39,6 +77,6 @@ export class UiIconComponent implements OnChanges {
         const key =
             'si' + this.name.replace(/[^a-z0-9]/gi, '').replace(/^\w/, (c) => c.toUpperCase());
 
-        this.icon = (simpleIcons as any)[key] ?? null;
+        this.icon = brandIcons[key] ?? null;
     }
 }

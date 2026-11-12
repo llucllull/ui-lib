@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/angular';
+import { Meta, StoryObj } from '@storybook/angular-vite';
 import { MediaIntroComponent } from './media-intro.component';
 
 export default { title: 'Content/MediaIntro', component: MediaIntroComponent, tags: ['autodocs'], argTypes: { direction: { control: 'radio', options: ['left', 'right'] }, media: { control: 'object' } } } as Meta<MediaIntroComponent>;

@@ -38,8 +38,8 @@ describe('ColumnsMediaStackedComponent', () => {
     expect(columns[1].textContent).toContain('Contenido Columna Derecha');
 
     // Verificamos tus clases de posicionamiento reales para direction === 'left'
-    expect(columns[0].classList.contains('md:col-start-1')).toBeTrue();
-    expect(columns[1].classList.contains('md:col-start-5')).toBeTrue();
+    expect(columns[0].classList.contains('md:col-start-1')).toBe(true);
+    expect(columns[1].classList.contains('md:col-start-5')).toBe(true);
   });
 
   it('should swap positions when direction is right', () => {
@@ -55,8 +55,8 @@ describe('ColumnsMediaStackedComponent', () => {
     expect(columns.length).toBe(2);
 
     // Verificamos tus clases de posicionamiento reales para direction === 'right'
-    expect(columns[0].classList.contains('md:col-start-5')).toBeTrue();
-    expect(columns[1].classList.contains('md:col-start-9')).toBeTrue();
+    expect(columns[0].classList.contains('md:col-start-5')).toBe(true);
+    expect(columns[1].classList.contains('md:col-start-9')).toBe(true);
   });
 
   it('should render image container and match its layout direction classes', () => {
@@ -77,6 +77,6 @@ describe('ColumnsMediaStackedComponent', () => {
     
     expect(imageContainer).toBeTruthy();
     // Verificamos que al ser direction 'right', el contenedor de la imagen empiece en md:col-start-3
-    expect(imageContainer?.classList.contains('md:col-start-3')).toBeTrue();
+    expect(imageContainer?.classList.contains('md:col-start-3')).toBe(true);
   });
 });

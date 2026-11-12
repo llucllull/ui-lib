@@ -24,4 +24,6 @@ export class ContactMinimalComponent {
     @Input() contacts?: UiLibButtonI[];
     @Input() socials?: UiLibButtonI[];
     @Input() img?: UiLibImageI;
+    @Input() highlightColor = 'var(--content-highlight)';
+    @Input() highlightThickness = 30;
 }

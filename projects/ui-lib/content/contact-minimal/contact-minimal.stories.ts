@@ -1,5 +1,5 @@
 import { LinkType } from '@lluc_llull/ui-lib/enums';
-import { Meta, StoryObj } from '@storybook/angular';
+import { Meta, StoryObj } from '@storybook/angular-vite';
 import { ContactMinimalComponent } from './contact-minimal.component';
 
 export default {
@@ -12,6 +12,8 @@ export default {
         contacts: { control: 'object' },
         socials: { control: 'object' },
         img: { control: 'object' },
+        highlightColor: { control: 'text' },
+        highlightThickness: { control: 'number' },
     },
 } as Meta<ContactMinimalComponent>;
 
