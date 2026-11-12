@@ -22,6 +22,7 @@ import {
   mapSplitPreviewer,
   mapSplitShowcase,
   mapStackedRows,
+  mapTextMosaicHero,
   mapVisualFooter,
   mapSocialLinks,
 } from './index';
@@ -55,6 +56,7 @@ describe('component mappers', () => {
     expect(mapMediaSplit({ texts: { title: 'Media' }, multimedia: { images: [image] } }, 'https://cdn.test').images.length).toBe(1);
     expect(mapMosaicGrid({ texts: { editorialText: 'Grid' }, multimedia: { images: [image] } }, 'https://cdn.test').text).toBe('Grid');
     expect(mapMosaicParallax({ texts: { title: 'Mosaic' }, multimedia: { images: [image] } }, 'https://cdn.test').images[0].alt).toBe('Image');
+    expect(mapTextMosaicHero({ texts: { title: 'WHO DAAT BOY' }, multimedia: { images: [image] } }, 'https://cdn.test').images[0].url).toBe('https://cdn.test/image.jpg');
     expect(mapSocialFooter({ multimedia: [image], social_links: [button], texts: { hashtag: '#test' } }).hashtag).toBe('#test');
     expect(mapVisualFooter({ texts: { contactTitle: 'Contact' }, contactPhone: [button], multimedia: image }).contactTitle).toBe('Contact');
   });

@@ -22,6 +22,7 @@ export * from './asymmetric-media.mapper';
 export * from './media-intro.mapper';
 export * from './columns-media-stacked.mapper';
 export * from './mosaic-grid.mapper';
+export * from './text-mosaic-hero.mapper';
 
 import { map404 } from './404.mapper';
 import { mapCategoryProgress } from './category-progress.mapper';
@@ -46,6 +47,7 @@ import { mapAsymmetricMedia } from './asymmetric-media.mapper';
 import { mapMediaIntro } from './media-intro.mapper';
 import { mapColumnsMediaStacked } from './columns-media-stacked.mapper';
 import { mapMosaicGrid } from './mosaic-grid.mapper';
+import { mapTextMosaicHero } from './text-mosaic-hero.mapper';
 
 export const componentMappers: Record<string, (props: any, cdn?: string) => any> = {
     'hero-section': mapHeroSection,
@@ -71,4 +73,5 @@ export const componentMappers: Record<string, (props: any, cdn?: string) => any>
     'media-intro': mapMediaIntro,
     'columns-media-stacked': mapColumnsMediaStacked,
     'mosaic-grid': mapMosaicGrid,
+    'text-mosaic-hero': mapTextMosaicHero,
 };

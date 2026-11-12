@@ -12,3 +12,4 @@ export * from './asymmetric-media';
 export * from './media-intro';
 export * from './columns-media-stacked';
 export * from './mosaic-grid';
+export * from './text-mosaic-hero';

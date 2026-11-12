@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.37.0] - 2026-11-12
+
+### Added
+
+- add textMosaicHero component
+
 ## [0.36.5] - 2026-11-11
 
 ### Changed
