@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.37.2] - 2026-11-12
+
+### Added
+
+- fix deploy-storybook.yml
+
 ## [0.37.1] - 2026-11-12
 
 ### Added

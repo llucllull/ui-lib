@@ -17,23 +17,23 @@ jobs:
             - name: Setup PNPM
               uses: pnpm/action-setup@v4
               with:
-                  version: 9 # Usa la misma versión de pnpm que tengas en local
+                  version: 9 
 
             # 2. Configurar Node enlazando la caché de pnpm
             - name: Setup Node.js
               uses: actions/setup-node@v4
               with:
-                  node-version: '20'
-                  cache: 'pnpm' # <--- Cambiado de 'npm' a 'pnpm'
+                  node-version: '22'
+                  cache: 'pnpm' 
 
-            # 3. Cambiar comandos de npm a pnpm
+            # 3. Instalar dependencias usando pnpm
             - name: Install dependencies
-              run: pnpm install --frozen-lockfile # <--- El equivalente a 'npm ci'
+              run: pnpm install --frozen-lockfile
 
             # 4. Ejecutar el script con pnpm
             - name: Build Storybook
               run: pnpm run build-storybook
 
-            # 5. El trigger de Render se queda exactamente igual
+            # 5. Trigger Render Deploy
             - name: Trigger Render Deploy
               run: curl -X POST ${{ secrets.RENDER_STORYBOOK_DEPLOY_HOOK }}
