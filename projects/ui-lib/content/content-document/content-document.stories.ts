@@ -15,31 +15,64 @@ type Story = StoryObj<ContentDocumentComponent>;
 
 export const Default: Story = {
     args: {
-        title: 'Documentación Técnica',
+        title: 'Notas del proyecto',
         items: [
             {
-                title: 'Introducción',
-                text: 'Bienvenido a nuestra documentación técnica. Aquí encontrarás toda la información necesaria para utilizar nuestros productos y servicios de manera eficiente.',
+                title: 'Contexto',
+                text: 'La web ya existía y funcionaba. El objetivo no era rehacerla, sino ordenar la capa de datos y reducir el tiempo de carga inicial.',
             },
             {
-                title: 'Guía de Instalación',
-                text: 'Sigue nuestros pasos detallados para instalar y configurar el software en tu entorno. Compatible con Windows, macOS y Linux.',
+                title: 'Mi papel',
+                text: 'Centralicé las peticiones a la API, adapté la aplicación a SSR y revisé las pipelines de despliegue. El resto del equipo siguió trabajando en paralelo.',
             },
             {
-                title: 'Configuración Inicial',
-                text: 'Aprende a realizar la configuración inicial del sistema, incluyendo parámetros esenciales y personalizaciones recomendadas.',
+                title: 'Decisiones técnicas',
+                text: 'Se mantuvo la estructura de componentes existente y se añadió un renderizado híbrido. La hidratación se limita a las zonas que realmente necesitan interactividad.',
             },
             {
-                title: 'API Reference',
-                text: 'Documentación completa de nuestra API con ejemplos de uso, endpoints disponibles y formatos de respuesta.',
+                title: 'Resultado',
+                text: 'Menos peticiones duplicadas, contenido indexable desde el primer render y un proceso de despliegue más corto.',
+            },
+        ],
+    },
+};
+
+export const LongContent: Story = {
+    args: {
+        ...Default.args,
+        title: 'Documentación extensa',
+        items: [
+            ...(Default.args?.items ?? []),
+            {
+                title: 'Qué aprendí',
+                text: 'Las migraciones a SSR no se ganan en la primera pantalla. Se ganan en los estados intermedios, en las rutas que nadie prueba y en no romper lo que ya funcionaba.',
             },
             {
-                title: 'Mejores Prácticas',
-                text: 'Conoce las mejores prácticas y recomendaciones para optimizar el rendimiento y seguridad de tus implementaciones.',
+                title: 'Qué haría distinto',
+                text: 'Medir antes de tocar. Es fácil atribuir una mejora al cambio más visible cuando el cuello de botella estaba en otro sitio.',
             },
+        ],
+    },
+};
+
+export const SingleItem: Story = {
+    args: {
+        title: 'Una sola nota',
+        items: [
             {
-                title: 'Solución de Problemas',
-                text: 'Guía de troubleshooting para resolver los problemas más comunes. Preguntas frecuentes y soluciones rápidas.',
+                title: 'Recordatorio',
+                text: 'Si el texto necesita tres párrafos para explicar una decisión simple, la decisión probablemente no es simple.',
+            },
+        ],
+    },
+};
+
+export const NoTitle: Story = {
+    args: {
+        items: [
+            {
+                title: 'Bloque sin título general',
+                text: 'El documento empieza directamente en el primer apartado.',
             },
         ],
     },

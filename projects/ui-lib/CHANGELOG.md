@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.37.4] - 2026-11-13
+
+### Changed
+
+- improve stories for all components adding dummy images and better content
+
 ## [0.37.3] - 2026-11-12
 
 ### Added

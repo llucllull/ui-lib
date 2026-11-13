@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" role="img" aria-label="PORTRAIT">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#100d24"/>
+      <stop offset="100%" stop-color="#4c1d95"/>
+    </linearGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="55%" stop-color="#100d24" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#100d24" stop-opacity="0.82"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg)"/>
+  <line x1="60" y1="0" x2="60" y2="600" stroke="#f5f3ff" stroke-opacity="0.05" stroke-width="1"/><line x1="120" y1="0" x2="120" y2="600" stroke="#f5f3ff" stroke-opacity="0.05" stroke-width="1"/><line x1="180" y1="0" x2="180" y2="600" stroke="#f5f3ff" stroke-opacity="0.05" stroke-width="1"/><line x1="240" y1="0" x2="240" y2="600" stroke="#f5f3ff" stroke-opacity="0.05" stroke-width="1"/><line x1="300" y1="0" x2="300" y2="600" stroke="#f5f3ff" stroke-opacity="0.05" stroke-width="1"/><line x1="360" y1="0" x2="360" y2="600" stroke="#f5f3ff" stroke-opacity="0.05" stroke-width="1"/><line x1="420" y1="0" x2="420" y2="600" stroke="#f5f3ff" stroke-opacity="0.05" stroke-width="1"/><line x1="480" y1="0" x2="480" y2="600" stroke="#f5f3ff" stroke-opacity="0.05" stroke-width="1"/><line x1="540" y1="0" x2="540" y2="600" stroke="#f5f3ff" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="60" x2="600" y2="60" stroke="#f5f3ff" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="120" x2="600" y2="120" stroke="#f5f3ff" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="180" x2="600" y2="180" stroke="#f5f3ff" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="240" x2="600" y2="240" stroke="#f5f3ff" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="300" x2="600" y2="300" stroke="#f5f3ff" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="360" x2="600" y2="360" stroke="#f5f3ff" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="420" x2="600" y2="420" stroke="#f5f3ff" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="480" x2="600" y2="480" stroke="#f5f3ff" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="540" x2="600" y2="540" stroke="#f5f3ff" stroke-opacity="0.05" stroke-width="1"/>
+  <circle cx="120" cy="156" r="45" fill="#a78bfa" fill-opacity="0.65"/><path d="M0 600 L0 444 L180 264 L312 444 L408 324 L600 516 L600 600 Z" fill="#f5f3ff" fill-opacity="0.07"/>
+  <circle cx="372" cy="204" r="276" fill="#a78bfa" fill-opacity="0.24"/><circle cx="372" cy="204" r="171" fill="none" stroke="#a78bfa" stroke-opacity="0.55" stroke-width="2.4"/><circle cx="492" cy="144" r="120" fill="#a78bfa" fill-opacity="0.5"/><rect x="48" y="372" width="180" height="132" rx="18" fill="#f5f3ff" fill-opacity="0.08" transform="rotate(0 138 438)"/>
+  <rect width="600" height="600" fill="url(#fade)"/>
+  <g font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" fill="#f5f3ff">
+    <text x="36" y="532" font-size="31" font-weight="700" letter-spacing="2.5">PORTRAIT</text>
+    <text x="36" y="564" font-size="16" fill-opacity="0.72" letter-spacing="0.8">Team member</text>
+    <text x="564" y="50" text-anchor="end" font-size="14" fill-opacity="0.6">600 × 600</text>
+  </g>
+</svg>

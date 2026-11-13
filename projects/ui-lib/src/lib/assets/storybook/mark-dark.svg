@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" role="img" aria-label="Lluc Llull mark">
+  <rect x="4" y="4" width="72" height="72" rx="20" fill="#f2f2f2"/>
+  <path d="M22 53 L40 24 L58 53" fill="none" stroke="#111111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="40" cy="62" r="4" fill="#111111"/>
+</svg>

@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/angular-vite';
+import { editorialFiles, repeatImages, tileFiles } from '../../.storybook/mocks';
 import { TextMosaicHeroComponent } from './text-mosaic-hero.component';
 
 export default {
@@ -7,20 +8,41 @@ export default {
     tags: ['autodocs'],
     argTypes: {
         title: { control: 'text' },
-        images: { control: 'object' },
+        images: {
+            control: 'object',
+            description: 'Se muestran como máximo 18 piezas; el resto se ignora.',
+        },
     },
 } as Meta<TextMosaicHeroComponent>;
 
-type Story = StoryObj<TextMosaicHeroComponent>;
+const files = [...editorialFiles, ...tileFiles];
 
-const images = Array.from({ length: 18 }, (_, index) => ({
-    url: `https://picsum.photos/seed/text-mosaic-${index + 1}/600/750.jpg`,
-    alt: `Mosaico ${index + 1}`,
-}));
+type Story = StoryObj<TextMosaicHeroComponent>;
 
 export const Default: Story = {
     args: {
-        title: 'WHO DAAT BOY',
-        images,
+        title: 'LLUC LLULL',
+        images: repeatImages(files, 18, 'Mosaico'),
+    },
+};
+
+export const SixTiles: Story = {
+    args: {
+        title: 'FRONT-END',
+        images: repeatImages(files, 6, 'Mosaico'),
+    },
+};
+
+export const LongTitle: Story = {
+    args: {
+        title: 'FRONT-END DEVELOPER',
+        images: repeatImages(files, 12, 'Mosaico'),
+    },
+};
+
+export const SingleTile: Story = {
+    args: {
+        title: 'ONE',
+        images: repeatImages(files, 1, 'Mosaico'),
     },
 };

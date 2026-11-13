@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000" role="img" aria-label="UI DETAIL">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1b1713"/>
+      <stop offset="100%" stop-color="#57534e"/>
+    </linearGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="55%" stop-color="#1b1713" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#1b1713" stop-opacity="0.82"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="1000" fill="url(#bg)"/>
+  <line x1="100" y1="0" x2="100" y2="1000" stroke="#fafaf9" stroke-opacity="0.05" stroke-width="1"/><line x1="200" y1="0" x2="200" y2="1000" stroke="#fafaf9" stroke-opacity="0.05" stroke-width="1"/><line x1="300" y1="0" x2="300" y2="1000" stroke="#fafaf9" stroke-opacity="0.05" stroke-width="1"/><line x1="400" y1="0" x2="400" y2="1000" stroke="#fafaf9" stroke-opacity="0.05" stroke-width="1"/><line x1="500" y1="0" x2="500" y2="1000" stroke="#fafaf9" stroke-opacity="0.05" stroke-width="1"/><line x1="600" y1="0" x2="600" y2="1000" stroke="#fafaf9" stroke-opacity="0.05" stroke-width="1"/><line x1="700" y1="0" x2="700" y2="1000" stroke="#fafaf9" stroke-opacity="0.05" stroke-width="1"/><line x1="800" y1="0" x2="800" y2="1000" stroke="#fafaf9" stroke-opacity="0.05" stroke-width="1"/><line x1="900" y1="0" x2="900" y2="1000" stroke="#fafaf9" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="100" x2="1000" y2="100" stroke="#fafaf9" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="200" x2="1000" y2="200" stroke="#fafaf9" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="300" x2="1000" y2="300" stroke="#fafaf9" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="400" x2="1000" y2="400" stroke="#fafaf9" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="500" x2="1000" y2="500" stroke="#fafaf9" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="600" x2="1000" y2="600" stroke="#fafaf9" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="700" x2="1000" y2="700" stroke="#fafaf9" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="800" x2="1000" y2="800" stroke="#fafaf9" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="900" x2="1000" y2="900" stroke="#fafaf9" stroke-opacity="0.05" stroke-width="1"/>
+  <circle cx="200" cy="260" r="75" fill="#d6d3d1" fill-opacity="0.65"/><path d="M0 1000 L0 740 L300 440 L520 740 L680 540 L1000 860 L1000 1000 Z" fill="#fafaf9" fill-opacity="0.07"/>
+  <circle cx="620" cy="580" r="460" fill="#d6d3d1" fill-opacity="0.24"/><circle cx="620" cy="580" r="285" fill="none" stroke="#d6d3d1" stroke-opacity="0.55" stroke-width="4.0"/><circle cx="820" cy="240" r="200" fill="#d6d3d1" fill-opacity="0.5"/><rect x="80" y="620" width="300" height="220" rx="30" fill="#fafaf9" fill-opacity="0.08" transform="rotate(0 230 730)"/>
+  <rect width="1000" height="1000" fill="url(#fade)"/>
+  <g font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" fill="#fafaf9">
+    <text x="60" y="896" font-size="52" font-weight="700" letter-spacing="4.2">UI DETAIL</text>
+    <text x="60" y="940" font-size="28" fill-opacity="0.72" letter-spacing="1.4">Spacing and type scale</text>
+    <text x="940" y="84" text-anchor="end" font-size="24" fill-opacity="0.6">1000 × 1000</text>
+  </g>
+</svg>

@@ -1,5 +1,5 @@
-import { LinkType } from '@lluc_llull/ui-lib/enums';
 import { Meta, StoryObj } from '@storybook/angular-vite';
+import { contactImage, external, mailto } from '../../.storybook/mocks';
 import { ContactMinimalComponent } from './contact-minimal.component';
 
 export default {
@@ -12,8 +12,8 @@ export default {
         contacts: { control: 'object' },
         socials: { control: 'object' },
         img: { control: 'object' },
-        highlightColor: { control: 'text' },
-        highlightThickness: { control: 'number' },
+        highlightColor: { control: 'color' },
+        highlightThickness: { control: { type: 'range', min: 4, max: 60, step: 2 } },
     },
 } as Meta<ContactMinimalComponent>;
 
@@ -22,23 +22,50 @@ type Story = StoryObj<ContactMinimalComponent>;
 export const Default: Story = {
     args: {
         contactsTitle: 'Contacto',
-        socialsTitle: 'Redes Sociales',
+        socialsTitle: 'En otros sitios',
         contacts: [
-            {
-                label: 'email@example.com',
-                url: 'mailto:email@example.com',
-                linkType: LinkType.External,
-            },
-            { label: '+34 123 456 789', url: 'tel:+34123456789', linkType: LinkType.External },
+            mailto('hola@llucllull.dev'),
+            external('+34 600 000 000', 'tel:+34600000000', 'arrow-up-right'),
         ],
         socials: [
-            { label: 'Twitter', url: 'https://twitter.com', linkType: LinkType.External },
-            { label: 'LinkedIn', url: 'https://linkedin.com', linkType: LinkType.External },
-            { label: 'GitHub', url: 'https://github.com', linkType: LinkType.External },
+            external('LinkedIn', 'https://www.linkedin.com/in/lluc-llull/', 'linkedin'),
+            external('GitHub', 'https://github.com/llucllull', 'github'),
         ],
-        img: {
-            url: 'https://picsum.photos/seed/contact/400/300.jpg',
-            alt: 'Contact image',
-        },
+        img: contactImage,
+    },
+};
+
+export const WithoutImage: Story = {
+    args: {
+        ...Default.args,
+        img: undefined,
+    },
+};
+
+export const SocialOnly: Story = {
+    args: {
+        contactsTitle: 'Escríbeme',
+        contacts: [mailto('hola@llucllull.dev')],
+        socialsTitle: '',
+        socials: undefined,
+        img: contactImage,
+    },
+};
+
+export const ContactOnly: Story = {
+    args: {
+        contactsTitle: 'Contacto directo',
+        contacts: [
+            mailto('hola@llucllull.dev'),
+            external('+34 600 000 000', 'tel:+34600000000', 'arrow-up-right'),
+        ],
+    },
+};
+
+export const CustomHighlight: Story = {
+    args: {
+        ...Default.args,
+        highlightColor: '#22c55e',
+        highlightThickness: 20,
     },
 };
