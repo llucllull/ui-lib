@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="870" viewBox="0 0 1300 870" role="img" aria-label="VISUAL FOOTER">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#241604"/>
+      <stop offset="100%" stop-color="#92400e"/>
+    </linearGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="55%" stop-color="#241604" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#241604" stop-opacity="0.82"/>
+    </linearGradient>
+  </defs>
+  <rect width="1300" height="870" fill="url(#bg)"/>
+  <line x1="87" y1="0" x2="87" y2="870" stroke="#fffbeb" stroke-opacity="0.05" stroke-width="1"/><line x1="174" y1="0" x2="174" y2="870" stroke="#fffbeb" stroke-opacity="0.05" stroke-width="1"/><line x1="261" y1="0" x2="261" y2="870" stroke="#fffbeb" stroke-opacity="0.05" stroke-width="1"/><line x1="348" y1="0" x2="348" y2="870" stroke="#fffbeb" stroke-opacity="0.05" stroke-width="1"/><line x1="435" y1="0" x2="435" y2="870" stroke="#fffbeb" stroke-opacity="0.05" stroke-width="1"/><line x1="522" y1="0" x2="522" y2="870" stroke="#fffbeb" stroke-opacity="0.05" stroke-width="1"/><line x1="609" y1="0" x2="609" y2="870" stroke="#fffbeb" stroke-opacity="0.05" stroke-width="1"/><line x1="696" y1="0" x2="696" y2="870" stroke="#fffbeb" stroke-opacity="0.05" stroke-width="1"/><line x1="783" y1="0" x2="783" y2="870" stroke="#fffbeb" stroke-opacity="0.05" stroke-width="1"/><line x1="870" y1="0" x2="870" y2="870" stroke="#fffbeb" stroke-opacity="0.05" stroke-width="1"/><line x1="957" y1="0" x2="957" y2="870" stroke="#fffbeb" stroke-opacity="0.05" stroke-width="1"/><line x1="1044" y1="0" x2="1044" y2="870" stroke="#fffbeb" stroke-opacity="0.05" stroke-width="1"/><line x1="1131" y1="0" x2="1131" y2="870" stroke="#fffbeb" stroke-opacity="0.05" stroke-width="1"/><line x1="1218" y1="0" x2="1218" y2="870" stroke="#fffbeb" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="87" x2="1300" y2="87" stroke="#fffbeb" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="174" x2="1300" y2="174" stroke="#fffbeb" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="261" x2="1300" y2="261" stroke="#fffbeb" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="348" x2="1300" y2="348" stroke="#fffbeb" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="435" x2="1300" y2="435" stroke="#fffbeb" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="522" x2="1300" y2="522" stroke="#fffbeb" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="609" x2="1300" y2="609" stroke="#fffbeb" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="696" x2="1300" y2="696" stroke="#fffbeb" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="783" x2="1300" y2="783" stroke="#fffbeb" stroke-opacity="0.05" stroke-width="1"/>
+  <circle cx="260" cy="226" r="65" fill="#fbbf24" fill-opacity="0.65"/><path d="M0 870 L0 644 L390 383 L676 644 L884 470 L1300 748 L1300 870 Z" fill="#fffbeb" fill-opacity="0.07"/>
+  <circle cx="494" cy="505" r="400" fill="#fbbf24" fill-opacity="0.24"/><circle cx="494" cy="505" r="248" fill="none" stroke="#fbbf24" stroke-opacity="0.55" stroke-width="3.5"/><circle cx="1066" cy="209" r="174" fill="#fbbf24" fill-opacity="0.5"/><rect x="104" y="539" width="390" height="191" rx="26" fill="#fffbeb" fill-opacity="0.08" transform="rotate(-9 299 635)"/>
+  <rect width="1300" height="870" fill="url(#fade)"/>
+  <g font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" fill="#fffbeb">
+    <text x="52" y="778" font-size="45" font-weight="700" letter-spacing="3.6">VISUAL FOOTER</text>
+    <text x="52" y="818" font-size="24" fill-opacity="0.72" letter-spacing="1.2">Closing section</text>
+    <text x="1248" y="72" text-anchor="end" font-size="20" fill-opacity="0.6">1300 × 870</text>
+  </g>
+</svg>

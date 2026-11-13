@@ -1,83 +1,60 @@
 import { Meta, StoryObj } from '@storybook/angular-vite';
-import { LinkType } from '@lluc_llull/ui-lib/enums';
+import { editorialImages, external, repeatImages, tileFiles } from '../../.storybook/mocks';
 import { SocialFooterComponent } from './social-footer.component';
 
 export default {
     title: 'Footers/SocialFooter',
     component: SocialFooterComponent,
     tags: ['autodocs'],
+    argTypes: {
+        images: { control: 'object', description: 'Carrusel de imágenes, sin texto asociado.' },
+        socials: {
+            control: 'object',
+            description: 'Iconos disponibles: linkedin, github, mail, arrow-up-right.',
+        },
+        hashtag: { control: 'text' },
+    },
 } as Meta<SocialFooterComponent>;
 
 type Story = StoryObj<SocialFooterComponent>;
 
+const socials = [
+    external('LinkedIn', 'https://www.linkedin.com/in/lluc-llull/', 'linkedin'),
+    external('GitHub', 'https://github.com/llucllull', 'github'),
+    external('Email', 'mailto:hola@llucllull.dev', 'mail'),
+];
+
 export const Default: Story = {
     args: {
-        images: [
-            {
-                url: 'https://placehold.co/600x400.png',
-                alt: 'image1',
-            },
-            {
-                url: 'https://placehold.co/600x400.png',
-                alt: 'image2',
-            },
-            {
-                url: 'https://placehold.co/600x400.png',
-                alt: 'image3',
-            },
-            {
-                url: 'https://placehold.co/600x400.png',
-                alt: 'image4',
-            },
-            {
-                url: 'https://placehold.co/600x400.png',
-                alt: 'image5',
-            },
-            {
-                url: 'https://placehold.co/600x400.png',
-                alt: 'image6',
-            },
-            {
-                url: 'https://placehold.co/600x400.png',
-                alt: 'image7',
-            },
-            {
-                url: 'https://placehold.co/600x400.png',
-                alt: 'image8',
-            },
-        ],
-        socials: [
-            {
-                label: 'Facebook',
-                url: 'https://www.facebook.com',
-                linkType: LinkType.External,
-                icon: 'facebook',
-            },
-            {
-                label: 'Instagram',
-                url: 'https://www.instagram.com',
-                linkType: LinkType.External,
-                icon: 'instagram',
-            },
-            {
-                label: 'X',
-                url: 'https://www.x.com',
-                linkType: LinkType.External,
-                icon: 'twitter',
-            },
-            {
-                label: 'YouTube',
-                url: 'https://www.youtube.com',
-                linkType: LinkType.External,
-                icon: 'youtube',
-            },
-            {
-                label: 'Tiktok',
-                url: 'https://www.tiktok.com',
-                linkType: LinkType.External,
-                icon: 'tiktok',
-            },
-        ],
-        hashtag: '#Hastag',
+        images: editorialImages,
+        socials,
+        hashtag: '#llucllull',
+    },
+};
+
+export const ThreeImages: Story = {
+    args: {
+        images: editorialImages.slice(0, 3),
+        socials,
+        hashtag: '#frontend',
+    },
+};
+
+export const WithoutImages: Story = {
+    args: {
+        socials,
+        hashtag: '#llucllull',
+    },
+};
+
+export const OnlyImages: Story = {
+    args: {
+        images: repeatImages(tileFiles, 6, 'Mosaico'),
+    },
+};
+
+export const Minimal: Story = {
+    args: {
+        socials: [socials[0]],
     },
 };
