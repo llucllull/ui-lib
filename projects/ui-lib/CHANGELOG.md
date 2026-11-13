@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.37.5] - 2026-11-13
+
+### Changed
+
+- remove useless deploy-storybook.yml now on vercel deploy
+
 ## [0.37.4] - 2026-11-13
 
 ### Changed
